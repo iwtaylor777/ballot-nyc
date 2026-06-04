@@ -1,0 +1,62 @@
+[
+  {
+    "id": "governor",
+    "title": "Governor & Lt. Governor",
+    "scope": "statewide",
+    "stakes": [
+      "Sets state rent laws that decide if your landlord can raise rent",
+      "Controls MTA funding — directly affects subway fares and service",
+      "Signs or vetoes every state law passed in Albany"
+    ]
+  },
+  {
+    "id": "attorney_general",
+    "title": "Attorney General",
+    "scope": "statewide",
+    "stakes": [
+      "Sues landlords, banks, and corporations on behalf of New Yorkers",
+      "Sets state policy on gun laws, abortion access, and consumer protection",
+      "Runs investigations into police misconduct"
+    ]
+  },
+  {
+    "id": "comptroller",
+    "title": "State Comptroller",
+    "scope": "statewide",
+    "stakes": [
+      "Manages the state's $250B pension fund and decides where it's invested",
+      "Audits where your tax dollars actually go",
+      "Approves or blocks state contracts"
+    ]
+  },
+  {
+    "id": "state_senator",
+    "title": "State Senator",
+    "scope": "state_senate",
+    "stakes": [
+      "Votes on rent regulation, good cause eviction, and tenant protections",
+      "Approves the MTA budget that sets your fare",
+      "Decides on SUNY/CUNY tuition and student aid"
+    ]
+  },
+  {
+    "id": "state_assembly_member",
+    "title": "State Assembly Member",
+    "scope": "state_assembly",
+    "stakes": [
+      "Half of every state law starts here — including housing and labor",
+      "Sets criminal justice rules: bail, parole, marijuana enforcement",
+      "Decides state minimum wage and worker protections"
+    ]
+  },
+  {
+    "id": "us_representative",
+    "title": "U.S. Representative",
+    "scope": "us_house",
+    "stakes": [
+      "Votes on federal student loan policy and Pell Grants",
+      "Decides on healthcare, immigration, and abortion law at the federal level",
+      "Controls federal funding for NYC housing and transit"
+    ]
+  }
+]

@@ -1,0 +1,107 @@
+[
+  {
+    "id": "q-rent",
+    "tag": "rent_housing",
+    "prompt": "Rent in NYC is...",
+    "options": [
+      { "label": "Wildly out of control — cap it harder", "value": 95 },
+      { "label": "Too high — strengthen tenant protections", "value": 75 },
+      { "label": "A market problem — build way more housing", "value": 45 },
+      { "label": "Mostly a local issue, not the state's job", "value": 20 }
+    ],
+    "learnMore": {
+      "label": "Read up on NY housing policy (AP)",
+      "url": "https://apnews.com/hub/housing"
+    }
+  },
+  {
+    "id": "q-transit",
+    "tag": "transit_fares",
+    "prompt": "On subway and bus fares...",
+    "options": [
+      { "label": "Free transit, paid for by taxes on the rich", "value": 95 },
+      { "label": "Lower fares, expand reduced-fare eligibility", "value": 75 },
+      { "label": "Keep fares stable, fund through congestion pricing", "value": 55 },
+      { "label": "Raise fares before raising taxes", "value": 20 }
+    ],
+    "learnMore": {
+      "label": "MTA funding & congestion pricing (AP)",
+      "url": "https://apnews.com/hub/public-transit"
+    }
+  },
+  {
+    "id": "q-safety",
+    "tag": "public_safety",
+    "prompt": "On public safety, the right move is...",
+    "options": [
+      { "label": "Move money from policing to housing and mental health", "value": 15 },
+      { "label": "Keep current bail reform, invest in alternatives", "value": 40 },
+      { "label": "Roll back bail reform for serious crimes", "value": 70 },
+      { "label": "More police, stricter laws, end bail reform", "value": 90 }
+    ],
+    "learnMore": {
+      "label": "Bail reform & policing in NY (Ballotpedia)",
+      "url": "https://ballotpedia.org/Bail_reform_in_New_York"
+    }
+  },
+  {
+    "id": "q-climate",
+    "tag": "climate",
+    "prompt": "On climate...",
+    "options": [
+      { "label": "Speed up the green transition, even if it costs more", "value": 90 },
+      { "label": "Stick to current climate law timelines", "value": 70 },
+      { "label": "Slow it down — energy costs are already too high", "value": 30 },
+      { "label": "Climate rules are hurting affordability, scrap them", "value": 10 }
+    ],
+    "learnMore": {
+      "label": "NY Climate Leadership Act (AP)",
+      "url": "https://apnews.com/hub/climate"
+    }
+  },
+  {
+    "id": "q-edu",
+    "tag": "education_tuition",
+    "prompt": "On college costs...",
+    "options": [
+      { "label": "Free CUNY plus federal debt cancellation", "value": 95 },
+      { "label": "Make CUNY tuition-free, expand Pell", "value": 80 },
+      { "label": "Lower tuition, targeted aid for low-income students", "value": 55 },
+      { "label": "Cancellation is unfair — fix prices, not loans", "value": 20 }
+    ],
+    "learnMore": {
+      "label": "Student loans & college costs (AP)",
+      "url": "https://apnews.com/hub/student-loans"
+    }
+  },
+  {
+    "id": "q-healthcare",
+    "tag": "healthcare",
+    "prompt": "On healthcare...",
+    "options": [
+      { "label": "Single-payer / Medicare for all", "value": 95 },
+      { "label": "Expand Medicare to age 50, add a public option", "value": 75 },
+      { "label": "Fix ACA marketplaces; keep private insurance central", "value": 45 },
+      { "label": "Less government in healthcare, more market competition", "value": 15 }
+    ],
+    "learnMore": {
+      "label": "Healthcare policy (AP)",
+      "url": "https://apnews.com/hub/health"
+    }
+  },
+  {
+    "id": "q-immigration",
+    "tag": "immigration",
+    "prompt": "On immigration...",
+    "options": [
+      { "label": "Permanent path to citizenship; defend sanctuary policy", "value": 90 },
+      { "label": "Pro-DACA, support legal immigration, tighten asylum process", "value": 65 },
+      { "label": "Stricter enforcement at the border, limit asylum", "value": 30 },
+      { "label": "Hard cap on entries; end sanctuary city status", "value": 10 }
+    ],
+    "learnMore": {
+      "label": "Immigration policy (AP)",
+      "url": "https://apnews.com/hub/immigration"
+    }
+  }
+]

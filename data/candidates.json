@@ -1,0 +1,257 @@
+[
+  {
+    "id": "gov-hochul",
+    "officeId": "governor",
+    "districtId": "statewide-ny",
+    "name": "Kathy Hochul",
+    "party": "Democratic",
+    "incumbent": true,
+    "oneLiner": "Incumbent governor seeking re-election; running mate is former NYC Council Speaker Adrienne Adams. Presumed Democratic nominee — primary is June 23, 2026.",
+    "positions": [
+      {
+        "tag": "rent_housing",
+        "summary": "Backs more housing supply via the 'Let Them Build' agenda, which speeds permitting and reforms environmental review rules.",
+        "sourceUrl": "https://www.governor.ny.gov/news/let-them-build-governor-hochul-unveils-landmark-reforms-cut-red-tape-and-build-more-housing",
+        "value": 55
+      },
+      {
+        "tag": "transit_fares",
+        "summary": "Defended NYC congestion pricing against federal efforts to kill it; says the program funds the MTA capital plan.",
+        "sourceUrl": "https://www.governor.ny.gov/news/icymi-governor-hochuls-op-ed-empire-report-climate-action-and-affordability-can-and-must-go",
+        "value": 65
+      },
+      {
+        "tag": "climate",
+        "summary": "Pushing to delay implementation of state climate-law emissions rules and to change how progress is measured; favors an 'all of the above' energy mix including expanded gas pipelines.",
+        "sourceUrl": "https://www.cityandstateny.com/policy/2026/04/hochuls-non-compromise-climate-rollbacks/413011/",
+        "value": 50
+      },
+      {
+        "tag": "public_safety",
+        "summary": "Has pushed multiple rounds of 'fixes' to bail reform to give judges more discretion for serious crimes, while keeping the broader framework.",
+        "sourceUrl": "https://www.cbsnews.com/newyork/news/gov-kathy-hochul-gov-phil-murphy-set-to-deliver-state-of-the-state-addresses/",
+        "value": 55
+      }
+    ],
+    "sourceUrl": "https://kathyhochul.com/"
+  },
+  {
+    "id": "gov-blakeman",
+    "officeId": "governor",
+    "districtId": "statewide-ny",
+    "name": "Bruce Blakeman",
+    "party": "Republican",
+    "incumbent": false,
+    "oneLiner": "Nassau County Executive; Trump-endorsed Republican nominee for governor.",
+    "positions": [
+      {
+        "tag": "rent_housing",
+        "summary": "Opposes statewide housing mandates on suburban communities; favors local control over zoning.",
+        "sourceUrl": "https://www.blakemanfornewyork.com/",
+        "value": 25
+      },
+      {
+        "tag": "transit_fares",
+        "summary": "Says he would end NYC congestion pricing on day one if elected.",
+        "sourceUrl": "https://www.youtube.com/watch?v=f-rxD3s7qVs",
+        "value": 20
+      },
+      {
+        "tag": "climate",
+        "summary": "Has argued NY should frack the Marcellus Shale and criticized state green-energy policies as costly.",
+        "sourceUrl": "https://www.localsyr.com/news/local-news/blakeman-hood-criticize-bail-reform/",
+        "value": 15
+      },
+      {
+        "tag": "public_safety",
+        "summary": "Calls for full repeal of the 2019 bail-reform law; as Nassau Executive issued an order publicizing re-arrests of people released without bail.",
+        "sourceUrl": "https://www.localsyr.com/news/local-news/blakeman-hood-criticize-bail-reform/",
+        "value": 85
+      },
+      {
+        "tag": "immigration",
+        "summary": "Says NY will not be a sanctuary state under his administration and pledges to work with federal ICE.",
+        "sourceUrl": "https://www.newsweek.com/bruce-blakeman-republican-ice-new-york-sanctuary-11444728",
+        "value": 15
+      }
+    ],
+    "sourceUrl": "https://www.blakemanfornewyork.com/"
+  },
+
+  {
+    "id": "ag-james",
+    "officeId": "attorney_general",
+    "districtId": "statewide-ny",
+    "name": "Letitia James",
+    "party": "Democratic",
+    "incumbent": true,
+    "oneLiner": "Sitting AG seeking a third term; won the Democratic Party designation by acclamation.",
+    "positions": [
+      {
+        "tag": "rent_housing",
+        "summary": "Publishes an annual 'worst landlords' list and has brought enforcement against large landlords and NYC public-housing management.",
+        "sourceUrl": "https://www.usnews.com/news/best-states/new-york/articles/2025-10-10/who-is-letitia-james-new-yorks-attorney-general-has-battled-trump-big-tech-and-the-nra",
+        "value": 80
+      },
+      {
+        "tag": "healthcare",
+        "summary": "Has used the office to defend abortion access in New York and challenge out-of-state restrictions affecting NY residents.",
+        "sourceUrl": "https://www.cbsnews.com/newyork/news/letitia-james-new-york-attorney-general-abortion-rights-gun-control-opioid-crisis-donald-trump-andrew-cuomo-lawsuits/",
+        "value": 85
+      },
+      {
+        "tag": "public_safety",
+        "summary": "Lobbied for body cameras and an independent special-prosecutor unit for police misconduct cases; her office has sued the NYPD.",
+        "sourceUrl": "https://www.cbsnews.com/newyork/news/letitia-james-new-york-attorney-general-abortion-rights-gun-control-opioid-crisis-donald-trump-andrew-cuomo-lawsuits/",
+        "value": 45
+      }
+    ],
+    "sourceUrl": "https://jamesforny.com/"
+  },
+  {
+    "id": "ag-dara",
+    "officeId": "attorney_general",
+    "districtId": "statewide-ny",
+    "name": "Khurram Dara",
+    "party": "Republican",
+    "incumbent": false,
+    "oneLiner": "Cryptocurrency lawyer; announced Republican challenger. Detailed policy positions not yet publicly catalogued at the time of writing.",
+    "positions": [],
+    "sourceUrl": "https://ballotpedia.org/New_York_Attorney_General_election,_2026"
+  },
+
+  {
+    "id": "comp-dinapoli",
+    "officeId": "comptroller",
+    "districtId": "statewide-ny",
+    "name": "Tom DiNapoli",
+    "party": "Democratic",
+    "incumbent": true,
+    "oneLiner": "Long-serving state comptroller; faces a contested Democratic primary on June 23, 2026 against Raj Goyle and Drew Warshaw before the general.",
+    "positions": [
+      {
+        "tag": "climate",
+        "summary": "Committed the $226B state pension fund to net-zero by 2040; already divested from 22 coal companies and $238M in oil & gas producers deemed unprepared for transition.",
+        "sourceUrl": "https://gofossilfree.org/ny/press-release/divest-nys-victory-2020/",
+        "value": 80
+      },
+      {
+        "tag": "jobs_economy",
+        "summary": "Office audits routinely flag waste and cost overruns at state agencies, public authorities, and local governments.",
+        "sourceUrl": "https://www.osc.ny.gov/about/comptroller-biography",
+        "value": 55
+      }
+    ],
+    "sourceUrl": "https://www.osc.ny.gov/about/comptroller-biography"
+  },
+  {
+    "id": "comp-r-tbd",
+    "officeId": "comptroller",
+    "districtId": "statewide-ny",
+    "name": "Republican nominee — TBD",
+    "party": "Republican",
+    "incumbent": false,
+    "oneLiner": "The Republican nominee for Comptroller will be set after the June 23, 2026 primary. This entry updates once the nominee is known.",
+    "positions": [],
+    "sourceUrl": "https://ballotpedia.org/New_York_Comptroller_election,_2026"
+  },
+
+  {
+    "id": "ss25-a",
+    "officeId": "state_senator",
+    "districtId": "ss-25",
+    "name": "[SAMPLE] Maya Beckford",
+    "party": "Democratic",
+    "incumbent": true,
+    "oneLiner": "Brownstone-Brooklyn state senator, tenant-rights focus.",
+    "positions": [
+      { "tag": "rent_housing", "summary": "Co-sponsored Good Cause Eviction expansion.", "sourceUrl": "https://example.org/sample-source", "value": 85 },
+      { "tag": "transit_fares", "summary": "Wants fare-free buses on five routes.", "sourceUrl": "https://example.org/sample-source", "value": 80 },
+      { "tag": "education_tuition", "summary": "Pushes for tuition-free CUNY.", "sourceUrl": "https://example.org/sample-source", "value": 85 }
+    ],
+    "sourceUrl": "https://example.org/sample-source",
+    "sampleFlag": "__SAMPLE__"
+  },
+  {
+    "id": "ss25-b",
+    "officeId": "state_senator",
+    "districtId": "ss-25",
+    "name": "[SAMPLE] Eric Donato",
+    "party": "Working Families",
+    "incumbent": false,
+    "oneLiner": "Tenant organizer challenging from the left on housing.",
+    "positions": [
+      { "tag": "rent_housing", "summary": "Wants universal rent control statewide.", "sourceUrl": "https://example.org/sample-source", "value": 95 },
+      { "tag": "transit_fares", "summary": "Backs full fare-free transit citywide.", "sourceUrl": "https://example.org/sample-source", "value": 90 },
+      { "tag": "education_tuition", "summary": "Free CUNY plus student debt cancellation.", "sourceUrl": "https://example.org/sample-source", "value": 95 }
+    ],
+    "sourceUrl": "https://example.org/sample-source",
+    "sampleFlag": "__SAMPLE__"
+  },
+
+  {
+    "id": "ad52-a",
+    "officeId": "state_assembly_member",
+    "districtId": "ad-52",
+    "name": "[SAMPLE] Sasha Lin",
+    "party": "Democratic",
+    "incumbent": true,
+    "oneLiner": "Two-term incumbent, climate and bail-reform supporter.",
+    "positions": [
+      { "tag": "climate", "summary": "Voted for the NY HEAT Act in committee.", "sourceUrl": "https://example.org/sample-source", "value": 80 },
+      { "tag": "public_safety", "summary": "Voted against rolling back bail reform.", "sourceUrl": "https://example.org/sample-source", "value": 40 },
+      { "tag": "cannabis", "summary": "Supports faster equity licensing for dispensaries.", "sourceUrl": "https://example.org/sample-source", "value": 70 }
+    ],
+    "sourceUrl": "https://example.org/sample-source",
+    "sampleFlag": "__SAMPLE__"
+  },
+  {
+    "id": "ad52-b",
+    "officeId": "state_assembly_member",
+    "districtId": "ad-52",
+    "name": "[SAMPLE] Jordan Pace",
+    "party": "Republican",
+    "incumbent": false,
+    "oneLiner": "Small business owner running on affordability.",
+    "positions": [
+      { "tag": "climate", "summary": "Opposes the HEAT Act timelines.", "sourceUrl": "https://example.org/sample-source", "value": 25 },
+      { "tag": "public_safety", "summary": "Would tighten bail reform.", "sourceUrl": "https://example.org/sample-source", "value": 80 },
+      { "tag": "cannabis", "summary": "Skeptical of state-run licensing; favors local opt-out.", "sourceUrl": "https://example.org/sample-source", "value": 35 }
+    ],
+    "sourceUrl": "https://example.org/sample-source",
+    "sampleFlag": "__SAMPLE__"
+  },
+
+  {
+    "id": "ush7-a",
+    "officeId": "us_representative",
+    "districtId": "ush-7",
+    "name": "[SAMPLE] Imani Foster",
+    "party": "Democratic",
+    "incumbent": true,
+    "oneLiner": "Brooklyn incumbent on House Financial Services committee.",
+    "positions": [
+      { "tag": "education_tuition", "summary": "Supports broad federal student loan cancellation.", "sourceUrl": "https://example.org/sample-source", "value": 85 },
+      { "tag": "healthcare", "summary": "Backs Medicare expansion to age 50.", "sourceUrl": "https://example.org/sample-source", "value": 80 },
+      { "tag": "immigration", "summary": "Co-sponsored DACA permanence legislation.", "sourceUrl": "https://example.org/sample-source", "value": 85 }
+    ],
+    "sourceUrl": "https://example.org/sample-source",
+    "sampleFlag": "__SAMPLE__"
+  },
+  {
+    "id": "ush7-b",
+    "officeId": "us_representative",
+    "districtId": "ush-7",
+    "name": "[SAMPLE] Connor Whitfield",
+    "party": "Republican",
+    "incumbent": false,
+    "oneLiner": "Iraq War veteran running on border and crime issues.",
+    "positions": [
+      { "tag": "education_tuition", "summary": "Opposes broad loan cancellation; supports targeted Pell expansion.", "sourceUrl": "https://example.org/sample-source", "value": 30 },
+      { "tag": "healthcare", "summary": "Opposes Medicare expansion; favors private market reform.", "sourceUrl": "https://example.org/sample-source", "value": 25 },
+      { "tag": "immigration", "summary": "Backs stricter border enforcement and asylum limits.", "sourceUrl": "https://example.org/sample-source", "value": 20 }
+    ],
+    "sourceUrl": "https://example.org/sample-source",
+    "sampleFlag": "__SAMPLE__"
+  }
+]

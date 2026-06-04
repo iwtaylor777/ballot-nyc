@@ -1,0 +1,1202 @@
+[
+  {
+    "id": "statewide-ny",
+    "type": "statewide",
+    "name": "New York State"
+  },
+  {
+    "id": "ush-1",
+    "type": "us_house",
+    "name": "U.S. House District 1"
+  },
+  {
+    "id": "ush-2",
+    "type": "us_house",
+    "name": "U.S. House District 2"
+  },
+  {
+    "id": "ush-3",
+    "type": "us_house",
+    "name": "U.S. House District 3"
+  },
+  {
+    "id": "ush-4",
+    "type": "us_house",
+    "name": "U.S. House District 4"
+  },
+  {
+    "id": "ush-5",
+    "type": "us_house",
+    "name": "U.S. House District 5"
+  },
+  {
+    "id": "ush-6",
+    "type": "us_house",
+    "name": "U.S. House District 6"
+  },
+  {
+    "id": "ush-7",
+    "type": "us_house",
+    "name": "U.S. House District 7"
+  },
+  {
+    "id": "ush-8",
+    "type": "us_house",
+    "name": "U.S. House District 8"
+  },
+  {
+    "id": "ush-9",
+    "type": "us_house",
+    "name": "U.S. House District 9"
+  },
+  {
+    "id": "ush-10",
+    "type": "us_house",
+    "name": "U.S. House District 10"
+  },
+  {
+    "id": "ush-11",
+    "type": "us_house",
+    "name": "U.S. House District 11"
+  },
+  {
+    "id": "ush-12",
+    "type": "us_house",
+    "name": "U.S. House District 12"
+  },
+  {
+    "id": "ush-13",
+    "type": "us_house",
+    "name": "U.S. House District 13"
+  },
+  {
+    "id": "ush-14",
+    "type": "us_house",
+    "name": "U.S. House District 14"
+  },
+  {
+    "id": "ush-15",
+    "type": "us_house",
+    "name": "U.S. House District 15"
+  },
+  {
+    "id": "ush-16",
+    "type": "us_house",
+    "name": "U.S. House District 16"
+  },
+  {
+    "id": "ush-17",
+    "type": "us_house",
+    "name": "U.S. House District 17"
+  },
+  {
+    "id": "ush-18",
+    "type": "us_house",
+    "name": "U.S. House District 18"
+  },
+  {
+    "id": "ush-19",
+    "type": "us_house",
+    "name": "U.S. House District 19"
+  },
+  {
+    "id": "ush-20",
+    "type": "us_house",
+    "name": "U.S. House District 20"
+  },
+  {
+    "id": "ush-21",
+    "type": "us_house",
+    "name": "U.S. House District 21"
+  },
+  {
+    "id": "ush-22",
+    "type": "us_house",
+    "name": "U.S. House District 22"
+  },
+  {
+    "id": "ush-23",
+    "type": "us_house",
+    "name": "U.S. House District 23"
+  },
+  {
+    "id": "ush-24",
+    "type": "us_house",
+    "name": "U.S. House District 24"
+  },
+  {
+    "id": "ush-25",
+    "type": "us_house",
+    "name": "U.S. House District 25"
+  },
+  {
+    "id": "ush-26",
+    "type": "us_house",
+    "name": "U.S. House District 26"
+  },
+  {
+    "id": "ss-1",
+    "type": "state_senate",
+    "name": "State Senate District 1"
+  },
+  {
+    "id": "ss-2",
+    "type": "state_senate",
+    "name": "State Senate District 2"
+  },
+  {
+    "id": "ss-3",
+    "type": "state_senate",
+    "name": "State Senate District 3"
+  },
+  {
+    "id": "ss-4",
+    "type": "state_senate",
+    "name": "State Senate District 4"
+  },
+  {
+    "id": "ss-5",
+    "type": "state_senate",
+    "name": "State Senate District 5"
+  },
+  {
+    "id": "ss-6",
+    "type": "state_senate",
+    "name": "State Senate District 6"
+  },
+  {
+    "id": "ss-7",
+    "type": "state_senate",
+    "name": "State Senate District 7"
+  },
+  {
+    "id": "ss-8",
+    "type": "state_senate",
+    "name": "State Senate District 8"
+  },
+  {
+    "id": "ss-9",
+    "type": "state_senate",
+    "name": "State Senate District 9"
+  },
+  {
+    "id": "ss-10",
+    "type": "state_senate",
+    "name": "State Senate District 10"
+  },
+  {
+    "id": "ss-11",
+    "type": "state_senate",
+    "name": "State Senate District 11"
+  },
+  {
+    "id": "ss-12",
+    "type": "state_senate",
+    "name": "State Senate District 12"
+  },
+  {
+    "id": "ss-13",
+    "type": "state_senate",
+    "name": "State Senate District 13"
+  },
+  {
+    "id": "ss-14",
+    "type": "state_senate",
+    "name": "State Senate District 14"
+  },
+  {
+    "id": "ss-15",
+    "type": "state_senate",
+    "name": "State Senate District 15"
+  },
+  {
+    "id": "ss-16",
+    "type": "state_senate",
+    "name": "State Senate District 16"
+  },
+  {
+    "id": "ss-17",
+    "type": "state_senate",
+    "name": "State Senate District 17"
+  },
+  {
+    "id": "ss-18",
+    "type": "state_senate",
+    "name": "State Senate District 18"
+  },
+  {
+    "id": "ss-19",
+    "type": "state_senate",
+    "name": "State Senate District 19"
+  },
+  {
+    "id": "ss-20",
+    "type": "state_senate",
+    "name": "State Senate District 20"
+  },
+  {
+    "id": "ss-21",
+    "type": "state_senate",
+    "name": "State Senate District 21"
+  },
+  {
+    "id": "ss-22",
+    "type": "state_senate",
+    "name": "State Senate District 22"
+  },
+  {
+    "id": "ss-23",
+    "type": "state_senate",
+    "name": "State Senate District 23"
+  },
+  {
+    "id": "ss-24",
+    "type": "state_senate",
+    "name": "State Senate District 24"
+  },
+  {
+    "id": "ss-25",
+    "type": "state_senate",
+    "name": "State Senate District 25"
+  },
+  {
+    "id": "ss-26",
+    "type": "state_senate",
+    "name": "State Senate District 26"
+  },
+  {
+    "id": "ss-27",
+    "type": "state_senate",
+    "name": "State Senate District 27"
+  },
+  {
+    "id": "ss-28",
+    "type": "state_senate",
+    "name": "State Senate District 28"
+  },
+  {
+    "id": "ss-29",
+    "type": "state_senate",
+    "name": "State Senate District 29"
+  },
+  {
+    "id": "ss-30",
+    "type": "state_senate",
+    "name": "State Senate District 30"
+  },
+  {
+    "id": "ss-31",
+    "type": "state_senate",
+    "name": "State Senate District 31"
+  },
+  {
+    "id": "ss-32",
+    "type": "state_senate",
+    "name": "State Senate District 32"
+  },
+  {
+    "id": "ss-33",
+    "type": "state_senate",
+    "name": "State Senate District 33"
+  },
+  {
+    "id": "ss-34",
+    "type": "state_senate",
+    "name": "State Senate District 34"
+  },
+  {
+    "id": "ss-35",
+    "type": "state_senate",
+    "name": "State Senate District 35"
+  },
+  {
+    "id": "ss-36",
+    "type": "state_senate",
+    "name": "State Senate District 36"
+  },
+  {
+    "id": "ss-37",
+    "type": "state_senate",
+    "name": "State Senate District 37"
+  },
+  {
+    "id": "ss-38",
+    "type": "state_senate",
+    "name": "State Senate District 38"
+  },
+  {
+    "id": "ss-39",
+    "type": "state_senate",
+    "name": "State Senate District 39"
+  },
+  {
+    "id": "ss-40",
+    "type": "state_senate",
+    "name": "State Senate District 40"
+  },
+  {
+    "id": "ss-41",
+    "type": "state_senate",
+    "name": "State Senate District 41"
+  },
+  {
+    "id": "ss-42",
+    "type": "state_senate",
+    "name": "State Senate District 42"
+  },
+  {
+    "id": "ss-43",
+    "type": "state_senate",
+    "name": "State Senate District 43"
+  },
+  {
+    "id": "ss-44",
+    "type": "state_senate",
+    "name": "State Senate District 44"
+  },
+  {
+    "id": "ss-45",
+    "type": "state_senate",
+    "name": "State Senate District 45"
+  },
+  {
+    "id": "ss-46",
+    "type": "state_senate",
+    "name": "State Senate District 46"
+  },
+  {
+    "id": "ss-47",
+    "type": "state_senate",
+    "name": "State Senate District 47"
+  },
+  {
+    "id": "ss-48",
+    "type": "state_senate",
+    "name": "State Senate District 48"
+  },
+  {
+    "id": "ss-49",
+    "type": "state_senate",
+    "name": "State Senate District 49"
+  },
+  {
+    "id": "ss-50",
+    "type": "state_senate",
+    "name": "State Senate District 50"
+  },
+  {
+    "id": "ss-51",
+    "type": "state_senate",
+    "name": "State Senate District 51"
+  },
+  {
+    "id": "ss-52",
+    "type": "state_senate",
+    "name": "State Senate District 52"
+  },
+  {
+    "id": "ss-53",
+    "type": "state_senate",
+    "name": "State Senate District 53"
+  },
+  {
+    "id": "ss-54",
+    "type": "state_senate",
+    "name": "State Senate District 54"
+  },
+  {
+    "id": "ss-55",
+    "type": "state_senate",
+    "name": "State Senate District 55"
+  },
+  {
+    "id": "ss-56",
+    "type": "state_senate",
+    "name": "State Senate District 56"
+  },
+  {
+    "id": "ss-57",
+    "type": "state_senate",
+    "name": "State Senate District 57"
+  },
+  {
+    "id": "ss-58",
+    "type": "state_senate",
+    "name": "State Senate District 58"
+  },
+  {
+    "id": "ss-59",
+    "type": "state_senate",
+    "name": "State Senate District 59"
+  },
+  {
+    "id": "ss-60",
+    "type": "state_senate",
+    "name": "State Senate District 60"
+  },
+  {
+    "id": "ss-61",
+    "type": "state_senate",
+    "name": "State Senate District 61"
+  },
+  {
+    "id": "ss-62",
+    "type": "state_senate",
+    "name": "State Senate District 62"
+  },
+  {
+    "id": "ss-63",
+    "type": "state_senate",
+    "name": "State Senate District 63"
+  },
+  {
+    "id": "ad-1",
+    "type": "state_assembly",
+    "name": "Assembly District 1"
+  },
+  {
+    "id": "ad-2",
+    "type": "state_assembly",
+    "name": "Assembly District 2"
+  },
+  {
+    "id": "ad-3",
+    "type": "state_assembly",
+    "name": "Assembly District 3"
+  },
+  {
+    "id": "ad-4",
+    "type": "state_assembly",
+    "name": "Assembly District 4"
+  },
+  {
+    "id": "ad-5",
+    "type": "state_assembly",
+    "name": "Assembly District 5"
+  },
+  {
+    "id": "ad-6",
+    "type": "state_assembly",
+    "name": "Assembly District 6"
+  },
+  {
+    "id": "ad-7",
+    "type": "state_assembly",
+    "name": "Assembly District 7"
+  },
+  {
+    "id": "ad-8",
+    "type": "state_assembly",
+    "name": "Assembly District 8"
+  },
+  {
+    "id": "ad-9",
+    "type": "state_assembly",
+    "name": "Assembly District 9"
+  },
+  {
+    "id": "ad-10",
+    "type": "state_assembly",
+    "name": "Assembly District 10"
+  },
+  {
+    "id": "ad-11",
+    "type": "state_assembly",
+    "name": "Assembly District 11"
+  },
+  {
+    "id": "ad-12",
+    "type": "state_assembly",
+    "name": "Assembly District 12"
+  },
+  {
+    "id": "ad-13",
+    "type": "state_assembly",
+    "name": "Assembly District 13"
+  },
+  {
+    "id": "ad-14",
+    "type": "state_assembly",
+    "name": "Assembly District 14"
+  },
+  {
+    "id": "ad-15",
+    "type": "state_assembly",
+    "name": "Assembly District 15"
+  },
+  {
+    "id": "ad-16",
+    "type": "state_assembly",
+    "name": "Assembly District 16"
+  },
+  {
+    "id": "ad-17",
+    "type": "state_assembly",
+    "name": "Assembly District 17"
+  },
+  {
+    "id": "ad-18",
+    "type": "state_assembly",
+    "name": "Assembly District 18"
+  },
+  {
+    "id": "ad-19",
+    "type": "state_assembly",
+    "name": "Assembly District 19"
+  },
+  {
+    "id": "ad-20",
+    "type": "state_assembly",
+    "name": "Assembly District 20"
+  },
+  {
+    "id": "ad-21",
+    "type": "state_assembly",
+    "name": "Assembly District 21"
+  },
+  {
+    "id": "ad-22",
+    "type": "state_assembly",
+    "name": "Assembly District 22"
+  },
+  {
+    "id": "ad-23",
+    "type": "state_assembly",
+    "name": "Assembly District 23"
+  },
+  {
+    "id": "ad-24",
+    "type": "state_assembly",
+    "name": "Assembly District 24"
+  },
+  {
+    "id": "ad-25",
+    "type": "state_assembly",
+    "name": "Assembly District 25"
+  },
+  {
+    "id": "ad-26",
+    "type": "state_assembly",
+    "name": "Assembly District 26"
+  },
+  {
+    "id": "ad-27",
+    "type": "state_assembly",
+    "name": "Assembly District 27"
+  },
+  {
+    "id": "ad-28",
+    "type": "state_assembly",
+    "name": "Assembly District 28"
+  },
+  {
+    "id": "ad-29",
+    "type": "state_assembly",
+    "name": "Assembly District 29"
+  },
+  {
+    "id": "ad-30",
+    "type": "state_assembly",
+    "name": "Assembly District 30"
+  },
+  {
+    "id": "ad-31",
+    "type": "state_assembly",
+    "name": "Assembly District 31"
+  },
+  {
+    "id": "ad-32",
+    "type": "state_assembly",
+    "name": "Assembly District 32"
+  },
+  {
+    "id": "ad-33",
+    "type": "state_assembly",
+    "name": "Assembly District 33"
+  },
+  {
+    "id": "ad-34",
+    "type": "state_assembly",
+    "name": "Assembly District 34"
+  },
+  {
+    "id": "ad-35",
+    "type": "state_assembly",
+    "name": "Assembly District 35"
+  },
+  {
+    "id": "ad-36",
+    "type": "state_assembly",
+    "name": "Assembly District 36"
+  },
+  {
+    "id": "ad-37",
+    "type": "state_assembly",
+    "name": "Assembly District 37"
+  },
+  {
+    "id": "ad-38",
+    "type": "state_assembly",
+    "name": "Assembly District 38"
+  },
+  {
+    "id": "ad-39",
+    "type": "state_assembly",
+    "name": "Assembly District 39"
+  },
+  {
+    "id": "ad-40",
+    "type": "state_assembly",
+    "name": "Assembly District 40"
+  },
+  {
+    "id": "ad-41",
+    "type": "state_assembly",
+    "name": "Assembly District 41"
+  },
+  {
+    "id": "ad-42",
+    "type": "state_assembly",
+    "name": "Assembly District 42"
+  },
+  {
+    "id": "ad-43",
+    "type": "state_assembly",
+    "name": "Assembly District 43"
+  },
+  {
+    "id": "ad-44",
+    "type": "state_assembly",
+    "name": "Assembly District 44"
+  },
+  {
+    "id": "ad-45",
+    "type": "state_assembly",
+    "name": "Assembly District 45"
+  },
+  {
+    "id": "ad-46",
+    "type": "state_assembly",
+    "name": "Assembly District 46"
+  },
+  {
+    "id": "ad-47",
+    "type": "state_assembly",
+    "name": "Assembly District 47"
+  },
+  {
+    "id": "ad-48",
+    "type": "state_assembly",
+    "name": "Assembly District 48"
+  },
+  {
+    "id": "ad-49",
+    "type": "state_assembly",
+    "name": "Assembly District 49"
+  },
+  {
+    "id": "ad-50",
+    "type": "state_assembly",
+    "name": "Assembly District 50"
+  },
+  {
+    "id": "ad-51",
+    "type": "state_assembly",
+    "name": "Assembly District 51"
+  },
+  {
+    "id": "ad-52",
+    "type": "state_assembly",
+    "name": "Assembly District 52"
+  },
+  {
+    "id": "ad-53",
+    "type": "state_assembly",
+    "name": "Assembly District 53"
+  },
+  {
+    "id": "ad-54",
+    "type": "state_assembly",
+    "name": "Assembly District 54"
+  },
+  {
+    "id": "ad-55",
+    "type": "state_assembly",
+    "name": "Assembly District 55"
+  },
+  {
+    "id": "ad-56",
+    "type": "state_assembly",
+    "name": "Assembly District 56"
+  },
+  {
+    "id": "ad-57",
+    "type": "state_assembly",
+    "name": "Assembly District 57"
+  },
+  {
+    "id": "ad-58",
+    "type": "state_assembly",
+    "name": "Assembly District 58"
+  },
+  {
+    "id": "ad-59",
+    "type": "state_assembly",
+    "name": "Assembly District 59"
+  },
+  {
+    "id": "ad-60",
+    "type": "state_assembly",
+    "name": "Assembly District 60"
+  },
+  {
+    "id": "ad-61",
+    "type": "state_assembly",
+    "name": "Assembly District 61"
+  },
+  {
+    "id": "ad-62",
+    "type": "state_assembly",
+    "name": "Assembly District 62"
+  },
+  {
+    "id": "ad-63",
+    "type": "state_assembly",
+    "name": "Assembly District 63"
+  },
+  {
+    "id": "ad-64",
+    "type": "state_assembly",
+    "name": "Assembly District 64"
+  },
+  {
+    "id": "ad-65",
+    "type": "state_assembly",
+    "name": "Assembly District 65"
+  },
+  {
+    "id": "ad-66",
+    "type": "state_assembly",
+    "name": "Assembly District 66"
+  },
+  {
+    "id": "ad-67",
+    "type": "state_assembly",
+    "name": "Assembly District 67"
+  },
+  {
+    "id": "ad-68",
+    "type": "state_assembly",
+    "name": "Assembly District 68"
+  },
+  {
+    "id": "ad-69",
+    "type": "state_assembly",
+    "name": "Assembly District 69"
+  },
+  {
+    "id": "ad-70",
+    "type": "state_assembly",
+    "name": "Assembly District 70"
+  },
+  {
+    "id": "ad-71",
+    "type": "state_assembly",
+    "name": "Assembly District 71"
+  },
+  {
+    "id": "ad-72",
+    "type": "state_assembly",
+    "name": "Assembly District 72"
+  },
+  {
+    "id": "ad-73",
+    "type": "state_assembly",
+    "name": "Assembly District 73"
+  },
+  {
+    "id": "ad-74",
+    "type": "state_assembly",
+    "name": "Assembly District 74"
+  },
+  {
+    "id": "ad-75",
+    "type": "state_assembly",
+    "name": "Assembly District 75"
+  },
+  {
+    "id": "ad-76",
+    "type": "state_assembly",
+    "name": "Assembly District 76"
+  },
+  {
+    "id": "ad-77",
+    "type": "state_assembly",
+    "name": "Assembly District 77"
+  },
+  {
+    "id": "ad-78",
+    "type": "state_assembly",
+    "name": "Assembly District 78"
+  },
+  {
+    "id": "ad-79",
+    "type": "state_assembly",
+    "name": "Assembly District 79"
+  },
+  {
+    "id": "ad-80",
+    "type": "state_assembly",
+    "name": "Assembly District 80"
+  },
+  {
+    "id": "ad-81",
+    "type": "state_assembly",
+    "name": "Assembly District 81"
+  },
+  {
+    "id": "ad-82",
+    "type": "state_assembly",
+    "name": "Assembly District 82"
+  },
+  {
+    "id": "ad-83",
+    "type": "state_assembly",
+    "name": "Assembly District 83"
+  },
+  {
+    "id": "ad-84",
+    "type": "state_assembly",
+    "name": "Assembly District 84"
+  },
+  {
+    "id": "ad-85",
+    "type": "state_assembly",
+    "name": "Assembly District 85"
+  },
+  {
+    "id": "ad-86",
+    "type": "state_assembly",
+    "name": "Assembly District 86"
+  },
+  {
+    "id": "ad-87",
+    "type": "state_assembly",
+    "name": "Assembly District 87"
+  },
+  {
+    "id": "ad-88",
+    "type": "state_assembly",
+    "name": "Assembly District 88"
+  },
+  {
+    "id": "ad-89",
+    "type": "state_assembly",
+    "name": "Assembly District 89"
+  },
+  {
+    "id": "ad-90",
+    "type": "state_assembly",
+    "name": "Assembly District 90"
+  },
+  {
+    "id": "ad-91",
+    "type": "state_assembly",
+    "name": "Assembly District 91"
+  },
+  {
+    "id": "ad-92",
+    "type": "state_assembly",
+    "name": "Assembly District 92"
+  },
+  {
+    "id": "ad-93",
+    "type": "state_assembly",
+    "name": "Assembly District 93"
+  },
+  {
+    "id": "ad-94",
+    "type": "state_assembly",
+    "name": "Assembly District 94"
+  },
+  {
+    "id": "ad-95",
+    "type": "state_assembly",
+    "name": "Assembly District 95"
+  },
+  {
+    "id": "ad-96",
+    "type": "state_assembly",
+    "name": "Assembly District 96"
+  },
+  {
+    "id": "ad-97",
+    "type": "state_assembly",
+    "name": "Assembly District 97"
+  },
+  {
+    "id": "ad-98",
+    "type": "state_assembly",
+    "name": "Assembly District 98"
+  },
+  {
+    "id": "ad-99",
+    "type": "state_assembly",
+    "name": "Assembly District 99"
+  },
+  {
+    "id": "ad-100",
+    "type": "state_assembly",
+    "name": "Assembly District 100"
+  },
+  {
+    "id": "ad-101",
+    "type": "state_assembly",
+    "name": "Assembly District 101"
+  },
+  {
+    "id": "ad-102",
+    "type": "state_assembly",
+    "name": "Assembly District 102"
+  },
+  {
+    "id": "ad-103",
+    "type": "state_assembly",
+    "name": "Assembly District 103"
+  },
+  {
+    "id": "ad-104",
+    "type": "state_assembly",
+    "name": "Assembly District 104"
+  },
+  {
+    "id": "ad-105",
+    "type": "state_assembly",
+    "name": "Assembly District 105"
+  },
+  {
+    "id": "ad-106",
+    "type": "state_assembly",
+    "name": "Assembly District 106"
+  },
+  {
+    "id": "ad-107",
+    "type": "state_assembly",
+    "name": "Assembly District 107"
+  },
+  {
+    "id": "ad-108",
+    "type": "state_assembly",
+    "name": "Assembly District 108"
+  },
+  {
+    "id": "ad-109",
+    "type": "state_assembly",
+    "name": "Assembly District 109"
+  },
+  {
+    "id": "ad-110",
+    "type": "state_assembly",
+    "name": "Assembly District 110"
+  },
+  {
+    "id": "ad-111",
+    "type": "state_assembly",
+    "name": "Assembly District 111"
+  },
+  {
+    "id": "ad-112",
+    "type": "state_assembly",
+    "name": "Assembly District 112"
+  },
+  {
+    "id": "ad-113",
+    "type": "state_assembly",
+    "name": "Assembly District 113"
+  },
+  {
+    "id": "ad-114",
+    "type": "state_assembly",
+    "name": "Assembly District 114"
+  },
+  {
+    "id": "ad-115",
+    "type": "state_assembly",
+    "name": "Assembly District 115"
+  },
+  {
+    "id": "ad-116",
+    "type": "state_assembly",
+    "name": "Assembly District 116"
+  },
+  {
+    "id": "ad-117",
+    "type": "state_assembly",
+    "name": "Assembly District 117"
+  },
+  {
+    "id": "ad-118",
+    "type": "state_assembly",
+    "name": "Assembly District 118"
+  },
+  {
+    "id": "ad-119",
+    "type": "state_assembly",
+    "name": "Assembly District 119"
+  },
+  {
+    "id": "ad-120",
+    "type": "state_assembly",
+    "name": "Assembly District 120"
+  },
+  {
+    "id": "ad-121",
+    "type": "state_assembly",
+    "name": "Assembly District 121"
+  },
+  {
+    "id": "ad-122",
+    "type": "state_assembly",
+    "name": "Assembly District 122"
+  },
+  {
+    "id": "ad-123",
+    "type": "state_assembly",
+    "name": "Assembly District 123"
+  },
+  {
+    "id": "ad-124",
+    "type": "state_assembly",
+    "name": "Assembly District 124"
+  },
+  {
+    "id": "ad-125",
+    "type": "state_assembly",
+    "name": "Assembly District 125"
+  },
+  {
+    "id": "ad-126",
+    "type": "state_assembly",
+    "name": "Assembly District 126"
+  },
+  {
+    "id": "ad-127",
+    "type": "state_assembly",
+    "name": "Assembly District 127"
+  },
+  {
+    "id": "ad-128",
+    "type": "state_assembly",
+    "name": "Assembly District 128"
+  },
+  {
+    "id": "ad-129",
+    "type": "state_assembly",
+    "name": "Assembly District 129"
+  },
+  {
+    "id": "ad-130",
+    "type": "state_assembly",
+    "name": "Assembly District 130"
+  },
+  {
+    "id": "ad-131",
+    "type": "state_assembly",
+    "name": "Assembly District 131"
+  },
+  {
+    "id": "ad-132",
+    "type": "state_assembly",
+    "name": "Assembly District 132"
+  },
+  {
+    "id": "ad-133",
+    "type": "state_assembly",
+    "name": "Assembly District 133"
+  },
+  {
+    "id": "ad-134",
+    "type": "state_assembly",
+    "name": "Assembly District 134"
+  },
+  {
+    "id": "ad-135",
+    "type": "state_assembly",
+    "name": "Assembly District 135"
+  },
+  {
+    "id": "ad-136",
+    "type": "state_assembly",
+    "name": "Assembly District 136"
+  },
+  {
+    "id": "ad-137",
+    "type": "state_assembly",
+    "name": "Assembly District 137"
+  },
+  {
+    "id": "ad-138",
+    "type": "state_assembly",
+    "name": "Assembly District 138"
+  },
+  {
+    "id": "ad-139",
+    "type": "state_assembly",
+    "name": "Assembly District 139"
+  },
+  {
+    "id": "ad-140",
+    "type": "state_assembly",
+    "name": "Assembly District 140"
+  },
+  {
+    "id": "ad-141",
+    "type": "state_assembly",
+    "name": "Assembly District 141"
+  },
+  {
+    "id": "ad-142",
+    "type": "state_assembly",
+    "name": "Assembly District 142"
+  },
+  {
+    "id": "ad-143",
+    "type": "state_assembly",
+    "name": "Assembly District 143"
+  },
+  {
+    "id": "ad-144",
+    "type": "state_assembly",
+    "name": "Assembly District 144"
+  },
+  {
+    "id": "ad-145",
+    "type": "state_assembly",
+    "name": "Assembly District 145"
+  },
+  {
+    "id": "ad-146",
+    "type": "state_assembly",
+    "name": "Assembly District 146"
+  },
+  {
+    "id": "ad-147",
+    "type": "state_assembly",
+    "name": "Assembly District 147"
+  },
+  {
+    "id": "ad-148",
+    "type": "state_assembly",
+    "name": "Assembly District 148"
+  },
+  {
+    "id": "ad-149",
+    "type": "state_assembly",
+    "name": "Assembly District 149"
+  },
+  {
+    "id": "ad-150",
+    "type": "state_assembly",
+    "name": "Assembly District 150"
+  }
+]

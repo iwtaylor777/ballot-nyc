@@ -1,0 +1,51 @@
+[
+  {
+    "id": "register",
+    "label": "Voter registration deadline",
+    "date": "2026-10-24",
+    "note": "Your registration must be received by your county Board of Elections by this date to vote in the General Election.",
+    "actionUrl": "https://voterlookup.elections.ny.gov/"
+  },
+  {
+    "id": "mail-request-online",
+    "label": "Last day to request a mail ballot (online or by mail)",
+    "date": "2026-10-24",
+    "note": "Online and mailed early-mail/absentee ballot applications must be received by this date.",
+    "actionUrl": "https://nycabsentee.com/"
+  },
+  {
+    "id": "early-start",
+    "label": "Early voting begins",
+    "date": "2026-10-24",
+    "note": "Nine days of early voting. Any early voting site in your borough.",
+    "actionUrl": "https://findmypollsite.vote.nyc/"
+  },
+  {
+    "id": "early-end",
+    "label": "Early voting ends",
+    "date": "2026-11-01",
+    "note": "Last day to vote early before Election Day.",
+    "actionUrl": "https://findmypollsite.vote.nyc/"
+  },
+  {
+    "id": "mail-request-inperson",
+    "label": "Last day to request a mail ballot in person",
+    "date": "2026-11-02",
+    "note": "If you missed the online/mail deadline, you can still request in person at your county BOE office.",
+    "actionUrl": "https://vote.nyc/page/borough-offices"
+  },
+  {
+    "id": "election-day",
+    "label": "ELECTION DAY",
+    "date": "2026-11-03",
+    "note": "General Election. Polls open 6 AM – 9 PM. Vote at your assigned poll site.",
+    "actionUrl": "https://findmypollsite.vote.nyc/"
+  },
+  {
+    "id": "mail-return",
+    "label": "Mail ballot return deadline",
+    "date": "2026-11-10",
+    "note": "Mailed ballots must be received by your county Board of Elections by this date (postmarked by Election Day).",
+    "actionUrl": "https://vote.nyc/page/borough-offices"
+  }
+]
