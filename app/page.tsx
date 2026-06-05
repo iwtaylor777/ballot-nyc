@@ -18,7 +18,7 @@ export default function Home() {
           <span className="text-ember">BALLOT.</span>
         </h1>
         <p className="mt-6 text-lg font-medium text-ink/90">
-          Six races. Sixty seconds. No civics lecture.
+          Get informed. Quick and easy.
         </p>
       </section>
 
@@ -58,11 +58,13 @@ export default function Home() {
       <section>
         <p className="stamp text-muted">WHY THIS EXISTS</p>
         <p className="mt-3 text-base text-ink/90">
-          None of us know who our reps are or what they stand for. State and
-          local elections decide your rent, your fare, your tuition, and
+          Most of us don't know who all of our reps are or what they stand for. 
+          State and local elections decide your rent, your fare, your tuition, and
           whether your landlord can evict you — and the people running for
-          those seats are mostly strangers. This app fixes that. Nonpartisan,
-          no signup, no ads.
+          those seats are mostly strangers. We're making it easy to learn. 
+          Just know a little bit more when you cast your vote.
+          
+          Nonpartisan, no signup, no ads, no judgement.
         </p>
       </section>
     </Frame>
