@@ -17,7 +17,7 @@ const body = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ballot-nyc.vercel.app"),
+  metadataBase: new URL("https://ballotnyc.org"),
   title: "Ballot NYC — What's on your ballot Nov 3",
   description:
     "Your personalized NYC ballot for November 3, 2026. Drop your address, see your races.",
