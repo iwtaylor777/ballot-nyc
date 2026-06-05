@@ -17,9 +17,25 @@ const body = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://ballot-nyc.vercel.app"),
   title: "Ballot NYC — What's on your ballot Nov 3",
   description:
-    "Your personalized NYC ballot for November 3, 2026. Plain language, no civics lecture.",
+    "Your personalized NYC ballot for November 3, 2026. Drop your address, see your races.",
+  openGraph: {
+    title: "Ballot NYC — What's on your ballot Nov 3",
+    description:
+      "Your personalized NYC ballot for November 3, 2026. Drop your address, see your races.",
+    url: "/",
+    siteName: "Ballot NYC",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ballot NYC — What's on your ballot Nov 3",
+    description:
+      "Your personalized NYC ballot for November 3, 2026. Drop your address, see your races.",
+  },
 };
 
 export const viewport: Viewport = {
