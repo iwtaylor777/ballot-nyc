@@ -23,6 +23,7 @@ export default async function Image() {
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div
             style={{
+              display: "flex",
               fontSize: 30,
               color: "#ff3d1f",
               fontWeight: 800,
@@ -34,6 +35,8 @@ export default async function Image() {
           </div>
           <div
             style={{
+              display: "flex",
+              flexDirection: "column",
               fontSize: 170,
               lineHeight: 0.95,
               color: "#0a0a0a",
@@ -43,11 +46,9 @@ export default async function Image() {
               textTransform: "uppercase",
             }}
           >
-            What&apos;s
-            <br />
-            on your
-            <br />
-            ballot.
+            <span>What&apos;s</span>
+            <span>on your</span>
+            <span>ballot.</span>
           </div>
         </div>
         <div
@@ -57,7 +58,14 @@ export default async function Image() {
             justifyContent: "space-between",
           }}
         >
-          <div style={{ fontSize: 34, color: "#0a0a0a", fontWeight: 600 }}>
+          <div
+            style={{
+              display: "flex",
+              fontSize: 34,
+              color: "#0a0a0a",
+              fontWeight: 600,
+            }}
+          >
             Drop your address. See your races.
           </div>
           <div
