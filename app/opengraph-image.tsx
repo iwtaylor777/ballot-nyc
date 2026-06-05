@@ -37,11 +37,11 @@ export default async function Image() {
             style={{
               display: "flex",
               flexDirection: "column",
-              fontSize: 170,
-              lineHeight: 0.95,
+              fontSize: 140,
+              lineHeight: 1,
               color: "#0a0a0a",
               fontWeight: 900,
-              letterSpacing: -6,
+              letterSpacing: -2,
               marginTop: 36,
               textTransform: "uppercase",
             }}
