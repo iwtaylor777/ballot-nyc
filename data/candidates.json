@@ -77,7 +77,6 @@
     ],
     "sourceUrl": "https://www.blakemanfornewyork.com/"
   },
-
   {
     "id": "ag-james",
     "officeId": "attorney_general",
@@ -119,7 +118,6 @@
     "positions": [],
     "sourceUrl": "https://ballotpedia.org/New_York_Attorney_General_election,_2026"
   },
-
   {
     "id": "comp-dinapoli",
     "officeId": "comptroller",
@@ -154,104 +152,5 @@
     "oneLiner": "The Republican nominee for Comptroller will be set after the June 23, 2026 primary. This entry updates once the nominee is known.",
     "positions": [],
     "sourceUrl": "https://ballotpedia.org/New_York_Comptroller_election,_2026"
-  },
-
-  {
-    "id": "ss25-a",
-    "officeId": "state_senator",
-    "districtId": "ss-25",
-    "name": "[SAMPLE] Maya Beckford",
-    "party": "Democratic",
-    "incumbent": true,
-    "oneLiner": "Brownstone-Brooklyn state senator, tenant-rights focus.",
-    "positions": [
-      { "tag": "rent_housing", "summary": "Co-sponsored Good Cause Eviction expansion.", "sourceUrl": "https://example.org/sample-source", "value": 85 },
-      { "tag": "transit_fares", "summary": "Wants fare-free buses on five routes.", "sourceUrl": "https://example.org/sample-source", "value": 80 },
-      { "tag": "education_tuition", "summary": "Pushes for tuition-free CUNY.", "sourceUrl": "https://example.org/sample-source", "value": 85 }
-    ],
-    "sourceUrl": "https://example.org/sample-source",
-    "sampleFlag": "__SAMPLE__"
-  },
-  {
-    "id": "ss25-b",
-    "officeId": "state_senator",
-    "districtId": "ss-25",
-    "name": "[SAMPLE] Eric Donato",
-    "party": "Working Families",
-    "incumbent": false,
-    "oneLiner": "Tenant organizer challenging from the left on housing.",
-    "positions": [
-      { "tag": "rent_housing", "summary": "Wants universal rent control statewide.", "sourceUrl": "https://example.org/sample-source", "value": 95 },
-      { "tag": "transit_fares", "summary": "Backs full fare-free transit citywide.", "sourceUrl": "https://example.org/sample-source", "value": 90 },
-      { "tag": "education_tuition", "summary": "Free CUNY plus student debt cancellation.", "sourceUrl": "https://example.org/sample-source", "value": 95 }
-    ],
-    "sourceUrl": "https://example.org/sample-source",
-    "sampleFlag": "__SAMPLE__"
-  },
-
-  {
-    "id": "ad52-a",
-    "officeId": "state_assembly_member",
-    "districtId": "ad-52",
-    "name": "[SAMPLE] Sasha Lin",
-    "party": "Democratic",
-    "incumbent": true,
-    "oneLiner": "Two-term incumbent, climate and bail-reform supporter.",
-    "positions": [
-      { "tag": "climate", "summary": "Voted for the NY HEAT Act in committee.", "sourceUrl": "https://example.org/sample-source", "value": 80 },
-      { "tag": "public_safety", "summary": "Voted against rolling back bail reform.", "sourceUrl": "https://example.org/sample-source", "value": 40 },
-      { "tag": "cannabis", "summary": "Supports faster equity licensing for dispensaries.", "sourceUrl": "https://example.org/sample-source", "value": 70 }
-    ],
-    "sourceUrl": "https://example.org/sample-source",
-    "sampleFlag": "__SAMPLE__"
-  },
-  {
-    "id": "ad52-b",
-    "officeId": "state_assembly_member",
-    "districtId": "ad-52",
-    "name": "[SAMPLE] Jordan Pace",
-    "party": "Republican",
-    "incumbent": false,
-    "oneLiner": "Small business owner running on affordability.",
-    "positions": [
-      { "tag": "climate", "summary": "Opposes the HEAT Act timelines.", "sourceUrl": "https://example.org/sample-source", "value": 25 },
-      { "tag": "public_safety", "summary": "Would tighten bail reform.", "sourceUrl": "https://example.org/sample-source", "value": 80 },
-      { "tag": "cannabis", "summary": "Skeptical of state-run licensing; favors local opt-out.", "sourceUrl": "https://example.org/sample-source", "value": 35 }
-    ],
-    "sourceUrl": "https://example.org/sample-source",
-    "sampleFlag": "__SAMPLE__"
-  },
-
-  {
-    "id": "ush7-a",
-    "officeId": "us_representative",
-    "districtId": "ush-7",
-    "name": "[SAMPLE] Imani Foster",
-    "party": "Democratic",
-    "incumbent": true,
-    "oneLiner": "Brooklyn incumbent on House Financial Services committee.",
-    "positions": [
-      { "tag": "education_tuition", "summary": "Supports broad federal student loan cancellation.", "sourceUrl": "https://example.org/sample-source", "value": 85 },
-      { "tag": "healthcare", "summary": "Backs Medicare expansion to age 50.", "sourceUrl": "https://example.org/sample-source", "value": 80 },
-      { "tag": "immigration", "summary": "Co-sponsored DACA permanence legislation.", "sourceUrl": "https://example.org/sample-source", "value": 85 }
-    ],
-    "sourceUrl": "https://example.org/sample-source",
-    "sampleFlag": "__SAMPLE__"
-  },
-  {
-    "id": "ush7-b",
-    "officeId": "us_representative",
-    "districtId": "ush-7",
-    "name": "[SAMPLE] Connor Whitfield",
-    "party": "Republican",
-    "incumbent": false,
-    "oneLiner": "Iraq War veteran running on border and crime issues.",
-    "positions": [
-      { "tag": "education_tuition", "summary": "Opposes broad loan cancellation; supports targeted Pell expansion.", "sourceUrl": "https://example.org/sample-source", "value": 30 },
-      { "tag": "healthcare", "summary": "Opposes Medicare expansion; favors private market reform.", "sourceUrl": "https://example.org/sample-source", "value": 25 },
-      { "tag": "immigration", "summary": "Backs stricter border enforcement and asylum limits.", "sourceUrl": "https://example.org/sample-source", "value": 20 }
-    ],
-    "sourceUrl": "https://example.org/sample-source",
-    "sampleFlag": "__SAMPLE__"
   }
 ]

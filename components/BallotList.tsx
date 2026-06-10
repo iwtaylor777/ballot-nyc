@@ -27,7 +27,11 @@ export function BallotList({ races }: { races: BallotRace[] }) {
               <span className="poster text-7xl text-ink group-hover:text-ember">
                 {String(idx + 1).padStart(2, "0")}
               </span>
-              <span className="stamp text-muted">{race.candidates.length} running</span>
+              <span className="stamp text-muted">
+                {race.candidates.length > 0
+                  ? `${race.candidates.length} running`
+                  : "see who's running"}
+              </span>
             </div>
             <h3 className="poster mt-1 text-3xl text-ink">
               {race.office.title}

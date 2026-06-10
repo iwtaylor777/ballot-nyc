@@ -45,6 +45,29 @@ const STEPS: Array<{
   },
 ];
 
+const FAQ: Array<{ q: string; a: string }> = [
+  {
+    q: "Do I need ID to vote?",
+    a: "Most New Yorkers don't. Only first-time voters who registered by mail without verification need to show something — a photo ID, current utility bill, or bank statement works.",
+  },
+  {
+    q: "I'm still in line at 9 PM.",
+    a: "Stay in line. If you're in line when polls close, you have the legal right to vote. Don't let anyone wave you off.",
+  },
+  {
+    q: "Is early voting at the same place?",
+    a: "Not always — your early voting site can be different from your Election Day site. Check findmypollsite.vote.nyc for both.",
+  },
+  {
+    q: "I moved recently.",
+    a: "If you moved anywhere in NY, re-register at your new address by Oct 24. It takes two minutes online.",
+  },
+  {
+    q: "Can anyone see who I voted for?",
+    a: "No. Whether you voted is public record — who you voted for never is.",
+  },
+];
+
 export default function PlanPage() {
   const [plan, setPlan, hydrated] = useVotingPlan();
   const [email, setEmail] = useState("");
@@ -181,6 +204,27 @@ export default function PlanPage() {
           </p>
         </motion.div>
       )}
+
+      <hr className="rule-thin my-10" />
+
+      <section>
+        <p className="stamp text-muted">REAL QUESTIONS</p>
+        <h2 className="poster mt-2 text-3xl">
+          THE STUFF PEOPLE
+          <br />
+          ACTUALLY ASK.
+        </h2>
+        <dl className="mt-5 space-y-5">
+          {FAQ.map((f) => (
+            <div key={f.q} className="border-l-4 border-ink pl-4">
+              <dt className="font-display text-xl uppercase tracking-tight">
+                {f.q}
+              </dt>
+              <dd className="mt-1 text-sm text-ink/85">{f.a}</dd>
+            </div>
+          ))}
+        </dl>
+      </section>
 
       <hr className="rule-thin my-10" />
 

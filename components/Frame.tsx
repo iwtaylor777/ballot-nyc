@@ -26,9 +26,21 @@ export function Frame({
         </div>
       )}
       <main className="flex-1 px-5 pb-24 pt-2">{children}</main>
-      <footer className="border-t border-ink px-5 py-5">
+      <footer className="space-y-2 border-t border-ink px-5 py-5">
         <p className="stamp text-muted">
           NONPARTISAN · NO ACCOUNTS · NO TRACKING
+        </p>
+        <p className="text-[11px] leading-relaxed text-muted">
+          Sources: NY State &amp; NYC Boards of Elections, Ballotpedia, U.S.
+          Census Geocoder.{" "}
+          <a
+            href="https://github.com/iwtaylor777/ballot-nyc/issues"
+            target="_blank"
+            rel="noreferrer"
+            className="underline"
+          >
+            Spot an error? Tell us.
+          </a>
         </p>
       </footer>
     </div>

@@ -10,6 +10,7 @@ import {
   districts as allDistricts,
 } from "@/lib/data";
 import { ISSUE_LABELS } from "@/lib/types";
+import { ballotpediaUrl } from "@/lib/ballotpedia";
 
 export function generateStaticParams() {
   const params: Array<{ officeId: string; districtId: string }> = [];
@@ -37,6 +38,7 @@ export default function RacePage({ params }: Props) {
   const district = getDistrict(params.districtId);
   if (!office || !district) notFound();
   const candidates = getCandidatesForRace(params.officeId, params.districtId);
+  const bp = ballotpediaUrl(district);
 
   return (
     <Frame back={{ href: "/ballot", label: "BACK TO BALLOT" }}>
@@ -71,9 +73,24 @@ export default function RacePage({ params }: Props) {
         <p className="stamp text-muted">RUNNING</p>
         <div className="mt-3 space-y-8">
           {candidates.length === 0 && (
-            <p className="text-base text-ink/85">
-              No candidate data yet — sample data is being added.
-            </p>
+            <div>
+              <p className="text-base text-ink/85">
+                We haven&apos;t catalogued this race yet — but Ballotpedia
+                tracks every candidate in your district.
+              </p>
+              {bp && (
+                <a
+                  href={bp}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-4 inline-flex w-full items-center justify-center border-[3px] border-ink bg-ember px-6 py-5 text-paper no-underline"
+                >
+                  <span className="poster text-2xl">
+                    SEE WHO&apos;S RUNNING →
+                  </span>
+                </a>
+              )}
+            </div>
           )}
           {candidates.map((c) => (
             <article key={c.id} className="border-[3px] border-ink p-5">
@@ -133,6 +150,16 @@ export default function RacePage({ params }: Props) {
             </article>
           ))}
         </div>
+        {bp && candidates.length > 0 && (
+          <a
+            href={bp}
+            target="_blank"
+            rel="noreferrer"
+            className="stamp mt-6 inline-block text-muted underline decoration-ember decoration-2 underline-offset-4 hover:text-ember"
+          >
+            ↗ Full race coverage on Ballotpedia
+          </a>
+        )}
       </section>
 
       <hr className="rule-thin my-10" />
