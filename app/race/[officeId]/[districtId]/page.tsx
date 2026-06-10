@@ -71,6 +71,13 @@ export default function RacePage({ params }: Props) {
 
       <section>
         <p className="stamp text-muted">RUNNING</p>
+        {candidates.length > 0 && (
+          <p className="mt-2 text-xs text-muted">
+            Primary day is June 23, 2026 — some candidates below are competing
+            for their party&apos;s nomination. The November ballot narrows
+            after that.
+          </p>
+        )}
         <div className="mt-3 space-y-8">
           {candidates.length === 0 && (
             <div>
