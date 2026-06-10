@@ -65,6 +65,9 @@ export interface Candidate {
   positions: CandidatePosition[];
   sourceUrl: string;
   sampleFlag?: "__SAMPLE__";
+  /** "primary" = still competing for a party nomination on June 23;
+      "general" = assured a spot on the November ballot. */
+  contest?: "primary" | "general";
 }
 
 export interface QuizOption {

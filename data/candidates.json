@@ -33,7 +33,8 @@
         "value": 55
       }
     ],
-    "sourceUrl": "https://kathyhochul.com/"
+    "sourceUrl": "https://kathyhochul.com/",
+    "contest": "primary"
   },
   {
     "id": "gov-blakeman",
@@ -75,7 +76,8 @@
         "value": 15
       }
     ],
-    "sourceUrl": "https://www.blakemanfornewyork.com/"
+    "sourceUrl": "https://www.blakemanfornewyork.com/",
+    "contest": "general"
   },
   {
     "id": "ag-james",
@@ -105,18 +107,20 @@
         "value": 45
       }
     ],
-    "sourceUrl": "https://jamesforny.com/"
+    "sourceUrl": "https://jamesforny.com/",
+    "contest": "general"
   },
   {
-    "id": "ag-dara",
+    "id": "ag-komatireddy",
     "officeId": "attorney_general",
     "districtId": "statewide-ny",
-    "name": "Khurram Dara",
+    "name": "Saritha Komatireddy",
     "party": "Republican",
     "incumbent": false,
-    "oneLiner": "Cryptocurrency lawyer; announced Republican challenger. Detailed policy positions not yet publicly catalogued at the time of writing.",
+    "oneLiner": "Former federal prosecutor in Brooklyn's Eastern District of New York; chosen as the Republican nominee at the party's February 2026 convention.",
     "positions": [],
-    "sourceUrl": "https://ballotpedia.org/New_York_Attorney_General_election,_2026"
+    "sourceUrl": "https://ballotpedia.org/New_York_Attorney_General_election,_2026",
+    "contest": "general"
   },
   {
     "id": "comp-dinapoli",
@@ -140,18 +144,20 @@
         "value": 55
       }
     ],
-    "sourceUrl": "https://www.osc.ny.gov/about/comptroller-biography"
+    "sourceUrl": "https://www.osc.ny.gov/about/comptroller-biography",
+    "contest": "primary"
   },
   {
-    "id": "comp-r-tbd",
+    "id": "comp-hernandez",
     "officeId": "comptroller",
     "districtId": "statewide-ny",
-    "name": "Republican nominee — TBD",
+    "name": "Joseph Hernandez",
     "party": "Republican",
     "incumbent": false,
-    "oneLiner": "The Republican nominee for Comptroller will be set after the June 23, 2026 primary. This entry updates once the nominee is known.",
+    "oneLiner": "Biotech entrepreneur unanimously nominated as the Republican candidate at the party's February 2026 convention; faces no GOP primary.",
     "positions": [],
-    "sourceUrl": "https://ballotpedia.org/New_York_Comptroller_election,_2026"
+    "sourceUrl": "https://ballotpedia.org/New_York_Comptroller_election,_2026",
+    "contest": "general"
   },
   {
     "id": "ush3-suozzi",
@@ -162,7 +168,8 @@
     "incumbent": true,
     "oneLiner": "Incumbent and former Nassau County Executive seeking re-election; faces one little-known challenger in the June 23 Democratic primary.",
     "positions": [],
-    "sourceUrl": "https://ballotpedia.org/New_York's_3rd_Congressional_District_election,_2026"
+    "sourceUrl": "https://ballotpedia.org/New_York's_3rd_Congressional_District_election,_2026",
+    "contest": "primary"
   },
   {
     "id": "ush3-lipetri",
@@ -173,7 +180,8 @@
     "incumbent": false,
     "oneLiner": "Former state Assemblymember and 2024 GOP nominee who narrowly lost to Suozzi; endorsed by President Trump, he is in a contested June 23 Republican primary.",
     "positions": [],
-    "sourceUrl": "https://www.longislandpress.com/2026/04/07/hach-primary-ny-3/"
+    "sourceUrl": "https://www.longislandpress.com/2026/04/07/hach-primary-ny-3/",
+    "contest": "primary"
   },
   {
     "id": "ush3-hach",
@@ -184,7 +192,8 @@
     "incumbent": false,
     "oneLiner": "Personal injury attorney and Air Force veteran from Oyster Bay running in the contested June 23 Republican primary.",
     "positions": [],
-    "sourceUrl": "https://www.longislandpress.com/2026/04/07/hach-primary-ny-3/"
+    "sourceUrl": "https://www.longislandpress.com/2026/04/07/hach-primary-ny-3/",
+    "contest": "primary"
   },
   {
     "id": "ush5-meeks",
@@ -195,7 +204,8 @@
     "incumbent": true,
     "oneLiner": "Incumbent in office since 1998 and top Democrat on the House Foreign Affairs Committee; faces two little-known challengers in the June 23 Democratic primary.",
     "positions": [],
-    "sourceUrl": "https://ballotpedia.org/New_York's_5th_Congressional_District_election,_2026"
+    "sourceUrl": "https://ballotpedia.org/New_York's_5th_Congressional_District_election,_2026",
+    "contest": "primary"
   },
   {
     "id": "ush5-foxworth",
@@ -206,7 +216,8 @@
     "incumbent": false,
     "oneLiner": "Sole Republican candidate, unopposed in the June 23 primary and effectively the GOP nominee in this heavily Democratic Queens-based district.",
     "positions": [],
-    "sourceUrl": "https://ballotpedia.org/New_York's_5th_Congressional_District_election,_2026"
+    "sourceUrl": "https://ballotpedia.org/New_York's_5th_Congressional_District_election,_2026",
+    "contest": "general"
   },
   {
     "id": "ush6-meng",
@@ -217,7 +228,8 @@
     "incumbent": true,
     "oneLiner": "Incumbent in office since 2013 seeking re-election; faces two challengers in the June 23 Democratic primary.",
     "positions": [],
-    "sourceUrl": "https://ballotpedia.org/New_York's_6th_Congressional_District_election,_2026"
+    "sourceUrl": "https://ballotpedia.org/New_York's_6th_Congressional_District_election,_2026",
+    "contest": "primary"
   },
   {
     "id": "ush6-park",
@@ -228,7 +240,8 @@
     "incumbent": false,
     "oneLiner": "Former U.S. diplomat and Queens native running as a progressive challenger to Meng in the June 23 Democratic primary; declines corporate donations.",
     "positions": [],
-    "sourceUrl": "https://qns.com/2026/03/chuck-park-2026-election-campaign/"
+    "sourceUrl": "https://qns.com/2026/03/chuck-park-2026-election-campaign/",
+    "contest": "primary"
   },
   {
     "id": "ush6-xiong",
@@ -239,7 +252,8 @@
     "incumbent": false,
     "oneLiner": "U.S. Army veteran and Chinese pro-democracy dissident who ran for Congress in 2022; challenging Meng in the June 23 Democratic primary.",
     "positions": [],
-    "sourceUrl": "https://ballotpedia.org/Yan_Xiong"
+    "sourceUrl": "https://ballotpedia.org/Yan_Xiong",
+    "contest": "primary"
   },
   {
     "id": "ush6-pagan",
@@ -250,7 +264,8 @@
     "incumbent": false,
     "oneLiner": "Sole Republican candidate, unopposed in the June 23 primary and effectively the GOP nominee in this Democratic-leaning Queens district.",
     "positions": [],
-    "sourceUrl": "https://ballotpedia.org/New_York's_6th_Congressional_District_election,_2026"
+    "sourceUrl": "https://ballotpedia.org/New_York's_6th_Congressional_District_election,_2026",
+    "contest": "general"
   },
   {
     "id": "ush7-reynoso",
@@ -261,7 +276,8 @@
     "incumbent": false,
     "oneLiner": "Brooklyn Borough President and former City Council member; a frontrunner in the crowded June 23 Democratic primary for the seat retiring Rep. Nydia Velazquez is vacating, with her endorsement.",
     "positions": [],
-    "sourceUrl": "https://www.cbsnews.com/newyork/news/mamdani-endorsement-ny-7-primary-retiring-rep-nydia-velazquez/"
+    "sourceUrl": "https://www.cbsnews.com/newyork/news/mamdani-endorsement-ny-7-primary-retiring-rep-nydia-velazquez/",
+    "contest": "primary"
   },
   {
     "id": "ush7-valdez",
@@ -272,7 +288,8 @@
     "incumbent": false,
     "oneLiner": "Queens State Assemblymember backed by the Democratic Socialists of America and Sen. Bernie Sanders; a frontrunner in the June 23 Democratic primary for this open seat.",
     "positions": [],
-    "sourceUrl": "https://www.cbsnews.com/newyork/news/mamdani-endorsement-ny-7-primary-retiring-rep-nydia-velazquez/"
+    "sourceUrl": "https://www.cbsnews.com/newyork/news/mamdani-endorsement-ny-7-primary-retiring-rep-nydia-velazquez/",
+    "contest": "primary"
   },
   {
     "id": "ush7-won",
@@ -283,7 +300,8 @@
     "incumbent": false,
     "oneLiner": "New York City Council Member from Queens running in the crowded June 23 Democratic primary for the open seat left by retiring Rep. Nydia Velazquez.",
     "positions": [],
-    "sourceUrl": "https://politicsny.com/2026/05/21/campaign-insiders-a-qa-with-ny-7-candidate-julie-won/"
+    "sourceUrl": "https://politicsny.com/2026/05/21/campaign-insiders-a-qa-with-ny-7-candidate-julie-won/",
+    "contest": "primary"
   },
   {
     "id": "ush8-jeffries",
@@ -294,7 +312,8 @@
     "incumbent": true,
     "oneLiner": "Incumbent and House Minority Leader, in office since 2013; faces one little-known challenger in the June 23 Democratic primary and is the strong favorite in this heavily Democratic Brooklyn district.",
     "positions": [],
-    "sourceUrl": "https://ballotpedia.org/New_York's_8th_Congressional_District_election,_2026"
+    "sourceUrl": "https://ballotpedia.org/New_York's_8th_Congressional_District_election,_2026",
+    "contest": "primary"
   },
   {
     "id": "ush8-simmons",
@@ -305,7 +324,8 @@
     "incumbent": false,
     "oneLiner": "Sole Republican candidate, unopposed in the June 23 primary and effectively the GOP nominee in this heavily Democratic Brooklyn district.",
     "positions": [],
-    "sourceUrl": "https://ballotpedia.org/New_York's_8th_Congressional_District_election,_2026"
+    "sourceUrl": "https://ballotpedia.org/New_York's_8th_Congressional_District_election,_2026",
+    "contest": "general"
   },
   {
     "id": "ush9-clarke",
@@ -316,7 +336,8 @@
     "incumbent": true,
     "oneLiner": "Democratic incumbent representing central Brooklyn since 2007; seeking re-election and faces several lesser-known challengers in the June 23 Democratic primary.",
     "positions": [],
-    "sourceUrl": "https://ballotpedia.org/New_York's_9th_Congressional_District_election,_2026"
+    "sourceUrl": "https://ballotpedia.org/New_York's_9th_Congressional_District_election,_2026",
+    "contest": "primary"
   },
   {
     "id": "ush9-goldfarb",
@@ -327,7 +348,8 @@
     "incumbent": false,
     "oneLiner": "Democratic primary challenger to Rep. Yvette Clarke in the June 23 primary; has centered his campaign on criticism of her record on antisemitism and Israel.",
     "positions": [],
-    "sourceUrl": "https://collive.com/ny-9-challenger-targets-yvette-clarkes-record-ahead-of-primary/"
+    "sourceUrl": "https://collive.com/ny-9-challenger-targets-yvette-clarkes-record-ahead-of-primary/",
+    "contest": "primary"
   },
   {
     "id": "ush10-goldman",
@@ -338,7 +360,8 @@
     "incumbent": true,
     "oneLiner": "Democratic incumbent and former federal prosecutor seeking a third term; faces former NYC Comptroller Brad Lander in the June 23 Democratic primary.",
     "positions": [],
-    "sourceUrl": "https://news.ballotpedia.org/2026/04/07/incumbent-daniel-goldman-d-nickie-kane-d-and-brad-lander-d-are-running-in-the-democratic-primary-for-new-yorks-10th-congressional-district-on-june-23-2026/"
+    "sourceUrl": "https://news.ballotpedia.org/2026/04/07/incumbent-daniel-goldman-d-nickie-kane-d-and-brad-lander-d-are-running-in-the-democratic-primary-for-new-yorks-10th-congressional-district-on-june-23-2026/",
+    "contest": "primary"
   },
   {
     "id": "ush10-lander",
@@ -349,7 +372,20 @@
     "incumbent": false,
     "oneLiner": "Former NYC Comptroller and City Council member challenging Rep. Dan Goldman in the June 23 Democratic primary; led Goldman in a May 2026 Emerson College/PIX11 poll.",
     "positions": [],
-    "sourceUrl": "https://www.cbsnews.com/newyork/news/brad-lander-interview-ny-10-democratic-primary/"
+    "sourceUrl": "https://www.cbsnews.com/newyork/news/brad-lander-interview-ny-10-democratic-primary/",
+    "contest": "primary"
+  },
+  {
+    "id": "ush10-moore",
+    "officeId": "us_representative",
+    "districtId": "ush-10",
+    "name": "Jennifer Moore",
+    "party": "Republican",
+    "incumbent": false,
+    "oneLiner": "Republican and Conservative Party candidate; with the GOP primary canceled, she advances directly to the November ballot in this Lower Manhattan and Brooklyn district.",
+    "positions": [],
+    "sourceUrl": "https://ballotpedia.org/New_York's_10th_Congressional_District_election,_2026",
+    "contest": "general"
   },
   {
     "id": "ush11-malliotakis",
@@ -360,7 +396,8 @@
     "incumbent": true,
     "oneLiner": "Republican incumbent representing Staten Island and southern Brooklyn since 2021; seeking re-election in 2026 after the Supreme Court blocked a mid-decade redraw of her district.",
     "positions": [],
-    "sourceUrl": "https://www.cnbc.com/2026/03/02/supreme-court-republican-new-york-malliotakis.html"
+    "sourceUrl": "https://www.cnbc.com/2026/03/02/supreme-court-republican-new-york-malliotakis.html",
+    "contest": "general"
   },
   {
     "id": "ush11-decillis",
@@ -371,7 +408,8 @@
     "incumbent": false,
     "oneLiner": "Former NYPD officer and political staffer running in the June 23 Democratic primary for the chance to face Rep. Nicole Malliotakis in November.",
     "positions": [],
-    "sourceUrl": "https://www.brooklynpaper.com/michael-decillis-democratic-primary-ny-11/"
+    "sourceUrl": "https://www.brooklynpaper.com/michael-decillis-democratic-primary-ny-11/",
+    "contest": "primary"
   },
   {
     "id": "ush11-mcghie",
@@ -382,7 +420,8 @@
     "incumbent": false,
     "oneLiner": "Longtime teacher who declared his candidacy in 2025; running in the June 23 Democratic primary in NY-11 for the chance to face Rep. Nicole Malliotakis in November.",
     "positions": [],
-    "sourceUrl": "https://www.brooklynpaper.com/michael-decillis-democratic-primary-ny-11/"
+    "sourceUrl": "https://www.brooklynpaper.com/michael-decillis-democratic-primary-ny-11/",
+    "contest": "primary"
   },
   {
     "id": "ush12-lasher",
@@ -393,7 +432,8 @@
     "incumbent": false,
     "oneLiner": "State Assembly member from Manhattan's West Side, endorsed by retiring Rep. Jerrold Nadler; narrowly led recent polls in the crowded June 23 Democratic primary for this open seat.",
     "positions": [],
-    "sourceUrl": "https://emersoncollegepolling.com/new-york-city-2026-congressional-polling-ny-07-ny-10-ny-12/"
+    "sourceUrl": "https://emersoncollegepolling.com/new-york-city-2026-congressional-polling-ny-07-ny-10-ny-12/",
+    "contest": "primary"
   },
   {
     "id": "ush12-bores",
@@ -404,7 +444,8 @@
     "incumbent": false,
     "oneLiner": "State Assembly member from Manhattan's East Side and former software engineer known for AI legislation; polling second in the crowded June 23 Democratic primary for the open NY-12 seat.",
     "positions": [],
-    "sourceUrl": "https://news.ballotpedia.org/2026/04/03/alex-bores-d-george-conway-d-micah-lasher-d-jack-schlossberg-d-and-six-other-candidates-are-running-in-the-democratic-primary-for-new-yorks-12th-congressional-district-on-june-23-2026/"
+    "sourceUrl": "https://news.ballotpedia.org/2026/04/03/alex-bores-d-george-conway-d-micah-lasher-d-jack-schlossberg-d-and-six-other-candidates-are-running-in-the-democratic-primary-for-new-yorks-12th-congressional-district-on-june-23-2026/",
+    "contest": "primary"
   },
   {
     "id": "ush12-schlossberg",
@@ -415,7 +456,8 @@
     "incumbent": false,
     "oneLiner": "Writer and social media commentator, and grandson of President John F. Kennedy; running in the crowded June 23 Democratic primary for the open Manhattan seat.",
     "positions": [],
-    "sourceUrl": "https://time.com/article/2026/06/04/the-chaotic-race-to-represent-manhattan/"
+    "sourceUrl": "https://time.com/article/2026/06/04/the-chaotic-race-to-represent-manhattan/",
+    "contest": "primary"
   },
   {
     "id": "ush12-conway",
@@ -426,7 +468,8 @@
     "incumbent": false,
     "oneLiner": "Attorney and political commentator running in the crowded June 23 Democratic primary for the open NY-12 seat vacated by retiring Rep. Jerrold Nadler.",
     "positions": [],
-    "sourceUrl": "https://news.ballotpedia.org/2026/04/03/alex-bores-d-george-conway-d-micah-lasher-d-jack-schlossberg-d-and-six-other-candidates-are-running-in-the-democratic-primary-for-new-yorks-12th-congressional-district-on-june-23-2026/"
+    "sourceUrl": "https://news.ballotpedia.org/2026/04/03/alex-bores-d-george-conway-d-micah-lasher-d-jack-schlossberg-d-and-six-other-candidates-are-running-in-the-democratic-primary-for-new-yorks-12th-congressional-district-on-june-23-2026/",
+    "contest": "primary"
   },
   {
     "id": "ush13-espaillat",
@@ -437,7 +480,8 @@
     "incumbent": true,
     "oneLiner": "Incumbent U.S. Representative since 2017, seeking re-election in an eight-way June 23 Democratic primary, his first primary challenge since 2022.",
     "positions": [],
-    "sourceUrl": "https://ballotpedia.org/New_York's_13th_Congressional_District_election,_2026"
+    "sourceUrl": "https://ballotpedia.org/New_York's_13th_Congressional_District_election,_2026",
+    "contest": "primary"
   },
   {
     "id": "ush13-avilachevalier",
@@ -448,7 +492,8 @@
     "incumbent": false,
     "oneLiner": "Organizer, CUNY doctoral student, and DSA-backed candidate challenging Espaillat in the June 23 Democratic primary; endorsed by Mayor Zohran Mamdani.",
     "positions": [],
-    "sourceUrl": "https://www.cityandstateny.com/politics/2026/04/dsa-targeting-rep-adriano-espaillat-ny-13/413110/"
+    "sourceUrl": "https://www.cityandstateny.com/politics/2026/04/dsa-targeting-rep-adriano-espaillat-ny-13/413110/",
+    "contest": "primary"
   },
   {
     "id": "ush13-gwinn",
@@ -459,7 +504,8 @@
     "incumbent": false,
     "oneLiner": "Republican candidate who advanced to the November general election without a contested primary in this heavily Democratic district.",
     "positions": [],
-    "sourceUrl": "https://ballotpedia.org/New_York's_13th_Congressional_District_election,_2026"
+    "sourceUrl": "https://ballotpedia.org/New_York's_13th_Congressional_District_election,_2026",
+    "contest": "general"
   },
   {
     "id": "ush14-ocasiocortez",
@@ -470,7 +516,8 @@
     "incumbent": true,
     "oneLiner": "Incumbent U.S. Representative since 2019, running for re-election to the House in the June 23 Democratic primary against two moderate challengers.",
     "positions": [],
-    "sourceUrl": "https://ballotpedia.org/New_York's_14th_Congressional_District_election,_2026"
+    "sourceUrl": "https://ballotpedia.org/New_York's_14th_Congressional_District_election,_2026",
+    "contest": "primary"
   },
   {
     "id": "ush14-dolan",
@@ -481,7 +528,8 @@
     "incumbent": false,
     "oneLiner": "Wall Street investor making his second primary challenge to Ocasio-Cortez, running as a more moderate alternative in the June 23 Democratic primary.",
     "positions": [],
-    "sourceUrl": "https://www.bxtimes.com/2026-primaries-marty-dolan-felipe-garcia-aoc-cd-14/"
+    "sourceUrl": "https://www.bxtimes.com/2026-primaries-marty-dolan-felipe-garcia-aoc-cd-14/",
+    "contest": "primary"
   },
   {
     "id": "ush14-garcia",
@@ -492,7 +540,8 @@
     "incumbent": false,
     "oneLiner": "Democrat challenging Ocasio-Cortez in the June 23 primary, positioning himself as a more moderate alternative to the incumbent.",
     "positions": [],
-    "sourceUrl": "https://www.bxtimes.com/2026-primaries-marty-dolan-felipe-garcia-aoc-cd-14/"
+    "sourceUrl": "https://www.bxtimes.com/2026-primaries-marty-dolan-felipe-garcia-aoc-cd-14/",
+    "contest": "primary"
   },
   {
     "id": "ush14-forte",
@@ -503,7 +552,8 @@
     "incumbent": false,
     "oneLiner": "Republican nominee for this seat in 2022 and 2024, running again in a four-way June 23 Republican primary.",
     "positions": [],
-    "sourceUrl": "https://ballotpedia.org/New_York's_14th_Congressional_District_election,_2026"
+    "sourceUrl": "https://ballotpedia.org/New_York's_14th_Congressional_District_election,_2026",
+    "contest": "primary"
   },
   {
     "id": "ush15-torres",
@@ -514,7 +564,8 @@
     "incumbent": true,
     "oneLiner": "Incumbent U.S. Representative since 2021, seeking re-election in a six-way June 23 Democratic primary; leads the field in fundraising and endorsements.",
     "positions": [],
-    "sourceUrl": "https://news.ballotpedia.org/2026/04/20/incumbent-ritchie-torres-d-michael-blake-d-and-four-other-candidates-are-running-in-the-democratic-primary-for-new-yorks-15th-congressional-district-on-june-23-2026/"
+    "sourceUrl": "https://news.ballotpedia.org/2026/04/20/incumbent-ritchie-torres-d-michael-blake-d-and-four-other-candidates-are-running-in-the-democratic-primary-for-new-yorks-15th-congressional-district-on-june-23-2026/",
+    "contest": "primary"
   },
   {
     "id": "ush15-blake",
@@ -525,7 +576,8 @@
     "incumbent": false,
     "oneLiner": "Former state Assemblymember (2015-2021) and nonprofit CEO challenging Torres in the June 23 Democratic primary, centering criticism of Torres' foreign policy stances.",
     "positions": [],
-    "sourceUrl": "https://news.ballotpedia.org/2026/04/20/incumbent-ritchie-torres-d-michael-blake-d-and-four-other-candidates-are-running-in-the-democratic-primary-for-new-yorks-15th-congressional-district-on-june-23-2026/"
+    "sourceUrl": "https://news.ballotpedia.org/2026/04/20/incumbent-ritchie-torres-d-michael-blake-d-and-four-other-candidates-are-running-in-the-democratic-primary-for-new-yorks-15th-congressional-district-on-june-23-2026/",
+    "contest": "primary"
   },
   {
     "id": "ush15-septimo",
@@ -536,7 +588,8 @@
     "incumbent": false,
     "oneLiner": "State Assemblymember for the South Bronx's 84th district since 2021, running against Torres in the June 23 Democratic primary.",
     "positions": [],
-    "sourceUrl": "https://www.norwoodnews.org/am-amanda-septimo-is-latest-candidate-to-challenge-congressman-ritchie-torres-in-ny-15/"
+    "sourceUrl": "https://www.norwoodnews.org/am-amanda-septimo-is-latest-candidate-to-challenge-congressman-ritchie-torres-in-ny-15/",
+    "contest": "primary"
   },
   {
     "id": "ush15-duran",
@@ -547,7 +600,8 @@
     "incumbent": false,
     "oneLiner": "Marine Corps veteran and the district's 2024 Republican nominee, advancing to the November general election without a contested primary.",
     "positions": [],
-    "sourceUrl": "https://ballotpedia.org/New_York's_15th_Congressional_District_election,_2026"
+    "sourceUrl": "https://ballotpedia.org/New_York's_15th_Congressional_District_election,_2026",
+    "contest": "general"
   },
   {
     "id": "ush16-latimer",
@@ -558,6 +612,7 @@
     "incumbent": true,
     "oneLiner": "Incumbent U.S. Representative since 2025 and former Westchester County Executive, running uncontested in the June 23 Democratic primary; Jamaal Bowman is not seeking a rematch.",
     "positions": [],
-    "sourceUrl": "https://ballotpedia.org/New_York's_16th_Congressional_District_election,_2026"
+    "sourceUrl": "https://ballotpedia.org/New_York's_16th_Congressional_District_election,_2026",
+    "contest": "general"
   }
 ]
