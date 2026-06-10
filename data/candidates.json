@@ -118,7 +118,20 @@
     "party": "Republican",
     "incumbent": false,
     "oneLiner": "Former federal prosecutor in Brooklyn's Eastern District of New York; chosen as the Republican nominee at the party's February 2026 convention.",
-    "positions": [],
+    "positions": [
+      {
+        "tag": "public_safety",
+        "summary": "Proposes a major expansion of criminal prosecution within the Attorney General's office and a transit crime strike force targeting repeat subway offenders, including possibly banning repeat violent offenders from public transportation. Says 'if New York isn't safe, nothing else matters.'",
+        "sourceUrl": "https://vinnews.com/2026/06/04/former-federal-prosecutor-outlines-tough-on-crime-agenda-in-new-york-attorney-general-race/",
+        "value": 85
+      },
+      {
+        "tag": "transit_fares",
+        "summary": "Her subway-safety plan centers on stronger enforcement against transit crimes via a dedicated strike force aimed at repeat offenders, framing transit policy around policing rather than service or fare expansion.",
+        "sourceUrl": "https://ny1.com/nyc/all-boroughs/inside-city-hall/2026/03/21/republican-nominee-for-n-y--attorney-general-priorities",
+        "value": 40
+      }
+    ],
     "sourceUrl": "https://ballotpedia.org/New_York_Attorney_General_election,_2026",
     "contest": "general"
   },
@@ -155,7 +168,20 @@
     "party": "Republican",
     "incumbent": false,
     "oneLiner": "Biotech entrepreneur unanimously nominated as the Republican candidate at the party's February 2026 convention; faces no GOP primary.",
-    "positions": [],
+    "positions": [
+      {
+        "tag": "jobs_economy",
+        "summary": "Proposes a $10 billion 'Empire Renewal Investment Plan' using the state's roughly $290 billion pension fund to invest in upstate New York and an 'Empire Opportunity Fund' targeting AI, advanced manufacturing and robotics, paired with property tax relief by enforcing the state tax cap.",
+        "sourceUrl": "https://spectrumlocalnews.com/nys/central-ny/politics/2025/11/20/joseph-hernandez-running-for-new-york-state-comptroller-in-2026",
+        "value": 35
+      },
+      {
+        "tag": "climate",
+        "summary": "Pledges to manage the state pension fund 'based on performance, not politics,' a break from climate-driven ESG/divestment strategies, while proposing pension investments in sectors including portable nuclear energy.",
+        "sourceUrl": "https://hernandezforny.com/",
+        "value": 35
+      }
+    ],
     "sourceUrl": "https://ballotpedia.org/New_York_Comptroller_election,_2026",
     "contest": "general"
   },
@@ -167,7 +193,32 @@
     "party": "Democratic",
     "incumbent": true,
     "oneLiner": "Incumbent and former Nassau County Executive seeking re-election; faces one little-known challenger in the June 23 Democratic primary.",
-    "positions": [],
+    "positions": [
+      {
+        "tag": "immigration",
+        "summary": "As Problem Solvers Caucus co-chair, pushes a bipartisan mix of border security plus legal work status for undocumented immigrants in the U.S. over 10 years. Voted in January 2026 for the DHS funding bill that included ICE funding, then publicly distanced himself from the vote after a fatal federal-agent shooting in Minneapolis.",
+        "sourceUrl": "https://www.longislandpress.com/2026/01/27/suozzi-gillen-homeland-bill/",
+        "value": 55
+      },
+      {
+        "tag": "jobs_economy",
+        "summary": "Known as 'Mr. SALT' for leading the bipartisan effort to fully restore the state and local tax (SALT) deduction capped in 2017; the House passed three of his SALT restoration bills, and he serves on the Ways & Means Committee.",
+        "sourceUrl": "https://suozzi.house.gov/issues/salt-economy",
+        "value": 45
+      },
+      {
+        "tag": "climate",
+        "summary": "Publicly denounced the EPA's February 2026 rollback of the greenhouse gas 'endangerment finding,' citing Long Island's ranking as the fourth most climate-vulnerable place in the U.S. and vowing to fight the rollback.",
+        "sourceUrl": "https://www.wshu.org/long-island-news/2026-02-20/tom-suozzi-climate-change-activists-epa",
+        "value": 70
+      },
+      {
+        "tag": "healthcare",
+        "summary": "Opposes single-payer; supports universal coverage through a federal public option, Medicare buy-in, and subsidies to make individual insurance more affordable, calling a 'piecemeal approach' the best path.",
+        "sourceUrl": "https://www.gothamgazette.com/state/11389-tom-suozzi-campaign-platform-governor/",
+        "value": 55
+      }
+    ],
     "sourceUrl": "https://ballotpedia.org/New_York's_3rd_Congressional_District_election,_2026",
     "contest": "primary"
   },
@@ -179,7 +230,26 @@
     "party": "Republican",
     "incumbent": false,
     "oneLiner": "Former state Assemblymember and 2024 GOP nominee who narrowly lost to Suozzi; endorsed by President Trump, he is in a contested June 23 Republican primary.",
-    "positions": [],
+    "positions": [
+      {
+        "tag": "public_safety",
+        "summary": "Campaign emphasizes 'supporting law enforcement'; LiPetri says that as an Assemblymember during the 'Defund the Police' movement he was the only Long Island state legislator to vote against all 'anti-police' bills.",
+        "sourceUrl": "https://www.mikelipetriforcongress.com/",
+        "value": 90
+      },
+      {
+        "tag": "immigration",
+        "summary": "Runs on 'securing the border' as one of his ABCs (Affordability, Border, Crime); opposed calls to abolish ICE and joined ICE agents on a Long Island ride-along to observe apprehensions and deportations of criminal offenders.",
+        "sourceUrl": "https://www.mikelipetriforcongress.com/",
+        "value": 15
+      },
+      {
+        "tag": "jobs_economy",
+        "summary": "Launched his 2026 bid framing the race as a referendum on taxes and the cost of living, campaigning on 'making Long Island affordable' while aligning with President Trump and national Republicans.",
+        "sourceUrl": "https://politicsny.com/2026/02/03/mike-lipetri-launches-2026-congressional-bid/",
+        "value": 25
+      }
+    ],
     "sourceUrl": "https://www.longislandpress.com/2026/04/07/hach-primary-ny-3/",
     "contest": "primary"
   },
@@ -191,7 +261,26 @@
     "party": "Republican",
     "incumbent": false,
     "oneLiner": "Personal injury attorney and Air Force veteran from Oyster Bay running in the contested June 23 Republican primary.",
-    "positions": [],
+    "positions": [
+      {
+        "tag": "public_safety",
+        "summary": "Pledges to fight to end cashless bail, back police, and crack down on gangs; public safety is a core plank of his campaign platform.",
+        "sourceUrl": "https://greghach.com/issues/",
+        "value": 90
+      },
+      {
+        "tag": "jobs_economy",
+        "summary": "Platform calls for ending the SALT cap to restore full deductions for Long Island families, cutting taxes, and stopping 'reckless government spending that fuels inflation.'",
+        "sourceUrl": "https://greghach.com/issues/",
+        "value": 20
+      },
+      {
+        "tag": "immigration",
+        "summary": "Campaign platform calls for secure borders and deporting immigrants in the country illegally, particularly those who 'threaten communities.'",
+        "sourceUrl": "https://greghach.com/issues/",
+        "value": 10
+      }
+    ],
     "sourceUrl": "https://www.longislandpress.com/2026/04/07/hach-primary-ny-3/",
     "contest": "primary"
   },
@@ -203,7 +292,26 @@
     "party": "Democratic",
     "incumbent": true,
     "oneLiner": "Incumbent in office since 1998 and top Democrat on the House Foreign Affairs Committee; faces two little-known challengers in the June 23 Democratic primary.",
-    "positions": [],
+    "positions": [
+      {
+        "tag": "rent_housing",
+        "summary": "Voted for the FY26 Transportation-HUD minibus investing in affordable housing and secured $850,000 in community project funding for NYCHA safety and security upgrades; in May 2026 introduced H.R. 8854, the Habitable Housing Conversion Pilot Program Act.",
+        "sourceUrl": "https://meeks.house.gov/media/press-releases/rep-gregory-w-meeks-votes-fy26-minibus-securing-over-82-million-local",
+        "value": 75
+      },
+      {
+        "tag": "immigration",
+        "summary": "His House issues page advocates 'a just and humane immigration system,' calling immigrant communities 'the heartbeat' of New York's 5th District.",
+        "sourceUrl": "https://meeks.house.gov/issues/immigration",
+        "value": 75
+      },
+      {
+        "tag": "healthcare",
+        "summary": "Fighting to extend Affordable Care Act premium tax credits, citing an average $2,030 premium increase for NY-05 enrollees if they lapse, and signed a discharge petition to force a vote protecting Medicaid from budget cuts.",
+        "sourceUrl": "https://meeks.house.gov/media/press-releases/rep-gregory-w-meeks-fights-save-affordable-health-care-tax-credits",
+        "value": 65
+      }
+    ],
     "sourceUrl": "https://ballotpedia.org/New_York's_5th_Congressional_District_election,_2026",
     "contest": "primary"
   },
@@ -227,7 +335,26 @@
     "party": "Democratic",
     "incumbent": true,
     "oneLiner": "Incumbent in office since 2013 seeking re-election; faces two challengers in the June 23 Democratic primary.",
-    "positions": [],
+    "positions": [
+      {
+        "tag": "rent_housing",
+        "summary": "Co-leads (with Rep. Jayapal) the Housing is a Human Right Act, which would authorize more than $300 billion for housing infrastructure and homelessness services, including alternatives to criminalizing homelessness.",
+        "sourceUrl": "https://meng.house.gov/media-center/press-releases/meng-and-jayapal-lead-lawmakers-in-introducing-the-housing-is-a-human",
+        "value": 85
+      },
+      {
+        "tag": "immigration",
+        "summary": "Introduced the Safe Check-Ins for Immigrants Act (H.R. 8381) in April 2026 to let immigrants complete required ICE check-ins virtually, responding to a surge of ICE arrests at routine check-ins.",
+        "sourceUrl": "https://meng.house.gov/media-center/press-releases/meng-introduces-safe-check-ins-immigrants-act",
+        "value": 80
+      },
+      {
+        "tag": "education_tuition",
+        "summary": "As New York's senior House Appropriations member, secured nearly $18 million for Queens projects including a childcare center at Queensborough Community College and technology initiatives at Queens College.",
+        "sourceUrl": "https://qns.com/2026/05/candidate-profile-grace-meng-is-fighting-for-queens/",
+        "value": 70
+      }
+    ],
     "sourceUrl": "https://ballotpedia.org/New_York's_6th_Congressional_District_election,_2026",
     "contest": "primary"
   },
@@ -239,7 +366,20 @@
     "party": "Democratic",
     "incumbent": false,
     "oneLiner": "Former U.S. diplomat and Queens native running as a progressive challenger to Meng in the June 23 Democratic primary; declines corporate donations.",
-    "positions": [],
+    "positions": [
+      {
+        "tag": "healthcare",
+        "summary": "Has committed to fighting for Medicare for All and universal healthcare as a central plank of his progressive primary challenge to Rep. Meng.",
+        "sourceUrl": "https://qns.com/2026/05/chuck-park-is-done-with-the-status-quo/",
+        "value": 95
+      },
+      {
+        "tag": "climate",
+        "summary": "Endorsed by Sunrise NYC, a youth-led organization advocating for the Green New Deal, in his 2026 primary campaign.",
+        "sourceUrl": "https://qns.com/2026/04/chuck-park-sunrise-nyc-2026-election/",
+        "value": 85
+      }
+    ],
     "sourceUrl": "https://qns.com/2026/03/chuck-park-2026-election-campaign/",
     "contest": "primary"
   },
@@ -275,7 +415,26 @@
     "party": "Democratic",
     "incumbent": false,
     "oneLiner": "Brooklyn Borough President and former City Council member; a frontrunner in the crowded June 23 Democratic primary for the seat retiring Rep. Nydia Velazquez is vacating, with her endorsement.",
-    "positions": [],
+    "positions": [
+      {
+        "tag": "immigration",
+        "summary": "Lists abolishing ICE as one of his top three campaign issues and has released a plan to dismantle the agency, create a Truth and Accountability Commission to investigate ICE abuses, and establish a clear pathway to citizenship.",
+        "sourceUrl": "https://politicsny.com/2026/05/22/campaign-insiders-a-qa-with-ny-7-candidate-antonio-reynoso/",
+        "value": 95
+      },
+      {
+        "tag": "transit_fares",
+        "summary": "Published a six-point federal transit plan in Streetsblog calling for restored federal transit funding and projects like the Interborough Express, and describes himself as a consistent supporter of congestion pricing.",
+        "sourceUrl": "https://nyc.streetsblog.org/2026/04/22/keep-new-york-moving-antonio-reynosos-six-point-plan-for-transit-that-matches-our-reality",
+        "value": 90
+      },
+      {
+        "tag": "jobs_economy",
+        "summary": "Names 'taxing the rich to fully fund healthcare, housing, and childcare' and 'standing up to corporate power' among his top three campaign issues for Congress.",
+        "sourceUrl": "https://politicsny.com/2026/05/22/campaign-insiders-a-qa-with-ny-7-candidate-antonio-reynoso/",
+        "value": 85
+      }
+    ],
     "sourceUrl": "https://www.cbsnews.com/newyork/news/mamdani-endorsement-ny-7-primary-retiring-rep-nydia-velazquez/",
     "contest": "primary"
   },
@@ -287,7 +446,32 @@
     "party": "Democratic",
     "incumbent": false,
     "oneLiner": "Queens State Assemblymember backed by the Democratic Socialists of America and Sen. Bernie Sanders; a frontrunner in the June 23 Democratic primary for this open seat.",
-    "positions": [],
+    "positions": [
+      {
+        "tag": "healthcare",
+        "summary": "Pledges to sponsor Medicare for All legislation 'on Day One' in Congress, framing health care as a human right and vowing to fight insurance companies that profit from denying care.",
+        "sourceUrl": "https://clairevaldezforcongress.com/issues",
+        "value": 100
+      },
+      {
+        "tag": "rent_housing",
+        "summary": "Supports passing the Homes Act to create a public option for housing, fully funding NYCHA, and repealing the Faircloth Amendment so the federal government can build new public housing.",
+        "sourceUrl": "https://clairevaldezforcongress.com/issues",
+        "value": 95
+      },
+      {
+        "tag": "immigration",
+        "summary": "Says she will fight to 'dismantle and abolish ICE' in Congress and push for immigration reform that legalizes the status of millions of undocumented immigrants.",
+        "sourceUrl": "https://clairevaldezforcongress.com/issues",
+        "value": 95
+      },
+      {
+        "tag": "transit_fares",
+        "summary": "Wrote a Streetsblog op-ed pledging to fight for federal transit funding and bike lanes in Congress, and supports the Interborough Express project.",
+        "sourceUrl": "https://nyc.streetsblog.org/2026/03/13/claire-valdez-in-congress-i-will-fight-for-transit-and-bike-lanes",
+        "value": 90
+      }
+    ],
     "sourceUrl": "https://www.cbsnews.com/newyork/news/mamdani-endorsement-ny-7-primary-retiring-rep-nydia-velazquez/",
     "contest": "primary"
   },
@@ -299,7 +483,26 @@
     "party": "Democratic",
     "incumbent": false,
     "oneLiner": "New York City Council Member from Queens running in the crowded June 23 Democratic primary for the open seat left by retiring Rep. Nydia Velazquez.",
-    "positions": [],
+    "positions": [
+      {
+        "tag": "healthcare",
+        "summary": "Centers her campaign on a 'Lifetime of Care' platform that includes universal healthcare for all, universal paid leave, and free childcare.",
+        "sourceUrl": "https://www.juliewon.com/",
+        "value": 85
+      },
+      {
+        "tag": "rent_housing",
+        "summary": "Her launch platform calls for 'housing for all' through social housing and stronger tenant protections, including protecting tenants from unfair rent increases and fixing public housing.",
+        "sourceUrl": "https://qns.com/2026/03/won-launches-ny-7-bid/",
+        "value": 90
+      },
+      {
+        "tag": "immigration",
+        "summary": "Her campaign platform calls for the abolition of ICE, and she points to her own experience as an immigrant as central to her candidacy.",
+        "sourceUrl": "https://qns.com/2026/03/won-launches-ny-7-bid/",
+        "value": 95
+      }
+    ],
     "sourceUrl": "https://politicsny.com/2026/05/21/campaign-insiders-a-qa-with-ny-7-candidate-julie-won/",
     "contest": "primary"
   },
@@ -311,7 +514,26 @@
     "party": "Democratic",
     "incumbent": true,
     "oneLiner": "Incumbent and House Minority Leader, in office since 2013; faces one little-known challenger in the June 23 Democratic primary and is the strong favorite in this heavily Democratic Brooklyn district.",
-    "positions": [],
+    "positions": [
+      {
+        "tag": "healthcare",
+        "summary": "Led a successful discharge petition that forced a January 2026 House vote extending enhanced ACA premium tax credits for three years, which passed 230-196 with a unanimous Democratic caucus.",
+        "sourceUrl": "https://www.cbsnews.com/news/house-health-care-vote-affordable-care-act-tax-credits/",
+        "value": 65
+      },
+      {
+        "tag": "cannabis",
+        "summary": "Supported the MORE Act to end federal marijuana prohibition and expunge low-level convictions, and has said it is 'time to end the federal cannabis prohibition,' working with Rep. Dave Joyce on the bipartisan PREPARE Act.",
+        "sourceUrl": "https://jeffries.house.gov/2022/04/01/rep-jeffries-its-time-to-end-the-federal-cannabis-prohibition/",
+        "value": 85
+      },
+      {
+        "tag": "public_safety",
+        "summary": "Helped negotiate and pass the bipartisan First Step Act of 2018, which he describes as progress toward eradicating 'the mass incarceration epidemic,' and lists criminal justice reform as a core issue.",
+        "sourceUrl": "https://jeffries.house.gov/criminal-justice/",
+        "value": 35
+      }
+    ],
     "sourceUrl": "https://ballotpedia.org/New_York's_8th_Congressional_District_election,_2026",
     "contest": "primary"
   },
@@ -335,7 +557,26 @@
     "party": "Democratic",
     "incumbent": true,
     "oneLiner": "Democratic incumbent representing central Brooklyn since 2007; seeking re-election and faces several lesser-known challengers in the June 23 Democratic primary.",
-    "positions": [],
+    "positions": [
+      {
+        "tag": "healthcare",
+        "summary": "Serves on the Medicare for All Caucus and her campaign platform calls Medicare for All the best path to universal health coverage.",
+        "sourceUrl": "https://voteyvette.com/issues/",
+        "value": 90
+      },
+      {
+        "tag": "climate",
+        "summary": "Is a strong supporter of the Green New Deal to reduce U.S. dependence on fossil fuels and create clean-energy jobs, and introduced the FEMA Climate Change Preparedness Act requiring FEMA to factor climate change into its policies.",
+        "sourceUrl": "https://voteyvette.com/climate-change/",
+        "value": 90
+      },
+      {
+        "tag": "immigration",
+        "summary": "Introduced the ASPIRE Act to provide relief to Temporary Protected Status (TPS)-eligible immigrants and the Protect Our Sanctuary Cities Act to counter federal restrictions on sanctuary cities.",
+        "sourceUrl": "https://voteyvette.com/issues/",
+        "value": 90
+      }
+    ],
     "sourceUrl": "https://ballotpedia.org/New_York's_9th_Congressional_District_election,_2026",
     "contest": "primary"
   },
@@ -347,7 +588,26 @@
     "party": "Democratic",
     "incumbent": false,
     "oneLiner": "Democratic primary challenger to Rep. Yvette Clarke in the June 23 primary; has centered his campaign on criticism of her record on antisemitism and Israel.",
-    "positions": [],
+    "positions": [
+      {
+        "tag": "rent_housing",
+        "summary": "Says he would address housing affordability by 'cutting the red tape' and streamlining the building process to increase housing supply and lower prices.",
+        "sourceUrl": "https://politicsny.com/2026/05/07/campaign-insiders-a-qa-with-ny-9-candidate-mike-goldfarb/",
+        "value": 45
+      },
+      {
+        "tag": "jobs_economy",
+        "summary": "His top campaign issue is increased federal investment in NY-9 — for community schools, local healthcare, infrastructure upgrades, and public safety — arguing the district receives materially less federal funding than neighboring areas.",
+        "sourceUrl": "https://politicsny.com/2026/05/07/campaign-insiders-a-qa-with-ny-9-candidate-mike-goldfarb/",
+        "value": 65
+      },
+      {
+        "tag": "public_safety",
+        "summary": "Lists increased investment in public safety among his top three campaign priorities for the district.",
+        "sourceUrl": "https://politicsny.com/2026/05/07/campaign-insiders-a-qa-with-ny-9-candidate-mike-goldfarb/",
+        "value": 60
+      }
+    ],
     "sourceUrl": "https://collive.com/ny-9-challenger-targets-yvette-clarkes-record-ahead-of-primary/",
     "contest": "primary"
   },
@@ -359,7 +619,32 @@
     "party": "Democratic",
     "incumbent": true,
     "oneLiner": "Democratic incumbent and former federal prosecutor seeking a third term; faces former NYC Comptroller Brad Lander in the June 23 Democratic primary.",
-    "positions": [],
+    "positions": [
+      {
+        "tag": "immigration",
+        "summary": "Conducted repeated unannounced congressional oversight visits of ICE detention facilities at 26 Federal Plaza after winning a court case against the Trump administration, and co-introduced the Immigration Court Due Process Protection Act to shield immigrants attending court hearings from ICE arrest.",
+        "sourceUrl": "https://goldman.house.gov/media/press-releases/us-representatives-goldman-and-espaillat-conduct-oversight-ice-facilities-26",
+        "value": 85
+      },
+      {
+        "tag": "rent_housing",
+        "summary": "Works to expand and preserve the Section 8 Housing Choice Voucher program and supports the Community Housing Act, which would invest over $500 billion in affordable housing supply, community land trusts, and emergency rental assistance.",
+        "sourceUrl": "https://goldman.house.gov/issues/housing",
+        "value": 75
+      },
+      {
+        "tag": "healthcare",
+        "summary": "Is a cosponsor of the Medicare for All Act and has opposed Republican legislation cutting roughly $1 trillion from Medicaid and the ACA.",
+        "sourceUrl": "https://goldman.house.gov/media/press-releases/congressman-dan-goldman-cosponsors-medicare-all",
+        "value": 85
+      },
+      {
+        "tag": "public_safety",
+        "summary": "A former federal prosecutor and Vice Chair of the House Gun Violence Prevention Task Force, he supports an assault weapons ban, universal background checks, stronger red flag laws, and a ban on ghost guns.",
+        "sourceUrl": "https://goldman.house.gov/issues/gun-violence-prevention",
+        "value": 50
+      }
+    ],
     "sourceUrl": "https://news.ballotpedia.org/2026/04/07/incumbent-daniel-goldman-d-nickie-kane-d-and-brad-lander-d-are-running-in-the-democratic-primary-for-new-yorks-10th-congressional-district-on-june-23-2026/",
     "contest": "primary"
   },
@@ -371,7 +656,32 @@
     "party": "Democratic",
     "incumbent": false,
     "oneLiner": "Former NYC Comptroller and City Council member challenging Rep. Dan Goldman in the June 23 Democratic primary; led Goldman in a May 2026 Emerson College/PIX11 poll.",
-    "positions": [],
+    "positions": [
+      {
+        "tag": "immigration",
+        "summary": "Was arrested by federal agents in June 2025 while escorting a man out of Manhattan immigration court and asking to see a judicial warrant; he had been regularly accompanying immigrants at court to deter ICE arrests, and charges were dropped.",
+        "sourceUrl": "https://gothamist.com/news/nyc-mayoral-candidate-comptroller-brad-lander-detained-by-ice-campaign-says",
+        "value": 95
+      },
+      {
+        "tag": "climate",
+        "summary": "As NYC Comptroller he divested about $4 billion of city pension funds from fossil fuels, and his congressional platform advocates a Green New Deal to reach net-zero emissions.",
+        "sourceUrl": "https://www.bradlanderforcongress.com/issues",
+        "value": 95
+      },
+      {
+        "tag": "rent_housing",
+        "summary": "His platform pledges to end street homelessness, fix public housing, and expand federal support for affordable home construction; as Comptroller he directed the purchase of failed Signature Bank's loan portfolio to protect nearly 35,000 rent-stabilized apartments.",
+        "sourceUrl": "https://www.bradlanderforcongress.com/issues",
+        "value": 90
+      },
+      {
+        "tag": "transit_fares",
+        "summary": "A longtime supporter of congestion pricing, he cites his work championing it and street-safety projects like the Prospect Park West bike lane as part of his record in the NY-10 race.",
+        "sourceUrl": "https://www.cbsnews.com/newyork/news/brad-lander-interview-ny-10-democratic-primary/",
+        "value": 90
+      }
+    ],
     "sourceUrl": "https://www.cbsnews.com/newyork/news/brad-lander-interview-ny-10-democratic-primary/",
     "contest": "primary"
   },
@@ -395,7 +705,32 @@
     "party": "Republican",
     "incumbent": true,
     "oneLiner": "Republican incumbent representing Staten Island and southern Brooklyn since 2021; seeking re-election in 2026 after the Supreme Court blocked a mid-decade redraw of her district.",
-    "positions": [],
+    "positions": [
+      {
+        "tag": "transit_fares",
+        "summary": "Introduced H.R. 351 and H.R. 352 in January 2025 to amend federal law to prohibit congestion pricing programs in New York City and nationwide, and co-sponsored bills with Rep. Gottheimer to pull federal approval of the MTA's congestion toll.",
+        "sourceUrl": "https://malliotakis.house.gov/media/in-the-news/nyc-congestion-pricing-rep-malliotakis-colleagues-introduce-bills-reverse-tolling",
+        "value": 5
+      },
+      {
+        "tag": "public_safety",
+        "summary": "Introduced the Federal Halo Act to create a buffer zone protecting federal law enforcement officers, sponsored a House resolution condemning calls to 'defund' the police, and introduced the Right to Remain Safe Act to deter local governments from cutting police budgets.",
+        "sourceUrl": "https://malliotakis.house.gov/media/press-releases/malliotakis-backs-blue-legislation-protect-federal-law-enforcement-officers",
+        "value": 90
+      },
+      {
+        "tag": "jobs_economy",
+        "summary": "As the only New York Republican on the Ways and Means Committee, she helped write and voted for the One Big Beautiful Bill tax package, negotiating an increase of the SALT deduction cap to $40,000 and calling the bill 'a big win for hardworking taxpayers.'",
+        "sourceUrl": "https://malliotakis.house.gov/media/press-releases/malliotakis-celebrates-house-passage-one-big-beautiful-bill",
+        "value": 15
+      },
+      {
+        "tag": "immigration",
+        "summary": "Voted for the Laken Riley Act (H.R. 29) in January 2025, which expands mandatory federal detention of undocumented immigrants charged with theft and certain other offenses; the bill passed the House 264-159 with all Republicans in favor.",
+        "sourceUrl": "https://www.govtrack.us/congress/votes/119-2025/h6",
+        "value": 10
+      }
+    ],
     "sourceUrl": "https://www.cnbc.com/2026/03/02/supreme-court-republican-new-york-malliotakis.html",
     "contest": "general"
   },
@@ -407,7 +742,26 @@
     "party": "Democratic",
     "incumbent": false,
     "oneLiner": "Former NYPD officer and political staffer running in the June 23 Democratic primary for the chance to face Rep. Nicole Malliotakis in November.",
-    "positions": [],
+    "positions": [
+      {
+        "tag": "healthcare",
+        "summary": "Says 'healthcare is a right' and supports universal healthcare, arguing it is 'significantly cheaper, like 25% cheaper overall' than the current system once checkups, chronic illness treatment, and prescription coverage are included.",
+        "sourceUrl": "https://www.bkreader.com/policy-government/meet-your-candidate-mike-decillis-for-congressional-district-11-12303307",
+        "value": 90
+      },
+      {
+        "tag": "education_tuition",
+        "summary": "A former special education teacher, he says schools are underfunded and pledges to reverse cuts to the Department of Education, increase school funding, and raise teacher pay.",
+        "sourceUrl": "https://www.bkreader.com/policy-government/meet-your-candidate-mike-decillis-for-congressional-district-11-12303307",
+        "value": 80
+      },
+      {
+        "tag": "jobs_economy",
+        "summary": "A third-generation union member, he criticizes inflation and Trump-era tariffs for 'eating into family budgets' and frames his campaign around making healthcare, groceries, education, and housing affordable for working families.",
+        "sourceUrl": "https://www.brooklynpaper.com/michael-decillis-democratic-primary-ny-11/",
+        "value": 70
+      }
+    ],
     "sourceUrl": "https://www.brooklynpaper.com/michael-decillis-democratic-primary-ny-11/",
     "contest": "primary"
   },
@@ -419,7 +773,20 @@
     "party": "Democratic",
     "incumbent": false,
     "oneLiner": "Longtime teacher who declared his candidacy in 2025; running in the June 23 Democratic primary in NY-11 for the chance to face Rep. Nicole Malliotakis in November.",
-    "positions": [],
+    "positions": [
+      {
+        "tag": "public_safety",
+        "summary": "His platform supports 'the vital work of the NYPD,' pledging to ensure officers are fairly compensated, well-trained, and fully supported, and to invest in police recruitment and retention so every neighborhood has protection.",
+        "sourceUrl": "https://www.troymcghie.com/",
+        "value": 70
+      },
+      {
+        "tag": "education_tuition",
+        "summary": "A teacher of 25 years, his platform calls for fully funded classrooms, teacher support, and policies that put student learning and safety first.",
+        "sourceUrl": "https://www.troymcghie.com/",
+        "value": 75
+      }
+    ],
     "sourceUrl": "https://www.brooklynpaper.com/michael-decillis-democratic-primary-ny-11/",
     "contest": "primary"
   },
@@ -431,7 +798,26 @@
     "party": "Democratic",
     "incumbent": false,
     "oneLiner": "State Assembly member from Manhattan's West Side, endorsed by retiring Rep. Jerrold Nadler; narrowly led recent polls in the crowded June 23 Democratic primary for this open seat.",
-    "positions": [],
+    "positions": [
+      {
+        "tag": "rent_housing",
+        "summary": "Calls for a major infusion of federal Section 9 funds for NYCHA, expansion of Section 8 housing vouchers, and repeal of the Faircloth Amendment cap on public housing; cites his state work on a $4.5 billion affordable housing capital plan and returning 1,800 apartments to rent stabilization.",
+        "sourceUrl": "https://nyeditorialboard.substack.com/p/micah-lasher-on-housing-immigration",
+        "value": 85
+      },
+      {
+        "tag": "healthcare",
+        "summary": "His platform says health care should be a right, not a privilege, and supports Medicare for All or a similar universal plan guaranteeing comprehensive coverage to everyone.",
+        "sourceUrl": "https://micahlasher.com/platform-and-policies/",
+        "value": 90
+      },
+      {
+        "tag": "jobs_economy",
+        "summary": "Pledges to raise and index the federal minimum wage (stuck at $7.25 for over 15 years), expand federal childcare investment, and protect the right to organize; in Albany he worked to index New York's minimum wage to inflation.",
+        "sourceUrl": "https://micahlasher.com/platform-and-policies/",
+        "value": 85
+      }
+    ],
     "sourceUrl": "https://emersoncollegepolling.com/new-york-city-2026-congressional-polling-ny-07-ny-10-ny-12/",
     "contest": "primary"
   },
@@ -443,7 +829,20 @@
     "party": "Democratic",
     "incumbent": false,
     "oneLiner": "State Assembly member from Manhattan's East Side and former software engineer known for AI legislation; polling second in the crowded June 23 Democratic primary for the open NY-12 seat.",
-    "positions": [],
+    "positions": [
+      {
+        "tag": "climate",
+        "summary": "Opposes proposed rollbacks of New York's Climate Act and, in his national AI agenda, says AI companies must 'bring their own green energy' — supporting permitting relief only for data centers that use renewable power and pay for grid upgrades.",
+        "sourceUrl": "https://www.nbcnews.com/politics/2026-election/candidate-center-brewing-midterm-ai-war-unveils-agenda-rcna257735",
+        "value": 80
+      },
+      {
+        "tag": "transit_fares",
+        "summary": "In a Streetsblog candidate questionnaire, he backed federal funding for major transit projects including the Gateway Tunnel, Penn Station redesign, and Second Avenue Subway, and criticized federal vehicle standards that allow taller, heavier vehicles more lethal to pedestrians.",
+        "sourceUrl": "https://nyc.streetsblog.org/2026/06/09/jerry-nadler-ny-12-micah-lasher-laura-dunn-jack-schlossberg-alex-bores-streets-transportation-mta-congress",
+        "value": 85
+      }
+    ],
     "sourceUrl": "https://news.ballotpedia.org/2026/04/03/alex-bores-d-george-conway-d-micah-lasher-d-jack-schlossberg-d-and-six-other-candidates-are-running-in-the-democratic-primary-for-new-yorks-12th-congressional-district-on-june-23-2026/",
     "contest": "primary"
   },
@@ -455,7 +854,20 @@
     "party": "Democratic",
     "incumbent": false,
     "oneLiner": "Writer and social media commentator, and grandson of President John F. Kennedy; running in the crowded June 23 Democratic primary for the open Manhattan seat.",
-    "positions": [],
+    "positions": [
+      {
+        "tag": "rent_housing",
+        "summary": "Released 'Jack's Housing Fairness Plan' with three pillars: a standard federal income-tax deduction for renters, a full repeal of the SALT cap for property owners, and fully funding NYCHA Section 9 plus a 'Fix it Now' caucus to clear public housing repair backlogs.",
+        "sourceUrl": "https://www.westsiderag.com/2026/04/28/jack-schlossberg-shares-his-thoughts-on-the-uws-and-his-congressional-campaign",
+        "value": 75
+      },
+      {
+        "tag": "jobs_economy",
+        "summary": "Proposes converting the annual Child Tax Credit into expanded monthly payments to families as a centerpiece of his affordability agenda.",
+        "sourceUrl": "https://abcnews.com/Politics/jack-schlossberg-democratic-candidate-new-york-house-seat/story?id=132817953",
+        "value": 75
+      }
+    ],
     "sourceUrl": "https://time.com/article/2026/06/04/the-chaotic-race-to-represent-manhattan/",
     "contest": "primary"
   },
@@ -467,7 +879,14 @@
     "party": "Democratic",
     "incumbent": false,
     "oneLiner": "Attorney and political commentator running in the crowded June 23 Democratic primary for the open NY-12 seat vacated by retiring Rep. Jerrold Nadler.",
-    "positions": [],
+    "positions": [
+      {
+        "tag": "healthcare",
+        "summary": "Says that if elected he would fight to protect the Affordable Care Act from Republican rollbacks; his campaign centers on defending democracy and 'lowering costs' rather than restructuring the health system.",
+        "sourceUrl": "https://www.nbcnews.com/politics/2026-election/republican-turned-democrat-george-conway-running-congress-new-york-fig-rcna252088",
+        "value": 55
+      }
+    ],
     "sourceUrl": "https://news.ballotpedia.org/2026/04/03/alex-bores-d-george-conway-d-micah-lasher-d-jack-schlossberg-d-and-six-other-candidates-are-running-in-the-democratic-primary-for-new-yorks-12th-congressional-district-on-june-23-2026/",
     "contest": "primary"
   },
@@ -479,7 +898,26 @@
     "party": "Democratic",
     "incumbent": true,
     "oneLiner": "Incumbent U.S. Representative since 2017, seeking re-election in an eight-way June 23 Democratic primary, his first primary challenge since 2022.",
-    "positions": [],
+    "positions": [
+      {
+        "tag": "immigration",
+        "summary": "Supports New York's status as a sanctuary jurisdiction and the Protect Sanctuary Cities Act, which would nullify executive restrictions on sanctuary cities; opposes forcing local cooperation with federal immigration enforcement.",
+        "sourceUrl": "https://espaillat.house.gov/issues/immigration",
+        "value": 95
+      },
+      {
+        "tag": "rent_housing",
+        "summary": "A former tenant organizer, he chairs the Congressional Hispanic Caucus housing task force and pushes for protecting renters' rights and higher capital funding for public housing, including pressing HUD to withdraw a rule cutting aid to mixed-immigration-status families.",
+        "sourceUrl": "https://espaillat.house.gov/issues",
+        "value": 85
+      },
+      {
+        "tag": "healthcare",
+        "summary": "States that healthcare is a right and that individuals need not just access to health insurance but affordable access, per his official House issues page.",
+        "sourceUrl": "https://espaillat.house.gov/issues",
+        "value": 75
+      }
+    ],
     "sourceUrl": "https://ballotpedia.org/New_York's_13th_Congressional_District_election,_2026",
     "contest": "primary"
   },
@@ -491,7 +929,32 @@
     "party": "Democratic",
     "incumbent": false,
     "oneLiner": "Organizer, CUNY doctoral student, and DSA-backed candidate challenging Espaillat in the June 23 Democratic primary; endorsed by Mayor Zohran Mamdani.",
-    "positions": [],
+    "positions": [
+      {
+        "tag": "immigration",
+        "summary": "Says she is running to protect her community from ICE 'by abolishing it,' and has attacked Espaillat in debates for being soft on resisting the federal deportation and detention system.",
+        "sourceUrl": "https://ny1.com/nyc/all-boroughs/inside-city-hall/2026/05/29/why-darializa-avila-chevalier-wants-to-challenge-rep--espaillat",
+        "value": 100
+      },
+      {
+        "tag": "rent_housing",
+        "summary": "A DSA- and Justice Democrats-backed challenger running on 'housing for all,' she criticizes Espaillat for taking real estate developer money and makes affordable housing for all a top platform plank.",
+        "sourceUrl": "https://jacobin.com/2026/01/avila-chevalier-harlem-bronx-socialism",
+        "value": 95
+      },
+      {
+        "tag": "healthcare",
+        "summary": "Her platform calls for securing universal healthcare as part of a democratic socialist agenda to make New York affordable.",
+        "sourceUrl": "https://jacobin.com/2026/01/avila-chevalier-harlem-bronx-socialism",
+        "value": 95
+      },
+      {
+        "tag": "jobs_economy",
+        "summary": "A UAW member, she campaigns on expanding union protections and redirecting federal spending from war toward investments in children and working families ('babies, not bombs').",
+        "sourceUrl": "https://jacobin.com/2026/01/avila-chevalier-harlem-bronx-socialism",
+        "value": 90
+      }
+    ],
     "sourceUrl": "https://www.cityandstateny.com/politics/2026/04/dsa-targeting-rep-adriano-espaillat-ny-13/413110/",
     "contest": "primary"
   },
@@ -515,7 +978,32 @@
     "party": "Democratic",
     "incumbent": true,
     "oneLiner": "Incumbent U.S. Representative since 2019, running for re-election to the House in the June 23 Democratic primary against two moderate challengers.",
-    "positions": [],
+    "positions": [
+      {
+        "tag": "healthcare",
+        "summary": "Ocasio-Cortez is one of Congress's leading advocates for Medicare for All, a single-payer system covering all healthcare, and has publicly defended how the program would be financed.",
+        "sourceUrl": "https://ocasio-cortez.house.gov/media/in-the-news/ocasio-cortez-explains-how-we-pay-medicare-all",
+        "value": 100
+      },
+      {
+        "tag": "climate",
+        "summary": "She authored the Green New Deal resolution and continues to push aggressive decarbonization paired with green jobs programs as a signature legislative priority.",
+        "sourceUrl": "https://ocasio-cortez.house.gov/legislation/climate",
+        "value": 100
+      },
+      {
+        "tag": "rent_housing",
+        "summary": "She reintroduced the Green New Deal for Public Housing Act to invest up to $234 billion in retrofitting public housing and repeal the Faircloth Amendment cap on new public housing units; her Place to Prosper Act would limit rent increases and ban source-of-income discrimination.",
+        "sourceUrl": "https://ocasio-cortez.house.gov/media/press-releases/ocasio-cortez-sanders-ramirez-reintroduce-green-new-deal-public-housing-act",
+        "value": 100
+      },
+      {
+        "tag": "immigration",
+        "summary": "Ocasio-Cortez has called ICE a 'rogue agency that should not exist,' denounced the Trump administration's deportation operations on the House floor (noting most detainees have no criminal record), and runs know-your-rights outreach for immigrants in her district.",
+        "sourceUrl": "https://ocasio-cortez.house.gov/media/press-releases/ocasio-cortez-denounces-trumps-immigration-overreach-house-floor",
+        "value": 95
+      }
+    ],
     "sourceUrl": "https://ballotpedia.org/New_York's_14th_Congressional_District_election,_2026",
     "contest": "primary"
   },
@@ -527,7 +1015,26 @@
     "party": "Democratic",
     "incumbent": false,
     "oneLiner": "Wall Street investor making his second primary challenge to Ocasio-Cortez, running as a more moderate alternative in the June 23 Democratic primary.",
-    "positions": [],
+    "positions": [
+      {
+        "tag": "rent_housing",
+        "summary": "Dolan proposes giving NYCHA residents the option to buy their apartments, including $75,000 in home equity, emphasizing homeownership over expanded public-housing subsidy.",
+        "sourceUrl": "https://www.bxtimes.com/2026-primaries-marty-dolan-felipe-garcia-aoc-cd-14/",
+        "value": 35
+      },
+      {
+        "tag": "public_safety",
+        "summary": "Dolan advocates increasing police presence and resources to improve public safety and opposes New York's bail reform.",
+        "sourceUrl": "https://ballotpedia.org/Marty_Dolan",
+        "value": 75
+      },
+      {
+        "tag": "jobs_economy",
+        "summary": "Running as a self-described moderate and former Wall Street insurance executive, Dolan proposes reimbursing young workers up to $25,000 of taxes paid when they turn 26 to keep them in the district, and argues the Democratic Party needs a course correction away from the left.",
+        "sourceUrl": "https://www.bxtimes.com/2026-primaries-marty-dolan-felipe-garcia-aoc-cd-14/",
+        "value": 40
+      }
+    ],
     "sourceUrl": "https://www.bxtimes.com/2026-primaries-marty-dolan-felipe-garcia-aoc-cd-14/",
     "contest": "primary"
   },
@@ -539,7 +1046,26 @@
     "party": "Democratic",
     "incumbent": false,
     "oneLiner": "Democrat challenging Ocasio-Cortez in the June 23 primary, positioning himself as a more moderate alternative to the incumbent.",
-    "positions": [],
+    "positions": [
+      {
+        "tag": "education_tuition",
+        "summary": "Garcia's top priority is education reform centered on career and technical training: he wants to add professional certification paths (e.g., phlebotomy, security, food handling) to the high school curriculum with guaranteed jobs upon graduation.",
+        "sourceUrl": "https://www.bxtimes.com/hunts-point-native-felipe-garcia-challenging-aoc-in-june-primary/",
+        "value": 55
+      },
+      {
+        "tag": "public_safety",
+        "summary": "Garcia's platform calls safe neighborhoods 'non-negotiable,' emphasizing restoring order and supporting law enforcement alongside violence-prevention investments for young people.",
+        "sourceUrl": "https://www.garcia2026.com/",
+        "value": 70
+      },
+      {
+        "tag": "jobs_economy",
+        "summary": "Garcia's platform focuses on workforce development, trade programs, and pipelines into energy, infrastructure, and healthcare careers, plus lowering energy costs and stabilizing housing expenses; he frames himself as a moderate alternative to AOC's 'socialist' politics.",
+        "sourceUrl": "https://www.garcia2026.com/",
+        "value": 55
+      }
+    ],
     "sourceUrl": "https://www.bxtimes.com/2026-primaries-marty-dolan-felipe-garcia-aoc-cd-14/",
     "contest": "primary"
   },
@@ -551,7 +1077,20 @@
     "party": "Republican",
     "incumbent": false,
     "oneLiner": "Republican nominee for this seat in 2022 and 2024, running again in a four-way June 23 Republican primary.",
-    "positions": [],
+    "positions": [
+      {
+        "tag": "public_safety",
+        "summary": "Forte's platform pledges to fully fund law enforcement and to push to end New York's bail reform policies, while supporting Sen. Tim Scott's police reform bill for officer oversight.",
+        "sourceUrl": "https://tinaforteforcongress.com/",
+        "value": 90
+      },
+      {
+        "tag": "immigration",
+        "summary": "Forte's platform calls for fully funding CBP and ICE, completing a southern border barrier, restoring the 'Remain in Mexico' policy, and denying state and federal funds to sanctuary cities not complying with immigration law.",
+        "sourceUrl": "https://tinaforteforcongress.com/",
+        "value": 5
+      }
+    ],
     "sourceUrl": "https://ballotpedia.org/New_York's_14th_Congressional_District_election,_2026",
     "contest": "primary"
   },
@@ -563,7 +1102,32 @@
     "party": "Democratic",
     "incumbent": true,
     "oneLiner": "Incumbent U.S. Representative since 2021, seeking re-election in a six-way June 23 Democratic primary; leads the field in fundraising and endorsements.",
-    "positions": [],
+    "positions": [
+      {
+        "tag": "rent_housing",
+        "summary": "Torres's housing platform calls for expanding Section 8 rental assistance, capping rent at 30% of a renter's income, banning landlord discrimination against voucher holders, and addressing NYCHA's roughly $40 billion capital repair backlog.",
+        "sourceUrl": "https://torres.nyc/issues/housing",
+        "value": 85
+      },
+      {
+        "tag": "public_safety",
+        "summary": "Torres has declared the 'defund the police' movement 'dead in New York City' and 'profoundly tone-deaf,' saying he favors 'precision policing combined with reinvestments in underserved communities.'",
+        "sourceUrl": "https://www.foxnews.com/media/dem-rep-ritchie-torres-decries-defund-police-deaf",
+        "value": 55
+      },
+      {
+        "tag": "healthcare",
+        "summary": "In a candidate questionnaire Torres said he supports Medicare for All and increased funding for safety-net hospitals like NYC Health + Hospitals that serve Medicaid beneficiaries, undocumented people, and the uninsured.",
+        "sourceUrl": "https://jimowles.org/news/candidate-answers-to-joldc-ritchie-torres-for-us-congress-ny-15",
+        "value": 80
+      },
+      {
+        "tag": "immigration",
+        "summary": "Torres demanded a DHS Inspector General investigation into violent ICE incidents in the Bronx, including the detention of a U.S. citizen, and introduced a bill requiring ICE and CBP officers to wear scannable QR-code identification on their uniforms.",
+        "sourceUrl": "https://ritchietorres.house.gov/posts/rep-ritchie-torres-demands-federal-investigation-into-violent-ice-incidents-in-the-bronx",
+        "value": 80
+      }
+    ],
     "sourceUrl": "https://news.ballotpedia.org/2026/04/20/incumbent-ritchie-torres-d-michael-blake-d-and-four-other-candidates-are-running-in-the-democratic-primary-for-new-yorks-15th-congressional-district-on-june-23-2026/",
     "contest": "primary"
   },
@@ -575,20 +1139,27 @@
     "party": "Democratic",
     "incumbent": false,
     "oneLiner": "Former state Assemblymember (2015-2021) and nonprofit CEO challenging Torres in the June 23 Democratic primary, centering criticism of Torres' foreign policy stances.",
-    "positions": [],
+    "positions": [
+      {
+        "tag": "rent_housing",
+        "summary": "Blake's platform supports a rent freeze for the Bronx's roughly 210,000 rent-stabilized households and pairing federal tools like LIHTC, the Housing Trust Fund, and project-based vouchers with city and state financing to build deeply affordable housing.",
+        "sourceUrl": "https://www.michaelblakeforcongress.com/",
+        "value": 90
+      },
+      {
+        "tag": "healthcare",
+        "summary": "Blake pledges to fight any cuts to Medicare, Social Security, or SNAP, noting more than 270,000 NY-15 residents rely on SNAP, and supports Medicare for All.",
+        "sourceUrl": "https://www.michaelblakeforcongress.com/",
+        "value": 85
+      },
+      {
+        "tag": "jobs_economy",
+        "summary": "Blake, endorsed by UNITE HERE Local 100 over incumbent Torres, has vowed to keep supporting union power in Congress and criticizes Torres for refusing to support raising taxes on the rich.",
+        "sourceUrl": "https://www.bxtimes.com/unite-here-local-100-endorses-michael-blake-for-ny-15/",
+        "value": 85
+      }
+    ],
     "sourceUrl": "https://news.ballotpedia.org/2026/04/20/incumbent-ritchie-torres-d-michael-blake-d-and-four-other-candidates-are-running-in-the-democratic-primary-for-new-yorks-15th-congressional-district-on-june-23-2026/",
-    "contest": "primary"
-  },
-  {
-    "id": "ush15-septimo",
-    "officeId": "us_representative",
-    "districtId": "ush-15",
-    "name": "Amanda Septimo",
-    "party": "Democratic",
-    "incumbent": false,
-    "oneLiner": "State Assemblymember for the South Bronx's 84th district since 2021, running against Torres in the June 23 Democratic primary.",
-    "positions": [],
-    "sourceUrl": "https://www.norwoodnews.org/am-amanda-septimo-is-latest-candidate-to-challenge-congressman-ritchie-torres-in-ny-15/",
     "contest": "primary"
   },
   {
@@ -596,11 +1167,36 @@
     "officeId": "us_representative",
     "districtId": "ush-15",
     "name": "Gonzalo Duran",
+    "party": "Conservative",
+    "incumbent": false,
+    "oneLiner": "Marine Corps veteran and Conservative Party nominee; his primary was canceled, so he advances directly to the November ballot.",
+    "positions": [
+      {
+        "tag": "jobs_economy",
+        "summary": "Duran entered the NY-15 race vowing to 'fight socialism,' with a campaign focused on personal responsibility, fiscal responsibility, and restoring economic opportunity and the middle class in the Bronx.",
+        "sourceUrl": "https://politicsny.com/2026/02/10/conservative-partys-gonzalo-duran-enters-ny-15-race-vows-to-challenge-socialism/",
+        "value": 25
+      },
+      {
+        "tag": "immigration",
+        "summary": "Duran was a vocal critic of the opening of a migrant shelter in the South Bronx in 2025, and his campaigns have supported legal immigration and voter identification requirements.",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Gonzalo_Duran",
+        "value": 20
+      }
+    ],
+    "sourceUrl": "https://ballotpedia.org/New_York's_15th_Congressional_District_election,_2026",
+    "contest": "general"
+  },
+  {
+    "id": "ush15-sapaskis",
+    "officeId": "us_representative",
+    "districtId": "ush-15",
+    "name": "Stylo Sapaskis",
     "party": "Republican",
     "incumbent": false,
-    "oneLiner": "Marine Corps veteran and the district's 2024 Republican nominee, advancing to the November general election without a contested primary.",
+    "oneLiner": "Republican nominee; the GOP primary was canceled, so he advances directly to the November ballot in this Bronx district.",
     "positions": [],
-    "sourceUrl": "https://ballotpedia.org/New_York's_15th_Congressional_District_election,_2026",
+    "sourceUrl": "https://ballotpedia.org/New_York%27s_15th_Congressional_District_election,_2026",
     "contest": "general"
   },
   {
@@ -611,7 +1207,32 @@
     "party": "Democratic",
     "incumbent": true,
     "oneLiner": "Incumbent U.S. Representative since 2025 and former Westchester County Executive, running uncontested in the June 23 Democratic primary; Jamaal Bowman is not seeking a rematch.",
-    "positions": [],
+    "positions": [
+      {
+        "tag": "rent_housing",
+        "summary": "Latimer's campaign priorities include incentivizing construction of affordable housing units, protecting renters' rights, and expanding homeownership access for low- and middle-income families.",
+        "sourceUrl": "https://latimerforny.com/priorities/",
+        "value": 70
+      },
+      {
+        "tag": "healthcare",
+        "summary": "Latimer cosponsored the New York Health Act (state single-payer) as a state legislator and pledges to oppose any attempts to privatize Medicare or Social Security.",
+        "sourceUrl": "https://latimerforny.com/priorities/",
+        "value": 75
+      },
+      {
+        "tag": "climate",
+        "summary": "Latimer led efforts for New York to join the Regional Greenhouse Gas Initiative, voted to raise energy efficiency standards, and prioritizes resilient stormwater and sewer infrastructure against climate-driven flooding.",
+        "sourceUrl": "https://latimerforny.com/priorities/",
+        "value": 80
+      },
+      {
+        "tag": "jobs_economy",
+        "summary": "Latimer denounced the 2025 Republican budget as a 'cruel budget' that 'will hurt people who can least afford it,' opposing cuts to safety-net programs that support working families.",
+        "sourceUrl": "https://latimer.house.gov/media/press-releases/rep-latimer-republican-budget-cruel-budget-will-hurt-people-who-can-least",
+        "value": 70
+      }
+    ],
     "sourceUrl": "https://ballotpedia.org/New_York's_16th_Congressional_District_election,_2026",
     "contest": "general"
   }
