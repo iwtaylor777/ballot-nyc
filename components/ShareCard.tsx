@@ -82,7 +82,7 @@ export const ShareCard = forwardRef<HTMLDivElement, Props>(function ShareCard(
           </div>
         </div>
         <div className="mt-[40px] text-[36px] font-bold leading-tight">
-          Are you registered? Pull up your ballot at ballot.nyc.
+          Are you registered? Pull up your ballot at ballotnyc.org.
         </div>
       </div>
     </div>

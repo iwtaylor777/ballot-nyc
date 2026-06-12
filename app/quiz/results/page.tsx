@@ -43,19 +43,42 @@ export default function Results() {
     );
   }
 
-  async function download() {
-    if (!cardRef.current) return;
-    const { toPng } = await import("html-to-image");
-    const dataUrl = await toPng(cardRef.current, {
-      cacheBust: true,
-      pixelRatio: 1,
-      width: 1080,
-      height: 1920,
-    });
+  async function renderCard(): Promise<Blob | null> {
+    if (!cardRef.current) return null;
+    const { toBlob } = await import("html-to-image");
+    const opts = { cacheBust: true, pixelRatio: 1, width: 1080, height: 1920 };
+    // Safari needs a warm-up pass or web fonts render incorrectly in the capture
+    await toBlob(cardRef.current, opts);
+    return toBlob(cardRef.current, opts);
+  }
+
+  function downloadBlob(blob: Blob) {
+    const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
-    a.href = dataUrl;
+    a.href = url;
     a.download = "my-ballot-nyc.png";
     a.click();
+    URL.revokeObjectURL(url);
+  }
+
+  async function share() {
+    const blob = await renderCard();
+    if (!blob) return;
+    const file = new File([blob], "my-ballot-nyc.png", { type: "image/png" });
+    if (navigator.canShare?.({ files: [file] })) {
+      try {
+        await navigator.share({ files: [file] });
+        return;
+      } catch {
+        return; // user closed the share sheet
+      }
+    }
+    downloadBlob(blob);
+  }
+
+  async function download() {
+    const blob = await renderCard();
+    if (blob) downloadBlob(blob);
   }
 
   return (
@@ -145,8 +168,8 @@ export default function Results() {
           BRING A FRIEND.
         </h2>
         <p className="mt-3 text-sm text-ink/90">
-          Story-format card with your top issues + the date. Saves to your
-          camera roll.
+          Story-format card with your top issues + the date. One tap to your
+          story, group chat, or camera roll.
         </p>
 
         <div
@@ -166,10 +189,17 @@ export default function Results() {
         </div>
 
         <button
-          onClick={download}
+          onClick={share}
           className="mt-5 inline-flex w-full items-center justify-center bg-ember px-6 py-5 text-paper"
         >
-          <span className="poster text-3xl">DOWNLOAD CARD ↓</span>
+          <span className="poster text-3xl">SHARE CARD ↑</span>
+        </button>
+
+        <button
+          onClick={download}
+          className="mt-3 inline-flex w-full items-center justify-center border-[3px] border-ink bg-paper px-6 py-4 text-ink"
+        >
+          <span className="poster text-xl">SAVE TO CAMERA ROLL ↓</span>
         </button>
 
         <Link
