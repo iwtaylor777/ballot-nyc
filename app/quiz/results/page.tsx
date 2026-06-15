@@ -6,19 +6,27 @@ import { Frame } from "@/components/Frame";
 import { ShareCard } from "@/components/ShareCard";
 import { buildBallot, quiz } from "@/lib/data";
 import { rankCandidates, topIssues } from "@/lib/scoreQuiz";
-import { useQuizAnswers, useSelectedDistricts } from "@/lib/storage";
+import {
+  usePriorities,
+  useQuizAnswers,
+  useSelectedDistricts,
+} from "@/lib/storage";
 import { ISSUE_LABELS } from "@/lib/types";
 
 export default function Results() {
   const [answers, , answersHydrated] = useQuizAnswers();
   const [selected, , selectedHydrated] = useSelectedDistricts();
+  const [priorities, , prioritiesHydrated] = usePriorities();
   const cardRef = useRef<HTMLDivElement>(null);
 
   const races = useMemo(() => buildBallot(selected), [selected]);
-  const top = useMemo(() => topIssues(answers, quiz), [answers]);
+  const top = useMemo(
+    () => topIssues(answers, quiz, priorities),
+    [answers, priorities],
+  );
   const answered = Object.keys(answers).length;
 
-  if (!answersHydrated || !selectedHydrated) {
+  if (!answersHydrated || !selectedHydrated || !prioritiesHydrated) {
     return (
       <Frame>
         <p className="stamp text-muted">LOADING…</p>
@@ -99,7 +107,15 @@ export default function Results() {
       <hr className="rule-thick my-8" />
 
       <section>
-        <p className="stamp text-muted">YOUR TOP ISSUES</p>
+        <div className="flex items-baseline justify-between">
+          <p className="stamp text-muted">YOUR TOP ISSUES</p>
+          <Link
+            href="/quiz/priorities"
+            className="stamp text-muted underline"
+          >
+            EDIT
+          </Link>
+        </div>
         <div className="mt-3 flex flex-wrap gap-2">
           {top.map((tag) => (
             <span
@@ -110,15 +126,23 @@ export default function Results() {
             </span>
           ))}
         </div>
+        {priorities.length === 0 && top.length > 0 && (
+          <p className="mt-3 text-xs text-muted">
+            Auto-picked from your strongest answers. Tap EDIT to set your own.
+          </p>
+        )}
       </section>
 
       <hr className="rule-thin my-8" />
 
       <section className="space-y-10">
         {races.map((race) => {
-          const ranked = rankCandidates(race.candidates, answers, quiz).filter(
-            (c) => c.overlap > 0,
-          );
+          const ranked = rankCandidates(
+            race.candidates,
+            answers,
+            quiz,
+            priorities,
+          ).filter((c) => c.overlap > 0);
           if (ranked.length === 0) return null;
           return (
             <div key={`${race.office.id}-${race.district.id}`}>
@@ -148,7 +172,10 @@ export default function Results() {
                       <div className="poster text-4xl text-ember">
                         {c.match}%
                       </div>
-                      <div className="stamp text-muted">MATCH</div>
+                      <div className="stamp text-muted">
+                        MATCH · {c.overlap} ISSUE
+                        {c.overlap === 1 ? "" : "S"}
+                      </div>
                     </div>
                   </Link>
                 ))}

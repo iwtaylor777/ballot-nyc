@@ -27,7 +27,7 @@ export default function QuizPage() {
   function choose(value: number) {
     setAnswers((prev) => ({ ...prev, [q.id]: value }));
     if (isLast) {
-      router.push("/quiz/results");
+      router.push("/quiz/priorities");
     } else {
       setIdx(idx + 1);
     }
@@ -46,7 +46,7 @@ export default function QuizPage() {
           QUESTION {idx + 1} / {quiz.length}
         </p>
         <button
-          onClick={() => router.push("/quiz/results")}
+          onClick={() => router.push("/quiz/priorities")}
           className="stamp text-muted underline"
         >
           SKIP TO RESULTS

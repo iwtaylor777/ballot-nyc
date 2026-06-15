@@ -1,12 +1,18 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import type { QuizAnswers, SelectedDistricts, VotingPlan } from "./types";
+import type {
+  IssueTag,
+  QuizAnswers,
+  SelectedDistricts,
+  VotingPlan,
+} from "./types";
 
 const KEYS = {
   districts: "ballot-nyc:districts",
   quiz: "ballot-nyc:quiz",
   plan: "ballot-nyc:plan",
+  priorities: "ballot-nyc:priorities",
 } as const;
 
 function read<T>(key: string, fallback: T): T {
@@ -61,6 +67,10 @@ export function useSelectedDistricts() {
 
 export function useQuizAnswers() {
   return usePersistent<QuizAnswers>(KEYS.quiz, {});
+}
+
+export function usePriorities() {
+  return usePersistent<IssueTag[]>(KEYS.priorities, []);
 }
 
 export function useVotingPlan() {
