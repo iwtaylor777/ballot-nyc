@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { Frame } from "@/components/Frame";
 import { Countdown } from "@/components/Countdown";
-import { keyDates } from "@/lib/data";
+import { nextElection } from "@/lib/data";
 
 export default function Home() {
-  const electionDay = keyDates.find((d) => d.id === "election-day")!.date;
+  const next = nextElection();
+  const isPrimary = next.id === "primary-day";
 
   return (
     <Frame>
@@ -25,10 +26,17 @@ export default function Home() {
       <hr className="rule-thick my-10" />
 
       <section>
-        <p className="stamp text-muted">ELECTION DAY COUNTDOWN</p>
+        <p className="stamp text-muted">
+          {isPrimary ? "PRIMARY DAY · JUNE 23" : "ELECTION DAY · NOV 3"}
+        </p>
         <div className="mt-3">
-          <Countdown date={electionDay} />
+          <Countdown date={next.date} />
         </div>
+        {isPrimary && (
+          <p className="mt-3 text-xs text-muted">
+            Party primaries are next. The general election is Nov 3.
+          </p>
+        )}
       </section>
 
       <hr className="rule-thin my-10" />

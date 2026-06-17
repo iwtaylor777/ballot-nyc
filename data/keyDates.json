@@ -1,5 +1,12 @@
 [
   {
+    "id": "primary-day",
+    "label": "PRIMARY DAY",
+    "date": "2026-06-23",
+    "note": "Party primaries for federal, state, and local races. Polls open 6 AM – 9 PM. You must be registered with a party to vote in its primary.",
+    "actionUrl": "https://findmypollsite.vote.nyc/"
+  },
+  {
     "id": "register",
     "label": "Voter registration deadline",
     "date": "2026-10-24",

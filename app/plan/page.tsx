@@ -1,11 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
 import { motion } from "framer-motion";
 import { Frame } from "@/components/Frame";
 import { Countdown } from "@/components/Countdown";
-import { keyDates } from "@/lib/data";
+import { nextElection } from "@/lib/data";
 import { useVotingPlan } from "@/lib/storage";
 import type { VotingPlan } from "@/lib/types";
 
@@ -70,9 +69,8 @@ const FAQ: Array<{ q: string; a: string }> = [
 
 export default function PlanPage() {
   const [plan, setPlan, hydrated] = useVotingPlan();
-  const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState<"idle" | "ok" | "error">("idle");
-  const electionDay = keyDates.find((d) => d.id === "election-day")!.date;
+  const next = nextElection();
+  const isPrimary = next.id === "primary-day";
 
   if (!hydrated) {
     return (
@@ -85,25 +83,6 @@ export default function PlanPage() {
   const done = STEPS.filter((s) => plan[s.key]).length;
   const complete = done === STEPS.length;
 
-  async function submitEmail(e: React.FormEvent) {
-    e.preventDefault();
-    const endpoint = process.env.NEXT_PUBLIC_SIGNUP_ENDPOINT;
-    if (!endpoint) {
-      setSubmitted("error");
-      return;
-    }
-    try {
-      const res = await fetch(endpoint, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, source: "ballot-nyc-plan" }),
-      });
-      setSubmitted(res.ok ? "ok" : "error");
-    } catch {
-      setSubmitted("error");
-    }
-  }
-
   return (
     <Frame back={{ href: "/ballot", label: "BACK TO BALLOT" }}>
       <section className="pt-2">
@@ -114,8 +93,10 @@ export default function PlanPage() {
           THAT&apos;S IT.
         </h1>
         <div className="mt-5 flex items-center gap-3 border-l-4 border-ember pl-4">
-          <Countdown date={electionDay} compact />
-          <span className="stamp text-muted">UNTIL POLLS CLOSE</span>
+          <Countdown date={next.date} compact />
+          <span className="stamp text-muted">
+            UNTIL {isPrimary ? "PRIMARY" : "POLLS CLOSE"}
+          </span>
         </div>
         <div className="mt-5 h-1 w-full bg-ink/15">
           <motion.div
@@ -224,45 +205,6 @@ export default function PlanPage() {
             </div>
           ))}
         </dl>
-      </section>
-
-      <hr className="rule-thin my-10" />
-
-      <section>
-        <p className="stamp text-muted">REMINDERS</p>
-        <h2 className="poster mt-2 text-3xl">
-          ONE EMAIL.
-          <br />
-          ON ELECTION WEEK.
-        </h2>
-        <p className="mt-2 text-sm text-ink/85">
-          Plain reminder of your races and your plan. No spam, no asks, no
-          tracking pixels.
-        </p>
-        <form onSubmit={submitEmail} className="mt-4 flex flex-col gap-3">
-          <input
-            type="email"
-            required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="you@example.com"
-            className="border-[3px] border-ink bg-paper px-4 py-4 font-display text-2xl tracking-tight focus:bg-ember focus:text-paper focus:placeholder-paper/60"
-          />
-          <button
-            type="submit"
-            className="bg-ink px-6 py-5 text-paper"
-            disabled={submitted === "ok"}
-          >
-            <span className="poster text-2xl">
-              {submitted === "ok" ? "✓ ON THE LIST" : "REMIND ME →"}
-            </span>
-          </button>
-          {submitted === "error" && (
-            <p className="stamp text-ember">
-              SIGNUP ENDPOINT NOT CONFIGURED — see NEXT_PUBLIC_SIGNUP_ENDPOINT.
-            </p>
-          )}
-        </form>
       </section>
 
       <hr className="rule-thin my-10" />

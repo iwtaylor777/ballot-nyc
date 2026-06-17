@@ -42,6 +42,9 @@ export function Frame({
             Spot an error? Tell us.
           </a>
         </p>
+        <p className="stamp text-[10px] text-muted">
+          AN IAN TAYLOR JOINT
+        </p>
       </footer>
     </div>
   );

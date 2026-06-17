@@ -31,6 +31,21 @@ export function getOffice(id: string): Office | undefined {
   return offices.find((o) => o.id === id);
 }
 
+/**
+ * The next election users can act on right now — primary or general,
+ * whichever is sooner. Falls back to election day if all primaries are
+ * past.
+ */
+export function nextElection(now: Date = new Date()): KeyDate {
+  const electionDays = keyDates.filter(
+    (d) => d.id === "primary-day" || d.id === "election-day",
+  );
+  const upcoming = electionDays
+    .filter((d) => new Date(d.date).getTime() + 86_400_000 > now.getTime())
+    .sort((a, b) => a.date.localeCompare(b.date));
+  return upcoming[0] ?? electionDays[electionDays.length - 1];
+}
+
 export function getCandidatesForRace(
   officeId: string,
   districtId: string,
