@@ -191,9 +191,7 @@ export default function PlanPage() {
       <section>
         <p className="stamp text-muted">REAL QUESTIONS</p>
         <h2 className="poster mt-2 text-3xl">
-          THE STUFF PEOPLE
-          <br />
-          ACTUALLY ASK.
+          FAQs
         </h2>
         <dl className="mt-5 space-y-5">
           {FAQ.map((f) => (
