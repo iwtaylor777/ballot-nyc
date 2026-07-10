@@ -1,12 +1,5 @@
 [
   {
-    "id": "primary-day",
-    "label": "PRIMARY DAY",
-    "date": "2026-06-23",
-    "note": "Party primaries for federal, state, and local races. Polls open 6 AM – 9 PM. You must be registered with a party to vote in its primary.",
-    "actionUrl": "https://findmypollsite.vote.nyc/"
-  },
-  {
     "id": "register",
     "label": "Voter registration deadline",
     "date": "2026-10-24",
@@ -50,9 +43,9 @@
   },
   {
     "id": "mail-return",
-    "label": "Mail ballot return deadline",
+    "label": "Mail ballot receipt deadline",
     "date": "2026-11-10",
-    "note": "Mailed ballots must be received by your county Board of Elections by this date (postmarked by Election Day).",
+    "note": "Postmark your mail ballot by Election Day (Nov 3) — earlier is safer. It must reach your county Board of Elections by Nov 10 to count.",
     "actionUrl": "https://vote.nyc/page/borough-offices"
   }
 ]

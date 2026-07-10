@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { Frame } from "@/components/Frame";
 import { Countdown } from "@/components/Countdown";
-import { keyDates } from "@/lib/data";
+import { keyDates, nextElection } from "@/lib/data";
 import { downloadICS } from "@/lib/ics";
 
 const FORMAT = new Intl.DateTimeFormat("en-US", {
@@ -11,10 +11,18 @@ const FORMAT = new Intl.DateTimeFormat("en-US", {
   month: "short",
   day: "numeric",
   year: "numeric",
+  timeZone: "UTC",
 });
 
 export default function DatesPage() {
-  const electionDay = keyDates.find((d) => d.id === "election-day")!;
+  const next = nextElection();
+  const isPrimary = next.id === "primary-day";
+  // Keep each deadline listed through the end of its day, Eastern time
+  // (UTC midnight + 29h ≈ midnight ET), so Election Day stays on the list
+  // while polls are still open.
+  const upcoming = keyDates.filter(
+    (d) => new Date(d.date).getTime() + 104_400_000 > Date.now(),
+  );
 
   return (
     <Frame back={{ href: "/", label: "HOME" }}>
@@ -26,9 +34,11 @@ export default function DatesPage() {
           MISS IT.
         </h1>
         <div className="mt-6">
-          <p className="stamp text-muted">UNTIL ELECTION DAY</p>
+          <p className="stamp text-muted">
+            UNTIL {isPrimary ? "PRIMARY DAY" : "ELECTION DAY"}
+          </p>
           <div className="mt-2">
-            <Countdown date={electionDay.date} />
+            <Countdown date={next.date} />
           </div>
         </div>
       </section>
@@ -36,21 +46,21 @@ export default function DatesPage() {
       <hr className="rule-thick my-8" />
 
       <ol className="space-y-0 border-t-[3px] border-ink">
-        {keyDates.map((d) => {
-          const isElection = d.id === "election-day";
+        {upcoming.map((d) => {
+          const isNextElection = d.id === next.id;
           return (
             <li
               key={d.id}
               className={[
                 "border-b-[3px] border-ink py-5",
-                isElection ? "bg-ember/10" : "",
+                isNextElection ? "bg-ember/10" : "",
               ].join(" ")}
             >
               <div className="flex items-baseline justify-between gap-4">
                 <span className="stamp text-muted">
                   {FORMAT.format(new Date(d.date))}
                 </span>
-                {isElection && (
+                {isNextElection && (
                   <span className="stamp bg-ember px-2 py-1 text-paper">
                     THE DAY
                   </span>
@@ -59,7 +69,7 @@ export default function DatesPage() {
               <h2
                 className={[
                   "poster mt-1 text-3xl",
-                  isElection ? "text-ember" : "",
+                  isNextElection ? "text-ember" : "",
                 ].join(" ")}
               >
                 {d.label}
@@ -85,7 +95,7 @@ export default function DatesPage() {
       <hr className="rule-thin my-8" />
 
       <button
-        onClick={() => downloadICS(keyDates)}
+        onClick={() => downloadICS(upcoming)}
         className="w-full bg-ink px-6 py-5 text-paper"
       >
         <span className="poster text-2xl">ADD ALL TO CALENDAR ↓</span>

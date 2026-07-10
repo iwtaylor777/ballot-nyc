@@ -16,15 +16,17 @@ const body = Space_Grotesk({
   display: "swap",
 });
 
+const SHARE_TITLE = "Ballot NYC — What's on your ballot.";
+const SHARE_DESCRIPTION =
+  "Your personalized NYC ballot. Drop your address, see your races.";
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://ballotnyc.org"),
-  title: "Ballot NYC — What's on your ballot Nov 3",
-  description:
-    "Your personalized NYC ballot for November 3, 2026. Drop your address, see your races.",
+  title: SHARE_TITLE,
+  description: SHARE_DESCRIPTION,
   openGraph: {
-    title: "Ballot NYC — What's on your ballot Nov 3",
-    description:
-      "Your personalized NYC ballot for November 3, 2026. Drop your address, see your races.",
+    title: SHARE_TITLE,
+    description: SHARE_DESCRIPTION,
     url: "/",
     siteName: "Ballot NYC",
     locale: "en_US",
@@ -32,9 +34,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ballot NYC — What's on your ballot Nov 3",
-    description:
-      "Your personalized NYC ballot for November 3, 2026. Drop your address, see your races.",
+    title: SHARE_TITLE,
+    description: SHARE_DESCRIPTION,
   },
 };
 

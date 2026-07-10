@@ -38,8 +38,6 @@ export default function RacePage({ params }: Props) {
   const district = getDistrict(params.districtId);
   if (!office || !district) notFound();
   const candidates = getCandidatesForRace(params.officeId, params.districtId);
-  const general = candidates.filter((c) => c.contest !== "primary");
-  const primary = candidates.filter((c) => c.contest === "primary");
   const bp = ballotpediaUrl(district);
 
   return (
@@ -76,8 +74,8 @@ export default function RacePage({ params }: Props) {
           <p className="stamp text-muted">RUNNING</p>
           <div className="mt-3">
             <p className="text-base text-ink/85">
-              We haven&apos;t catalogued this race yet — but Ballotpedia
-              tracks every candidate in your district.
+              We haven&apos;t catalogued this race yet — but Ballotpedia has
+              every candidate on your November ballot.
             </p>
             {bp && (
               <a
@@ -95,37 +93,14 @@ export default function RacePage({ params }: Props) {
         </section>
       ) : (
         <>
-          {general.length > 0 && (
-            <section>
-              <p className="stamp text-muted">ON THE NOVEMBER 3 BALLOT</p>
-              <div className="mt-3 space-y-8">
-                {general.map((c) => (
-                  <CandidateCard key={c.id} c={c} />
-                ))}
-              </div>
-            </section>
-          )}
-
-          {general.length > 0 && primary.length > 0 && (
-            <hr className="rule-thin my-8" />
-          )}
-
-          {primary.length > 0 && (
-            <section>
-              <p className="stamp text-muted">
-                STILL IN THE PRIMARY · JUNE 23
-              </p>
-              <p className="mt-2 text-xs text-muted">
-                These candidates are competing for their party&apos;s
-                nomination. Whoever wins joins the November ballot.
-              </p>
-              <div className="mt-3 space-y-8">
-                {primary.map((c) => (
-                  <CandidateCard key={c.id} c={c} />
-                ))}
-              </div>
-            </section>
-          )}
+          <section>
+            <p className="stamp text-muted">ON THE NOVEMBER 3 BALLOT</p>
+            <div className="mt-3 space-y-8">
+              {candidates.map((c) => (
+                <CandidateCard key={c.id} c={c} />
+              ))}
+            </div>
+          </section>
 
           {bp && (
             <a

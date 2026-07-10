@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useMemo } from "react";
 import { Frame } from "@/components/Frame";
 import { BallotList } from "@/components/BallotList";
-import { buildBallot, keyDates } from "@/lib/data";
+import { buildBallot, nextElection } from "@/lib/data";
 import { resolveDistricts } from "@/lib/resolveDistricts";
 import { useSelectedDistricts } from "@/lib/storage";
 import { Countdown } from "@/components/Countdown";
@@ -15,7 +15,8 @@ export default function BallotPage() {
     () => buildBallot(resolveDistricts(selected)),
     [selected],
   );
-  const electionDay = keyDates.find((d) => d.id === "election-day")!.date;
+  const next = nextElection();
+  const isPrimary = next.id === "primary-day";
 
   if (!hydrated) {
     return (
@@ -34,11 +35,13 @@ export default function BallotPage() {
         <h1 className="poster mt-3 text-6xl">
           {races.length} RACES.
           <br />
-          ONE DAY.
+          ONE BALLOT.
         </h1>
         <div className="mt-5 flex items-center gap-3 border-l-4 border-ember pl-4">
-          <Countdown date={electionDay} compact />
-          <span className="stamp text-muted">UNTIL POLLS CLOSE</span>
+          <Countdown date={next.date} compact />
+          <span className="stamp text-muted">
+            UNTIL {isPrimary ? "PRIMARY" : "POLLS CLOSE"}
+          </span>
         </div>
       </section>
 

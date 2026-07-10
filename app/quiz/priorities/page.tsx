@@ -9,7 +9,9 @@ import { suggestPriorities } from "@/lib/scoreQuiz";
 import { usePriorities, useQuizAnswers } from "@/lib/storage";
 import { ISSUE_LABELS, type IssueTag } from "@/lib/types";
 
-const ALL_ISSUES: IssueTag[] = Object.keys(ISSUE_LABELS) as IssueTag[];
+const PICKABLE_ISSUES: IssueTag[] = Array.from(
+  new Set(quiz.map((q) => q.tag)),
+);
 const MAX_PICKS = 3;
 
 export default function PrioritiesPage() {
@@ -135,7 +137,7 @@ export default function PrioritiesPage() {
             : "MAX REACHED · DESELECT TO SWAP"}
         </p>
         <div className="mt-3 grid grid-cols-2 gap-2">
-          {ALL_ISSUES.map((tag) => {
+          {PICKABLE_ISSUES.map((tag) => {
             const selected = picks.includes(tag);
             const disabled = !selected && remaining === 0;
             return (

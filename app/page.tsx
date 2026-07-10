@@ -32,11 +32,16 @@ export default function Home() {
         <div className="mt-3">
           <Countdown date={next.date} />
         </div>
-        {isPrimary && (
-          <p className="mt-3 text-xs text-muted">
-            Party primaries are next. The general election is Nov 3.
-          </p>
-        )}
+        <p className="mt-4 text-sm">
+          <a
+            href="https://voterlookup.elections.ny.gov/"
+            target="_blank"
+            rel="noreferrer"
+            className="font-semibold text-ink underline underline-offset-4 hover:text-ember"
+          >
+            Registered? Check in 2 minutes →
+          </a>
+        </p>
       </section>
 
       <hr className="rule-thin my-10" />

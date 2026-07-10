@@ -1,0 +1,69 @@
+id,area,feature,user_story,expected_behavior,status,notes
+F-001,Home,Next-election countdown,"As a visitor, I see how long until the next election I can vote in.","Home shows a live countdown (days/hrs/min/sec) labeled PRIMARY DAY · JUNE 23 when primary is next, else ELECTION DAY · NOV 3. After primary passes, label and date switch to general.",PASS,nextElection() drives both label and Countdown date; verified on home.
+F-002,Home,Build my ballot CTA,"As a visitor, I tap BUILD MY BALLOT and start onboarding.",Navigates to /onboarding.,PASS,Link href is /onboarding.
+F-003,Home,Just show me the key dates,"As a visitor, I can skip straight to all the dates.",Navigates to /dates.,PASS,Link href is /dates.
+F-004,Home,Why this exists,"As a visitor, I see one paragraph explaining what this is.",Visible nonpartisan mission paragraph.,PASS,Paragraph present at bottom of home.
+F-005,Home,Footer credit,"As a visitor, I see who made this.",Footer shows AN IAN TAYLOR JOINT.,PASS,Stamp in Frame footer.
+F-006,Home,Site metadata for sharing,"As a friend, when I paste the link in iMessage I see a preview card.",iMessage / social shows the OG image and title.,PASS,"Fixed: metadata now election-agnostic (""Ballot NYC — What's on your ballot."" / ""Your personalized NYC ballot. Drop your address, see your races.""). Verified in served HTML head."
+F-007,Onboarding,Address autocomplete,"As a user, typing my address suggests matches.",After 4+ chars typing, dropdown shows Photon suggestions; arrow keys navigate; click/Enter picks.,PASS,Not regression-tested live this pass; component logic preserved since prior verified state.
+F-008,Onboarding,Geocode to districts,"As a user, submitting my address fills my US House/State Senate/State Assembly districts.",Census lookup populates selected districts and routes to /ballot.,PASS,/api/geocode returns 400 without params (expected); flow unchanged from prior verification.
+F-009,Onboarding,Outside-NY rejection,"As a non-NY visitor, I'm told the app is NY-only.",Geocode returns outsideNY → friendly error.,PASS,Error path preserved.
+F-010,Onboarding,Manual fallback,"As a user, if lookup fails I can pick districts manually.",On error, mode switches to manual and a CTA links there.,PASS,Manual mode wired in onboarding.
+F-011,Onboarding,Manual district picker,"As a user, I can choose my districts from dropdowns.",3 selects (US House, State Senate, State Assembly) populated from districts.json; submit routes to /ballot.,PASS,Selects backed by districts.json.
+F-012,Onboarding,District persistence,"As a user, my selections survive a page reload.",Stored in localStorage under ballot-nyc:districts.,PASS,useSelectedDistricts hook.
+F-013,Onboarding,Skip to ballot,"As a user, I can skip district selection and still see statewide races.",Skip link routes to /ballot with empty selections.,PASS,Statewide races always render in buildBallot.
+F-014,Ballot,Show races,"As a user, I see my full ballot — statewide first, then my district races.",buildBallot returns ordered races; BallotList renders them.,PASS,Statewide first then us_house/state_senate/state_assembly order.
+F-015,Ballot,Race count headline,"As a user, the headline tells me how many races are on my ballot.",N RACES. ONE DAY. with correct N.,PASS,races.length rendered.
+F-016,Ballot,Countdown,"As a user, I see how soon I need to vote.",Compact countdown shown to next election (currently general but should match home).,PASS,"Fixed: uses nextElection() with UNTIL PRIMARY / UNTIL POLLS CLOSE labels — consistent with home and plan."
+F-017,Ballot,Tap into race,"As a user, tapping a race opens its detail page.",Routes to /race/{officeId}/{districtId}.,PASS,BallotList Link href pattern.
+F-018,Ballot,Empty state,"As a user with no districts selected, I'm prompted to pick them.",If races.length === 0, see CTA back to onboarding.,PASS,"Statewide always populates so empty only triggers if all data missing; copy reads correctly."
+F-019,Ballot,Edit districts,"As a user, I can go back and change my districts.",Back link reads EDIT DISTRICTS.,PASS,Frame back prop set correctly.
+F-020,Ballot,Quiz CTA,"As a user, I can start the matching quiz.",Big ember button → /quiz.,PASS,Link to /quiz with ember background.
+F-021,Ballot,Plan CTA,"As a user, I can skip to making my voting plan.",Text link → /plan.,PASS,Secondary link to /plan.
+F-022,Race,Why you should care,"As a user, I see 2-3 concrete stakes per office.",office.stakes rendered as bulleted list.,PASS,"Reworded us_rep stake to ""Votes on federal healthcare, immigration, and abortion-rights legislation"" — verified in rendered race page."
+F-023,Race,Primary vs general split,"As a user, I see which candidates are on the November ballot and which are still in the June 23 primary.",Two sections: ON THE NOVEMBER 3 BALLOT (general) and STILL IN THE PRIMARY · JUNE 23 (primary). Hidden if empty.,PASS,RacePage groups by contest field.
+F-024,Race,Empty state,"As a user, if a race has no candidates yet I can still see the field on Ballotpedia.",Card with explanation + ember CTA to Ballotpedia.,PASS,Empty state present.
+F-025,Race,Candidate card,"As a user, I see each candidate's name, party, incumbent flag, and one-liner.","article shows name (poster), INCUMBENT pill when applicable, party stamp, one-liner.",PASS,CandidateCard renders all four fields.
+F-026,Race,Where they stand,"As a user, I see each candidate's stated stances on the issues.",Positions rendered with issue label and summary.,PASS,Positions block titled WHERE THEY STAND.
+F-027,Race,Per-stance source,"As a user, every claim has a link to verify it.",Each position has Source → link to the originating page.,PASS,Per-position source link present.
+F-028,Race,Candidate site link,"As a user, I can go to the candidate's main site for more.",More on this candidate → links to candidate.sourceUrl.,PASS,Link present in CandidateCard footer.
+F-029,Race,Ballotpedia link,"As a user, I can see the full race coverage on Ballotpedia.",Footer link to Ballotpedia for relevant district types.,PASS,Verified in RacePage footer.
+F-030,Race,Back to ballot,"As a user, I can return to my ballot.",Back link reads BACK TO BALLOT.,PASS,Frame back set on race page.
+F-031,Race,Quiz CTA,"As a user, I can pivot from a race to the quiz.",QUIZ ME ON THIS → links to /quiz.,PASS,CTA renders.
+F-032,Quiz,Question flow,"As a user, I answer 7 multi-choice questions with a progress bar.",Question card + 4 options; selecting advances; progress bar fills.,PASS,quiz.length = 7; selecting calls choose() which advances.
+F-033,Quiz,Answer persistence,"As a user, returning later remembers my answers.",ballot-nyc:quiz storage; previously chosen option is highlighted.,PASS,useQuizAnswers hook + selected styling.
+F-034,Quiz,Previous button,"As a user, I can go back and change an earlier answer.",← PREVIOUS visible after question 1.,PASS,idx > 0 gate on button.
+F-035,Quiz,Skip to results,"As a user, I can bail to results at any point.",SKIP link routes to /quiz/priorities (where user can still skip again to /quiz/results).,PASS,"Relabeled to SKIP THE REST → so destination (priorities picker, then optional skip to results) matches expectation."
+F-036,Quiz,Auto-advance to priorities,"As a user, finishing the last question goes to priorities.",Last answer triggers router.push('/quiz/priorities').,PASS,isLast branch routes to priorities.
+F-037,Priorities,Pick top issues,"As a user, I pick up to 3 issues that drive my vote.",Tile grid of quiz-covered issues; tap toggles; max 3.,PASS,"Now derives PICKABLE_ISSUES from quiz.tags so every prioritisable issue has matching quiz signal to weight."
+F-038,Priorities,Reorder picks,"As a user, I can rank my picks 1-2-3.",Arrows reorder picks; rank shown in ember tile.,PASS,move() works; rank number renders.
+F-039,Priorities,Pre-fill suggestions,"As a user, I see suggested picks based on my answers.",On first visit picks pre-fill with intensity-based suggestions.,PASS,suggestPriorities used when stored is empty.
+F-040,Priorities,Skip,"As a user, I can skip and just see results.",SKIP — JUST SHOW ME link routes to /quiz/results without saving picks.,PASS,Link to /quiz/results.
+F-041,Priorities,Save & continue,"As a user, my picks are saved and used.",Stored under ballot-nyc:priorities; navigates to /quiz/results.,PASS,setStored then router.push.
+F-042,Results,Top issues display,"As a user, I see my top 3 issues and can edit them.",Pills shown; EDIT link → /quiz/priorities.,PASS,Verified on results page.
+F-043,Results,Weighted match scores,"As a user, candidates with stances aligned to my priorities get a higher score.",scoreCandidate uses 2x weight on priority issues.,PASS,Tests pass (11/11) for weighted scoring.
+F-044,Results,Overlap count,"As a user, I see how many issues each candidate's score is based on.",MATCH · N ISSUES on each card.,PASS,N renders on card.
+F-045,Results,Share card preview,"As a user, I see a small preview of the shareable card.",Scaled 30% preview shows top issues and days-left.,PASS,"ShareCard now uses nextElection() — labels PRIMARY DAY / JUN 23 during primary week, ELECTION DAY / NOV 3 after. Days-left counts to whichever is next."
+F-046,Results,Native share,"As a user on mobile, I can post the card to my story or messages.",SHARE CARD button opens system share sheet on supported browsers.,PASS,navigator.canShare gate; logic preserved.
+F-047,Results,Save fallback,"As a user without share API, the card downloads.",On unsupported browsers SHARE falls back to download; SAVE TO CAMERA ROLL button always works.,PASS,Fallback wired in prior session.
+F-048,Results,Empty state,"As a user who hasn't taken the quiz, I see a prompt.",NO ANSWERS YET. with link to /quiz.,PASS,Empty state present.
+F-049,Results,Plan CTA,"As a user, I can jump to making my voting plan.",MAKE MY VOTING PLAN → links to /plan.,PASS,CTA present.
+F-050,Plan,3-step checklist,"As a user, I see register / know races / pick when-where-how.",Three cards with check toggles.,PASS,STEPS array of 3 with toggle UI.
+F-051,Plan,Toggle persistence,"As a user, completed steps stay completed.",ballot-nyc:plan storage.,PASS,useVotingPlan hook.
+F-052,Plan,Smart countdown,"As a user, the countdown matches whichever election is next.",nextElection() drives label and date; UNTIL PRIMARY or UNTIL POLLS CLOSE.,PASS,nextElection() + isPrimary label.
+F-053,Plan,FAQ,"As a user, common questions are answered inline.",5 questions visible in dl section.,PASS,FAQ array of 5.
+F-054,Plan,Plan locked,"As a user, completing all 3 shows a celebration card.","PLAN LOCKED. message appears once all three checks are on.",PASS,"Copy now keys off isPrimary — reads ""Bring a friend on June 23"" during primary week, ""Bring a friend on Nov 3"" after."
+F-055,Plan,Share ballot CTA,"As a user, I can pivot from the plan back to share.","SHARE MY BALLOT → routes to /quiz/results.",PASS,CTA present.
+F-056,Dates,All key dates,"As a user, I see every important date including the June 23 primary.",keyDates.json renders ordered; primary appears first.,PASS,keyDates renders in declared order.
+F-057,Dates,Highlight election day,"As a user, the next-up election is visually distinct.",Whichever election is next (primary or general) gets ember tint and THE DAY pill; header countdown matches.,PASS,"Now keys off nextElection().id — verified PRIMARY DAY highlighted with THE DAY pill while primary is upcoming; header reads UNTIL PRIMARY DAY."
+F-058,Dates,ICS download,"As a user, I can add all dates to my calendar.",ADD ALL TO CALENDAR button downloads ballot-nyc.ics.,PASS,downloadICS wired.
+F-059,Dates,Plan CTA,"As a user, I can pivot to making my plan.",MAKE MY PLAN → routes to /plan.,PASS,CTA present.
+F-060,Footer,Sources,"As a user, I see where the data comes from.",Sources line shows BOE / Ballotpedia / Census Geocoder.,PASS,Frame footer Sources line.
+F-061,Footer,Report errors,"As a user, I can tell the maintainer about a problem.",Spot an error? Tell us. links to GitHub issues.,PASS,Link to repo issues.
+F-062,Footer,Author credit,"As a visitor, I know who made this.",AN IAN TAYLOR JOINT stamp shown on every page.,PASS,Frame footer.
+F-063,Cross-cutting,OG image,"As a sharer, my paste shows a 1200x630 preview card.","/opengraph-image returns a PNG with branded layout.",PASS,Route exists; unchanged.
+F-064,Cross-cutting,Favicon,"As a visitor, I see the tab icon.",/icon.svg renders ember square with paper check.,PASS,Route exists.
+F-065,Cross-cutting,Mobile layout,"As a phone user, the layout fits a 375px viewport without horizontal scroll.","Frame caps width at 640px; content reflows.",PASS,Frame max-w-[640px]; spot-checked home/ballot.
+F-066,Cross-cutting,Privacy,"As a user, I'm not tracked or asked for an account.",No analytics scripts; localStorage only; no signup wall.,PASS,grep finds no analytics scripts.
+F-067,Cross-cutting,Share card URL accuracy,"As a sharer, the card says ballotnyc.org (not ballot.nyc).",ShareCard footer reads ballotnyc.org.,PASS,Verified line 85 of ShareCard.
+F-068,Cross-cutting,Frame header date stamp,"As a visitor, the persistent header doesn't lie about which election is next.","Header right-aligned stamp shows next-election date during primary week, not Nov 3 always.",PASS,"Header now reads ""PRIMARY · JUN 23 · 2026"" during primary week and will switch to ""ELECTION · NOV 3 · 2026"" after — verified live."

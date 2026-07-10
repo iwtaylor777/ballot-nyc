@@ -1,4 +1,11 @@
 import Link from "next/link";
+import { nextElection } from "@/lib/data";
+
+const HEADER_FORMAT = new Intl.DateTimeFormat("en-US", {
+  month: "short",
+  day: "numeric",
+  timeZone: "UTC",
+});
 
 export function Frame({
   children,
@@ -7,13 +14,20 @@ export function Frame({
   children: React.ReactNode;
   back?: { href: string; label: string };
 }) {
+  const next = nextElection();
+  const headerLabel = next.id === "primary-day" ? "PRIMARY" : "ELECTION";
+  const headerDate = HEADER_FORMAT.format(new Date(next.date))
+    .toUpperCase()
+    .replace(" ", " ");
   return (
     <div className="mx-auto flex min-h-dvh max-w-[640px] flex-col">
       <header className="flex items-center justify-between px-5 pt-5">
         <Link href="/" className="stamp text-ink no-underline">
           BALLOT · NYC
         </Link>
-        <span className="stamp text-muted">NOV 3 · 2026</span>
+        <span className="stamp text-muted">
+          {headerLabel} · {headerDate} · 2026
+        </span>
       </header>
       {back && (
         <div className="px-5 pt-4">

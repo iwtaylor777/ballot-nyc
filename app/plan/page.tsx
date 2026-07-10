@@ -65,6 +65,10 @@ const FAQ: Array<{ q: string; a: string }> = [
     q: "Can anyone see who I voted for?",
     a: "No. Whether you voted is public record — who you voted for never is.",
   },
+  {
+    q: "Why is the same name on two lines?",
+    a: "New York has fusion voting — a candidate can appear on more than one party's line (say, Democratic and Working Families). It's the same person, and your vote counts once no matter which line you pick.",
+  },
 ];
 
 export default function PlanPage() {
@@ -181,7 +185,8 @@ export default function PlanPage() {
         >
           <p className="poster text-4xl">PLAN LOCKED.</p>
           <p className="mt-2 text-sm">
-            Bring a friend on Nov 3. That&apos;s the whole game.
+            Bring a friend on {isPrimary ? "June 23" : "Nov 3"}. That&apos;s
+            the whole game.
           </p>
         </motion.div>
       )}

@@ -2,11 +2,17 @@
 
 import { forwardRef } from "react";
 import { ISSUE_LABELS, type IssueTag } from "@/lib/types";
-import { keyDates } from "@/lib/data";
+import { nextElection } from "@/lib/data";
 
 interface Props {
   topIssues: IssueTag[];
 }
+
+const CARD_DATE_FORMAT = new Intl.DateTimeFormat("en-US", {
+  month: "short",
+  day: "numeric",
+  timeZone: "UTC",
+});
 
 /**
  * 1080×1920 story-format shareable card. Rendered at full size for
@@ -17,13 +23,16 @@ export const ShareCard = forwardRef<HTMLDivElement, Props>(function ShareCard(
   { topIssues },
   ref,
 ) {
-  const electionDay = keyDates.find((d) => d.id === "election-day")!.date;
-  const target = new Date(electionDay);
+  const next = nextElection();
+  const isPrimary = next.id === "primary-day";
+  const target = new Date(next.date);
   const today = new Date();
   const days = Math.max(
     0,
     Math.ceil((target.getTime() - today.getTime()) / 86_400_000),
   );
+  const dateLabel = CARD_DATE_FORMAT.format(target).toUpperCase();
+  const headerLabel = isPrimary ? "PRIMARY DAY" : "ELECTION DAY";
 
   return (
     <div
@@ -65,13 +74,13 @@ export const ShareCard = forwardRef<HTMLDivElement, Props>(function ShareCard(
         <div className="mt-[40px] flex items-end justify-between">
           <div>
             <div className="stamp text-[28px] tracking-[0.2em] text-muted">
-              ELECTION DAY
+              {headerLabel}
             </div>
             <div
               className="poster text-[140px] leading-none"
               style={{ color: "var(--ember)" }}
             >
-              NOV 3
+              {dateLabel}
             </div>
           </div>
           <div className="text-right">

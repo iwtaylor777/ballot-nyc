@@ -49,7 +49,7 @@ export default function QuizPage() {
           onClick={() => router.push("/quiz/priorities")}
           className="stamp text-muted underline"
         >
-          SKIP TO RESULTS
+          SKIP THE REST →
         </button>
       </div>
 

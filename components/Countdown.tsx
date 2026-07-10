@@ -2,6 +2,16 @@
 
 import { useEffect, useState } from "react";
 
+// A bare calendar date (YYYY-MM-DD) is a voting day — count down to when
+// polls close, 9 PM Eastern, not midnight UTC. Otherwise the clock would hit
+// zero the evening before Election Day. November is EST (UTC−5).
+function toTarget(date: string): Date {
+  if (/^\d{4}-\d{2}-\d{2}$/.test(date)) {
+    return new Date(`${date}T21:00:00-05:00`);
+  }
+  return new Date(date);
+}
+
 function diff(target: Date) {
   const ms = target.getTime() - Date.now();
   if (ms <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0, done: true };
@@ -21,7 +31,7 @@ export function Countdown({
   date: string;
   compact?: boolean;
 }) {
-  const target = new Date(date);
+  const target = toTarget(date);
   const [t, setT] = useState(() => diff(target));
 
   useEffect(() => {
