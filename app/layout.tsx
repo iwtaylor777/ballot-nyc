@@ -1,8 +1,9 @@
 import type { Metadata, Viewport } from "next";
-import { Big_Shoulders_Display, Space_Grotesk } from "next/font/google";
+import { Big_Shoulders, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
-const display = Big_Shoulders_Display({
+// Google retired "Big Shoulders Display"; "Big Shoulders" is its successor.
+const display = Big_Shoulders({
   subsets: ["latin"],
   weight: ["700", "800", "900"],
   variable: "--font-display",

@@ -40,16 +40,18 @@ export function generateStaticParams() {
 }
 
 interface Props {
-  params: { officeId: string; districtId: string };
+  // Next 15+ hands route params to pages as a promise.
+  params: Promise<{ officeId: string; districtId: string }>;
 }
 
 function raceName(officeTitle: string, districtType: string, districtName: string) {
   return districtType === "statewide" ? officeTitle : `${officeTitle} — ${districtName}`;
 }
 
-export function generateMetadata({ params }: Props): Metadata {
-  const office = getOffice(params.officeId);
-  const district = getDistrict(params.districtId);
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { officeId, districtId } = await params;
+  const office = getOffice(officeId);
+  const district = getDistrict(districtId);
   if (!office || !district || office.scope !== district.type) return {};
   const cands = getCandidatesForRace(office.id, district.id);
   const title = `${raceName(office.title, district.type, district.name)} · Ballot NYC`;
@@ -73,16 +75,17 @@ const CERT_DATE = new Intl.DateTimeFormat("en-US", {
   timeZone: "UTC",
 }).format(new Date(CERTIFICATION.date));
 
-export default function RacePage({ params }: Props) {
-  const office = getOffice(params.officeId);
-  const district = getDistrict(params.districtId);
+export default async function RacePage({ params }: Props) {
+  const { officeId, districtId } = await params;
+  const office = getOffice(officeId);
+  const district = getDistrict(districtId);
   // An office only exists for districts of its own scope: /race/governor/ush-12
   // is not a race, and must not render as one.
   if (!office || !district || office.scope !== district.type) notFound();
   if (!isCoveredDistrict(district.id)) notFound();
-  const candidates = getCandidatesForRace(params.officeId, params.districtId);
-  const certifiedList = hasCertifiedList(params.officeId, params.districtId);
-  const seats = seatsForRace(params.officeId, params.districtId);
+  const candidates = getCandidatesForRace(officeId, districtId);
+  const certifiedList = hasCertifiedList(officeId, districtId);
+  const seats = seatsForRace(officeId, districtId);
   const bp = ballotpediaUrl(district);
   const anyPositions = candidates.some((c) => c.positions.length > 0);
   const anyFusion = candidates.some((c) => (c.lines?.length ?? 0) > 1);
