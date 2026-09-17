@@ -48,13 +48,9 @@ export function Frame({
           Sources: NYS Board of Elections certified candidate list, NYC Board
           of Elections, NYC Charter Revision Commission, Ballotpedia, U.S.
           Census Bureau, NYC Planning GeoSearch.{" "}
-          <a
-            href="https://github.com/iwtaylor777/ballot-nyc/issues"
-            target="_blank"
-            rel="noreferrer"
-            className="underline"
-          >
-            Spot an error? Tell us.
+          Spot an error?{" "}
+          <a href="mailto:hello@ballotnyc.org" className="underline">
+            hello@ballotnyc.org
           </a>
         </p>
         <p className="flex justify-between gap-3 stamp text-[10px] text-muted">

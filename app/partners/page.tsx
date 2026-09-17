@@ -94,14 +94,9 @@ export default function PartnersPage() {
           <li>Candidate positions: only where we can link a public source.</li>
         </ul>
         <p className="mt-4 text-sm">
-          Found a mistake?{" "}
-          <a
-            href="https://github.com/iwtaylor777/ballot-nyc/issues"
-            target="_blank"
-            rel="noreferrer"
-            className="font-bold underline"
-          >
-            Tell us
+          Questions, partnership requests, or a mistake to report? Email{" "}
+          <a href="mailto:hello@ballotnyc.org" className="font-bold underline">
+            hello@ballotnyc.org
           </a>{" "}
           — we fix errors fast.
         </p>
