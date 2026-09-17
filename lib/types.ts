@@ -26,7 +26,8 @@ export type DistrictType =
   | "state_senate"
   | "state_assembly"
   | "us_house"
-  | "city_council";
+  | "city_council"
+  | "judicial";
 
 export interface District {
   id: string;
@@ -65,6 +66,12 @@ export interface Candidate {
   positions: CandidatePosition[];
   sourceUrl: string;
   sampleFlag?: "__SAMPLE__";
+  /** Every ballot line (party) the candidate appears on, per the NYS BOE certification. */
+  lines?: string[];
+  /** Lt. Governor on the same ticket (governor race only). */
+  runningMate?: string;
+  /** True when we only have the certified name — no curated profile yet. */
+  certifiedOnly?: boolean;
   /** "primary" = ran in the June 23 primary for a party nomination (now
       decided); "general" = on the November 3 general-election ballot. */
   contest?: "primary" | "general";
@@ -91,11 +98,35 @@ export interface KeyDate {
   actionUrl?: string;
 }
 
+export interface Proposal {
+  id: string;
+  number: number;
+  /** Official ballot title. */
+  title: string;
+  /** Short plain-language headline. */
+  headline: string;
+  /** What changes if it passes — factual, from the official abstract. */
+  changes: string[];
+  yesMeans: string;
+  noMeans: string;
+  sourceUrl: string;
+}
+
 export interface SelectedDistricts {
+  /** Judicial district (one per borough) — drives State Supreme Court races. */
+  judicial?: string;
   state_senate?: string;
   state_assembly?: string;
   us_house?: string;
   city_council?: string;
+}
+
+export interface HomeAddress {
+  label: string;
+  houseNumber?: string;
+  street?: string;
+  borough?: string;
+  zip?: string;
 }
 
 export interface QuizAnswers {

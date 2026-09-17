@@ -1,121 +1,126 @@
 import { NextResponse } from "next/server";
-import type { SelectedDistricts } from "@/lib/types";
+import { BOROUGHS, type Borough } from "@/lib/geo/address";
+import {
+  resolveAddress,
+  resolvePlace,
+  type FetchJson,
+  type ResolveResult,
+} from "@/lib/geo/resolve";
 
 export const runtime = "edge";
 
-const CENSUS =
-  "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress";
+const TIMEOUT_MS = 9000;
 
-interface CensusGeography {
-  BASENAME?: string;
-  NAME?: string;
-}
-
-interface CensusMatch {
-  matchedAddress?: string;
-  addressComponents?: { state?: string };
-  geographies?: Record<string, CensusGeography[]>;
-}
-
-function pickByKeyword(
-  geographies: Record<string, CensusGeography[]>,
-  keywords: string[],
-): CensusGeography | undefined {
-  for (const key of Object.keys(geographies)) {
-    const lower = key.toLowerCase();
-    if (keywords.every((k) => lower.includes(k))) {
-      const list = geographies[key];
-      if (Array.isArray(list) && list.length > 0) return list[0];
-    }
-  }
-  return undefined;
-}
-
-function num(g: CensusGeography | undefined): string | undefined {
-  const raw = g?.BASENAME;
-  if (!raw) return undefined;
-  const n = parseInt(raw, 10);
-  if (Number.isNaN(n) || n <= 0) return undefined;
-  return String(n);
-}
-
-export interface GeocodeApiResult {
-  matchedAddress: string;
-  districts: SelectedDistricts;
-  outsideNY: boolean;
-  warnings: string[];
-}
-
-export async function GET(req: Request) {
-  const { searchParams } = new URL(req.url);
-  const address = searchParams.get("address");
-  if (!address || address.trim().length < 5) {
-    return NextResponse.json(
-      { error: "address required" },
-      { status: 400 },
-    );
-  }
-
-  const url = new URL(CENSUS);
-  url.searchParams.set("address", address);
-  url.searchParams.set("benchmark", "Public_AR_Current");
-  url.searchParams.set("vintage", "Current_Current");
-  url.searchParams.set("format", "json");
-
-  let data: { result?: { addressMatches?: CensusMatch[] } };
+const fetchJson: FetchJson = async (url) => {
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), TIMEOUT_MS);
   try {
-    const res = await fetch(url.toString(), {
-      method: "GET",
+    const res = await fetch(url, {
       headers: { Accept: "application/json" },
       cache: "no-store",
+      signal: ctrl.signal,
     });
-    if (!res.ok) {
-      return NextResponse.json(
-        { error: `census ${res.status}` },
-        { status: 502 },
+    if (!res.ok) throw new Error(`upstream ${res.status}`);
+    return await res.json();
+  } finally {
+    clearTimeout(timer);
+  }
+};
+
+const fetchWithTimeout: typeof fetch = async (input, init) => {
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), TIMEOUT_MS);
+  try {
+    return await fetch(input, { ...init, cache: "no-store", signal: ctrl.signal });
+  } finally {
+    clearTimeout(timer);
+  }
+};
+
+const NO_STORE = { "Cache-Control": "no-store" };
+
+function respond(result: ResolveResult) {
+  return NextResponse.json(result, { headers: NO_STORE });
+}
+
+interface PlaceInput {
+  lat?: unknown;
+  lon?: unknown;
+  label?: unknown;
+  houseNumber?: unknown;
+  street?: unknown;
+  borough?: unknown;
+  zip?: unknown;
+}
+
+function str(v: unknown, max = 120): string | undefined {
+  return typeof v === "string" && v.length <= max ? v : undefined;
+}
+
+async function handle(address: string | undefined, place: PlaceInput | undefined) {
+  try {
+    if (place && typeof place === "object") {
+      const lat = Number(place.lat);
+      const lon = Number(place.lon);
+      const borough = BOROUGHS.find((b) => b === place.borough) as Borough | undefined;
+      return respond(
+        await resolvePlace(
+          {
+            lat,
+            lon,
+            label: str(place.label, 200),
+            houseNumber: str(place.houseNumber, 16),
+            street: str(place.street),
+            borough,
+            zip: str(place.zip, 10),
+          },
+          fetchJson,
+        ),
       );
     }
-    data = await res.json();
+    if (!address || address.trim().length < 3 || address.length > 300) {
+      return NextResponse.json(
+        { status: "error", message: "Type your street address." },
+        { status: 400, headers: NO_STORE },
+      );
+    }
+    return respond(
+      await resolveAddress(address, { fetchJson, fetchImpl: fetchWithTimeout }),
+    );
   } catch {
-    return NextResponse.json({ error: "census fetch failed" }, { status: 502 });
-  }
-
-  const match = data.result?.addressMatches?.[0];
-  if (!match) {
-    return NextResponse.json({ error: "no match" }, { status: 404 });
-  }
-
-  const state = match.addressComponents?.state?.toUpperCase();
-  const outsideNY = state !== undefined && state !== "NY";
-  const warnings: string[] = [];
-  if (outsideNY) {
-    warnings.push(
-      `Address resolves to ${state} — Ballot NYC only covers New York.`,
+    return NextResponse.json(
+      {
+        status: "error",
+        message:
+          "The address lookup service didn't respond. Try again in a moment, or pick your districts manually.",
+      },
+      { status: 502, headers: NO_STORE },
     );
   }
+}
 
-  const geographies = match.geographies ?? {};
-  const cd = pickByKeyword(geographies, ["congressional"]);
-  const upper = pickByKeyword(geographies, ["state", "upper"]);
-  const lower = pickByKeyword(geographies, ["state", "lower"]);
+/**
+ * POST { address } or { place: { lat, lon, ... } }. The browser uses POST so
+ * home addresses never end up in URLs or request logs.
+ */
+export async function POST(req: Request) {
+  let body: { address?: unknown; place?: PlaceInput };
+  try {
+    body = await req.json();
+  } catch {
+    return NextResponse.json(
+      { status: "error", message: "Bad request." },
+      { status: 400, headers: NO_STORE },
+    );
+  }
+  return handle(typeof body.address === "string" ? body.address : undefined, body.place);
+}
 
-  const districts: SelectedDistricts = {};
-  const cdNum = num(cd);
-  const ssNum = num(upper);
-  const adNum = num(lower);
-  if (cdNum) districts.us_house = `ush-${cdNum}`;
-  if (ssNum) districts.state_senate = `ss-${ssNum}`;
-  if (adNum) districts.state_assembly = `ad-${adNum}`;
-
-  if (!cdNum) warnings.push("Could not resolve U.S. House district.");
-  if (!ssNum) warnings.push("Could not resolve State Senate district.");
-  if (!adNum) warnings.push("Could not resolve State Assembly district.");
-
-  const result: GeocodeApiResult = {
-    matchedAddress: match.matchedAddress ?? address,
-    districts,
-    outsideNY,
-    warnings,
-  };
-  return NextResponse.json(result);
+/** GET ?address=… kept for quick manual testing. */
+export async function GET(req: Request) {
+  const { searchParams } = new URL(req.url);
+  const lat = searchParams.get("lat");
+  const lon = searchParams.get("lon");
+  if (lat && lon) return handle(undefined, { lat, lon });
+  return handle(searchParams.get("address") ?? undefined, undefined);
 }

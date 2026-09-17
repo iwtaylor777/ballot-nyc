@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Frame } from "@/components/Frame";
 import { Countdown } from "@/components/Countdown";
+import { NextDeadline } from "@/components/NextDeadline";
 import { nextElection } from "@/lib/data";
 
 export default function Home() {
@@ -32,6 +33,7 @@ export default function Home() {
         <div className="mt-3">
           <Countdown date={next.date} />
         </div>
+        <NextDeadline />
         <p className="mt-4 text-sm">
           <a
             href="https://voterlookup.elections.ny.gov/"
@@ -49,8 +51,9 @@ export default function Home() {
       <section className="space-y-4">
         <h2 className="poster text-4xl">START HERE.</h2>
         <p className="text-base text-ink/90">
-          Drop your address. We&apos;ll show you the exact races you&apos;ll
-          vote on — and what each office actually controls in your life.
+          Drop your address. We&apos;ll show you every race and proposal
+          you&apos;ll vote on — and what each office actually controls in
+          your life.
         </p>
         <Link
           href="/onboarding"
@@ -71,13 +74,15 @@ export default function Home() {
       <section>
         <p className="stamp text-muted">WHY THIS EXISTS</p>
         <p className="mt-3 text-base text-ink/90">
-          Most of us don't know who all of our reps are or what they stand for. 
-          State and local elections decide your rent, your fare, your tuition, and
-          whether your landlord can evict you — and the people running for
-          those seats are mostly strangers. We're making it easy to learn. 
-          Just know a little bit more when you cast your vote.
-          
-          Nonpartisan, no signup, no ads, no judgement.
+          Most of us don&apos;t know who all of our reps are or what they
+          stand for. State and local elections decide your rent, your fare,
+          your tuition, and whether your landlord can evict you — and the
+          people running for those seats are mostly strangers. We&apos;re
+          making it easy to learn. Just know a little bit more when you cast
+          your vote.
+        </p>
+        <p className="mt-3 text-base font-semibold text-ink">
+          Nonpartisan, no signup, no ads, no judgment.
         </p>
       </section>
     </Frame>

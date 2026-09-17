@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import type {
+  HomeAddress,
   IssueTag,
   QuizAnswers,
   SelectedDistricts,
@@ -13,6 +14,7 @@ const KEYS = {
   quiz: "ballot-nyc:quiz",
   plan: "ballot-nyc:plan",
   priorities: "ballot-nyc:priorities",
+  home: "ballot-nyc:home",
 } as const;
 
 function read<T>(key: string, fallback: T): T {
@@ -63,6 +65,14 @@ function usePersistent<T>(key: string, fallback: T) {
 
 export function useSelectedDistricts() {
   return usePersistent<SelectedDistricts>(KEYS.districts, {});
+}
+
+/**
+ * The address the user looked up, kept on this device only so we can say
+ * whose ballot this is and deep-link to their official poll site.
+ */
+export function useHomeAddress() {
+  return usePersistent<HomeAddress | null>(KEYS.home, null);
 }
 
 export function useQuizAnswers() {

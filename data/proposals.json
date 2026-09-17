@@ -1,0 +1,72 @@
+[
+  {
+    "id": "q1-public-space",
+    "number": 1,
+    "title": "Speed Up Process for Granting a Revocable Consent to Use Public Space",
+    "headline": "Faster permits for sidewalk cafés, ramps, benches and planters",
+    "changes": [
+      "Simplifies how the City grants a \"revocable consent\" — permission for a property owner to use public space for things like benches, ramps, planters and cafés.",
+      "Ends the required public hearings and newspaper notices for these permits.",
+      "Removes the City Council's power to disapprove sidewalk cafés; community boards are still notified."
+    ],
+    "yesMeans": "The streamlined permit process replaces the current hearing and Council-review steps.",
+    "noMeans": "The current hearings, notices and Council review stay in place.",
+    "sourceUrl": "https://www.nyc.gov/assets/charter/downloads/pdf/2026/appendix_b_proposed_abstracts_20260723.pdf"
+  },
+  {
+    "id": "q2-contracting",
+    "number": 2,
+    "title": "Reduce City Contractor Paperwork; Require Regular Meetings of Procurement Policy Board",
+    "headline": "Less paperwork for businesses and nonprofits that contract with the City",
+    "changes": [
+      "Lets the Procurement Policy Board simplify the questionnaire vendors fill out, so smaller businesses answer fewer questions.",
+      "Removes a required annual public hearing on client-services contracts.",
+      "Lets certain contract approvals be handled by City agencies, and requires the Procurement Policy Board to meet at least quarterly."
+    ],
+    "yesMeans": "The procurement changes take effect on the schedules set in the proposal.",
+    "noMeans": "Current contracting rules and hearing requirements stay in place.",
+    "sourceUrl": "https://www.nyc.gov/assets/charter/downloads/pdf/2026/appendix_b_proposed_abstracts_20260723.pdf"
+  },
+  {
+    "id": "q3-street-safety-property",
+    "number": 3,
+    "title": "Speed Up Street Safety Projects, Disposition of Unused City Property, Office Leasing",
+    "headline": "Faster street-safety projects, sales of small City lots, and office leasing",
+    "changes": [
+      "Simplifies approvals for street-safety projects (like bike and bus lanes) by removing some consultation requirements.",
+      "Lets the City sell or otherwise dispose of smaller City-owned properties and development rights through a faster land-use review, and makes permanent a program for selling certain undevelopable lots without a public auction.",
+      "Removes a City Planning Commission hearing and City Council review before the City acquires office space for its workers."
+    ],
+    "yesMeans": "These approval steps are shortened or removed.",
+    "noMeans": "The current review and approval steps stay in place.",
+    "sourceUrl": "https://www.nyc.gov/assets/charter/downloads/pdf/2026/appendix_b_proposed_abstracts_20260723.pdf"
+  },
+  {
+    "id": "q4-permitting",
+    "number": 4,
+    "title": "Simplify Building Permitting and Move Waterfront Permitting to Department of Buildings",
+    "headline": "One central system for construction permits",
+    "changes": [
+      "Lets the Buildings Commissioner appoint more deputy and borough commissioners who can approve construction documents.",
+      "Directs the Department of Buildings, with other agencies, to build a single centralized system for submitting and approving construction permits.",
+      "Moves waterfront permitting from the Department of Small Business Services to the Department of Buildings."
+    ],
+    "yesMeans": "Permitting is reorganized as described.",
+    "noMeans": "Permitting stays spread across agencies as it is today.",
+    "sourceUrl": "https://www.nyc.gov/assets/charter/downloads/pdf/2026/appendix_b_proposed_abstracts_20260723.pdf"
+  },
+  {
+    "id": "q5-rainy-day-fund",
+    "number": 5,
+    "title": "Set Contribution Targets for Rainy Day Fund to Promote Sufficient Budgetary Reserves",
+    "headline": "A savings target for the City's Rainy Day Fund",
+    "changes": [
+      "Sets a target amount for the City to keep in its Rainy Day Fund and other reserves.",
+      "Requires the Mayor's budget office to publish how it decides deposits into the fund.",
+      "Bars withdrawing more than half the fund unless the Mayor certifies a compelling fiscal need."
+    ],
+    "yesMeans": "The reserve target and deposit/withdrawal rules are written into the City Charter.",
+    "noMeans": "No Charter target for reserves; current budget practices continue.",
+    "sourceUrl": "https://www.nyc.gov/assets/charter/downloads/pdf/2026/appendix_b_proposed_abstracts_20260723.pdf"
+  }
+]

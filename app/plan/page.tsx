@@ -5,7 +5,8 @@ import { motion } from "framer-motion";
 import { Frame } from "@/components/Frame";
 import { Countdown } from "@/components/Countdown";
 import { nextElection } from "@/lib/data";
-import { useVotingPlan } from "@/lib/storage";
+import { pollSiteUrl } from "@/lib/geo/places";
+import { useHomeAddress, useVotingPlan } from "@/lib/storage";
 import type { VotingPlan } from "@/lib/types";
 
 const STEPS: Array<{
@@ -36,9 +37,9 @@ const STEPS: Array<{
     key: "hasPlan",
     num: "03",
     title: "Pick when, where, how.",
-    body: "Early voting (Oct 24 – Nov 1), Election Day (Nov 3, 6 AM – 9 PM), or mail. Decide now and put it on your calendar.",
+    body: "Early voting (Oct 24 – Nov 1), Election Day (Nov 3, 6 AM – 9 PM), or mail. Your early-voting site can differ from your Election Day site. Decide now and put it on your calendar.",
     cta: {
-      label: "Find my poll site →",
+      label: "Find my poll sites →",
       href: "https://findmypollsite.vote.nyc/",
     },
   },
@@ -73,6 +74,11 @@ const FAQ: Array<{ q: string; a: string }> = [
 
 export default function PlanPage() {
   const [plan, setPlan, hydrated] = useVotingPlan();
+  const [home] = useHomeAddress();
+  const pollSite =
+    home?.houseNumber && home.street
+      ? pollSiteUrl({ houseNumber: home.houseNumber, street: home.street, zip: home.zip })
+      : null;
   const next = nextElection();
   const isPrimary = next.id === "primary-day";
 
@@ -162,7 +168,7 @@ export default function PlanPage() {
                 {s.body}
               </p>
               <a
-                href={s.cta.href}
+                href={s.key === "hasPlan" && pollSite ? pollSite : s.cta.href}
                 target={s.cta.href.startsWith("http") ? "_blank" : undefined}
                 rel={s.cta.href.startsWith("http") ? "noreferrer" : undefined}
                 className={[

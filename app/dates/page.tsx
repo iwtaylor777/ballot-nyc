@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { Frame } from "@/components/Frame";
 import { Countdown } from "@/components/Countdown";
 import { keyDates, nextElection } from "@/lib/data";
@@ -20,8 +21,12 @@ export default function DatesPage() {
   // Keep each deadline listed through the end of its day, Eastern time
   // (UTC midnight + 29h ≈ midnight ET), so Election Day stays on the list
   // while polls are still open.
+  // `now` is only known after mount (the page is pre-rendered), so the first
+  // render lists every date and then drops the ones already past.
+  const [now, setNow] = useState<number | null>(null);
+  useEffect(() => setNow(Date.now()), []);
   const upcoming = keyDates.filter(
-    (d) => new Date(d.date).getTime() + 104_400_000 > Date.now(),
+    (d) => now == null || new Date(d.date).getTime() + 104_400_000 > now,
   );
 
   return (

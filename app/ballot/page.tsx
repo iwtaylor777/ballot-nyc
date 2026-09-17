@@ -4,13 +4,15 @@ import Link from "next/link";
 import { useMemo } from "react";
 import { Frame } from "@/components/Frame";
 import { BallotList } from "@/components/BallotList";
-import { buildBallot, nextElection } from "@/lib/data";
+import { buildBallot, nextElection, proposals } from "@/lib/data";
+import { pollSiteUrl } from "@/lib/geo/places";
 import { resolveDistricts } from "@/lib/resolveDistricts";
-import { useSelectedDistricts } from "@/lib/storage";
+import { useHomeAddress, useSelectedDistricts } from "@/lib/storage";
 import { Countdown } from "@/components/Countdown";
 
 export default function BallotPage() {
   const [selected, , hydrated] = useSelectedDistricts();
+  const [home, , homeHydrated] = useHomeAddress();
   const races = useMemo(
     () => buildBallot(resolveDistricts(selected)),
     [selected],
@@ -18,7 +20,7 @@ export default function BallotPage() {
   const next = nextElection();
   const isPrimary = next.id === "primary-day";
 
-  if (!hydrated) {
+  if (!hydrated || !homeHydrated) {
     return (
       <Frame>
         <p className="stamp text-muted">LOADING…</p>
@@ -27,6 +29,14 @@ export default function BallotPage() {
   }
 
   const hasDistrictRaces = races.some((r) => r.district.type !== "statewide");
+  const sampleBallot =
+    home?.houseNumber && home.street
+      ? pollSiteUrl({
+          houseNumber: home.houseNumber,
+          street: home.street,
+          zip: home.zip,
+        })
+      : "https://findmypollsite.vote.nyc/";
 
   return (
     <Frame back={{ href: "/onboarding", label: "EDIT DISTRICTS" }}>
@@ -37,6 +47,14 @@ export default function BallotPage() {
           <br />
           ONE BALLOT.
         </h1>
+        {home && (
+          <p className="stamp mt-3 text-muted">
+            FOR {home.label.toUpperCase()} ·{" "}
+            <Link href="/onboarding" className="text-ink underline">
+              CHANGE
+            </Link>
+          </p>
+        )}
         <div className="mt-5 flex items-center gap-3 border-l-4 border-ember pl-4">
           <Countdown date={next.date} compact />
           <span className="stamp text-muted">
@@ -55,17 +73,37 @@ export default function BallotPage() {
           </Link>
         </p>
       ) : (
-        <BallotList races={races} />
+        <BallotList races={races} proposalCount={proposals.length} />
       )}
 
       {!hasDistrictRaces && races.length > 0 && (
         <p className="mt-6 text-sm text-muted">
-          Add your district selections to see your local races too.{" "}
+          Add your address to see your Congress, State Senate, and Assembly
+          races too.{" "}
           <Link href="/onboarding" className="font-bold underline">
-            Edit →
+            Add it →
           </Link>
         </p>
       )}
+
+      <section className="mt-6 border-[3px] border-ink p-4">
+        <p className="stamp text-muted">YOUR OFFICIAL SAMPLE BALLOT</p>
+        <p className="mt-1 text-sm text-ink/90">
+          The NYC Board of Elections shows your exact ballot — including any
+          Civil Court judge races in your area — and where to vote early and on
+          Election Day.
+        </p>
+        <a
+          href={sampleBallot}
+          target="_blank"
+          rel="noreferrer"
+          className="stamp mt-3 inline-block text-ink underline decoration-ember decoration-2 underline-offset-4"
+        >
+          {home?.houseNumber
+            ? "Open my sample ballot + poll sites →"
+            : "Look up your sample ballot + poll sites →"}
+        </a>
+      </section>
 
       <hr className="rule-thin my-10" />
 
@@ -77,8 +115,8 @@ export default function BallotPage() {
           TO PICK?
         </h2>
         <p className="text-base text-ink/90">
-          Answer 7 questions. See where your views actually line up across
-          your races.
+          Answer 7 questions. See where your views line up with candidates
+          whose positions we&apos;ve sourced.
         </p>
         <Link
           href="/quiz"

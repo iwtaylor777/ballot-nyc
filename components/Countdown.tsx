@@ -31,38 +31,46 @@ export function Countdown({
   date: string;
   compact?: boolean;
 }) {
-  const target = toTarget(date);
-  const [t, setT] = useState(() => diff(target));
+  // Pages are pre-rendered at build time, so the server can't know "now".
+  // Render placeholders until mounted to avoid a hydration mismatch.
+  const [t, setT] = useState<ReturnType<typeof diff> | null>(null);
 
   useEffect(() => {
+    const target = toTarget(date);
+    setT(diff(target));
     const id = setInterval(() => setT(diff(target)), 1000);
     return () => clearInterval(id);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [date]);
 
   if (compact) {
     return (
-      <span className="poster text-3xl text-ember">
-        {t.days}d {t.hours}h {t.minutes}m
+      <span className="poster text-3xl text-ember tabular-nums">
+        {t ? `${t.days}d ${t.hours}h ${t.minutes}m` : "--d --h --m"}
       </span>
     );
   }
 
   return (
-    <div className="flex items-end gap-3">
-      <Unit value={t.days} label="DAYS" />
-      <Unit value={t.hours} label="HRS" />
-      <Unit value={t.minutes} label="MIN" />
-      <Unit value={t.seconds} label="SEC" />
+    <div
+      className="flex items-end gap-3"
+      role="timer"
+      aria-label={
+        t ? `${t.days} days, ${t.hours} hours, ${t.minutes} minutes left` : undefined
+      }
+    >
+      <Unit value={t?.days} label="DAYS" />
+      <Unit value={t?.hours} label="HRS" />
+      <Unit value={t?.minutes} label="MIN" />
+      <Unit value={t?.seconds} label="SEC" />
     </div>
   );
 }
 
-function Unit({ value, label }: { value: number; label: string }) {
+function Unit({ value, label }: { value?: number; label: string }) {
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center" aria-hidden>
       <span className="poster text-5xl text-ink tabular-nums">
-        {String(value).padStart(2, "0")}
+        {value == null ? "--" : String(value).padStart(2, "0")}
       </span>
       <span className="stamp text-muted">{label}</span>
     </div>

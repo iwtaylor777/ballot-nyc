@@ -1198,5 +1198,35 @@
     "id": "ad-150",
     "type": "state_assembly",
     "name": "Assembly District 150"
+  },
+  {
+    "id": "jd-1",
+    "type": "judicial",
+    "name": "1st Judicial District (Manhattan)",
+    "borough": "Manhattan"
+  },
+  {
+    "id": "jd-2",
+    "type": "judicial",
+    "name": "2nd Judicial District (Brooklyn)",
+    "borough": "Brooklyn"
+  },
+  {
+    "id": "jd-11",
+    "type": "judicial",
+    "name": "11th Judicial District (Queens)",
+    "borough": "Queens"
+  },
+  {
+    "id": "jd-12",
+    "type": "judicial",
+    "name": "12th Judicial District (Bronx)",
+    "borough": "Bronx"
+  },
+  {
+    "id": "jd-13",
+    "type": "judicial",
+    "name": "13th Judicial District (Staten Island)",
+    "borough": "Staten Island"
   }
 ]

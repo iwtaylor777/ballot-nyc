@@ -58,5 +58,15 @@
       "Votes on federal healthcare, immigration, and abortion-rights legislation",
       "Controls federal funding for NYC housing and transit"
     ]
+  },
+  {
+    "id": "supreme_court_justice",
+    "title": "State Supreme Court Justice",
+    "scope": "judicial",
+    "stakes": [
+      "Despite the name, it's New York's main trial court — not its highest court",
+      "Hears felony criminal cases in NYC, major civil lawsuits, divorces, and challenges to government decisions",
+      "Justices serve 14-year terms, so this vote lasts a long time"
+    ]
   }
 ]

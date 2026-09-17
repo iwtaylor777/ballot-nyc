@@ -1,0 +1,2175 @@
+{
+ "_source": "New York State Board of Elections, Amended Certification for the November 3, 2026 General Election (dated September 4, 2026)",
+ "_sourceUrl": "https://elections.ny.gov/certification-november-3-2026-general-election",
+ "certifiedOn": "2026-09-04",
+ "races": [
+  {
+   "officeId": "governor",
+   "districtId": "statewide-ny",
+   "candidates": [
+    {
+     "name": "Kathy C. Hochul",
+     "runningMate": "Adrienne E. Adams",
+     "lines": [
+      "Democratic",
+      "Working Families"
+     ]
+    },
+    {
+     "name": "Bruce A. Blakeman",
+     "runningMate": "Todd Hood",
+     "lines": [
+      "Republican",
+      "Conservative",
+      "Vote Affordable"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "attorney_general",
+   "districtId": "statewide-ny",
+   "candidates": [
+    {
+     "name": "Letitia A. James",
+     "lines": [
+      "Democratic",
+      "Working Families"
+     ]
+    },
+    {
+     "name": "Saritha Komatireddy",
+     "lines": [
+      "Republican",
+      "Conservative"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "comptroller",
+   "districtId": "statewide-ny",
+   "candidates": [
+    {
+     "name": "Thomas P. DiNapoli",
+     "lines": [
+      "Democratic",
+      "Working Families"
+     ]
+    },
+    {
+     "name": "Joseph Hernandez",
+     "lines": [
+      "Republican",
+      "Conservative"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "us_representative",
+   "districtId": "ush-3",
+   "counties": "Part of Nassau, Part of Queens & Part of Suffolk",
+   "candidates": [
+    {
+     "name": "Thomas R. Suozzi",
+     "lines": [
+      "Democratic"
+     ]
+    },
+    {
+     "name": "Michael J. LiPetri Jr",
+     "lines": [
+      "Republican",
+      "Conservative"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "us_representative",
+   "districtId": "ush-5",
+   "counties": "Part of Queens",
+   "candidates": [
+    {
+     "name": "Gregory W. Meeks",
+     "lines": [
+      "Democratic"
+     ]
+    },
+    {
+     "name": "George Marsh",
+     "lines": [
+      "Republican",
+      "Queens United"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "us_representative",
+   "districtId": "ush-6",
+   "counties": "Part of Queens",
+   "candidates": [
+    {
+     "name": "Grace Meng",
+     "lines": [
+      "Democratic"
+     ]
+    },
+    {
+     "name": "Joseph Chou",
+     "lines": [
+      "Republican",
+      "Conservative"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "us_representative",
+   "districtId": "ush-7",
+   "counties": "Part of Kings & Part of Queens",
+   "candidates": [
+    {
+     "name": "Claire Valdez",
+     "lines": [
+      "Democratic",
+      "Working Families"
+     ]
+    },
+    {
+     "name": "Melvin Rivera",
+     "lines": [
+      "Republican",
+      "Conservative"
+     ]
+    },
+    {
+     "name": "Priscilla Ghaznavi",
+     "lines": [
+      "Our Future"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "us_representative",
+   "districtId": "ush-8",
+   "counties": "Part of Kings",
+   "candidates": [
+    {
+     "name": "Hakeem S. Jeffries",
+     "lines": [
+      "Democratic"
+     ]
+    },
+    {
+     "name": "Lewis Mizrahi",
+     "lines": [
+      "Republican",
+      "Conservative"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "us_representative",
+   "districtId": "ush-9",
+   "counties": "Part of Kings",
+   "candidates": [
+    {
+     "name": "Yvette D. Clarke",
+     "lines": [
+      "Democratic"
+     ]
+    },
+    {
+     "name": "Joel Azumah",
+     "lines": [
+      "Republican",
+      "Conservative"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "us_representative",
+   "districtId": "ush-10",
+   "counties": "Part of Kings & Part of New York",
+   "candidates": [
+    {
+     "name": "Brad Lander",
+     "lines": [
+      "Democratic",
+      "Working Families"
+     ]
+    },
+    {
+     "name": "Jennifer E. Moore",
+     "lines": [
+      "Republican",
+      "Conservative"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "us_representative",
+   "districtId": "ush-11",
+   "counties": "Richmond & Part of Kings",
+   "candidates": [
+    {
+     "name": "Mike DeCillis",
+     "lines": [
+      "Democratic"
+     ]
+    },
+    {
+     "name": "Nicole Malliotakis",
+     "lines": [
+      "Republican",
+      "Conservative"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "us_representative",
+   "districtId": "ush-12",
+   "counties": "Part of New York",
+   "candidates": [
+    {
+     "name": "Micah C. Lasher",
+     "lines": [
+      "Democratic"
+     ]
+    },
+    {
+     "name": "Caroline Shinkle",
+     "lines": [
+      "Republican",
+      "Conservative"
+     ]
+    },
+    {
+     "name": "Wilneida Negron",
+     "lines": [
+      "For All of Us"
+     ]
+    },
+    {
+     "name": "Karen Ortiz",
+     "lines": [
+      "Karen Ortiz"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "us_representative",
+   "districtId": "ush-13",
+   "counties": "Part of Bronx & Part of New York",
+   "candidates": [
+    {
+     "name": "Darializa Avila Chevalier",
+     "lines": [
+      "Democratic",
+      "Working Families"
+     ]
+    },
+    {
+     "name": "Jomo M. Williams",
+     "lines": [
+      "Republican"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "us_representative",
+   "districtId": "ush-14",
+   "counties": "Part of Bronx & Part of Queens",
+   "candidates": [
+    {
+     "name": "Alexandria Ocasio-Cortez",
+     "lines": [
+      "Democratic",
+      "Working Families"
+     ]
+    },
+    {
+     "name": "Diamant Hysenaj",
+     "lines": [
+      "Republican",
+      "Conservative"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "us_representative",
+   "districtId": "ush-15",
+   "counties": "Part of Bronx",
+   "candidates": [
+    {
+     "name": "Ritchie Torres",
+     "lines": [
+      "Democratic"
+     ]
+    },
+    {
+     "name": "Stylo Sapaskis",
+     "lines": [
+      "Republican"
+     ]
+    },
+    {
+     "name": "Gonzalo Duran",
+     "lines": [
+      "Conservative"
+     ]
+    },
+    {
+     "name": "Andre Easton",
+     "lines": [
+      "Socialism PSL"
+     ]
+    },
+    {
+     "name": "Jose Vega",
+     "lines": [
+      "Speak The Truth"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "us_representative",
+   "districtId": "ush-16",
+   "counties": "Part of Bronx & Part of Westchester",
+   "candidates": [
+    {
+     "name": "George S. Latimer",
+     "lines": [
+      "Democratic"
+     ]
+    },
+    {
+     "name": "Joseph J. Cinquemani",
+     "lines": [
+      "Republican"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_senator",
+   "districtId": "ss-10",
+   "counties": "Part of Queens",
+   "candidates": [
+    {
+     "name": "James Sanders Jr",
+     "lines": [
+      "Democratic",
+      "Working Families"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_senator",
+   "districtId": "ss-11",
+   "counties": "Part of Bronx & Part of Queens",
+   "candidates": [
+    {
+     "name": "Toby Ann Stavisky",
+     "lines": [
+      "Democratic"
+     ]
+    },
+    {
+     "name": "Pamela H. Michos",
+     "lines": [
+      "Republican",
+      "Conservative"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_senator",
+   "districtId": "ss-12",
+   "counties": "Part of Kings & Part of Queens",
+   "candidates": [
+    {
+     "name": "Aber Kawas",
+     "lines": [
+      "Democratic"
+     ]
+    },
+    {
+     "name": "Han-Khon To",
+     "lines": [
+      "Republican"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_senator",
+   "districtId": "ss-13",
+   "counties": "Part of Queens",
+   "candidates": [
+    {
+     "name": "Jessica Gonzalez-Rojas",
+     "lines": [
+      "Democratic",
+      "Working Families"
+     ]
+    },
+    {
+     "name": "John Patrick Healy",
+     "lines": [
+      "Republican"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_senator",
+   "districtId": "ss-14",
+   "counties": "Part of Queens",
+   "candidates": [
+    {
+     "name": "Leroy G. Comrie Jr",
+     "lines": [
+      "Democratic"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_senator",
+   "districtId": "ss-15",
+   "counties": "Part of Kings & Part of Queens",
+   "candidates": [
+    {
+     "name": "Joseph P. Addabbo Jr",
+     "lines": [
+      "Democratic"
+     ]
+    },
+    {
+     "name": "Danniel S. Maio",
+     "lines": [
+      "Conservative"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_senator",
+   "districtId": "ss-16",
+   "counties": "Part of Queens",
+   "candidates": [
+    {
+     "name": "John C. Liu",
+     "lines": [
+      "Democratic",
+      "Working Families"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_senator",
+   "districtId": "ss-17",
+   "counties": "Part of Kings",
+   "candidates": [
+    {
+     "name": "Larry He",
+     "lines": [
+      "Democratic"
+     ]
+    },
+    {
+     "name": "Steve Chan",
+     "lines": [
+      "Republican",
+      "Conservative",
+      "Stop Mamdani"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_senator",
+   "districtId": "ss-18",
+   "counties": "Part of Kings & Part of Queens",
+   "candidates": [
+    {
+     "name": "Julia Salazar",
+     "lines": [
+      "Democratic",
+      "Working Families"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_senator",
+   "districtId": "ss-19",
+   "counties": "Part of Kings & Part of Queens",
+   "candidates": [
+    {
+     "name": "Roxanne J. Persaud",
+     "lines": [
+      "Democratic"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_senator",
+   "districtId": "ss-20",
+   "counties": "Part of Kings",
+   "candidates": [
+    {
+     "name": "Zellnor Y. Myrie",
+     "lines": [
+      "Democratic",
+      "Working Families"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_senator",
+   "districtId": "ss-21",
+   "counties": "Part of Kings",
+   "candidates": [
+    {
+     "name": "Kevin S. Parker",
+     "lines": [
+      "Democratic"
+     ]
+    },
+    {
+     "name": "Ronald Seifert",
+     "lines": [
+      "Republican",
+      "Conservative"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_senator",
+   "districtId": "ss-22",
+   "counties": "Part of Kings",
+   "candidates": [
+    {
+     "name": "Sam Sutton",
+     "lines": [
+      "Democratic"
+     ]
+    },
+    {
+     "name": "Nachman Carl Caller",
+     "lines": [
+      "Republican",
+      "Conservative"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_senator",
+   "districtId": "ss-23",
+   "counties": "Part of Kings & Part of Richmond",
+   "candidates": [
+    {
+     "name": "Jessica Scarcella-Spanton",
+     "lines": [
+      "Democratic",
+      "Affordable & Safe"
+     ]
+    },
+    {
+     "name": "Ruslan Shamal",
+     "lines": [
+      "Republican",
+      "Conservative"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_senator",
+   "districtId": "ss-24",
+   "counties": "Part of Richmond",
+   "candidates": [
+    {
+     "name": "Alexis Rodriguez",
+     "lines": [
+      "Democratic"
+     ]
+    },
+    {
+     "name": "Andrew J. Lanza",
+     "lines": [
+      "Republican",
+      "Conservative"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_senator",
+   "districtId": "ss-25",
+   "counties": "Part of Kings",
+   "candidates": [
+    {
+     "name": "Jabari Brisport",
+     "lines": [
+      "Democratic",
+      "Working Families"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_senator",
+   "districtId": "ss-26",
+   "counties": "Part of Kings & Part of New York",
+   "candidates": [
+    {
+     "name": "Andrew S. Gounardes",
+     "lines": [
+      "Democratic",
+      "Working Families"
+     ]
+    },
+    {
+     "name": "Tom Stanten",
+     "lines": [
+      "Republican",
+      "Conservative"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_senator",
+   "districtId": "ss-27",
+   "counties": "Part of New York",
+   "candidates": [
+    {
+     "name": "Grace Lee",
+     "lines": [
+      "Democratic",
+      "Working Families"
+     ]
+    },
+    {
+     "name": "Jason C. Murillo",
+     "lines": [
+      "Republican",
+      "Conservative"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_senator",
+   "districtId": "ss-28",
+   "counties": "Part of New York",
+   "candidates": [
+    {
+     "name": "Liz Krueger",
+     "lines": [
+      "Democratic"
+     ]
+    },
+    {
+     "name": "Alina Bonsell",
+     "lines": [
+      "Republican",
+      "Block Mamdani"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_senator",
+   "districtId": "ss-29",
+   "counties": "Part of Bronx & Part of New York",
+   "candidates": [
+    {
+     "name": "Jose M. Serrano",
+     "lines": [
+      "Democratic",
+      "Working Families"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_senator",
+   "districtId": "ss-30",
+   "counties": "Part of New York",
+   "candidates": [
+    {
+     "name": "Cordell Cleare",
+     "lines": [
+      "Democratic",
+      "Working Families"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_senator",
+   "districtId": "ss-31",
+   "counties": "Part of Bronx & Part of New York",
+   "candidates": [
+    {
+     "name": "Robert Jackson",
+     "lines": [
+      "Democratic",
+      "Working Families"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_senator",
+   "districtId": "ss-32",
+   "counties": "Part of Bronx",
+   "candidates": [
+    {
+     "name": "Luis R. Sepulveda",
+     "lines": [
+      "Democratic"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_senator",
+   "districtId": "ss-33",
+   "counties": "Part of Bronx",
+   "candidates": [
+    {
+     "name": "J. Gustavo Rivera",
+     "lines": [
+      "Democratic",
+      "Working Families"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_senator",
+   "districtId": "ss-34",
+   "counties": "Part of Bronx & Part of Westchester",
+   "candidates": [
+    {
+     "name": "Nathalia Fernandez",
+     "lines": [
+      "Democratic",
+      "Working Families"
+     ]
+    },
+    {
+     "name": "Adrian Romero",
+     "lines": [
+      "Conservative"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_senator",
+   "districtId": "ss-36",
+   "counties": "Part of Bronx & Part of Westchester",
+   "candidates": [
+    {
+     "name": "Jamaal T. Bailey",
+     "lines": [
+      "Democratic"
+     ]
+    },
+    {
+     "name": "Grace Marrero",
+     "lines": [
+      "Conservative"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_senator",
+   "districtId": "ss-47",
+   "counties": "Part of New York",
+   "candidates": [
+    {
+     "name": "Erik D. Bottcher",
+     "lines": [
+      "Democratic",
+      "Working Families"
+     ]
+    },
+    {
+     "name": "Charlotte Friedman",
+     "lines": [
+      "Republican"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_senator",
+   "districtId": "ss-59",
+   "counties": "Part of Kings, Part of New York & Part of Queens",
+   "candidates": [
+    {
+     "name": "Kristen Gonzalez",
+     "lines": [
+      "Democratic",
+      "Working Families"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-23",
+   "counties": "Part of Queens",
+   "candidates": [
+    {
+     "name": "Pesach Osina",
+     "lines": [
+      "Democratic",
+      "Community First"
+     ]
+    },
+    {
+     "name": "Thomas P. Sullivan",
+     "lines": [
+      "Republican",
+      "Conservative",
+      "We The People"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-24",
+   "counties": "Part of Queens",
+   "candidates": [
+    {
+     "name": "David I. Weprin",
+     "lines": [
+      "Democratic"
+     ]
+    },
+    {
+     "name": "Welson Chang",
+     "lines": [
+      "Republican",
+      "Queens United"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-25",
+   "counties": "Part of Queens",
+   "candidates": [
+    {
+     "name": "Nily D. Rozic",
+     "lines": [
+      "Democratic"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-26",
+   "counties": "Part of Queens",
+   "candidates": [
+    {
+     "name": "Edward C. Braunstein",
+     "lines": [
+      "Democratic"
+     ]
+    },
+    {
+     "name": "Robert J. Speranza",
+     "lines": [
+      "Republican"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-27",
+   "counties": "Part of Queens",
+   "candidates": [
+    {
+     "name": "Sam Berger",
+     "lines": [
+      "Democratic",
+      "Conservative"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-28",
+   "counties": "Part of Queens",
+   "candidates": [
+    {
+     "name": "Andrew D. Hevesi",
+     "lines": [
+      "Democratic"
+     ]
+    },
+    {
+     "name": "Jonathan Rinaldi",
+     "lines": [
+      "No Kings"
+     ]
+    },
+    {
+     "name": "David J. Kemp",
+     "lines": [
+      "4 Our Immigrants"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-29",
+   "counties": "Part of Queens",
+   "candidates": [
+    {
+     "name": "Alicia L. Hyndman",
+     "lines": [
+      "Democratic",
+      "Working Families"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-30",
+   "counties": "Part of Queens",
+   "candidates": [
+    {
+     "name": "Patrick Martinez",
+     "lines": [
+      "Democratic"
+     ]
+    },
+    {
+     "name": "Brandon P. Castro",
+     "lines": [
+      "Republican",
+      "Conservative",
+      "Arts & Culture",
+      "Reform"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-31",
+   "counties": "Part of Queens",
+   "candidates": [
+    {
+     "name": "Khaleel M. Anderson",
+     "lines": [
+      "Democratic",
+      "Working Families"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-32",
+   "counties": "Part of Queens",
+   "candidates": [
+    {
+     "name": "Nathaniel Hezekiah III",
+     "lines": [
+      "Democratic"
+     ]
+    },
+    {
+     "name": "Paul Nichols",
+     "lines": [
+      "The Answer"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-33",
+   "counties": "Part of Queens",
+   "candidates": [
+    {
+     "name": "Clyde Vanel",
+     "lines": [
+      "Democratic"
+     ]
+    },
+    {
+     "name": "Oster Bryan",
+     "lines": [
+      "Working Families"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-34",
+   "counties": "Part of Queens",
+   "candidates": [
+    {
+     "name": "Brian Romero",
+     "lines": [
+      "Democratic",
+      "Working Families"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-35",
+   "counties": "Part of Queens",
+   "candidates": [
+    {
+     "name": "Larinda C. Hooks",
+     "lines": [
+      "Democratic",
+      "Working Families"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-36",
+   "counties": "Part of Queens",
+   "candidates": [
+    {
+     "name": "Diana C. Moreno",
+     "lines": [
+      "Democratic",
+      "Working Families"
+     ]
+    },
+    {
+     "name": "Edward Lee",
+     "lines": [
+      "Republican"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-37",
+   "counties": "Part of Queens & Part of New York",
+   "candidates": [
+    {
+     "name": "Samantha Kattan",
+     "lines": [
+      "Democratic",
+      "Working Families"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-38",
+   "counties": "Part of Queens",
+   "candidates": [
+    {
+     "name": "David Orkin",
+     "lines": [
+      "Democratic",
+      "Working Families"
+     ]
+    },
+    {
+     "name": "Ruben D. Cruz II",
+     "lines": [
+      "Republican",
+      "Queens United"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-39",
+   "counties": "Part of Queens",
+   "candidates": [
+    {
+     "name": "Catalina Cruz",
+     "lines": [
+      "Democratic",
+      "Working Families"
+     ]
+    },
+    {
+     "name": "Ramses S. Frias",
+     "lines": [
+      "Republican",
+      "4 Our Immigrants"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-40",
+   "counties": "Part of Queens",
+   "candidates": [
+    {
+     "name": "Ron Kim",
+     "lines": [
+      "Democratic",
+      "Working Families"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-41",
+   "counties": "Part of Kings",
+   "candidates": [
+    {
+     "name": "Kalman Yeger",
+     "lines": [
+      "Democratic",
+      "Republican",
+      "Conservative"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-42",
+   "counties": "Part of Kings",
+   "candidates": [
+    {
+     "name": "Rodneyse Bichotte",
+     "lines": [
+      "Democratic"
+     ]
+    },
+    {
+     "name": "Herman G. Hall",
+     "lines": [
+      "Republican"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-43",
+   "counties": "Part of Kings",
+   "candidates": [
+    {
+     "name": "Brian-Christopher A. Cunningham",
+     "lines": [
+      "Democratic",
+      "Working Families"
+     ]
+    },
+    {
+     "name": "Anna Shpilkovskaya",
+     "lines": [
+      "Republican"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-44",
+   "counties": "Part of Kings",
+   "candidates": [
+    {
+     "name": "Robert C. Carroll",
+     "lines": [
+      "Democratic",
+      "Working Families"
+     ]
+    },
+    {
+     "name": "Glenn Nocera",
+     "lines": [
+      "Republican",
+      "Conservative"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-45",
+   "counties": "Part of Kings",
+   "candidates": [
+    {
+     "name": "Joey Cohen-Saban",
+     "lines": [
+      "Democratic",
+      "FGT AntiSemitism"
+     ]
+    },
+    {
+     "name": "Michael Novakhov",
+     "lines": [
+      "Republican",
+      "Conservative"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-46",
+   "counties": "Part of Kings",
+   "candidates": [
+    {
+     "name": "Chris McCreight",
+     "lines": [
+      "Democratic",
+      "Working Families",
+      "Affordable & Safe"
+     ]
+    },
+    {
+     "name": "Alec Brook-Krasny",
+     "lines": [
+      "Republican",
+      "Conservative"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-47",
+   "counties": "Part of Kings",
+   "candidates": [
+    {
+     "name": "William Colton",
+     "lines": [
+      "Democratic"
+     ]
+    },
+    {
+     "name": "John J. Ricottone",
+     "lines": [
+      "Republican",
+      "Conservative",
+      "Stop Mamdani"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-48",
+   "counties": "Part of Kings",
+   "candidates": [
+    {
+     "name": "Simcha Eichenstein",
+     "lines": [
+      "Democratic",
+      "Conservative"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-49",
+   "counties": "Part of Kings",
+   "candidates": [
+    {
+     "name": "Joyce Xiaoqiong Xie",
+     "lines": [
+      "Democratic"
+     ]
+    },
+    {
+     "name": "Lester Chang",
+     "lines": [
+      "Republican",
+      "Conservative"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-50",
+   "counties": "Part of Kings",
+   "candidates": [
+    {
+     "name": "Emily Gallagher",
+     "lines": [
+      "Democratic"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-51",
+   "counties": "Part of Kings",
+   "candidates": [
+    {
+     "name": "Marcela Mitaynes",
+     "lines": [
+      "Democratic",
+      "Working Families"
+     ]
+    },
+    {
+     "name": "Carla Danielson",
+     "lines": [
+      "Republican",
+      "Conservative"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-52",
+   "counties": "Part of Kings",
+   "candidates": [
+    {
+     "name": "Jo Anne Simon",
+     "lines": [
+      "Democratic",
+      "Working Families"
+     ]
+    },
+    {
+     "name": "Brett Wynkoop",
+     "lines": [
+      "Republican",
+      "Conservative"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-53",
+   "counties": "Part of Kings",
+   "candidates": [
+    {
+     "name": "Maritza Davila",
+     "lines": [
+      "Democratic"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-54",
+   "counties": "Part of Kings",
+   "candidates": [
+    {
+     "name": "Christian Celeste Tate",
+     "lines": [
+      "Democratic",
+      "Working Families"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-55",
+   "counties": "Part of Kings",
+   "candidates": [
+    {
+     "name": "Latrice M. Walker",
+     "lines": [
+      "Democratic",
+      "Working Families"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-56",
+   "counties": "Part of Kings",
+   "candidates": [
+    {
+     "name": "Eon Huntley",
+     "lines": [
+      "Democratic",
+      "Working Families"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-57",
+   "counties": "Part of Kings",
+   "candidates": [
+    {
+     "name": "Phara Souffrant Forrest",
+     "lines": [
+      "Democratic",
+      "Working Families"
+     ]
+    },
+    {
+     "name": "Yolanda Allison",
+     "lines": [
+      "Republican"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-58",
+   "counties": "Part of Kings",
+   "candidates": [
+    {
+     "name": "Monique Chandler-Waterman",
+     "lines": [
+      "Democratic",
+      "Working Families"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-59",
+   "counties": "Part of Kings",
+   "candidates": [
+    {
+     "name": "Jaime R. Williams",
+     "lines": [
+      "Democratic",
+      "Conservative"
+     ]
+    },
+    {
+     "name": "Jibreel Jalloh",
+     "lines": [
+      "Working Families"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-60",
+   "counties": "Part of Kings",
+   "candidates": [
+    {
+     "name": "Nikki Lucas",
+     "lines": [
+      "Democratic"
+     ]
+    },
+    {
+     "name": "Norman H. Ramsay",
+     "lines": [
+      "Republican",
+      "Conservative"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-61",
+   "counties": "Part of Kings, Part of New York & Part of Richmond",
+   "candidates": [
+    {
+     "name": "Charles D. Fall",
+     "lines": [
+      "Democratic"
+     ]
+    },
+    {
+     "name": "Casey Marie O’Connor-Manasia",
+     "lines": [
+      "Republican"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-62",
+   "counties": "Part of Richmond",
+   "candidates": [
+    {
+     "name": "Michael W. Reilly Jr",
+     "lines": [
+      "Republican",
+      "Conservative"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-63",
+   "counties": "Part of Richmond",
+   "candidates": [
+    {
+     "name": "Matthew Mobilia",
+     "lines": [
+      "Democratic"
+     ]
+    },
+    {
+     "name": "Sam T. Pirozzolo",
+     "lines": [
+      "Republican",
+      "Conservative"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-64",
+   "counties": "Part of Kings & Part of Richmond",
+   "candidates": [
+    {
+     "name": "Tim Qorraj",
+     "lines": [
+      "Democratic"
+     ]
+    },
+    {
+     "name": "Michael Tannousis",
+     "lines": [
+      "Republican",
+      "Conservative"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-65",
+   "counties": "Part of New York",
+   "candidates": [
+    {
+     "name": "Illapa Sairitupac",
+     "lines": [
+      "Democratic"
+     ]
+    },
+    {
+     "name": "Helen Qiu",
+     "lines": [
+      "Republican"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-66",
+   "counties": "Part of New York",
+   "candidates": [
+    {
+     "name": "David Siffert",
+     "lines": [
+      "Democratic"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-67",
+   "counties": "Part of New York",
+   "candidates": [
+    {
+     "name": "Linda B. Rosenthal",
+     "lines": [
+      "Democratic",
+      "Working Families"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-68",
+   "counties": "Part of New York",
+   "candidates": [
+    {
+     "name": "Diana I. Ayala",
+     "lines": [
+      "Democratic",
+      "Working Families"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-69",
+   "counties": "Part of New York",
+   "candidates": [
+    {
+     "name": "Eli Northrup",
+     "lines": [
+      "Democratic",
+      "Working Families"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-70",
+   "counties": "Part of New York",
+   "candidates": [
+    {
+     "name": "Jordan J.G. Wright",
+     "lines": [
+      "Democratic"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-71",
+   "counties": "Part of New York",
+   "candidates": [
+    {
+     "name": "Al Taylor",
+     "lines": [
+      "Democratic",
+      "Working Families"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-72",
+   "counties": "Part of New York",
+   "candidates": [
+    {
+     "name": "Manny De Los Santos",
+     "lines": [
+      "Democratic",
+      "Working Families"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-73",
+   "counties": "Part of New York",
+   "candidates": [
+    {
+     "name": "Vanessa Aronson",
+     "lines": [
+      "Democratic",
+      "Working Families"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-74",
+   "counties": "Part of New York",
+   "candidates": [
+    {
+     "name": "Keith Powers",
+     "lines": [
+      "Democratic"
+     ]
+    },
+    {
+     "name": "Veronica I. Gonzalez",
+     "lines": [
+      "Republican",
+      "Conservative"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-75",
+   "counties": "Part of New York",
+   "candidates": [
+    {
+     "name": "Tony Simone",
+     "lines": [
+      "Democratic",
+      "Working Families"
+     ]
+    },
+    {
+     "name": "Cristina Fontanelli",
+     "lines": [
+      "Republican",
+      "Save NYC"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-76",
+   "counties": "Part of New York",
+   "candidates": [
+    {
+     "name": "Rebecca A. Seawright",
+     "lines": [
+      "Democratic",
+      "Working Families"
+     ]
+    },
+    {
+     "name": "Louis Puliafito",
+     "lines": [
+      "Republican"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-77",
+   "counties": "Part of Bronx",
+   "candidates": [
+    {
+     "name": "Landon C. Dais",
+     "lines": [
+      "Democratic"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-78",
+   "counties": "Part of Bronx",
+   "candidates": [
+    {
+     "name": "George A. Alvarez",
+     "lines": [
+      "Democratic",
+      "Working Families"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-79",
+   "counties": "Part of Bronx",
+   "candidates": [
+    {
+     "name": "Chantel Jackson",
+     "lines": [
+      "Democratic"
+     ]
+    },
+    {
+     "name": "Emmanuel A. Findlay Jr",
+     "lines": [
+      "Conservative"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-80",
+   "counties": "Part of Bronx",
+   "candidates": [
+    {
+     "name": "John Zaccaro Jr",
+     "lines": [
+      "Democratic"
+     ]
+    },
+    {
+     "name": "Denise Smith",
+     "lines": [
+      "Conservative"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-81",
+   "counties": "Part of Bronx",
+   "candidates": [
+    {
+     "name": "Jeffrey Dinowitz",
+     "lines": [
+      "Democratic"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-82",
+   "counties": "Part of Bronx",
+   "candidates": [
+    {
+     "name": "Michael R. Benedetto",
+     "lines": [
+      "Democratic"
+     ]
+    },
+    {
+     "name": "Irene Guanill",
+     "lines": [
+      "Republican",
+      "Conservative",
+      "Vote Affordable"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-83",
+   "counties": "Part of Bronx",
+   "candidates": [
+    {
+     "name": "Carl E. Heastie",
+     "lines": [
+      "Democratic"
+     ]
+    },
+    {
+     "name": "James Washington-Ward",
+     "lines": [
+      "Conservative"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-84",
+   "counties": "Part of Bronx",
+   "candidates": [
+    {
+     "name": "Amanda N. Septimo",
+     "lines": [
+      "Democratic",
+      "Working Families"
+     ]
+    },
+    {
+     "name": "Tyreek Goodman",
+     "lines": [
+      "Conservative"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-85",
+   "counties": "Part of Bronx",
+   "candidates": [
+    {
+     "name": "Emerita Torres",
+     "lines": [
+      "Democratic",
+      "Working Families"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-86",
+   "counties": "Part of Bronx",
+   "candidates": [
+    {
+     "name": "Yudelka Tapia",
+     "lines": [
+      "Democratic"
+     ]
+    },
+    {
+     "name": "Maria Diaz",
+     "lines": [
+      "Republican"
+     ]
+    },
+    {
+     "name": "Shery A. Olivo",
+     "lines": [
+      "Conservative"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "state_assembly_member",
+   "districtId": "ad-87",
+   "counties": "Part of Bronx",
+   "candidates": [
+    {
+     "name": "Karines Reyes",
+     "lines": [
+      "Democratic",
+      "Working Families"
+     ]
+    },
+    {
+     "name": "Zenobia Merced-Bonilla",
+     "lines": [
+      "Conservative"
+     ]
+    },
+    {
+     "name": "Zakir Choudhury",
+     "lines": [
+      "People First"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "supreme_court_justice",
+   "districtId": "jd-1",
+   "voteFor": 6,
+   "candidates": [
+    {
+     "name": "Saliann Scarpulla",
+     "lines": [
+      "Democratic"
+     ]
+    },
+    {
+     "name": "Kathleen Waterman-Marshall",
+     "lines": [
+      "Democratic"
+     ]
+    },
+    {
+     "name": "Shlomo S. Hagler",
+     "lines": [
+      "Democratic"
+     ]
+    },
+    {
+     "name": "Manuel J. Mendez",
+     "lines": [
+      "Democratic"
+     ]
+    },
+    {
+     "name": "Hasa A. Kingo",
+     "lines": [
+      "Democratic"
+     ]
+    },
+    {
+     "name": "Christopher Chin",
+     "lines": [
+      "Democratic"
+     ]
+    },
+    {
+     "name": "Amy S. Taylor",
+     "lines": [
+      "Working Families"
+     ]
+    },
+    {
+     "name": "Joshua E. Goldfein",
+     "lines": [
+      "Working Families"
+     ]
+    },
+    {
+     "name": "Sienna M. Fontaine",
+     "lines": [
+      "Working Families"
+     ]
+    },
+    {
+     "name": "Bob Cohen",
+     "lines": [
+      "Working Families"
+     ]
+    },
+    {
+     "name": "Jeffrey W. Rizzo",
+     "lines": [
+      "Working Families"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "supreme_court_justice",
+   "districtId": "jd-2",
+   "voteFor": 4,
+   "candidates": [
+    {
+     "name": "Betsey Jean Jacques",
+     "lines": [
+      "Democratic",
+      "Republican",
+      "Conservative"
+     ]
+    },
+    {
+     "name": "Hemalee J. Patel",
+     "lines": [
+      "Democratic",
+      "Republican"
+     ]
+    },
+    {
+     "name": "Sherveal Mimes",
+     "lines": [
+      "Democratic",
+      "Republican",
+      "Conservative"
+     ]
+    },
+    {
+     "name": "Lola Waterman",
+     "lines": [
+      "Democratic",
+      "Republican",
+      "Conservative"
+     ]
+    },
+    {
+     "name": "William D. Spain Jr",
+     "lines": [
+      "Conservative"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "supreme_court_justice",
+   "districtId": "jd-11",
+   "voteFor": 3,
+   "candidates": [
+    {
+     "name": "Edwin I. Novillo",
+     "lines": [
+      "Democratic"
+     ]
+    },
+    {
+     "name": "Oma D. Phillips",
+     "lines": [
+      "Democratic"
+     ]
+    },
+    {
+     "name": "Gail A. Adams",
+     "lines": [
+      "Democratic"
+     ]
+    },
+    {
+     "name": "David A. Bellon",
+     "lines": [
+      "Republican"
+     ]
+    },
+    {
+     "name": "Gary Muraca",
+     "lines": [
+      "Republican"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "supreme_court_justice",
+   "districtId": "jd-12",
+   "voteFor": 1,
+   "candidates": [
+    {
+     "name": "Alvin M. Yearwood",
+     "lines": [
+      "Democratic"
+     ]
+    }
+   ]
+  },
+  {
+   "officeId": "supreme_court_justice",
+   "districtId": "jd-13",
+   "voteFor": 1,
+   "candidates": [
+    {
+     "name": "Kelvin Richards",
+     "lines": [
+      "Democratic"
+     ]
+    },
+    {
+     "name": "Michael J. Pinto",
+     "lines": [
+      "Republican"
+     ]
+    }
+   ]
+  }
+ ]
+}

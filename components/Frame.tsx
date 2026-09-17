@@ -45,8 +45,9 @@ export function Frame({
           NONPARTISAN · NO ACCOUNTS · NO TRACKING
         </p>
         <p className="text-[11px] leading-relaxed text-muted">
-          Sources: NY State &amp; NYC Boards of Elections, Ballotpedia, U.S.
-          Census Geocoder.{" "}
+          Sources: NYS Board of Elections certified candidate list, NYC Board
+          of Elections, NYC Charter Revision Commission, Ballotpedia, U.S.
+          Census Bureau, NYC Planning GeoSearch.{" "}
           <a
             href="https://github.com/iwtaylor777/ballot-nyc/issues"
             target="_blank"
@@ -56,8 +57,11 @@ export function Frame({
             Spot an error? Tell us.
           </a>
         </p>
-        <p className="stamp text-[10px] text-muted">
-          AN IAN TAYLOR JOINT
+        <p className="flex justify-between gap-3 stamp text-[10px] text-muted">
+          <span>AN IAN TAYLOR JOINT</span>
+          <Link href="/partners" className="text-muted underline">
+            FOR NEWSROOMS
+          </Link>
         </p>
       </footer>
     </div>
