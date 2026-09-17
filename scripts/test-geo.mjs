@@ -89,6 +89,21 @@ t("borough hint mismatch flagged", () => {
 });
 t("queens number hyphenated for display", () => assert.equal(p.formatHouseNumber("3717", "Queens"), "37-17"));
 
+// B13: only same-block buildings are offered when the number doesn't exist
+t("nearby limited to the same block", () => {
+  const res = p.rankPlaces(a.parseAddress("9999 Bond St"), [
+    mk("28", "BOND STREET", "Brooklyn", "11217"),
+    mk("26", "BOND STREET", "Brooklyn", "11217"),
+  ]);
+  assert.equal(res.nearby.length, 0);
+});
+t("queens block match", () => {
+  assert.equal(p.sameBlock("37-17", "37-21"), true);
+  assert.equal(p.sameBlock("37-17", "48-17"), false);
+  assert.equal(p.sameBlock("365", "371"), true);
+  assert.equal(p.sameBlock("365", "9999"), false);
+});
+
 // Census geographies → districts
 t("districts from census", () => {
   const d = r.districtsFromGeographies({
@@ -99,6 +114,34 @@ t("districts from census", () => {
   });
   assert.deepEqual(d.districts, { us_house: "ush-10", state_senate: "ss-26", state_assembly: "ad-52", judicial: "jd-2" });
 });
+
+t("non-NYC county yields no judicial district", () => {
+  const d = r.districtsFromGeographies({
+    "119th Congressional Districts": [{ BASENAME: "20" }],
+    "2024 State Legislative Districts - Upper": [{ BASENAME: "44" }],
+    "2024 State Legislative Districts - Lower": [{ BASENAME: "109" }],
+    Counties: [{ GEOID: "36001" }], // Albany
+  });
+  assert.equal(d.borough, undefined);
+  assert.equal(d.districts.judicial, undefined);
+});
+
+// B03: addresses outside the five boroughs are refused, not half-answered
+await (async () => {
+  const albany = {
+    result: {
+      geographies: {
+        "119th Congressional Districts": [{ BASENAME: "20" }],
+        "2024 State Legislative Districts - Upper": [{ BASENAME: "44" }],
+        "2024 State Legislative Districts - Lower": [{ BASENAME: "109" }],
+        Counties: [{ GEOID: "36001" }],
+        States: [{ STUSAB: "NY" }],
+      },
+    },
+  };
+  const res = await r.resolvePlace({ lat: 42.652, lon: -73.757, label: "24 Eagle St" }, async () => albany);
+  t("outside NYC rejected", () => assert.equal(res.status, "outside_nyc"));
+})();
 
 fs.rmSync(out, { recursive: true, force: true });
 console.log(process.exitCode ? "geo tests FAILED" : `geo tests passed (${n})`);

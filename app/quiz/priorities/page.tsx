@@ -84,14 +84,16 @@ export default function PrioritiesPage() {
 
       {picks.length > 0 && (
         <section>
-          <p className="stamp text-muted">
-            YOUR PICKS · TAP ARROWS TO REORDER
+          <p className="stamp text-muted">YOUR PICKS</p>
+          <p className="mt-1 text-xs text-muted">
+            All three count the same in your matches. The order only sets how
+            they appear on your shareable card.
           </p>
           <ol className="mt-3 space-y-2">
             {picks.map((tag, i) => (
               <li
                 key={tag}
-                className="flex items-center justify-between border-[3px] border-ink bg-ember p-3 text-paper"
+                className="flex items-center justify-between border-[3px] border-ink bg-emberDeep p-3 text-paper"
               >
                 <div className="flex items-center gap-3">
                   <span className="poster text-3xl">{i + 1}</span>
@@ -103,7 +105,7 @@ export default function PrioritiesPage() {
                   <button
                     onClick={() => move(tag, -1)}
                     disabled={i === 0}
-                    aria-label="Move up"
+                    aria-label={`Move ${ISSUE_LABELS[tag]} up`}
                     className="border-2 border-paper px-3 py-1 text-paper disabled:opacity-30"
                   >
                     ↑
@@ -111,14 +113,14 @@ export default function PrioritiesPage() {
                   <button
                     onClick={() => move(tag, 1)}
                     disabled={i === picks.length - 1}
-                    aria-label="Move down"
+                    aria-label={`Move ${ISSUE_LABELS[tag]} down`}
                     className="border-2 border-paper px-3 py-1 text-paper disabled:opacity-30"
                   >
                     ↓
                   </button>
                   <button
                     onClick={() => toggle(tag)}
-                    aria-label="Remove"
+                    aria-label={`Remove ${ISSUE_LABELS[tag]}`}
                     className="ml-1 border-2 border-paper px-3 py-1 text-paper"
                   >
                     ✕
@@ -145,6 +147,7 @@ export default function PrioritiesPage() {
                 key={tag}
                 onClick={() => toggle(tag)}
                 disabled={disabled}
+                aria-pressed={selected}
                 className={[
                   "border-[3px] border-ink px-3 py-4 text-left transition-colors",
                   selected

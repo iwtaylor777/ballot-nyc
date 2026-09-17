@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Frame } from "@/components/Frame";
 import { quiz } from "@/lib/data";
@@ -11,6 +11,12 @@ export default function QuizPage() {
   const router = useRouter();
   const [answers, setAnswers, hydrated] = useQuizAnswers();
   const [idx, setIdx] = useState(0);
+  const headingRef = useRef<HTMLHeadingElement>(null);
+  // Screen-reader and keyboard users should land on the new question rather
+  // than staying on a button that no longer exists.
+  useEffect(() => {
+    if (idx > 0) headingRef.current?.focus();
+  }, [idx]);
 
   if (!hydrated) {
     return (
@@ -42,7 +48,7 @@ export default function QuizPage() {
       }
     >
       <div className="flex items-center justify-between pt-2">
-        <p className="stamp text-ember">
+        <p className="stamp text-ember" aria-live="polite">
           QUESTION {idx + 1} / {quiz.length}
         </p>
         <button
@@ -70,7 +76,13 @@ export default function QuizPage() {
           exit={{ opacity: 0, y: -24 }}
           transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
         >
-          <h1 className="poster mt-10 text-5xl sm:text-6xl">{q.prompt}</h1>
+          <h1
+            ref={headingRef}
+            tabIndex={-1}
+            className="poster mt-10 text-5xl outline-none sm:text-6xl"
+          >
+            {q.prompt}
+          </h1>
 
           <div className="mt-8 space-y-3">
             {q.options.map((opt) => {

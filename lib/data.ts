@@ -93,6 +93,33 @@ export function judicialDistrictForBorough(borough?: string): string | undefined
   return borough ? BOROUGH_TO_JUDICIAL[borough] : undefined;
 }
 
+/**
+ * Districts we actually have a certified ballot for — i.e. the ones inside
+ * New York City. Everything the user can pick, and everything we render, is
+ * limited to these so nobody gets a plausible-looking ballot we can't stand
+ * behind.
+ */
+const COVERED_DISTRICT_IDS = new Set(
+  certified.races.map((r) => r.districtId).filter((id) => id !== "statewide-ny"),
+);
+
+export function isCoveredDistrict(districtId: string): boolean {
+  return districtId === "statewide-ny" || COVERED_DISTRICT_IDS.has(districtId);
+}
+
+export function coveredDistricts(type: DistrictType): District[] {
+  return districts.filter((d) => d.type === type && isCoveredDistrict(d.id));
+}
+
+/** Selected districts we don't cover (e.g. saved from an older session). */
+export function unsupportedSelections(selected: SelectedDistricts): District[] {
+  return Object.values(selected)
+    .filter((id): id is string => typeof id === "string")
+    .filter((id) => !isCoveredDistrict(id))
+    .map((id) => getDistrict(id))
+    .filter((d): d is District => d !== undefined);
+}
+
 export function getDistrictsByType(type: DistrictType): District[] {
   return districts.filter((d) => d.type === type);
 }
@@ -213,6 +240,7 @@ export function buildBallot(selected: SelectedDistricts): BallotRace[] {
   for (const type of order) {
     const districtId = selected[type as keyof SelectedDistricts];
     if (!districtId) continue;
+    if (!isCoveredDistrict(districtId)) continue;
     const district = getDistrict(districtId);
     if (!district) continue;
     const office = offices.find((o) => o.scope === type);

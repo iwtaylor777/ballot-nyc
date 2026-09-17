@@ -35,9 +35,11 @@ export default function PartnersPage() {
         </h1>
         <p className="mt-4 text-base text-ink/90">
           Ballot NYC is free, nonpartisan, and ad-free. Readers type an
-          address and get every race on their Nov 3 ballot — Congress, State
-          Senate, Assembly, judges, and the five city proposals. Embed it or
-          link to it; no permission needed.
+          address and get their Nov 3 ballot — statewide offices, Congress,
+          State Senate, Assembly, their borough&apos;s Supreme Court race, and
+          the five city proposals — plus a link to their official sample
+          ballot for local contests we don&apos;t carry. Coverage is the five
+          boroughs. Embed it or link to it; no permission needed.
         </p>
       </section>
 

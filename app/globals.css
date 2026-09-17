@@ -6,6 +6,9 @@
   --paper: #f2ede3;
   --ink: #0a0a0a;
   --ember: #ff3d1f;
+  /* Small text needs 4.5:1 on paper; --ember only reaches 3.03:1, which is
+     fine for large headlines but not for stamps and captions. 4.77:1. */
+  --ember-deep: #c4300f;
   --cobalt: #1b3fe0;
   --muted: #5a5550;
   --rule: #0a0a0a;
@@ -44,6 +47,16 @@ body {
   border-color: var(--ink);
   border-width: 0;
   border-top-width: 1px;
+}
+
+/* Small all-caps labels are below the large-text threshold, so the brand
+   orange is swapped for its accessible variant wherever they use it. */
+.stamp.text-ember {
+  color: var(--ember-deep);
+}
+
+.stamp.bg-ember {
+  background-color: var(--ember-deep);
 }
 
 /* Used for "stamps" — small all-caps labels */

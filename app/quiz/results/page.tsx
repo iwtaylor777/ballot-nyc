@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Frame } from "@/components/Frame";
 import { ShareCard } from "@/components/ShareCard";
 import { buildBallot, quiz } from "@/lib/data";
@@ -18,6 +18,21 @@ export default function Results() {
   const [selected, , selectedHydrated] = useSelectedDistricts();
   const [priorities, , prioritiesHydrated] = usePriorities();
   const cardRef = useRef<HTMLDivElement>(null);
+  // The card is always rendered at 1080×1920 for export; the on-screen preview
+  // scales to whatever width the phone actually has (320px included).
+  const previewRef = useRef<HTMLDivElement>(null);
+  const [previewScale, setPreviewScale] = useState(0.3);
+  const [exportState, setExportState] = useState<"idle" | "working" | "error">("idle");
+
+  useEffect(() => {
+    const el = previewRef.current;
+    if (!el) return;
+    const fit = () => setPreviewScale(el.clientWidth / 1080);
+    fit();
+    const ro = new ResizeObserver(fit);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
 
   const races = useMemo(() => buildBallot(selected), [selected]);
   const top = useMemo(
@@ -25,6 +40,13 @@ export default function Results() {
     [answers, priorities],
   );
   const answered = Object.keys(answers).length;
+  const coverage = useMemo(() => {
+    const all = races.flatMap((r) => r.candidates);
+    return {
+      total: all.length,
+      scored: all.filter((c) => c.positions.length > 0).length,
+    };
+  }, [races]);
 
   if (!answersHydrated || !selectedHydrated || !prioritiesHydrated) {
     return (
@@ -70,23 +92,38 @@ export default function Results() {
   }
 
   async function share() {
-    const blob = await renderCard();
-    if (!blob) return;
-    const file = new File([blob], "my-ballot-nyc.png", { type: "image/png" });
-    if (navigator.canShare?.({ files: [file] })) {
-      try {
-        await navigator.share({ files: [file] });
-        return;
-      } catch {
-        return; // user closed the share sheet
+    setExportState("working");
+    try {
+      const blob = await renderCard();
+      if (!blob) throw new Error("no image");
+      const file = new File([blob], "my-ballot-nyc.png", { type: "image/png" });
+      if (navigator.canShare?.({ files: [file] })) {
+        try {
+          await navigator.share({ files: [file] });
+        } catch (err) {
+          // AbortError means the user closed the sheet — anything else is a
+          // real failure and should fall back to a download.
+          if ((err as Error)?.name !== "AbortError") downloadBlob(blob);
+        }
+      } else {
+        downloadBlob(blob);
       }
+      setExportState("idle");
+    } catch {
+      setExportState("error");
     }
-    downloadBlob(blob);
   }
 
   async function download() {
-    const blob = await renderCard();
-    if (blob) downloadBlob(blob);
+    setExportState("working");
+    try {
+      const blob = await renderCard();
+      if (!blob) throw new Error("no image");
+      downloadBlob(blob);
+      setExportState("idle");
+    } catch {
+      setExportState("error");
+    }
   }
 
   return (
@@ -120,7 +157,7 @@ export default function Results() {
           {top.map((tag) => (
             <span
               key={tag}
-              className="border-2 border-ink bg-ember px-3 py-2 font-display text-lg uppercase tracking-tight text-paper"
+              className="border-2 border-ink bg-emberDeep px-3 py-2 font-display text-lg uppercase tracking-tight text-paper"
             >
               {ISSUE_LABELS[tag]}
             </span>
@@ -135,15 +172,26 @@ export default function Results() {
 
       <hr className="rule-thin my-8" />
 
-      <section className="space-y-10">
+      <section>
+        <p className="stamp text-muted">HOW MUCH WE KNOW</p>
+        <p className="mt-2 text-sm text-ink/90">
+          We only score candidates whose positions we could source and link.
+          Right now that&apos;s{" "}
+          <span className="font-bold">
+            {coverage.scored} of {coverage.total}
+          </span>{" "}
+          candidates on your ballot. Everyone else is listed below without a
+          score — that&apos;s missing research on our side, not a judgment
+          about them.
+        </p>
+      </section>
+
+      <section className="mt-10 space-y-10">
         {races.map((race) => {
-          const ranked = rankCandidates(
-            race.candidates,
-            answers,
-            quiz,
-            priorities,
-          ).filter((c) => c.overlap > 0);
-          if (ranked.length === 0) return null;
+          const judicial = race.office.scope === "judicial";
+          const ranked = rankCandidates(race.candidates, answers, quiz, priorities);
+          const scored = ranked.filter((c) => c.overlap > 0);
+          const unscored = ranked.filter((c) => c.overlap === 0);
           return (
             <div key={`${race.office.id}-${race.district.id}`}>
               <p className="stamp text-muted">
@@ -153,33 +201,80 @@ export default function Results() {
               </p>
               <h2 className="poster mt-1 text-3xl">{race.office.title}</h2>
 
+              {judicial ? (
+                <p className="mt-2 border-l-4 border-ink pl-3 text-sm text-ink/85">
+                  Judicial candidates aren&apos;t scored. Judges apply the law
+                  rather than run on policy platforms, so a policy quiz
+                  would be misleading here.
+                </p>
+              ) : (
+                scored.length === 0 && (
+                  <p className="mt-2 border-l-4 border-ember pl-3 text-sm text-ink/85">
+                    We haven&apos;t sourced positions for anyone in this race
+                    yet, so there&apos;s nothing to match against.
+                  </p>
+                )
+              )}
+
               <div className="mt-4 space-y-3">
-                {ranked.map((c) => (
+                {(judicial ? [] : scored).map((c) => (
                   <Link
                     key={c.id}
                     href={`/race/${race.office.id}/${race.district.id}`}
-                    className="flex items-center justify-between border-[3px] border-ink p-4 no-underline"
+                    className="flex items-center justify-between gap-3 border-[3px] border-ink p-4 no-underline"
                   >
                     <div>
                       <div className="font-display text-2xl uppercase tracking-tight">
                         {c.name}
                       </div>
                       <div className="stamp text-muted">
-                        {c.party.toUpperCase()}
+                        {(c.lines?.join(" · ") ?? c.party).toUpperCase()}
                       </div>
                     </div>
-                    <div className="text-right">
-                      <div className="poster text-4xl text-ember">
+                    <div className="max-w-[45%] text-right">
+                      <div
+                        className={[
+                          "poster",
+                          c.overlap >= 3 ? "text-4xl text-ember" : "text-3xl text-muted",
+                        ].join(" ")}
+                      >
                         {c.match}%
                       </div>
                       <div className="stamp text-muted">
-                        MATCH · {c.overlap} ISSUE
-                        {c.overlap === 1 ? "" : "S"}
+                        {c.overlap} OF {answered} ISSUES
                       </div>
                     </div>
                   </Link>
                 ))}
+
+                {(judicial ? ranked : unscored).map((c) => (
+                  <Link
+                    key={c.id}
+                    href={`/race/${race.office.id}/${race.district.id}`}
+                    className="flex items-center justify-between gap-3 border-2 border-ink/40 p-4 no-underline"
+                  >
+                    <div>
+                      <div className="font-display text-xl uppercase tracking-tight">
+                        {c.name}
+                      </div>
+                      <div className="stamp text-muted">
+                        {(c.lines?.join(" · ") ?? c.party).toUpperCase()}
+                      </div>
+                    </div>
+                    <div className="stamp max-w-[45%] text-right text-muted">
+                      {judicial ? "NOT SCORED" : "NO POSITIONS SOURCED"}
+                    </div>
+                  </Link>
+                ))}
               </div>
+
+              {!judicial && scored.length > 0 && unscored.length > 0 && (
+                <p className="mt-2 text-xs text-muted">
+                  Scores compare only the issues we could source, so a
+                  candidate with fewer sourced positions isn&apos;t
+                  less aligned — we just know less about them.
+                </p>
+              )}
             </div>
           );
         })}
@@ -200,12 +295,13 @@ export default function Results() {
         </p>
 
         <div
-          className="relative mt-5 overflow-hidden border-[3px] border-ink"
-          style={{ width: 324, height: 576 }}
+          ref={previewRef}
+          className="relative mt-5 w-full max-w-[324px] overflow-hidden border-[3px] border-ink"
+          style={{ aspectRatio: "1080 / 1920" }}
         >
           <div
             style={{
-              transform: "scale(0.3)",
+              transform: `scale(${previewScale})`,
               transformOrigin: "top left",
               width: 1080,
               height: 1920,
@@ -217,10 +313,19 @@ export default function Results() {
 
         <button
           onClick={share}
-          className="mt-5 inline-flex w-full items-center justify-center bg-ember px-6 py-5 text-paper"
+          disabled={exportState === "working"}
+          className="mt-5 inline-flex w-full items-center justify-center bg-ember px-6 py-5 text-paper disabled:opacity-40"
         >
-          <span className="poster text-3xl">SHARE CARD ↑</span>
+          <span className="poster text-3xl">
+            {exportState === "working" ? "MAKING IMAGE…" : "SHARE CARD ↑"}
+          </span>
         </button>
+        {exportState === "error" && (
+          <p role="alert" className="mt-2 text-sm font-semibold text-emberDeep">
+            The image didn&apos;t render. Try again, or screenshot the preview
+            above.
+          </p>
+        )}
 
         <button
           onClick={download}

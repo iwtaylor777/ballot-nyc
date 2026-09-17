@@ -12,6 +12,7 @@ const config: Config = {
         paper: "var(--paper)",
         ink: "var(--ink)",
         ember: "var(--ember)",
+        emberDeep: "var(--ember-deep)",
         cobalt: "var(--cobalt)",
         muted: "var(--muted)",
         rule: "var(--rule)",

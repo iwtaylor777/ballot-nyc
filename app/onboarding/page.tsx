@@ -4,11 +4,11 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useId, useMemo, useRef, useState } from "react";
 import { Frame } from "@/components/Frame";
-import { districts } from "@/lib/data";
+import { coveredDistricts } from "@/lib/data";
 import { lookupAddress, type GeocodeResponse } from "@/lib/geocode";
 import { fetchSuggestions, type SuggestionResult } from "@/lib/autocomplete";
 import type { Place } from "@/lib/geo/places";
-import { useHomeAddress, useSelectedDistricts } from "@/lib/storage";
+import { clearSavedData, useHomeAddress, useSelectedDistricts } from "@/lib/storage";
 import type { DistrictType, SelectedDistricts } from "@/lib/types";
 
 const FIELDS: Array<{ type: DistrictType; label: string; hint: string }> = [
@@ -50,6 +50,7 @@ export default function Onboarding() {
   const [lookupErr, setLookupErr] = useState<string | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
   const [choices, setChoices] = useState<Choices | null>(null);
+  const [outside, setOutside] = useState<string | null>(null);
 
   const [suggest, setSuggest] = useState<SuggestionResult>(EMPTY);
   const [highlight, setHighlight] = useState(-1);
@@ -57,14 +58,17 @@ export default function Onboarding() {
   const suppressNext = useRef(false);
   const abortRef = useRef<AbortController | null>(null);
 
-  const grouped = useMemo(() => {
-    const out: Record<string, typeof districts> = {};
-    for (const f of FIELDS) {
-      out[f.type] = districts.filter((d) => d.type === f.type);
-    }
-    out.judicial = districts.filter((d) => d.type === "judicial");
-    return out;
-  }, []);
+  // Only districts we have a certified NYC ballot for — picking an upstate
+  // district would produce a ballot we can't stand behind.
+  const grouped = useMemo(
+    () => ({
+      us_house: coveredDistricts("us_house"),
+      state_senate: coveredDistricts("state_senate"),
+      state_assembly: coveredDistricts("state_assembly"),
+      judicial: coveredDistricts("judicial"),
+    }),
+    [],
+  );
 
   const options = useMemo(
     () => [
@@ -89,27 +93,34 @@ export default function Onboarding() {
       setSuggest(EMPTY);
       return;
     }
+    const ctrl = new AbortController();
     const handle = window.setTimeout(() => {
       abortRef.current?.abort();
-      const ctrl = new AbortController();
       abortRef.current = ctrl;
       fetchSuggestions(q, ctrl.signal)
         .then((s) => {
+          // A slower earlier request must never overwrite newer suggestions.
+          if (ctrl.signal.aborted) return;
           setSuggest(s);
           setHighlight(-1);
         })
         .catch((err) => {
           // Autocomplete is a nice-to-have; never block submit on it.
-          if (err?.name !== "AbortError") setSuggest(EMPTY);
+          if (err?.name !== "AbortError" && !ctrl.signal.aborted) setSuggest(EMPTY);
         });
     }, 200);
-    return () => window.clearTimeout(handle);
+    return () => {
+      window.clearTimeout(handle);
+      ctrl.abort();
+    };
   }, [address]);
 
   function handleResult(result: GeocodeResponse) {
     switch (result.status) {
       case "match": {
-        setSelected((prev) => ({ ...prev, ...result.districts }));
+        // Replace the whole selection: merging would leave districts from a
+        // previous address on the new ballot.
+        setSelected(result.districts);
         setHome({
           label: result.address.label,
           houseNumber: result.address.houseNumber,
@@ -135,6 +146,12 @@ export default function Onboarding() {
           places: result.choices,
         });
         return;
+      case "outside_nyc":
+        // Don't leave a previous NYC ballot sitting behind an out-of-city address.
+        setSelected({});
+        setHome(null);
+        setOutside(result.message);
+        return;
       default:
         setLookupErr(result.message);
     }
@@ -146,6 +163,7 @@ export default function Onboarding() {
     setLookupErr(null);
     setNotice(null);
     setChoices(null);
+    setOutside(null);
     try {
       handleResult(await lookupAddress(input));
     } catch {
@@ -276,6 +294,7 @@ export default function Onboarding() {
                   setShowSuggest(true);
                   setLookupErr(null);
                   setChoices(null);
+                  setOutside(null);
                 }}
                 onFocus={() => setShowSuggest(true)}
                 onBlur={() => {
@@ -346,12 +365,12 @@ export default function Onboarding() {
               )}
             </div>
             {suggest.hint === "needs_number" && (
-              <p className="mt-2 text-xs font-semibold text-ember">
+              <p className="mt-2 text-xs font-semibold text-emberDeep">
                 Start with your building number — e.g. 365 Bond St.
               </p>
             )}
             {suggest.hint === "zip_only" && (
-              <p className="mt-2 text-xs font-semibold text-ember">
+              <p className="mt-2 text-xs font-semibold text-emberDeep">
                 A ZIP alone can cover several districts — add your street
                 address.
               </p>
@@ -395,6 +414,21 @@ export default function Onboarding() {
                     </li>
                   ))}
                 </ul>
+              </div>
+            )}
+
+            {outside && (
+              <div className="border-[3px] border-ink p-4">
+                <p className="stamp text-ember">OUTSIDE NEW YORK CITY</p>
+                <p className="mt-1 text-sm text-ink/90">{outside}</p>
+                <a
+                  href="https://voterlookup.elections.ny.gov/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="stamp mt-3 inline-block underline decoration-ember decoration-2 underline-offset-4"
+                >
+                  NY State voter lookup →
+                </a>
               </div>
             )}
 
@@ -459,7 +493,7 @@ export default function Onboarding() {
                 <option value="" disabled>
                   — Select —
                 </option>
-                {grouped[f.type].map((d) => (
+                {grouped[f.type as keyof typeof grouped].map((d) => (
                   <option key={d.id} value={d.id}>
                     {d.name}
                   </option>
@@ -475,12 +509,13 @@ export default function Onboarding() {
             </div>
             <select
               value={selected.judicial ?? ""}
-              onChange={(e) =>
+              onChange={(e) => {
                 setSelected((prev) => ({
                   ...prev,
                   judicial: e.target.value || undefined,
-                }))
-              }
+                }));
+                setHome(null);
+              }}
               className="mt-2 w-full appearance-none border-[3px] border-ink bg-paper px-4 py-4 font-display text-2xl uppercase tracking-tight text-ink focus:bg-ember focus:text-paper"
             >
               <option value="">— Skip —</option>
@@ -506,7 +541,22 @@ export default function Onboarding() {
         Saved on this device only. No accounts.{" "}
         <Link href="/ballot" className="underline">
           Skip
-        </Link>
+        </Link>{" "}
+        ·{" "}
+        <button
+          type="button"
+          onClick={() => {
+            clearSavedData();
+            setSelected({});
+            setHome(null);
+            setAddress("");
+            setSuggest(EMPTY);
+            setNotice("Cleared everything saved on this device.");
+          }}
+          className="underline"
+        >
+          Clear my saved data
+        </button>
       </p>
     </Frame>
   );

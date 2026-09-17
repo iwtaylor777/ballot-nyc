@@ -1,0 +1,734 @@
+{
+  "auditedAt": "2026-09-17",
+  "commit": "f54b666",
+  "candidateEntries": 209,
+  "scorableEntries": 22,
+  "races": 114,
+  "racesWithAnyCoverage": 16,
+  "racesWithCompleteCoverage": 5,
+  "invalidReferences": [],
+  "duplicateRaceKeys": 0,
+  "byOffice": {
+    "governor": {
+      "races": 1,
+      "candidates": 2,
+      "scorable": 2
+    },
+    "attorney_general": {
+      "races": 1,
+      "candidates": 2,
+      "scorable": 2
+    },
+    "comptroller": {
+      "races": 1,
+      "candidates": 2,
+      "scorable": 2
+    },
+    "us_representative": {
+      "races": 13,
+      "candidates": 32,
+      "scorable": 16
+    },
+    "state_senator": {
+      "races": 28,
+      "candidates": 43,
+      "scorable": 0
+    },
+    "state_assembly_member": {
+      "races": 65,
+      "candidates": 104,
+      "scorable": 0
+    },
+    "supreme_court_justice": {
+      "races": 5,
+      "candidates": 24,
+      "scorable": 0
+    }
+  },
+  "racesByCoverage": [
+    {
+      "office": "governor",
+      "district": "statewide-ny",
+      "total": 2,
+      "covered": 2
+    },
+    {
+      "office": "attorney_general",
+      "district": "statewide-ny",
+      "total": 2,
+      "covered": 2
+    },
+    {
+      "office": "comptroller",
+      "district": "statewide-ny",
+      "total": 2,
+      "covered": 2
+    },
+    {
+      "office": "us_representative",
+      "district": "ush-3",
+      "total": 2,
+      "covered": 2
+    },
+    {
+      "office": "us_representative",
+      "district": "ush-5",
+      "total": 2,
+      "covered": 1
+    },
+    {
+      "office": "us_representative",
+      "district": "ush-6",
+      "total": 2,
+      "covered": 1
+    },
+    {
+      "office": "us_representative",
+      "district": "ush-7",
+      "total": 3,
+      "covered": 1
+    },
+    {
+      "office": "us_representative",
+      "district": "ush-8",
+      "total": 2,
+      "covered": 1
+    },
+    {
+      "office": "us_representative",
+      "district": "ush-9",
+      "total": 2,
+      "covered": 1
+    },
+    {
+      "office": "us_representative",
+      "district": "ush-10",
+      "total": 2,
+      "covered": 1
+    },
+    {
+      "office": "us_representative",
+      "district": "ush-11",
+      "total": 2,
+      "covered": 2
+    },
+    {
+      "office": "us_representative",
+      "district": "ush-12",
+      "total": 4,
+      "covered": 1
+    },
+    {
+      "office": "us_representative",
+      "district": "ush-13",
+      "total": 2,
+      "covered": 1
+    },
+    {
+      "office": "us_representative",
+      "district": "ush-14",
+      "total": 2,
+      "covered": 1
+    },
+    {
+      "office": "us_representative",
+      "district": "ush-15",
+      "total": 5,
+      "covered": 2
+    },
+    {
+      "office": "us_representative",
+      "district": "ush-16",
+      "total": 2,
+      "covered": 1
+    },
+    {
+      "office": "state_senator",
+      "district": "ss-10",
+      "total": 1,
+      "covered": 0
+    },
+    {
+      "office": "state_senator",
+      "district": "ss-11",
+      "total": 2,
+      "covered": 0
+    },
+    {
+      "office": "state_senator",
+      "district": "ss-12",
+      "total": 2,
+      "covered": 0
+    },
+    {
+      "office": "state_senator",
+      "district": "ss-13",
+      "total": 2,
+      "covered": 0
+    },
+    {
+      "office": "state_senator",
+      "district": "ss-14",
+      "total": 1,
+      "covered": 0
+    },
+    {
+      "office": "state_senator",
+      "district": "ss-15",
+      "total": 2,
+      "covered": 0
+    },
+    {
+      "office": "state_senator",
+      "district": "ss-16",
+      "total": 1,
+      "covered": 0
+    },
+    {
+      "office": "state_senator",
+      "district": "ss-17",
+      "total": 2,
+      "covered": 0
+    },
+    {
+      "office": "state_senator",
+      "district": "ss-18",
+      "total": 1,
+      "covered": 0
+    },
+    {
+      "office": "state_senator",
+      "district": "ss-19",
+      "total": 1,
+      "covered": 0
+    },
+    {
+      "office": "state_senator",
+      "district": "ss-20",
+      "total": 1,
+      "covered": 0
+    },
+    {
+      "office": "state_senator",
+      "district": "ss-21",
+      "total": 2,
+      "covered": 0
+    },
+    {
+      "office": "state_senator",
+      "district": "ss-22",
+      "total": 2,
+      "covered": 0
+    },
+    {
+      "office": "state_senator",
+      "district": "ss-23",
+      "total": 2,
+      "covered": 0
+    },
+    {
+      "office": "state_senator",
+      "district": "ss-24",
+      "total": 2,
+      "covered": 0
+    },
+    {
+      "office": "state_senator",
+      "district": "ss-25",
+      "total": 1,
+      "covered": 0
+    },
+    {
+      "office": "state_senator",
+      "district": "ss-26",
+      "total": 2,
+      "covered": 0
+    },
+    {
+      "office": "state_senator",
+      "district": "ss-27",
+      "total": 2,
+      "covered": 0
+    },
+    {
+      "office": "state_senator",
+      "district": "ss-28",
+      "total": 2,
+      "covered": 0
+    },
+    {
+      "office": "state_senator",
+      "district": "ss-29",
+      "total": 1,
+      "covered": 0
+    },
+    {
+      "office": "state_senator",
+      "district": "ss-30",
+      "total": 1,
+      "covered": 0
+    },
+    {
+      "office": "state_senator",
+      "district": "ss-31",
+      "total": 1,
+      "covered": 0
+    },
+    {
+      "office": "state_senator",
+      "district": "ss-32",
+      "total": 1,
+      "covered": 0
+    },
+    {
+      "office": "state_senator",
+      "district": "ss-33",
+      "total": 1,
+      "covered": 0
+    },
+    {
+      "office": "state_senator",
+      "district": "ss-34",
+      "total": 2,
+      "covered": 0
+    },
+    {
+      "office": "state_senator",
+      "district": "ss-36",
+      "total": 2,
+      "covered": 0
+    },
+    {
+      "office": "state_senator",
+      "district": "ss-47",
+      "total": 2,
+      "covered": 0
+    },
+    {
+      "office": "state_senator",
+      "district": "ss-59",
+      "total": 1,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-23",
+      "total": 2,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-24",
+      "total": 2,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-25",
+      "total": 1,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-26",
+      "total": 2,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-27",
+      "total": 1,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-28",
+      "total": 3,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-29",
+      "total": 1,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-30",
+      "total": 2,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-31",
+      "total": 1,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-32",
+      "total": 2,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-33",
+      "total": 2,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-34",
+      "total": 1,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-35",
+      "total": 1,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-36",
+      "total": 2,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-37",
+      "total": 1,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-38",
+      "total": 2,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-39",
+      "total": 2,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-40",
+      "total": 1,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-41",
+      "total": 1,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-42",
+      "total": 2,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-43",
+      "total": 2,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-44",
+      "total": 2,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-45",
+      "total": 2,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-46",
+      "total": 2,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-47",
+      "total": 2,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-48",
+      "total": 1,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-49",
+      "total": 2,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-50",
+      "total": 1,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-51",
+      "total": 2,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-52",
+      "total": 2,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-53",
+      "total": 1,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-54",
+      "total": 1,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-55",
+      "total": 1,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-56",
+      "total": 1,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-57",
+      "total": 2,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-58",
+      "total": 1,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-59",
+      "total": 2,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-60",
+      "total": 2,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-61",
+      "total": 2,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-62",
+      "total": 1,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-63",
+      "total": 2,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-64",
+      "total": 2,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-65",
+      "total": 2,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-66",
+      "total": 1,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-67",
+      "total": 1,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-68",
+      "total": 1,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-69",
+      "total": 1,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-70",
+      "total": 1,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-71",
+      "total": 1,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-72",
+      "total": 1,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-73",
+      "total": 1,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-74",
+      "total": 2,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-75",
+      "total": 2,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-76",
+      "total": 2,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-77",
+      "total": 1,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-78",
+      "total": 1,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-79",
+      "total": 2,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-80",
+      "total": 2,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-81",
+      "total": 1,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-82",
+      "total": 2,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-83",
+      "total": 2,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-84",
+      "total": 2,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-85",
+      "total": 1,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-86",
+      "total": 3,
+      "covered": 0
+    },
+    {
+      "office": "state_assembly_member",
+      "district": "ad-87",
+      "total": 3,
+      "covered": 0
+    },
+    {
+      "office": "supreme_court_justice",
+      "district": "jd-1",
+      "total": 11,
+      "covered": 0
+    },
+    {
+      "office": "supreme_court_justice",
+      "district": "jd-2",
+      "total": 5,
+      "covered": 0
+    },
+    {
+      "office": "supreme_court_justice",
+      "district": "jd-11",
+      "total": 5,
+      "covered": 0
+    },
+    {
+      "office": "supreme_court_justice",
+      "district": "jd-12",
+      "total": 1,
+      "covered": 0
+    },
+    {
+      "office": "supreme_court_justice",
+      "district": "jd-13",
+      "total": 2,
+      "covered": 0
+    }
+  ]
+}

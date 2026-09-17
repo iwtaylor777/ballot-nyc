@@ -9,12 +9,16 @@ import { useState } from "react";
  */
 export default function Embed() {
   const [address, setAddress] = useState("");
+  const [fallback, setFallback] = useState<string | null>(null);
 
   function open(e: React.FormEvent) {
     e.preventDefault();
     const a = address.trim();
     const url = `${window.location.origin}/onboarding${a ? `#a=${encodeURIComponent(a)}` : ""}`;
-    window.open(url, "_blank", "noopener");
+    // Popup blockers and sandboxed iframes can refuse window.open; show a
+    // plain link instead of failing silently.
+    const win = window.open(url, "_blank", "noopener");
+    if (!win) setFallback(url);
   }
 
   return (
@@ -25,7 +29,7 @@ export default function Embed() {
       </div>
       <h1 className="poster mt-2 text-3xl sm:text-4xl">WHAT&apos;S ON YOUR BALLOT?</h1>
       <p className="mt-1 text-sm text-ink/85">
-        Every race and proposal on your Nov 3 ballot. Free, nonpartisan.
+        The races and proposals on your Nov 3 ballot. Free, nonpartisan.
       </p>
       <form onSubmit={open} className="mt-3 flex flex-col gap-2 sm:flex-row">
         <label htmlFor="embed-address" className="sr-only">
@@ -44,6 +48,13 @@ export default function Embed() {
           <span className="poster text-xl">SHOW MY BALLOT →</span>
         </button>
       </form>
+      {fallback && (
+        <p className="mt-2 text-sm font-semibold">
+          <a href={fallback} target="_blank" rel="noreferrer" className="underline">
+            Open my ballot on ballotnyc.org →
+          </a>
+        </p>
+      )}
       <p className="mt-2 text-[11px] text-muted">
         Opens ballotnyc.org in a new tab. Your address isn&apos;t shared with
         the site you&apos;re reading.

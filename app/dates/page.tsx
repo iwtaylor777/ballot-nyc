@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { Frame } from "@/components/Frame";
 import { Countdown } from "@/components/Countdown";
 import { keyDates, nextElection } from "@/lib/data";
+import { isOnOrBefore } from "@/lib/nyTime";
 import { downloadICS } from "@/lib/ics";
 
 const FORMAT = new Intl.DateTimeFormat("en-US", {
@@ -22,12 +23,15 @@ export default function DatesPage() {
   // (UTC midnight + 29h ≈ midnight ET), so Election Day stays on the list
   // while polls are still open.
   // `now` is only known after mount (the page is pre-rendered), so the first
-  // render lists every date and then drops the ones already past.
+  // render lists every date and then drops the ones already past in New York.
   const [now, setNow] = useState<number | null>(null);
-  useEffect(() => setNow(Date.now()), []);
-  const upcoming = keyDates.filter(
-    (d) => now == null || new Date(d.date).getTime() + 104_400_000 > now,
-  );
+  useEffect(() => {
+    setNow(Date.now());
+    // Re-check on the hour so an open page doesn't show a passed deadline.
+    const id = setInterval(() => setNow(Date.now()), 600_000);
+    return () => clearInterval(id);
+  }, []);
+  const upcoming = keyDates.filter((d) => now == null || isOnOrBefore(d.date, now));
 
   return (
     <Frame back={{ href: "/", label: "HOME" }}>

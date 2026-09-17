@@ -12,7 +12,7 @@ export default function Home() {
     <Frame>
       <section className="pt-6">
         <p className="stamp text-ember">YOUR BALLOT · NEW YORK CITY</p>
-        <h1 className="poster mt-3 text-[88px] sm:text-[112px]">
+        <h1 className="poster mt-3 text-[68px] min-[360px]:text-[88px] sm:text-[112px]">
           WHAT&apos;S
           <br />
           ON YOUR
@@ -51,9 +51,8 @@ export default function Home() {
       <section className="space-y-4">
         <h2 className="poster text-4xl">START HERE.</h2>
         <p className="text-base text-ink/90">
-          Drop your address. We&apos;ll show you every race and proposal
-          you&apos;ll vote on — and what each office actually controls in
-          your life.
+          Drop your address. We&apos;ll show you the races and proposals on
+          your ballot — and what each office actually controls in your life.
         </p>
         <Link
           href="/onboarding"
@@ -61,6 +60,12 @@ export default function Home() {
         >
           <span className="poster text-3xl">BUILD MY BALLOT →</span>
         </Link>
+        <p className="text-xs text-muted">
+          Covers the five boroughs: statewide offices, Congress, State Senate,
+          Assembly, your borough&apos;s Supreme Court race, and the five city
+          proposals. We link you to your official sample ballot for anything
+          local we don&apos;t carry.
+        </p>
         <Link
           href="/dates"
           className="block text-center text-sm font-semibold text-ink underline-offset-4 hover:underline"

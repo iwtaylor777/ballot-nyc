@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useMemo } from "react";
 import { Frame } from "@/components/Frame";
 import { BallotList } from "@/components/BallotList";
-import { buildBallot, nextElection, proposals } from "@/lib/data";
+import { buildBallot, nextElection, proposals, unsupportedSelections } from "@/lib/data";
 import { pollSiteUrl } from "@/lib/geo/places";
 import { resolveDistricts } from "@/lib/resolveDistricts";
 import { useHomeAddress, useSelectedDistricts } from "@/lib/storage";
@@ -17,6 +17,8 @@ export default function BallotPage() {
     () => buildBallot(resolveDistricts(selected)),
     [selected],
   );
+  // Districts saved before we limited coverage to the five boroughs.
+  const unsupported = useMemo(() => unsupportedSelections(selected), [selected]);
   const next = nextElection();
   const isPrimary = next.id === "primary-day";
 
@@ -74,6 +76,27 @@ export default function BallotPage() {
         </p>
       ) : (
         <BallotList races={races} proposalCount={proposals.length} />
+      )}
+
+      <p className="mt-4 text-xs text-muted">
+        Your ballot may also list Civil Court judges or a special local
+        contest. Those appear on your official sample ballot below.
+      </p>
+
+      {unsupported.length > 0 && (
+        <p className="mt-4 border-l-4 border-ember bg-ember/10 p-3 text-sm">
+          We don&apos;t have a ballot for{" "}
+          {unsupported.map((d) => d.name).join(", ")} — Ballot NYC covers the
+          five boroughs.{" "}
+          <a
+            href="https://voterlookup.elections.ny.gov/"
+            target="_blank"
+            rel="noreferrer"
+            className="font-bold underline"
+          >
+            NY State voter lookup →
+          </a>
+        </p>
       )}
 
       {!hasDistrictRaces && races.length > 0 && (

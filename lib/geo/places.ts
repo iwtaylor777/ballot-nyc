@@ -143,6 +143,20 @@ function metersApart(a: Place, b: Place): number {
  * "SAINT MARKS PLACE"). Collapse those so we only ask when the choices are
  * genuinely different places.
  */
+/** Queens numbers carry their block ("37-17" is block 37); elsewhere use a range. */
+export function sameBlock(typed: string, candidate: string): boolean {
+  const a = typed.trim();
+  const b = candidate.trim();
+  const aBlock = a.match(/^(\d+)-/);
+  const bBlock = b.match(/^(\d+)-/);
+  if (aBlock || bBlock) return !!aBlock && !!bBlock && aBlock[1] === bBlock[1];
+  const an = numericHouse(a);
+  const bn = numericHouse(b);
+  if (!an || !bn) return false;
+  // Same side of the street within ~10 buildings, or the facing side.
+  return Math.abs(an - bn) <= 20;
+}
+
 function dedupe(places: Place[]): Place[] {
   const seen = new Set<string>();
   const out: Place[] = [];
@@ -203,6 +217,9 @@ export function rankPlaces(parsed: ParsedAddress, places: Place[]): RankedPlaces
     .filter((x) => x.s.score >= 10)
     .filter((x) => !parsed.borough || x.p.borough === parsed.borough)
     .filter((x) => !parsed.zip || x.p.zip === parsed.zip)
+    // Only buildings that are plausibly on the same block. District lines
+    // follow streets, so a number 200 doors away tells us nothing.
+    .filter((x) => sameBlock(parsed.houseNumber ?? "", x.p.houseNumber))
     .sort(
       (a, b) =>
         Math.abs(numericHouse(a.p.houseNumber) - target) -

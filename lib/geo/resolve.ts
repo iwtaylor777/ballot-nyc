@@ -34,6 +34,14 @@ import {
 } from "./places";
 
 const CENSUS = "https://geocoding.geo.census.gov/geocoder/geographies";
+
+/**
+ * Ballot NYC only has ballots for the five boroughs. An address elsewhere in
+ * New York resolves fine at the Census, but everything downstream — the
+ * candidate list, the city proposals, the poll-site link — would be wrong.
+ */
+export const OUTSIDE_NYC_MESSAGE =
+  "That address is in New York State but outside New York City, so we don't have its ballot. The state Board of Elections voter lookup has your districts, poll site, and sample ballot.";
 const CENSUS_PARAMS = {
   benchmark: "Public_AR_Current",
   vintage: "Current_Current",
@@ -72,7 +80,13 @@ export type ResolveResult =
       reason: "no_number" | "zip_only" | "too_short" | "no_match";
       message: string;
     }
-  | { status: "outside_ny"; message: string };
+  | { status: "outside_ny"; message: string }
+  | {
+      status: "outside_nyc";
+      message: string;
+      /** What we matched, so the user can see we understood the address. */
+      address?: MatchedAddress;
+    };
 
 interface CensusGeography {
   BASENAME?: string;
@@ -367,6 +381,9 @@ async function censusExact(
 function censusMatchResult(m: CensusMatch): ResolveResult {
   const { districts, warnings, borough } = districtsFromGeographies(m.geographies ?? {});
   const address = censusToAddress(m);
+  if (!borough) {
+    return { status: "outside_nyc", message: OUTSIDE_NYC_MESSAGE, address };
+  }
   return {
     status: "match",
     address: { ...address, borough: address.borough ?? borough },
@@ -394,6 +411,13 @@ export async function resolvePlace(
   );
   if (state && state !== "NY") {
     return { status: "outside_ny", message: "That location isn't in New York State." };
+  }
+  if (!borough) {
+    return {
+      status: "outside_nyc",
+      message: OUTSIDE_NYC_MESSAGE,
+      address: { label: place.label ?? "", zip: place.zip },
+    };
   }
   return {
     status: "match",
@@ -546,7 +570,7 @@ export async function resolveAddress(
     return {
       status: "choose",
       reason: "nearby",
-      message: `We couldn't find ${formatNumber(parsed)} in NYC's address list. Double-check the number, or pick the closest building (usually the same districts).`,
+      message: `We couldn't find ${formatNumber(parsed)} in NYC's address list. Check the number — these are the nearest buildings on that block. Districts can change mid-block, so only pick one if it's really your building.`,
       choices: ranked.nearby.slice(0, 3),
     };
   }

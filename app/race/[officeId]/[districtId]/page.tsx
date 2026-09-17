@@ -10,6 +10,7 @@ import {
   getDistrict,
   getOffice,
   hasCertifiedList,
+  isCoveredDistrict,
   offices,
   districts as allDistricts,
   seatsForRace,
@@ -49,7 +50,7 @@ function raceName(officeTitle: string, districtType: string, districtName: strin
 export function generateMetadata({ params }: Props): Metadata {
   const office = getOffice(params.officeId);
   const district = getDistrict(params.districtId);
-  if (!office || !district) return {};
+  if (!office || !district || office.scope !== district.type) return {};
   const cands = getCandidatesForRace(office.id, district.id);
   const title = `${raceName(office.title, district.type, district.name)} · Ballot NYC`;
   const description =
@@ -75,7 +76,10 @@ const CERT_DATE = new Intl.DateTimeFormat("en-US", {
 export default function RacePage({ params }: Props) {
   const office = getOffice(params.officeId);
   const district = getDistrict(params.districtId);
-  if (!office || !district) notFound();
+  // An office only exists for districts of its own scope: /race/governor/ush-12
+  // is not a race, and must not render as one.
+  if (!office || !district || office.scope !== district.type) notFound();
+  if (!isCoveredDistrict(district.id)) notFound();
   const candidates = getCandidatesForRace(params.officeId, params.districtId);
   const certifiedList = hasCertifiedList(params.officeId, params.districtId);
   const seats = seatsForRace(params.officeId, params.districtId);

@@ -1,10 +1,10 @@
 [
   {
     "id": "register",
-    "label": "Voter registration deadline",
+    "label": "Register to vote (or update your address)",
     "date": "2026-10-24",
-    "note": "Your registration must be received by your county Board of Elections by this date to vote in the General Election.",
-    "actionUrl": "https://voterlookup.elections.ny.gov/"
+    "note": "Register, or update your address if you moved, by this date to vote on Nov 3. New York has online voter registration. Already registered at your current address? You don't need to do anything.",
+    "actionUrl": "https://elections.ny.gov/register-vote"
   },
   {
     "id": "mail-request-online",
@@ -17,14 +17,14 @@
     "id": "early-start",
     "label": "Early voting begins",
     "date": "2026-10-24",
-    "note": "Nine days of early voting. Any early voting site in your borough.",
+    "note": "Nine days of early voting. In New York City you're assigned one early voting site — look yours up, it can be different from your Election Day poll site.",
     "actionUrl": "https://findmypollsite.vote.nyc/"
   },
   {
     "id": "early-end",
     "label": "Early voting ends",
     "date": "2026-11-01",
-    "note": "Last day to vote early before Election Day.",
+    "note": "Last day to vote early, at your assigned early voting site.",
     "actionUrl": "https://findmypollsite.vote.nyc/"
   },
   {

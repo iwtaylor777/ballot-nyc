@@ -1,14 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { pollsClose } from "@/lib/nyTime";
 
 // A bare calendar date (YYYY-MM-DD) is a voting day — count down to when
-// polls close, 9 PM Eastern, not midnight UTC. Otherwise the clock would hit
-// zero the evening before Election Day. November is EST (UTC−5).
+// polls close, 9 PM in New York, not midnight UTC. pollsClose() resolves the
+// right offset for the date, so this works either side of a DST change.
 function toTarget(date: string): Date {
-  if (/^\d{4}-\d{2}-\d{2}$/.test(date)) {
-    return new Date(`${date}T21:00:00-05:00`);
-  }
+  if (/^\d{4}-\d{2}-\d{2}$/.test(date)) return new Date(pollsClose(date));
   return new Date(date);
 }
 

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Frame } from "@/components/Frame";
 import { Countdown } from "@/components/Countdown";
+import { ShareLink } from "@/components/ShareLink";
 import { nextElection } from "@/lib/data";
 import { pollSiteUrl } from "@/lib/geo/places";
 import { useHomeAddress, useVotingPlan } from "@/lib/storage";
@@ -15,14 +16,19 @@ const STEPS: Array<{
   title: string;
   body: string;
   cta: { label: string; href: string };
+  secondary?: { label: string; href: string };
 }> = [
   {
     key: "registered",
     num: "01",
     title: "Get registered.",
-    body: "If you're already registered in NY, check it. If you moved within NY, re-register at your new address.",
+    body: "Not registered yet, or moved since you last voted? Register or update your address online by Oct 24 — it takes a few minutes. Already registered at your current address? Just confirm it.",
     cta: {
-      label: "Register / check status →",
+      label: "Register / update my address →",
+      href: "https://elections.ny.gov/register-vote",
+    },
+    secondary: {
+      label: "Check my registration →",
       href: "https://voterlookup.elections.ny.gov/",
     },
   },
@@ -37,7 +43,7 @@ const STEPS: Array<{
     key: "hasPlan",
     num: "03",
     title: "Pick when, where, how.",
-    body: "Early voting (Oct 24 – Nov 1), Election Day (Nov 3, 6 AM – 9 PM), or mail. Your early-voting site can differ from your Election Day site. Decide now and put it on your calendar.",
+    body: "Early voting (Oct 24 – Nov 1), Election Day (Nov 3, 6 AM – 9 PM), or mail. In NYC you're assigned one early voting site, and it can be different from your Election Day site — look up both. Decide now and put it on your calendar.",
     cta: {
       label: "Find my poll sites →",
       href: "https://findmypollsite.vote.nyc/",
@@ -151,7 +157,7 @@ export default function PlanPage() {
                       : "border-ink bg-paper text-ink",
                   ].join(" ")}
                   aria-pressed={checked}
-                  aria-label={checked ? "Mark not done" : "Mark done"}
+                  aria-label={`${s.title} — ${checked ? "mark not done" : "mark done"}`}
                 >
                   {checked ? (
                     <span className="poster text-3xl">✓</span>
@@ -178,6 +184,19 @@ export default function PlanPage() {
               >
                 {s.cta.label}
               </a>
+              {s.secondary && (
+                <a
+                  href={s.secondary.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={[
+                    "stamp mt-2 block underline",
+                    checked ? "text-paper" : "text-muted",
+                  ].join(" ")}
+                >
+                  {s.secondary.label}
+                </a>
+              )}
             </li>
           );
         })}
@@ -218,11 +237,13 @@ export default function PlanPage() {
 
       <hr className="rule-thin my-10" />
 
+      <ShareLink />
+
       <Link
         href="/quiz/results"
-        className="inline-flex w-full items-center justify-center border-[3px] border-ink bg-paper px-6 py-5 text-ink no-underline"
+        className="mt-3 inline-flex w-full items-center justify-center border-[3px] border-ink bg-paper px-6 py-5 text-ink no-underline"
       >
-        <span className="poster text-2xl">SHARE MY BALLOT →</span>
+        <span className="poster text-2xl">MY MATCHES + SHARE CARD →</span>
       </Link>
     </Frame>
   );
