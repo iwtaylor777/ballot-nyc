@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Frame } from "@/components/Frame";
 import { quiz } from "@/lib/data";
@@ -11,12 +11,18 @@ export default function QuizPage() {
   const router = useRouter();
   const [answers, setAnswers, hydrated] = useQuizAnswers();
   const [idx, setIdx] = useState(0);
-  const headingRef = useRef<HTMLHeadingElement>(null);
   // Screen-reader and keyboard users should land on the new question rather
-  // than staying on a button that no longer exists.
-  useEffect(() => {
-    if (idx > 0) headingRef.current?.focus();
-  }, [idx]);
+  // than staying on a button that no longer exists. AnimatePresence mounts the
+  // replacement heading only after the outgoing one animates away, so focus has
+  // to happen when the new node attaches — an effect on `idx` would focus the
+  // heading that is about to be removed.
+  const wantsFocus = useRef(false);
+  const headingRef = useCallback((el: HTMLHeadingElement | null) => {
+    if (el && wantsFocus.current) {
+      wantsFocus.current = false;
+      el.focus();
+    }
+  }, []);
 
   if (!hydrated) {
     return (
@@ -35,6 +41,7 @@ export default function QuizPage() {
     if (isLast) {
       router.push("/quiz/priorities");
     } else {
+      wantsFocus.current = true;
       setIdx(idx + 1);
     }
   }
@@ -119,7 +126,10 @@ export default function QuizPage() {
 
           {idx > 0 && (
             <button
-              onClick={() => setIdx(idx - 1)}
+              onClick={() => {
+                wantsFocus.current = true;
+                setIdx(idx - 1);
+              }}
               className="stamp mt-6 block text-muted underline"
             >
               ← PREVIOUS

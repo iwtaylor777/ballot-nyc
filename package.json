@@ -8,7 +8,9 @@
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "test:geo": "node scripts/test-geo.mjs",
-    "check": "npm run typecheck && npm run test:geo"
+    "test:quiz": "node scripts/test-quiz.mjs",
+    "test:ui": "node scripts/ui-harness.mjs && node scripts/ui-checks.mjs",
+    "check": "npm run typecheck && npm run test:geo && npm run test:quiz"
   },
   "dependencies": {
     "framer-motion": "^11.11.0",

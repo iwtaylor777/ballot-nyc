@@ -17,12 +17,13 @@ const STEPS: Array<{
   body: string;
   cta: { label: string; href: string };
   secondary?: { label: string; href: string };
+  note?: { label: string; href: string };
 }> = [
   {
     key: "registered",
     num: "01",
     title: "Get registered.",
-    body: "Not registered yet, or moved since you last voted? Register or update your address online by Oct 24 — it takes a few minutes. Already registered at your current address? Just confirm it.",
+    body: "Never registered in New York? Register online by Oct 24. Already registered but moved? That's an address change, not a new registration: the state processes changes received at least 15 days before Election Day — Oct 19 for this one — so do it now. Already registered at your current address? Just confirm it.",
     cta: {
       label: "Register / update my address →",
       href: "https://elections.ny.gov/register-vote",
@@ -30,6 +31,10 @@ const STEPS: Array<{
     secondary: {
       label: "Check my registration →",
       href: "https://voterlookup.elections.ny.gov/",
+    },
+    note: {
+      label: "Official deadlines, including address changes →",
+      href: "https://elections.ny.gov/registration-and-voting-deadlines",
     },
   },
   {
@@ -66,7 +71,7 @@ const FAQ: Array<{ q: string; a: string }> = [
   },
   {
     q: "I moved recently.",
-    a: "If you moved anywhere in NY, re-register at your new address by Oct 24. It takes two minutes online.",
+    a: "Update your address with the Board of Elections — you don't have to register again. Changes received at least 15 days before Election Day (Oct 19) are processed in time for it. If you're later than that you're still registered, so check your record and ask your county board where to vote. Moving between boroughs or counties changes which races are on your ballot.",
   },
   {
     q: "Can anyone see who I voted for?",
@@ -184,6 +189,19 @@ export default function PlanPage() {
               >
                 {s.cta.label}
               </a>
+              {s.note && (
+                <a
+                  href={s.note.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={[
+                    "mt-3 block text-xs underline",
+                    checked ? "text-paper/90" : "text-muted",
+                  ].join(" ")}
+                >
+                  {s.note.label}
+                </a>
+              )}
               {s.secondary && (
                 <a
                   href={s.secondary.href}

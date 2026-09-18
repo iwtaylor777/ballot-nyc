@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useMemo, useRef, useState } from "react";
 import { Frame } from "@/components/Frame";
 import { ShareCard } from "@/components/ShareCard";
 import { buildBallot, quiz } from "@/lib/data";
@@ -12,6 +12,12 @@ import {
   useSelectedDistricts,
 } from "@/lib/storage";
 import { ISSUE_LABELS } from "@/lib/types";
+import {
+  candidateStatus,
+  coverageCounts,
+  STATUS_LABEL,
+  type CandidateStatus,
+} from "@/lib/quizStatus";
 
 export default function Results() {
   const [answers, , answersHydrated] = useQuizAnswers();
@@ -19,19 +25,25 @@ export default function Results() {
   const [priorities, , prioritiesHydrated] = usePriorities();
   const cardRef = useRef<HTMLDivElement>(null);
   // The card is always rendered at 1080×1920 for export; the on-screen preview
-  // scales to whatever width the phone actually has (320px included).
-  const previewRef = useRef<HTMLDivElement>(null);
+  // scales to whatever width the phone actually has (320px included). This is a
+  // callback ref, not a mount effect: the page renders a loading gate first, so
+  // an effect would run while the preview element doesn't exist yet.
   const [previewScale, setPreviewScale] = useState(0.3);
   const [exportState, setExportState] = useState<"idle" | "working" | "error">("idle");
+  const observerRef = useRef<ResizeObserver | null>(null);
 
-  useEffect(() => {
-    const el = previewRef.current;
+  const previewRef = useCallback((el: HTMLDivElement | null) => {
+    observerRef.current?.disconnect();
+    observerRef.current = null;
     if (!el) return;
-    const fit = () => setPreviewScale(el.clientWidth / 1080);
+    const fit = () => {
+      // clientWidth excludes the border, which is what the card has to fit in.
+      if (el.clientWidth > 0) setPreviewScale(el.clientWidth / 1080);
+    };
     fit();
     const ro = new ResizeObserver(fit);
     ro.observe(el);
-    return () => ro.disconnect();
+    observerRef.current = ro;
   }, []);
 
   const races = useMemo(() => buildBallot(selected), [selected]);
@@ -40,13 +52,39 @@ export default function Results() {
     [answers, priorities],
   );
   const answered = Object.keys(answers).length;
-  const coverage = useMemo(() => {
-    const all = races.flatMap((r) => r.candidates);
-    return {
-      total: all.length,
-      scored: all.filter((c) => c.positions.length > 0).length,
-    };
-  }, [races]);
+
+  // Rank once, so the copy and the rows agree about who could be compared.
+  const rankedRaces = useMemo(
+    () =>
+      races.map((race) => {
+        const judicial = race.office.scope === "judicial";
+        const ranked = rankCandidates(race.candidates, answers, quiz, priorities).map(
+          (c) => ({ ...c, status: candidateStatus(c, c.overlap, judicial) }),
+        );
+        return {
+          race,
+          judicial,
+          scored: ranked.filter((c) => c.status === "scored"),
+          rest: ranked.filter((c) => c.status !== "scored"),
+          ranked,
+        };
+      }),
+    [races, answers, priorities],
+  );
+
+  const coverage = useMemo(
+    () =>
+      coverageCounts(
+        rankedRaces.flatMap((r) =>
+          r.ranked.map((c) => ({
+            positions: c.positions,
+            overlap: c.overlap,
+            judicial: r.judicial,
+          })),
+        ),
+      ),
+    [rankedRaces],
+  );
 
   if (!answersHydrated || !selectedHydrated || !prioritiesHydrated) {
     return (
@@ -175,23 +213,37 @@ export default function Results() {
       <section>
         <p className="stamp text-muted">HOW MUCH WE KNOW</p>
         <p className="mt-2 text-sm text-ink/90">
-          We only score candidates whose positions we could source and link.
-          Right now that&apos;s{" "}
-          <span className="font-bold">
-            {coverage.scored} of {coverage.total}
-          </span>{" "}
-          candidates on your ballot. Everyone else is listed below without a
-          score — that&apos;s missing research on our side, not a judgment
-          about them.
+          Your ballot has{" "}
+          <span className="font-bold">{coverage.total} candidates</span>. We
+          have sourced positions for{" "}
+          <span className="font-bold">{coverage.researched}</span>, and{" "}
+          <span className="font-bold">{coverage.comparable}</span> of those
+          line up with the {answered === 1 ? "one question" : `${answered} questions`} you
+          answered.
+          {coverage.judicial > 0 && (
+            <>
+              {" "}
+              The {coverage.judicial} judicial candidates aren&apos;t scored at
+              all.
+            </>
+          )}
         </p>
+        {coverage.comparable < coverage.researched && (
+          <p className="mt-2 text-sm text-ink/90">
+            Answering more questions would let us compare{" "}
+            {coverage.researched - coverage.comparable} more.{" "}
+            <Link href="/quiz" className="font-bold underline">
+              Finish the quiz →
+            </Link>
+          </p>
+        )}
       </section>
 
       <section className="mt-10 space-y-10">
-        {races.map((race) => {
-          const judicial = race.office.scope === "judicial";
-          const ranked = rankCandidates(race.candidates, answers, quiz, priorities);
-          const scored = ranked.filter((c) => c.overlap > 0);
-          const unscored = ranked.filter((c) => c.overlap === 0);
+        {rankedRaces.map(({ race, judicial, scored, rest }) => {
+          const researchedHere = [...scored, ...rest].filter(
+            (c) => c.positions.length > 0,
+          ).length;
           return (
             <div key={`${race.office.id}-${race.district.id}`}>
               <p className="stamp text-muted">
@@ -204,12 +256,20 @@ export default function Results() {
               {judicial ? (
                 <p className="mt-2 border-l-4 border-ink pl-3 text-sm text-ink/85">
                   Judicial candidates aren&apos;t scored. Judges apply the law
-                  rather than run on policy platforms, so a policy quiz
-                  would be misleading here.
+                  rather than run on policy platforms, so a policy quiz would be
+                  misleading here.
+                </p>
+              ) : scored.length === 0 && researchedHere > 0 ? (
+                <p className="mt-2 border-l-4 border-ink pl-3 text-sm text-ink/85">
+                  We have positions for this race, but none on the questions you
+                  answered.{" "}
+                  <Link href="/quiz" className="font-bold underline">
+                    Answer more →
+                  </Link>
                 </p>
               ) : (
                 scored.length === 0 && (
-                  <p className="mt-2 border-l-4 border-ember pl-3 text-sm text-ink/85">
+                  <p className="mt-2 border-l-4 border-emberDeep pl-3 text-sm text-ink/85">
                     We haven&apos;t sourced positions for anyone in this race
                     yet, so there&apos;s nothing to match against.
                   </p>
@@ -217,7 +277,7 @@ export default function Results() {
               )}
 
               <div className="mt-4 space-y-3">
-                {(judicial ? [] : scored).map((c) => (
+                {scored.map((c) => (
                   <Link
                     key={c.id}
                     href={`/race/${race.office.id}/${race.district.id}`}
@@ -247,7 +307,7 @@ export default function Results() {
                   </Link>
                 ))}
 
-                {(judicial ? ranked : unscored).map((c) => (
+                {rest.map((c) => (
                   <Link
                     key={c.id}
                     href={`/race/${race.office.id}/${race.district.id}`}
@@ -262,17 +322,17 @@ export default function Results() {
                       </div>
                     </div>
                     <div className="stamp max-w-[45%] text-right text-muted">
-                      {judicial ? "NOT SCORED" : "NO POSITIONS SOURCED"}
+                      {STATUS_LABEL[c.status as Exclude<CandidateStatus, "scored">]}
                     </div>
                   </Link>
                 ))}
               </div>
 
-              {!judicial && scored.length > 0 && unscored.length > 0 && (
+              {!judicial && scored.length > 0 && rest.length > 0 && (
                 <p className="mt-2 text-xs text-muted">
-                  Scores compare only the issues we could source, so a
-                  candidate with fewer sourced positions isn&apos;t
-                  less aligned — we just know less about them.
+                  Scores compare only the issues we could source and you
+                  answered, so a candidate listed without one isn&apos;t less
+                  aligned — we just can&apos;t compare them yet.
                 </p>
               )}
             </div>

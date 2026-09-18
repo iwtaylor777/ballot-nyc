@@ -65,6 +65,12 @@ export default function BallotPage() {
         </div>
       </section>
 
+      <p className="mt-4 text-xs text-muted">
+        These are the races we carry for the five boroughs. Your ballot may
+        also list Civil Court judges or a special local contest — check your
+        official sample ballot below before you vote.
+      </p>
+
       <hr className="rule-thick my-8" />
 
       {races.length === 0 ? (
@@ -77,11 +83,6 @@ export default function BallotPage() {
       ) : (
         <BallotList races={races} proposalCount={proposals.length} />
       )}
-
-      <p className="mt-4 text-xs text-muted">
-        Your ballot may also list Civil Court judges or a special local
-        contest. Those appear on your official sample ballot below.
-      </p>
 
       {unsupported.length > 0 && (
         <p className="mt-4 border-l-4 border-ember bg-ember/10 p-3 text-sm">

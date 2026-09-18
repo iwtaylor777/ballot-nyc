@@ -1,0 +1,27 @@
+[
+  {
+    "path": "/race/governor/ush-12",
+    "http": 404
+  },
+  {
+    "path": "/apple-icon",
+    "http": 200,
+    "contentType": "image/png",
+    "bytes": 2257,
+    "pngSignature": "89504e470d0a1a0a"
+  },
+  {
+    "path": "/robots.txt",
+    "http": 200,
+    "contentType": "text/plain; charset=utf-8",
+    "bytes": 100,
+    "pngSignature": null
+  },
+  {
+    "path": "/sitemap.xml",
+    "http": 200,
+    "contentType": "application/xml",
+    "bytes": 12995,
+    "pngSignature": null
+  }
+]

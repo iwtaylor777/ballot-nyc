@@ -1,0 +1,300 @@
+{
+  "baseline": "6401ea4",
+  "date": "2026-09-18",
+  "nyDateBoundaryCases": [
+    {
+      "date": "2026-10-24",
+      "now": "2026-10-24T00:30:00Z",
+      "expectedDays": 1,
+      "actualDays": 1,
+      "expectedActive": true,
+      "actualActive": true
+    },
+    {
+      "date": "2026-10-24",
+      "now": "2026-10-25T03:59:00Z",
+      "expectedDays": 0,
+      "actualDays": 0,
+      "expectedActive": true,
+      "actualActive": true
+    },
+    {
+      "date": "2026-10-24",
+      "now": "2026-10-25T04:30:00Z",
+      "expectedDays": -1,
+      "actualDays": -1,
+      "expectedActive": false,
+      "actualActive": false
+    },
+    {
+      "date": "2026-11-01",
+      "now": "2026-11-02T04:30:00Z",
+      "expectedDays": 0,
+      "actualDays": 0,
+      "expectedActive": true,
+      "actualActive": true
+    },
+    {
+      "date": "2026-11-01",
+      "now": "2026-11-02T05:30:00Z",
+      "expectedDays": -1,
+      "actualDays": -1,
+      "expectedActive": false,
+      "actualActive": false
+    }
+  ],
+  "pollsClose": {
+    "summer": "2026-06-24T01:00:00.000Z",
+    "november": "2026-11-04T02:00:00.000Z"
+  },
+  "shareCardMismatch": {
+    "now": "2026-09-18T00:30:00Z",
+    "nyCalendarDays": 47,
+    "shareCardDays": 46
+  },
+  "partialQuiz": {
+    "answers": {
+      "q-rent": 75
+    },
+    "listed": 25,
+    "positionsExist": 7,
+    "actuallyScored": 4,
+    "falselyLabeledUnsourced": [
+      {
+        "race": "Attorney General",
+        "candidate": "Saritha Komatireddy",
+        "positions": [
+          "public_safety",
+          "transit_fares"
+        ],
+        "match": 0,
+        "overlap": 0
+      },
+      {
+        "race": "State Comptroller",
+        "candidate": "Thomas P. DiNapoli",
+        "positions": [
+          "climate",
+          "jobs_economy"
+        ],
+        "match": 0,
+        "overlap": 0
+      },
+      {
+        "race": "State Comptroller",
+        "candidate": "Joseph Hernandez",
+        "positions": [
+          "jobs_economy",
+          "climate"
+        ],
+        "match": 0,
+        "overlap": 0
+      }
+    ],
+    "candidates": [
+      {
+        "race": "Governor & Lt. Governor",
+        "candidate": "Kathy C. Hochul",
+        "positions": [
+          "rent_housing",
+          "transit_fares",
+          "climate",
+          "public_safety"
+        ],
+        "match": 80,
+        "overlap": 1
+      },
+      {
+        "race": "Governor & Lt. Governor",
+        "candidate": "Bruce A. Blakeman",
+        "positions": [
+          "rent_housing",
+          "transit_fares",
+          "climate",
+          "public_safety",
+          "immigration"
+        ],
+        "match": 50,
+        "overlap": 1
+      },
+      {
+        "race": "Attorney General",
+        "candidate": "Letitia A. James",
+        "positions": [
+          "rent_housing",
+          "healthcare",
+          "public_safety"
+        ],
+        "match": 95,
+        "overlap": 1
+      },
+      {
+        "race": "Attorney General",
+        "candidate": "Saritha Komatireddy",
+        "positions": [
+          "public_safety",
+          "transit_fares"
+        ],
+        "match": 0,
+        "overlap": 0
+      },
+      {
+        "race": "State Comptroller",
+        "candidate": "Thomas P. DiNapoli",
+        "positions": [
+          "climate",
+          "jobs_economy"
+        ],
+        "match": 0,
+        "overlap": 0
+      },
+      {
+        "race": "State Comptroller",
+        "candidate": "Joseph Hernandez",
+        "positions": [
+          "jobs_economy",
+          "climate"
+        ],
+        "match": 0,
+        "overlap": 0
+      },
+      {
+        "race": "U.S. Representative",
+        "candidate": "Micah C. Lasher",
+        "positions": [
+          "rent_housing",
+          "healthcare",
+          "jobs_economy"
+        ],
+        "match": 90,
+        "overlap": 1
+      },
+      {
+        "race": "U.S. Representative",
+        "candidate": "Caroline Shinkle",
+        "positions": [],
+        "match": 0,
+        "overlap": 0
+      },
+      {
+        "race": "U.S. Representative",
+        "candidate": "Wilneida Negron",
+        "positions": [],
+        "match": 0,
+        "overlap": 0
+      },
+      {
+        "race": "U.S. Representative",
+        "candidate": "Karen Ortiz",
+        "positions": [],
+        "match": 0,
+        "overlap": 0
+      },
+      {
+        "race": "State Senator",
+        "candidate": "Liz Krueger",
+        "positions": [],
+        "match": 0,
+        "overlap": 0
+      },
+      {
+        "race": "State Senator",
+        "candidate": "Alina Bonsell",
+        "positions": [],
+        "match": 0,
+        "overlap": 0
+      },
+      {
+        "race": "State Assembly Member",
+        "candidate": "Tony Simone",
+        "positions": [],
+        "match": 0,
+        "overlap": 0
+      },
+      {
+        "race": "State Assembly Member",
+        "candidate": "Cristina Fontanelli",
+        "positions": [],
+        "match": 0,
+        "overlap": 0
+      },
+      {
+        "race": "State Supreme Court Justice",
+        "candidate": "Saliann Scarpulla",
+        "positions": [],
+        "match": 0,
+        "overlap": 0
+      },
+      {
+        "race": "State Supreme Court Justice",
+        "candidate": "Kathleen Waterman-Marshall",
+        "positions": [],
+        "match": 0,
+        "overlap": 0
+      },
+      {
+        "race": "State Supreme Court Justice",
+        "candidate": "Shlomo S. Hagler",
+        "positions": [],
+        "match": 0,
+        "overlap": 0
+      },
+      {
+        "race": "State Supreme Court Justice",
+        "candidate": "Manuel J. Mendez",
+        "positions": [],
+        "match": 0,
+        "overlap": 0
+      },
+      {
+        "race": "State Supreme Court Justice",
+        "candidate": "Hasa A. Kingo",
+        "positions": [],
+        "match": 0,
+        "overlap": 0
+      },
+      {
+        "race": "State Supreme Court Justice",
+        "candidate": "Christopher Chin",
+        "positions": [],
+        "match": 0,
+        "overlap": 0
+      },
+      {
+        "race": "State Supreme Court Justice",
+        "candidate": "Amy S. Taylor",
+        "positions": [],
+        "match": 0,
+        "overlap": 0
+      },
+      {
+        "race": "State Supreme Court Justice",
+        "candidate": "Joshua E. Goldfein",
+        "positions": [],
+        "match": 0,
+        "overlap": 0
+      },
+      {
+        "race": "State Supreme Court Justice",
+        "candidate": "Sienna M. Fontaine",
+        "positions": [],
+        "match": 0,
+        "overlap": 0
+      },
+      {
+        "race": "State Supreme Court Justice",
+        "candidate": "Bob Cohen",
+        "positions": [],
+        "match": 0,
+        "overlap": 0
+      },
+      {
+        "race": "State Supreme Court Justice",
+        "candidate": "Jeffrey W. Rizzo",
+        "positions": [],
+        "match": 0,
+        "overlap": 0
+      }
+    ]
+  }
+}

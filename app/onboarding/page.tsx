@@ -51,11 +51,13 @@ export default function Onboarding() {
   const [notice, setNotice] = useState<string | null>(null);
   const [choices, setChoices] = useState<Choices | null>(null);
   const [outside, setOutside] = useState<string | null>(null);
+  const [cleared, setCleared] = useState(false);
 
   const [suggest, setSuggest] = useState<SuggestionResult>(EMPTY);
   const [highlight, setHighlight] = useState(-1);
   const [showSuggest, setShowSuggest] = useState(false);
   const suppressNext = useRef(false);
+  const lookupGeneration = useRef(0);
   const abortRef = useRef<AbortController | null>(null);
 
   // Only districts we have a certified NYC ballot for — picking an upstate
@@ -158,6 +160,7 @@ export default function Onboarding() {
   }
 
   async function run(input: { address: string } | { place: Place }) {
+    const generation = ++lookupGeneration.current;
     setShowSuggest(false);
     setLoading(true);
     setLookupErr(null);
@@ -165,13 +168,18 @@ export default function Onboarding() {
     setChoices(null);
     setOutside(null);
     try {
-      handleResult(await lookupAddress(input));
+      const result = await lookupAddress(input);
+      // A lookup the user cleared or replaced must not repopulate the ballot.
+      if (generation !== lookupGeneration.current) return;
+      handleResult(result);
+      return;
     } catch {
+      if (generation !== lookupGeneration.current) return;
       setLookupErr(
         "Lookup failed — check your connection and try again, or pick your districts manually.",
       );
     } finally {
-      setLoading(false);
+      if (generation === lookupGeneration.current) setLoading(false);
     }
   }
 
@@ -344,7 +352,7 @@ export default function Onboarding() {
                           "block cursor-pointer border-b border-ink/15 px-4 py-3 text-left",
                           highlight === i
                             ? "bg-ink text-paper"
-                            : "bg-paper text-ink hover:bg-ember hover:text-paper",
+                            : "bg-paper text-ink hover:bg-emberDeep hover:text-paper",
                         ].join(" ")}
                       >
                         {nearby && i === firstNearby && (
@@ -392,6 +400,11 @@ export default function Onboarding() {
           </button>
 
           <div aria-live="polite">
+            {cleared && (
+              <p className="border-l-4 border-ink bg-ink/5 p-3 text-sm font-semibold">
+                Cleared everything saved on this device.
+              </p>
+            )}
             {choices && (
               <div className="border-[3px] border-ink p-4">
                 <p className="stamp text-ember">
@@ -404,7 +417,7 @@ export default function Onboarding() {
                       <button
                         type="button"
                         onClick={() => pickPlace(p)}
-                        className="block w-full border-2 border-ink px-3 py-3 text-left hover:bg-ember hover:text-paper"
+                        className="block w-full border-2 border-ink px-3 py-3 text-left hover:bg-emberDeep hover:text-paper"
                       >
                         <span className="block text-sm font-semibold">{p.line1}</span>
                         <span className="block text-xs opacity-75">
@@ -468,6 +481,11 @@ export default function Onboarding() {
             router.push("/ballot");
           }}
         >
+          {cleared && (
+            <p className="border-l-4 border-ink bg-ink/5 p-3 text-sm font-semibold">
+              Cleared everything saved on this device.
+            </p>
+          )}
           {notice && (
             <p className="border-l-4 border-ember bg-ember/10 p-3 text-sm">
               {notice}
@@ -546,12 +564,19 @@ export default function Onboarding() {
         <button
           type="button"
           onClick={() => {
+            lookupGeneration.current += 1; // ignore anything still in flight
             clearSavedData();
             setSelected({});
             setHome(null);
             setAddress("");
             setSuggest(EMPTY);
-            setNotice("Cleared everything saved on this device.");
+            setChoices(null);
+            setLookupErr(null);
+            setOutside(null);
+            setLoading(false);
+            setShowSuggest(false);
+            setCleared(true);
+            window.setTimeout(() => setCleared(false), 6000);
           }}
           className="underline"
         >

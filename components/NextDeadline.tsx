@@ -20,16 +20,31 @@ export function NextDeadline() {
   const [next, setNext] = useState<{ d: KeyDate; days: number } | null>(null);
 
   useEffect(() => {
-    const now = Date.now();
-    for (const id of ACTIONABLE) {
-      const d = keyDates.find((k) => k.id === id);
-      if (!d) continue;
-      // Deadlines run to the end of that day in New York.
-      if (isOnOrBefore(d.date, now)) {
-        setNext({ d, days: Math.max(0, daysUntil(d.date, now)) });
-        return;
+    const recompute = () => {
+      const now = Date.now();
+      for (const id of ACTIONABLE) {
+        const d = keyDates.find((k) => k.id === id);
+        if (!d) continue;
+        // Deadlines run to the end of that day in New York.
+        if (isOnOrBefore(d.date, now)) {
+          setNext({ d, days: Math.max(0, daysUntil(d.date, now)) });
+          return;
+        }
       }
-    }
+      setNext(null);
+    };
+    recompute();
+    // A page left open across midnight, or a phone coming back from sleep,
+    // must not keep showing yesterday's deadline.
+    const id = setInterval(recompute, 600_000);
+    const onVisible = () => {
+      if (document.visibilityState === "visible") recompute();
+    };
+    document.addEventListener("visibilitychange", onVisible);
+    return () => {
+      clearInterval(id);
+      document.removeEventListener("visibilitychange", onVisible);
+    };
   }, []);
 
   if (!next) return null;

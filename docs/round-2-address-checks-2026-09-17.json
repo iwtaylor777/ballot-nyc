@@ -1,0 +1,198 @@
+[
+  {
+    "input": "89-11 Merrick Boulevard, Queens",
+    "http": 200,
+    "ms": 514,
+    "result": {
+      "status": "match",
+      "address": {
+        "label": "89-11 Merrick Boulevard, Queens, NY 11432",
+        "houseNumber": "89-11",
+        "street": "MERRICK BOULEVARD",
+        "borough": "Queens",
+        "zip": "11432"
+      },
+      "districts": {
+        "us_house": "ush-5",
+        "state_senate": "ss-11",
+        "state_assembly": "ad-29",
+        "judicial": "jd-11"
+      },
+      "warnings": [],
+      "source": "nyc"
+    }
+  },
+  {
+    "input": "10 Grand Army Plaza, Brooklyn",
+    "http": 200,
+    "ms": 588,
+    "result": {
+      "status": "match",
+      "address": {
+        "label": "10 Grand Army Plaza, Brooklyn, NY 11238",
+        "houseNumber": "10",
+        "street": "GRAND ARMY PLAZA",
+        "borough": "Brooklyn",
+        "zip": "11238"
+      },
+      "districts": {
+        "us_house": "ush-9",
+        "state_senate": "ss-20",
+        "state_assembly": "ad-44",
+        "judicial": "jd-2"
+      },
+      "warnings": [],
+      "source": "nyc"
+    }
+  },
+  {
+    "input": "5 Central Avenue, Staten Island",
+    "http": 200,
+    "ms": 392,
+    "result": {
+      "status": "match",
+      "address": {
+        "label": "5 Central Avenue, Staten Island, NY 10301",
+        "houseNumber": "5",
+        "street": "CENTRAL AVENUE",
+        "borough": "Staten Island",
+        "zip": "10301"
+      },
+      "districts": {
+        "us_house": "ush-11",
+        "state_senate": "ss-23",
+        "state_assembly": "ad-61",
+        "judicial": "jd-13"
+      },
+      "warnings": [],
+      "source": "nyc"
+    }
+  },
+  {
+    "input": "310 East Kingsbridge Road, Bronx",
+    "http": 200,
+    "ms": 2644,
+    "result": {
+      "status": "match",
+      "address": {
+        "label": "310 East Kingsbridge Road, Bronx, NY 10458",
+        "houseNumber": "310",
+        "street": "EAST KINGSBRIDGE ROAD",
+        "borough": "Bronx",
+        "zip": "10458"
+      },
+      "districts": {
+        "us_house": "ush-13",
+        "state_senate": "ss-33",
+        "state_assembly": "ad-78",
+        "judicial": "jd-12"
+      },
+      "warnings": [],
+      "source": "nyc"
+    }
+  },
+  {
+    "input": "40 South Broadway, Yonkers, NY 10701",
+    "http": 200,
+    "ms": 402,
+    "result": {
+      "status": "outside_nyc",
+      "message": "That address is in New York State but outside New York City, so we don't have its ballot. The state Board of Elections voter lookup has your districts, poll site, and sample ballot.",
+      "address": {
+        "label": "40 S Broadway, Yonkers, NY 10701",
+        "houseNumber": "40",
+        "street": "S BROADWAY",
+        "zip": "10701"
+      }
+    }
+  },
+  {
+    "input": "24 Eagle Street, Albany, NY 12207",
+    "http": 200,
+    "ms": 610,
+    "result": {
+      "status": "outside_nyc",
+      "message": "That address is in New York State but outside New York City, so we don't have its ballot. The state Board of Elections voter lookup has your districts, poll site, and sample ballot.",
+      "address": {
+        "label": "24 Eagle St, Albany, NY 12207",
+        "houseNumber": "24",
+        "street": "EAGLE ST",
+        "zip": "12207"
+      }
+    }
+  },
+  {
+    "input": "350 5th Ave",
+    "http": 200,
+    "ms": 143,
+    "result": {
+      "status": "choose",
+      "reason": "ambiguous",
+      "message": "350 5th Ave exists in more than one borough. Which one is yours?",
+      "choices": [
+        {
+          "label": "350 5th Avenue, Manhattan, NY 10118",
+          "line1": "350 5th Avenue",
+          "houseNumber": "350",
+          "street": "5 AVENUE",
+          "borough": "Manhattan",
+          "zip": "10118",
+          "lat": 40.748441,
+          "lon": -73.985656
+        },
+        {
+          "label": "350 5th Avenue, Brooklyn, NY 11215",
+          "line1": "350 5th Avenue",
+          "houseNumber": "350",
+          "street": "5 AVENUE",
+          "borough": "Brooklyn",
+          "zip": "11215",
+          "lat": 40.672191,
+          "lon": -73.984456
+        }
+      ]
+    }
+  },
+  {
+    "input": "9999 Bond St, Brooklyn",
+    "http": 200,
+    "ms": 258,
+    "result": {
+      "status": "not_found",
+      "reason": "no_match",
+      "message": "We couldn't find that address. Check the building number and street — Queens addresses need the hyphen (37-17 30th St)."
+    }
+  },
+  {
+    "input": "11231",
+    "http": 200,
+    "ms": 58,
+    "result": {
+      "status": "not_found",
+      "reason": "zip_only",
+      "message": "A ZIP code alone can span several districts. Add your street address (e.g. 365 Bond St)."
+    }
+  },
+  {
+    "input": "365 Bond St, Manhattan",
+    "http": 200,
+    "ms": 350,
+    "result": {
+      "status": "choose",
+      "reason": "ambiguous",
+      "message": "We couldn't find 365 Bond St in Manhattan. Is it one of these?",
+      "choices": [
+        {
+          "label": "365 Bond Street, Brooklyn, NY 11231",
+          "line1": "365 Bond Street",
+          "houseNumber": "365",
+          "street": "BOND STREET",
+          "borough": "Brooklyn",
+          "zip": "11231",
+          "lat": 40.677515,
+          "lon": -73.990061
+        }
+      ]
+    }
+  }
+]

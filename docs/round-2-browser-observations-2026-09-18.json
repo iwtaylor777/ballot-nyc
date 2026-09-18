@@ -1,0 +1,71 @@
+{
+  "site": "https://ballotnyc.org",
+  "baseline": "6401ea4",
+  "method": "Live browser UI actions and read-only DOM measurements. Manually recorded observations; not an automated test suite.",
+  "preview320": {
+    "viewportWidth": 320,
+    "documentScrollWidth": 320,
+    "containerClientWidth": 274,
+    "containerOuterWidth": 280,
+    "containerOuterHeight": 497.7734375,
+    "overflow": "hidden",
+    "cardTransform": "scale(0.3)",
+    "scaledCardWidth": 324,
+    "scaledCardHeight": 576,
+    "visualObservation": "Election date cut off, footer absent, right side clipped."
+  },
+  "preview375": {
+    "viewportWidth": 375,
+    "documentScrollWidth": 375,
+    "containerClientWidth": 318,
+    "cardTransform": "scale(0.3)",
+    "scaledCardWidth": 324,
+    "documentHeight": 5343,
+    "planActionTop": 5016.7890625,
+    "scoredRowsWithSevenAnswers": 7,
+    "capturedWarningsAndErrors": []
+  },
+  "home320": {
+    "viewportWidth": 320,
+    "viewportHeight": 740,
+    "documentScrollWidth": 320,
+    "buildBallotActionTop": 888.0625
+  },
+  "keyboardAdvance": {
+    "action": "Activate rent answer with Enter, then inspect settled next question",
+    "heading": "On subway and bus fares...",
+    "activeElement": "BODY",
+    "headingFocused": false
+  },
+  "partialQuiz": {
+    "address": "476 5th Avenue, Manhattan, NY 10018",
+    "answer": "q-rent = 75",
+    "listedCandidates": 25,
+    "displayedCoverage": "7 of 25",
+    "actuallyScored": 4,
+    "incorrectNoPositionsLabels": ["Saritha Komatireddy", "Thomas P. DiNapoli", "Joseph Hernandez"],
+    "racePageCrossCheck": "Comptroller race page visibly includes sourced positions for both candidates."
+  },
+  "clearSavedData": {
+    "inputBeforeClear": "350 5th Ave",
+    "choicesBeforeClear": ["350 5th Avenue, Manhattan", "350 5th Avenue, Brooklyn"],
+    "afterClear": "Input and current saved ballot disappear, both address-choice buttons remain, no visible success notice.",
+    "staleChoiceCheck": "Clicking the remaining Brooklyn choice loads its ballot."
+  },
+  "emptyPriorities": {
+    "saved": ["Rent & Housing", "Climate"],
+    "action": "Edit, remove both choices",
+    "saveButtonDisabled": true,
+    "afterSkip": ["Rent & Housing", "Climate"]
+  },
+  "manualBoroughChange": {
+    "initialAddress": "350 5th Avenue, Brooklyn, NY 11215",
+    "action": "Change manual borough to Manhattan",
+    "addressLabelCleared": true,
+    "pollSiteURL": "https://findmypollsite.vote.nyc/"
+  },
+  "planPersistence": {
+    "action": "Mark registration step done and reload the plan",
+    "checkboxRetained": true
+  }
+}

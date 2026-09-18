@@ -7,7 +7,9 @@ import {
   type ResolveResult,
 } from "@/lib/geo/resolve";
 
-export const runtime = "edge";
+// Next 16 deprecates the Edge Runtime; this route only does fetch + JSON.
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
 
 const TIMEOUT_MS = 9000;
 

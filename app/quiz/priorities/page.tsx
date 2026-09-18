@@ -154,7 +154,7 @@ export default function PrioritiesPage() {
                     ? "bg-ink text-paper"
                     : disabled
                       ? "bg-paper text-ink/40"
-                      : "bg-paper text-ink hover:bg-ember hover:text-paper",
+                      : "bg-paper text-ink hover:bg-emberDeep hover:text-paper",
                 ].join(" ")}
               >
                 <span className="font-display text-lg uppercase tracking-tight">
@@ -170,17 +170,23 @@ export default function PrioritiesPage() {
 
       <button
         onClick={commit}
-        disabled={picks.length === 0}
-        className="inline-flex w-full items-center justify-center bg-ember px-6 py-5 text-paper disabled:opacity-40"
+        className="inline-flex w-full items-center justify-center bg-ember px-6 py-5 text-paper"
       >
-        <span className="poster text-3xl">SEE MY MATCHES →</span>
+        <span className="poster text-3xl">
+          {picks.length === 0 ? "WEIGH EVERYTHING EQUALLY →" : "SEE MY MATCHES →"}
+        </span>
       </button>
+      {picks.length === 0 && (
+        <p className="mt-2 text-center text-xs text-muted">
+          With nothing picked, every issue you answered counts the same.
+        </p>
+      )}
 
       <Link
         href="/quiz/results"
         className="stamp mt-4 block text-center text-muted underline"
       >
-        SKIP — JUST SHOW ME
+        CANCEL — KEEP MY LAST PICKS
       </Link>
     </Frame>
   );

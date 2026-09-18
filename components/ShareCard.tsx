@@ -3,6 +3,7 @@
 import { forwardRef } from "react";
 import { ISSUE_LABELS, type IssueTag } from "@/lib/types";
 import { nextElection } from "@/lib/data";
+import { daysUntil } from "@/lib/nyTime";
 
 interface Props {
   topIssues: IssueTag[];
@@ -26,11 +27,9 @@ export const ShareCard = forwardRef<HTMLDivElement, Props>(function ShareCard(
   const next = nextElection();
   const isPrimary = next.id === "primary-day";
   const target = new Date(next.date);
-  const today = new Date();
-  const days = Math.max(
-    0,
-    Math.ceil((target.getTime() - today.getTime()) / 86_400_000),
-  );
+  // Same New York calendar-day arithmetic the rest of the site uses, so the
+  // card can't say 46 days while the page says 47.
+  const days = Math.max(0, daysUntil(next.date));
   const dateLabel = CARD_DATE_FORMAT.format(target).toUpperCase();
   const headerLabel = isPrimary ? "PRIMARY DAY" : "ELECTION DAY";
 
