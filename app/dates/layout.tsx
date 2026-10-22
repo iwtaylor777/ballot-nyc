@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import { JsonLd } from "@/components/JsonLd";
+import { electionEventsLd } from "@/lib/seo";
 
-const title = "Key dates · Ballot NYC";
+const title = "NYC voting deadlines 2026: registration, early voting, mail ballots · Ballot NYC";
 const description =
-  "Registration, early voting, mail ballot, and Election Day deadlines for the Nov 3, 2026 NYC election.";
+  "Every deadline for the Nov 3, 2026 NYC general election: register or update your address by Oct 24, early voting Oct 24 – Nov 1, mail ballot request and return dates, and Election Day hours (6 AM – 9 PM).";
 
 export const metadata: Metadata = {
   title,
@@ -13,5 +15,10 @@ export const metadata: Metadata = {
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  return children;
+  return (
+    <>
+      <JsonLd data={electionEventsLd()} />
+      {children}
+    </>
+  );
 }

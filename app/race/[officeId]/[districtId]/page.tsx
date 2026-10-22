@@ -17,6 +17,14 @@ import {
 } from "@/lib/data";
 import { ISSUE_LABELS, type Candidate } from "@/lib/types";
 import { ballotpediaUrl } from "@/lib/ballotpedia";
+import { JsonLd } from "@/components/JsonLd";
+import {
+  breadcrumbLd,
+  candidateLabel,
+  raceLd,
+  raceLongName,
+  raceSearchName,
+} from "@/lib/seo";
 
 export function generateStaticParams() {
   const seen = new Set<string>();
@@ -44,21 +52,19 @@ interface Props {
   params: Promise<{ officeId: string; districtId: string }>;
 }
 
-function raceName(officeTitle: string, districtType: string, districtName: string) {
-  return districtType === "statewide" ? officeTitle : `${officeTitle} — ${districtName}`;
-}
-
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { officeId, districtId } = await params;
   const office = getOffice(officeId);
   const district = getDistrict(districtId);
   if (!office || !district || office.scope !== district.type) return {};
   const cands = getCandidatesForRace(office.id, district.id);
-  const title = `${raceName(office.title, district.type, district.name)} · Ballot NYC`;
+  const seats = seatsForRace(office.id, district.id);
+  const title = `${raceSearchName(office, district)} 2026: Who's on the Ballot · Ballot NYC`;
+  const long = raceLongName(office, district);
   const description =
     cands.length > 0
-      ? `On the Nov 3, 2026 ballot: ${cands.map((c) => c.name).join(", ")}. What the office controls and where candidates stand.`
-      : `What this office controls and who's running on Nov 3, 2026.`;
+      ? `Candidates on the Nov 3, 2026 ballot for ${long}${seats > 1 ? ` (vote for up to ${seats})` : ""}: ${cands.map(candidateLabel).join("; ")}. What the office controls and where candidates stand, from the certified NYS Board of Elections list.`
+      : `${long}: what this office controls and who's running on Nov 3, 2026.`;
   return {
     title,
     description,
@@ -91,8 +97,19 @@ export default async function RacePage({ params }: Props) {
   const anyFusion = candidates.some((c) => (c.lines?.length ?? 0) > 1);
   const profiled = candidates.filter((c) => !c.certifiedOnly);
   const bareNames = candidates.filter((c) => c.certifiedOnly);
+  const path = `/race/${office.id}/${district.id}`;
 
   return (
+    <>
+    <JsonLd
+      data={[
+        raceLd(office, district, candidates, path, seats),
+        breadcrumbLd([
+          { name: "Ballot NYC", path: "/" },
+          { name: `${raceSearchName(office, district)} race`, path },
+        ]),
+      ]}
+    />
     <Frame back={{ href: "/ballot", label: "BACK TO BALLOT" }}>
       <section className="pt-2">
         <p className="stamp text-ember">
@@ -226,6 +243,7 @@ export default async function RacePage({ params }: Props) {
         </Link>
       )}
     </Frame>
+    </>
   );
 }
 

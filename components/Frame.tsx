@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { nextElection } from "@/lib/data";
+import { GA_ID } from "@/lib/analytics";
 
 const HEADER_FORMAT = new Intl.DateTimeFormat("en-US", {
   month: "short",
@@ -42,12 +43,15 @@ export function Frame({
       <main className="flex-1 px-5 pb-24 pt-2">{children}</main>
       <footer className="space-y-2 border-t border-ink px-5 py-5">
         <p className="stamp text-muted">
-          NONPARTISAN · NO ACCOUNTS · NO TRACKING
+          {GA_ID
+            ? "NONPARTISAN · NO ACCOUNTS · NO ADS"
+            : "NONPARTISAN · NO ACCOUNTS · NO TRACKING"}
         </p>
         <p className="text-[11px] leading-relaxed text-muted">
           Sources: NYS Board of Elections certified candidate list, NYC Board
           of Elections, NYC Charter Revision Commission, Ballotpedia, U.S.
           Census Bureau, NYC Planning GeoSearch.{" "}
+          {GA_ID && "We count visits with Google Analytics, with Google's ad features off. "}
           Spot an error?{" "}
           <a href="mailto:hello@ballotnyc.org" className="underline">
             hello@ballotnyc.org

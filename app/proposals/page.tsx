@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Frame } from "@/components/Frame";
 import { proposals } from "@/lib/data";
+import { JsonLd } from "@/components/JsonLd";
+import { abs, faqLd, proposalFaq } from "@/lib/seo";
 
-const title = "NYC Ballot Proposals 1–5 · Ballot NYC";
+const title = "NYC ballot proposals 2026 explained: Questions 1–5 · Ballot NYC";
 const description =
   "Every NYC voter will see five City Charter proposals on the Nov 3, 2026 ballot. What each one changes, and what a Yes or No vote means.";
 
@@ -17,6 +19,8 @@ export const metadata: Metadata = {
 
 export default function ProposalsPage() {
   return (
+    <>
+    <JsonLd data={faqLd(proposals.map(proposalFaq), abs("/proposals"))} />
     <Frame back={{ href: "/ballot", label: "BACK TO BALLOT" }}>
       <section className="pt-2">
         <p className="stamp text-ember">CITYWIDE · EVERY NYC BALLOT</p>
@@ -109,5 +113,6 @@ export default function ProposalsPage() {
         <span className="poster text-2xl">BACK TO MY BALLOT →</span>
       </Link>
     </Frame>
+    </>
   );
 }

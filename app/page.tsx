@@ -1,14 +1,27 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import { JsonLd } from "@/components/JsonLd";
+import { electionEventsLd, SITE_DESCRIPTION } from "@/lib/seo";
 import { Frame } from "@/components/Frame";
 import { Countdown } from "@/components/Countdown";
 import { NextDeadline } from "@/components/NextDeadline";
 import { nextElection } from "@/lib/data";
+
+export const metadata: Metadata = {
+  title: {
+    absolute: "Ballot NYC — What's on my NYC ballot? Nov 3, 2026 nonpartisan voter guide",
+  },
+  description: SITE_DESCRIPTION,
+  alternates: { canonical: "/" },
+};
 
 export default function Home() {
   const next = nextElection();
   const isPrimary = next.id === "primary-day";
 
   return (
+    <>
+    <JsonLd data={electionEventsLd()} />
     <Frame>
       <section className="pt-6">
         <p className="stamp text-ember">YOUR BALLOT · NEW YORK CITY</p>
@@ -91,5 +104,6 @@ export default function Home() {
         </p>
       </section>
     </Frame>
+    </>
   );
 }

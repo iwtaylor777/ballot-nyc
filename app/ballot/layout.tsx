@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title,
   description,
   alternates: { canonical: "/ballot" },
+  // Personal, device-stored page with no content for crawlers; keep it out
+  // of search results but let them follow its links.
+  robots: { index: false, follow: true },
   openGraph: { title, description, url: "/ballot" },
   twitter: { title, description },
 };

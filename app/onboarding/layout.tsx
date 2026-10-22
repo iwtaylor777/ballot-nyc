@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
-const title = "Build your ballot · Ballot NYC";
+const title = "What's on my ballot? Look up your NYC ballot by address · Ballot NYC";
 const description =
-  "Type your NYC address to see every race and proposal on your Nov 3, 2026 ballot.";
+  "Type your NYC address to see every race and proposal on your Nov 3, 2026 ballot: Governor, Congress, State Senate, Assembly, State Supreme Court and the five city Charter proposals.";
 
 export const metadata: Metadata = {
   title,

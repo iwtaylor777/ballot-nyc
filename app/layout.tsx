@@ -1,6 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { Big_Shoulders, Space_Grotesk } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@/components/Analytics";
+import { JsonLd } from "@/components/JsonLd";
+import { organizationLd, websiteLd } from "@/lib/seo";
 
 // Google retired "Big Shoulders Display"; "Big Shoulders" is its successor.
 const display = Big_Shoulders({
@@ -25,6 +28,16 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://ballotnyc.org"),
   title: SHARE_TITLE,
   description: SHARE_DESCRIPTION,
+  applicationName: "Ballot NYC",
+  category: "politics",
+  authors: [{ name: "Ian Taylor" }],
+  // Search Console / Bing Webmaster verification, set in Vercel env when ready.
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION || undefined,
+    other: process.env.BING_SITE_VERIFICATION
+      ? { "msvalidate.01": process.env.BING_SITE_VERIFICATION }
+      : undefined,
+  },
   openGraph: {
     title: SHARE_TITLE,
     description: SHARE_DESCRIPTION,
@@ -53,7 +66,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${display.variable} ${body.variable}`}>
-      <body className="min-h-dvh">{children}</body>
+      <body className="min-h-dvh">
+        {children}
+        <JsonLd data={[organizationLd(), websiteLd()]} />
+        <Analytics />
+      </body>
     </html>
   );
 }
