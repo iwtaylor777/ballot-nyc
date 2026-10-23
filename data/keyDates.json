@@ -1,9 +1,16 @@
 [
   {
+    "id": "address-change",
+    "label": "Last day for address changes to count",
+    "date": "2026-10-19",
+    "note": "Already registered but moved? Address changes received by your county Board of Elections at least 15 days before Election Day are processed in time for Nov 3. Missed it? You're still registered — check your record and ask your county board where to vote.",
+    "actionUrl": "https://elections.ny.gov/register-vote"
+  },
+  {
     "id": "register",
-    "label": "Register to vote (or update your address)",
+    "label": "Register to vote",
     "date": "2026-10-24",
-    "note": "Register, or update your address if you moved, by this date to vote on Nov 3. New York has online voter registration. Already registered at your current address? You don't need to do anything.",
+    "note": "New registrations must be received by your county Board of Elections by this date to vote on Nov 3. New York has online voter registration. Already registered but moved? That's an address change, which had an earlier deadline (Oct 19). Already registered at your current address? You don't need to do anything.",
     "actionUrl": "https://elections.ny.gov/register-vote"
   },
   {

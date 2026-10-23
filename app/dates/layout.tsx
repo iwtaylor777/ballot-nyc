@@ -4,7 +4,7 @@ import { electionEventsLd } from "@/lib/seo";
 
 const title = "NYC voting deadlines 2026: registration, early voting, mail ballots · Ballot NYC";
 const description =
-  "Every deadline for the Nov 3, 2026 NYC general election: register or update your address by Oct 24, early voting Oct 24 – Nov 1, mail ballot request and return dates, and Election Day hours (6 AM – 9 PM).";
+  "Every deadline for the Nov 3, 2026 NYC general election: register by Oct 24 (address changes for voters who moved had to arrive by Oct 19), early voting Oct 24 – Nov 1, mail ballot request and return dates, and Election Day hours (6 AM – 9 PM).";
 
 export const metadata: Metadata = {
   title,
