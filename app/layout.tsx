@@ -33,7 +33,8 @@ export const metadata: Metadata = {
   authors: [{ name: "Ian Taylor" }],
   // Search Console / Bing Webmaster verification, set in Vercel env when ready.
   verification: {
-    google: process.env.GOOGLE_SITE_VERIFICATION || undefined,
+    // Google Search Console (URL-prefix property https://ballotnyc.org/).
+    google: process.env.GOOGLE_SITE_VERIFICATION || "Fsd7uue4pk9cgWm1P-j_dtNGjVcridTVf15ETsUFQT8",
     other: process.env.BING_SITE_VERIFICATION
       ? { "msvalidate.01": process.env.BING_SITE_VERIFICATION }
       : undefined,
