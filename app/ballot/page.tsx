@@ -8,6 +8,8 @@ import { buildBallot, nextElection, proposals, unsupportedSelections } from "@/l
 import { pollSiteUrl } from "@/lib/geo/places";
 import { resolveDistricts } from "@/lib/resolveDistricts";
 import { useHomeAddress, useSelectedDistricts } from "@/lib/storage";
+import { useElectionNow } from "@/components/ElectionClock";
+import { electionState } from "@/lib/election";
 import { Countdown } from "@/components/Countdown";
 
 export default function BallotPage() {
@@ -19,6 +21,7 @@ export default function BallotPage() {
   );
   // Districts saved before we limited coverage to the five boroughs.
   const unsupported = useMemo(() => unsupportedSelections(selected), [selected]);
+  const { archived } = electionState(useElectionNow());
   const next = nextElection();
   const isPrimary = next.id === "primary-day";
 
@@ -43,33 +46,33 @@ export default function BallotPage() {
   return (
     <Frame back={{ href: "/onboarding", label: "EDIT DISTRICTS" }}>
       <section className="pt-2">
-        <p className="stamp text-ember">YOUR BALLOT</p>
+        <p className="stamp text-ember">YOUR INDEPENDENT GUIDE</p>
         <h1 className="poster mt-3 text-6xl">
           {races.length} RACES.
           <br />
-          ONE BALLOT.
+          IN YOUR GUIDE.
         </h1>
         {home && (
-          <p className="stamp mt-3 text-muted">
+          <p className="mt-3 text-sm text-muted">
             FOR {home.label.toUpperCase()} ·{" "}
             <Link href="/onboarding" className="text-ink underline">
               CHANGE
             </Link>
           </p>
         )}
-        <div className="mt-5 flex items-center gap-3 border-l-4 border-ember pl-4">
+        {!archived && <div className="mt-5 flex items-center gap-3 border-l-4 border-ember pl-4">
           <Countdown date={next.date} compact />
           <span className="stamp text-muted">
             UNTIL {isPrimary ? "PRIMARY" : "POLLS CLOSE"}
           </span>
-        </div>
+        </div>}
       </section>
 
-      <p className="mt-4 text-xs text-muted">
-        These are the races we carry for the five boroughs. Your ballot may
-        also list Civil Court judges or a special local contest — check your
-        official sample ballot below before you vote.
-      </p>
+      <aside className="mt-5 border-[3px] border-ink p-4 text-sm" aria-label="Guide coverage and official verification">
+        <p className="font-bold">Independent guide, not your official sample ballot.</p>
+        <p className="mt-2">Civil Court judges and special local contests may be missing. An address match identifies districts; it does not verify your registration, eligibility, or every contest.</p>
+        <a href={sampleBallot} target="_blank" rel="noreferrer" className="mt-3 inline-block font-bold underline">Verify my official sample ballot and poll sites →</a>
+      </aside>
 
       <hr className="rule-thick my-8" />
 
@@ -109,25 +112,6 @@ export default function BallotPage() {
           </Link>
         </p>
       )}
-
-      <section className="mt-6 border-[3px] border-ink p-4">
-        <p className="stamp text-muted">YOUR OFFICIAL SAMPLE BALLOT</p>
-        <p className="mt-1 text-sm text-ink/90">
-          The NYC Board of Elections shows your exact ballot — including any
-          Civil Court judge races in your area — and where to vote early and on
-          Election Day.
-        </p>
-        <a
-          href={sampleBallot}
-          target="_blank"
-          rel="noreferrer"
-          className="stamp mt-3 inline-block text-ink underline decoration-ember decoration-2 underline-offset-4"
-        >
-          {home?.houseNumber
-            ? "Open my sample ballot + poll sites →"
-            : "Look up your sample ballot + poll sites →"}
-        </a>
-      </section>
 
       <hr className="rule-thin my-10" />
 

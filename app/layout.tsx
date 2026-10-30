@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Big_Shoulders, Space_Grotesk } from "next/font/google";
 import "./globals.css";
+import { ElectionClock } from "@/components/ElectionClock";
 import { Analytics } from "@/components/Analytics";
 import { JsonLd } from "@/components/JsonLd";
 import { organizationLd, websiteLd } from "@/lib/seo";
@@ -19,6 +20,9 @@ const body = Space_Grotesk({
   variable: "--font-body",
   display: "swap",
 });
+
+// Deadline guidance must reflect the request time, not the last build.
+export const dynamic = "force-dynamic";
 
 const SHARE_TITLE = "Ballot NYC — What's on your ballot.";
 const SHARE_DESCRIPTION =
@@ -68,7 +72,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${display.variable} ${body.variable}`}>
       <body className="min-h-dvh">
-        {children}
+        <ElectionClock initialNow={Date.now()}>{children}</ElectionClock>
         <JsonLd data={[organizationLd(), websiteLd()]} />
         <Analytics />
       </body>

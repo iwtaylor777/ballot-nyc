@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 const title = "Your ballot · Ballot NYC";
 const description =
-  "Every race on your Nov 3, 2026 NYC ballot.";
+  "An independent guide to covered races on your Nov 3, 2026 NYC ballot. Verify all contests on your official sample ballot.";
 
 export const metadata: Metadata = {
   title,

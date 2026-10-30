@@ -1,16 +1,16 @@
 [
   {
     "id": "address-change",
-    "label": "Last day for address changes to count",
+    "label": "Address-change processing deadline",
     "date": "2026-10-19",
-    "note": "Already registered but moved? Address changes received by your county Board of Elections at least 15 days before Election Day are processed in time for Nov 3. Missed it? You're still registered — check your record and ask your county board where to vote.",
+    "note": "For existing registrations, address changes received at least 15 days before Election Day must be processed in time. Missing this processing date does not automatically mean you are ineligible: check your record and ask your county Board of Elections where and how to vote.",
     "actionUrl": "https://elections.ny.gov/register-vote"
   },
   {
     "id": "register",
-    "label": "Register to vote",
+    "label": "New-registration deadline",
     "date": "2026-10-24",
-    "note": "New registrations must be received by your county Board of Elections by this date to vote on Nov 3. New York has online voter registration. Already registered but moved? That's an address change, which had an earlier deadline (Oct 19). Already registered at your current address? You don't need to do anything.",
+    "note": "New registrations must be received by this date for the Nov 3 election. Existing voters can check their registration. Address changes have separate processing rules; missing that processing date does not automatically mean a voter is ineligible.",
     "actionUrl": "https://elections.ny.gov/register-vote"
   },
   {
@@ -24,7 +24,7 @@
     "id": "early-start",
     "label": "Early voting begins",
     "date": "2026-10-24",
-    "note": "Nine days of early voting. In New York City you're assigned one early voting site — look yours up, it can be different from your Election Day poll site.",
+    "note": "Nine days of early voting. In New York City you're assigned one early voting site \u2014 look yours up, it can be different from your Election Day poll site.",
     "actionUrl": "https://findmypollsite.vote.nyc/"
   },
   {
@@ -45,14 +45,14 @@
     "id": "election-day",
     "label": "ELECTION DAY",
     "date": "2026-11-03",
-    "note": "General Election. Polls open 6 AM – 9 PM. Vote at your assigned poll site.",
+    "note": "General Election. Polls open 6 AM \u2013 9 PM. Vote at your assigned poll site.",
     "actionUrl": "https://findmypollsite.vote.nyc/"
   },
   {
     "id": "mail-return",
     "label": "Mail ballot receipt deadline",
     "date": "2026-11-10",
-    "note": "Postmark your mail ballot by Election Day (Nov 3) — earlier is safer. It must reach your county Board of Elections by Nov 10 to count.",
+    "note": "Postmark your mail ballot by Election Day (Nov 3) \u2014 earlier is safer. It must reach your county Board of Elections by Nov 10 to count.",
     "actionUrl": "https://vote.nyc/page/borough-offices"
   }
 ]

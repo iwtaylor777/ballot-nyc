@@ -25,10 +25,9 @@ export default function ProposalsPage() {
       <section className="pt-2">
         <p className="stamp text-ember">CITYWIDE · EVERY NYC BALLOT</p>
         <h1 className="poster mt-3 text-6xl">
-          FLIP YOUR
-          <br />
-          BALLOT.
+          NYC ballot<br />proposals 2026.
         </h1>
+        <p className="poster mt-3 text-3xl">Flip your ballot.</p>
         <p className="mt-4 text-base text-ink/90">
           Five yes-or-no questions would change the NYC City Charter. Ballot
           proposals are usually printed on the back of the ballot, so turn it
@@ -43,12 +42,16 @@ export default function ProposalsPage() {
 
       <hr className="rule-thick my-8" />
 
+      <nav aria-label="Jump to a ballot proposal" className="mb-6 space-y-2 text-sm font-semibold">
+        {proposals.map((p) => <a key={p.id} href={`#q${p.number}`} className="block underline">Question {p.number}: {p.title} →</a>)}
+      </nav>
+      <p className="mb-6 text-sm text-muted">Official titles are labeled below. Explanations are our summaries, not official ballot wording. <Link href="/about#reviews" className="underline">Sources and editorial review information</Link>.</p>
       <ol className="space-y-8">
         {proposals.map((p) => (
-          <li key={p.id} id={`q${p.number}`} className="border-[3px] border-ink p-5">
+          <li key={p.id} id={`q${p.number}`} className="scroll-mt-4 border-[3px] border-ink p-5">
             <p className="stamp text-ember">QUESTION {p.number}</p>
             <h2 className="poster mt-2 text-2xl sm:text-3xl">{p.headline}</h2>
-            <p className="mt-2 text-xs text-muted">Official title: {p.title}</p>
+            <p className="mt-2 text-sm text-muted">Official title: {p.title}</p>
 
             <p className="stamp mt-5 text-muted">WHAT IT CHANGES</p>
             <ul className="mt-2 space-y-2">
@@ -77,7 +80,7 @@ export default function ProposalsPage() {
               rel="noreferrer"
               className="stamp mt-4 inline-block underline decoration-ember underline-offset-4"
             >
-              Official abstract →
+              Official abstract for Question {p.number} →
             </a>
           </li>
         ))}

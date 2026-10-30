@@ -1,78 +1,16 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { keyDates } from "@/lib/data";
-import { daysUntil, isOnOrBefore } from "@/lib/nyTime";
-import type { KeyDate } from "@/lib/types";
+import { useElectionNow } from "./ElectionClock";
+import { deadline, ELECTION, electionState, shortDate } from "@/lib/election";
 
-const FORMAT = new Intl.DateTimeFormat("en-US", {
-  weekday: "short",
-  month: "short",
-  day: "numeric",
-  timeZone: "UTC",
-});
-
-// Deadlines that change what a first-time voter must do next, in order.
-const ACTIONABLE = ["register", "early-end", "election-day"];
-
-/** "Next up: Register by Sat, Oct 24 — 37 days." Client-only (needs today's date). */
 export function NextDeadline() {
-  const [next, setNext] = useState<{ d: KeyDate; days: number } | null>(null);
-
-  useEffect(() => {
-    const recompute = () => {
-      const now = Date.now();
-      for (const id of ACTIONABLE) {
-        const d = keyDates.find((k) => k.id === id);
-        if (!d) continue;
-        // Deadlines run to the end of that day in New York.
-        if (isOnOrBefore(d.date, now)) {
-          setNext({ d, days: Math.max(0, daysUntil(d.date, now)) });
-          return;
-        }
-      }
-      setNext(null);
-    };
-    recompute();
-    // A page left open across midnight, or a phone coming back from sleep,
-    // must not keep showing yesterday's deadline.
-    const id = setInterval(recompute, 600_000);
-    const onVisible = () => {
-      if (document.visibilityState === "visible") recompute();
-    };
-    document.addEventListener("visibilitychange", onVisible);
-    return () => {
-      clearInterval(id);
-      document.removeEventListener("visibilitychange", onVisible);
-    };
-  }, []);
-
-  if (!next) return null;
-  const { d, days } = next;
-  const when =
-    d.id === "early-end"
-      ? "vote early"
-      : days === 0
-        ? "today"
-        : days === 1
-          ? "tomorrow"
-          : `in ${days} days`;
-  const label =
-    d.id === "register"
-      ? `Register to vote by ${FORMAT.format(new Date(d.date))}`
-      : d.id === "early-end"
-        ? `Early voting is open through ${FORMAT.format(new Date(d.date))}`
-        : `Election Day is ${FORMAT.format(new Date(d.date))}`;
-
-  return (
-    <a
-      href={d.actionUrl ?? "/dates"}
-      target={d.actionUrl ? "_blank" : undefined}
-      rel={d.actionUrl ? "noreferrer" : undefined}
-      className="mt-4 block border-[3px] border-ink bg-emberDeep px-4 py-3 text-paper no-underline"
-    >
-      <span className="stamp block text-paper">NEXT DEADLINE · {when.toUpperCase()}</span>
-      <span className="poster mt-1 block text-2xl">{label} →</span>
-    </a>
-  );
+  const state = electionState(useElectionNow());
+  const text = state.archived ? "2026 election ended — official updates"
+    : state.early ? `Early voting through ${shortDate(ELECTION.earlyEnd)} — check hours and your assigned site`
+    : state.electionDay ? "Election Day — polls open 6 AM–9 PM"
+    : state.registrationPassed ? `Election Day ${shortDate(ELECTION.day)} — check your registration and poll site`
+    : `New registrations due ${shortDate(ELECTION.registration)} — check your record or register`;
+  const href = state.archived ? ELECTION.hoursSource : state.early || state.electionDay ? ELECTION.pollSite
+    : state.registrationPassed ? ELECTION.registrationLookup : deadline("register").actionUrl;
+  return <a href={href} target="_blank" rel="noreferrer" className="mt-4 block border-l-4 border-ember pl-4 text-sm font-semibold underline">{text} →</a>;
 }

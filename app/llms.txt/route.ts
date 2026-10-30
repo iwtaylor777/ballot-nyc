@@ -13,7 +13,8 @@ import {
   proposals,
   seatsForRace,
 } from "@/lib/data";
-import { FAQ } from "@/lib/faq";
+import { getVoterFaq } from "@/lib/faq";
+import { electionState } from "@/lib/election";
 import {
   CONTACT_EMAIL,
   CONTENT_UPDATED,
@@ -23,7 +24,7 @@ import {
   raceLongName,
 } from "@/lib/seo";
 
-export const dynamic = "force-static";
+export const dynamic = "force-dynamic";
 
 const DAY = new Intl.DateTimeFormat("en-US", {
   weekday: "short",
@@ -66,9 +67,14 @@ function racesSection(): string {
 }
 
 export function GET() {
+  const now = Date.now();
+  const FAQ = getVoterFaq(now);
+  const archived = electionState(now).archived;
   const body = `# Ballot NYC
 
 > ${SITE_DESCRIPTION}
+
+${archived ? "ARCHIVED: in-person voting for the November 3, 2026 election has ended. This is historical guide content; check vote.nyc for current elections." : "This guide concerns the November 3, 2026 election. Check the dated deadlines below against today in America/New_York."}
 
 Ballot NYC (${SITE_URL}) is free, nonpartisan and ad-free. It does not endorse candidates or positions. Candidate lists come from the ${CERTIFICATION.source} (${CERTIFICATION.url}). Candidate positions are published only where a public source can be linked. Last updated ${LONG.format(new Date(CONTENT_UPDATED))}.
 
@@ -76,12 +82,16 @@ Coverage: the five boroughs of New York City (Manhattan, Brooklyn, Queens, the B
 
 ## Key pages
 
-- [Look up your ballot by address](${SITE_URL}/onboarding): every race and proposal on a voter's Nov 3, 2026 ballot.
+- [Look up your ballot by address](${SITE_URL}/onboarding): covered races and proposals; not proof of registration, eligibility, or a complete official sample ballot.
 - [NYC ballot proposals 1–5](${SITE_URL}/proposals): what each City Charter proposal changes and what Yes/No means.
 - [Key dates and deadlines](${SITE_URL}/dates): registration, early voting, mail ballots, Election Day.
 - [Voting plan and FAQs](${SITE_URL}/plan): how to vote in NYC, voter ID, moving, poll hours.
 - [Issue match quiz](${SITE_URL}/quiz): compares a voter's answers with candidates' sourced positions.
 - [For newsrooms](${SITE_URL}/partners): free embeddable ballot lookup.
+
+- [Browse races by office and district](${SITE_URL}/races): existing public race pages; no address needed.
+- [About, sources, methodology and corrections](${SITE_URL}/about).
+- [Privacy and saved data](${SITE_URL}/privacy).
 
 ## Key dates — Nov 3, 2026 general election (New York City)
 
@@ -121,12 +131,12 @@ Format: race — candidate (ballot lines). New York allows fusion voting: a cand
 ${racesSection()}
 ## Contact and corrections
 
-Email ${CONTACT_EMAIL}. Errors are corrected quickly.
+Email ${CONTACT_EMAIL}. Include the affected page and a supporting source when possible.
 `;
   return new Response(body, {
     headers: {
       "Content-Type": "text/plain; charset=utf-8",
-      "Cache-Control": "public, max-age=3600",
+      "Cache-Control": "no-store",
     },
   });
 }

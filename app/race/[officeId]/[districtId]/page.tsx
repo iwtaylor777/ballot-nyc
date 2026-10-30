@@ -125,6 +125,7 @@ export default async function RacePage({ params }: Props) {
         )}
       </section>
 
+      <p className="mt-4 text-sm text-muted">Independent 2026 race guide. <Link href="/races" className="underline">Browse other offices and districts</Link> · <Link href="/about#reviews" className="underline">Sources and editorial review dates</Link>.</p>
       <hr className="rule-thick my-8" />
 
       <section>
@@ -168,7 +169,7 @@ export default async function RacePage({ params }: Props) {
           <section>
             <p className="stamp text-muted">ON THE NOVEMBER 3 BALLOT</p>
             {certifiedList && (
-              <p className="mt-1 text-xs text-muted">
+              <p className="mt-1 text-sm text-muted">
                 Official list certified by the{" "}
                 <a
                   href={CERTIFICATION.url}
@@ -197,7 +198,7 @@ export default async function RacePage({ params }: Props) {
               </ul>
             )}
             {bareNames.length > 0 && (
-              <p className="mt-3 text-xs text-muted">
+              <p className="mt-3 text-sm text-muted">
                 We haven&apos;t written up these candidates&apos; positions yet.
                 We only publish stances we can source.
               </p>
@@ -268,7 +269,7 @@ function BareCandidate({ c }: { c: Candidate }) {
         rel="noreferrer"
         className="stamp mt-3 inline-block underline decoration-ember underline-offset-4"
       >
-        Look them up on Ballotpedia →
+        Look up {c.name} on Ballotpedia →
       </a>
     </li>
   );
@@ -309,9 +310,9 @@ function CandidateCard({ c }: { c: Candidate }) {
               href={p.sourceUrl}
               target="_blank"
               rel="noreferrer"
-              className="mt-1 inline-block text-xs font-bold text-ink underline"
+              className="mt-1 inline-block text-sm font-bold text-ink underline"
             >
-              Source →
+              Source: {c.name} on {ISSUE_LABELS[p.tag]} →
             </a>
           </li>
         ))}
@@ -323,7 +324,7 @@ function CandidateCard({ c }: { c: Candidate }) {
         rel="noreferrer"
         className="stamp mt-5 inline-block underline decoration-ember underline-offset-4"
       >
-        More on this candidate →
+        More on {c.name} →
       </a>
 
       {c.sampleFlag && (

@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+import { withoutQuizAnswers } from "@/lib/scoreQuiz";
 import { useRouter } from "next/navigation";
 import { useCallback, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
@@ -24,20 +26,12 @@ export default function QuizPage() {
     }
   }, []);
 
-  if (!hydrated) {
-    return (
-      <Frame>
-        <p className="stamp text-muted">LOADING…</p>
-      </Frame>
-    );
-  }
-
   const q = quiz[idx];
   const isLast = idx === quiz.length - 1;
   const progress = Math.round(((idx + 1) / quiz.length) * 100);
 
-  function choose(value: number) {
-    setAnswers((prev) => ({ ...prev, [q.id]: value }));
+  function choose(value?: number) {
+    setAnswers((prev) => value == null ? withoutQuizAnswers(prev, [q.id]) : ({ ...prev, [q.id]: value }));
     if (isLast) {
       router.push("/quiz/priorities");
     } else {
@@ -54,12 +48,18 @@ export default function QuizPage() {
           : undefined
       }
     >
+      <section className="my-4 text-sm text-ink/90">
+        <p className="font-semibold">NYC 2026 candidate issue comparison</p>
+        <p className="mt-2">Compare your answers with sourced candidate positions. Choose your closest emphasis; policies can overlap. Skip any question that does not fit. Missing answers or research are not disagreement, and a score is not a voting recommendation.</p>
+        <Link href="/about#quiz" className="mt-2 inline-block underline">How scoring, priorities, and missing information work →</Link>
+      </section>
       <div className="flex items-center justify-between pt-2">
         <p className="stamp text-ember" aria-live="polite">
           QUESTION {idx + 1} / {quiz.length}
         </p>
         <button
-          onClick={() => router.push("/quiz/priorities")}
+          disabled={!hydrated}
+          onClick={() => { setAnswers((prev) => withoutQuizAnswers(prev, quiz.slice(idx).map((q) => q.id))); router.push("/quiz/priorities"); }}
           className="stamp text-muted underline"
         >
           SKIP THE REST →
@@ -97,6 +97,8 @@ export default function QuizPage() {
               return (
                 <button
                   key={opt.label}
+                  disabled={!hydrated}
+                  aria-pressed={selected}
                   onClick={() => choose(opt.value)}
                   className={[
                     "block w-full border-[3px] border-ink px-5 py-5 text-left transition-colors",
@@ -112,6 +114,8 @@ export default function QuizPage() {
               );
             })}
           </div>
+
+          <button type="button" disabled={!hydrated} onClick={() => choose()} className="mt-5 w-full border-2 border-ink px-4 py-3 text-left text-base font-semibold">Not sure / Skip this question →</button>
 
           {q.learnMore && (
             <a

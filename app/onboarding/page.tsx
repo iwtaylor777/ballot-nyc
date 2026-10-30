@@ -47,7 +47,7 @@ export default function Onboarding() {
   const [mode, setMode] = useState<Mode>("address");
   const [address, setAddress] = useState("");
   const [loading, setLoading] = useState(false);
-  const [lookupErr, setLookupErr] = useState<string | null>(null);
+  const [lookupErr, setLookupErr] = useState<{ kind: "connection" | "service" | "input" | "no_match"; message: string } | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
   const [choices, setChoices] = useState<Choices | null>(null);
   const [outside, setOutside] = useState<string | null>(null);
@@ -155,7 +155,7 @@ export default function Onboarding() {
         setOutside(result.message);
         return;
       default:
-        setLookupErr(result.message);
+        setLookupErr({ kind: result.status === "error" ? result.kind ?? "service" : "no_match", message: result.message });
     }
   }
 
@@ -175,9 +175,7 @@ export default function Onboarding() {
       return;
     } catch {
       if (generation !== lookupGeneration.current) return;
-      setLookupErr(
-        "Lookup failed — check your connection and try again, or pick your districts manually.",
-      );
+      setLookupErr({ kind: "connection", message: "Check your connection and try again. Your address is still here, or you can pick your districts manually." });
     } finally {
       if (generation === lookupGeneration.current) setLoading(false);
     }
@@ -284,9 +282,9 @@ export default function Onboarding() {
             <label htmlFor="home-address" className="stamp block text-ink">
               Your home address
             </label>
-            <p className="text-xs text-muted">
-              Sent only to look up your districts — never stored on our
-              servers. Apartment number not needed.
+            <p className="text-sm text-muted">
+              Used to find districts through NYC GeoSearch and the U.S. Census.
+              Saved in this browser. Apartment number not needed.
             </p>
             <div className="relative mt-2">
               <input
@@ -361,11 +359,11 @@ export default function Onboarding() {
                           </span>
                         )}
                         <span className="block text-sm font-semibold">{place.line1}</span>
-                        <span className="block text-xs opacity-75">{placeSub(place)}</span>
+                        <span className="block text-sm opacity-75">{placeSub(place)}</span>
                       </li>
                     ))}
                   </ul>
-                  <p className="px-4 py-2 text-[11px] text-muted">
+                  <p className="px-4 py-2 text-sm text-muted">
                     Not seeing yours? Tap <span className="font-bold">Look up</span> to
                     search every borough.
                   </p>
@@ -373,17 +371,17 @@ export default function Onboarding() {
               )}
             </div>
             {suggest.hint === "needs_number" && (
-              <p className="mt-2 text-xs font-semibold text-emberDeep">
+              <p className="mt-2 text-sm font-semibold text-emberDeep">
                 Start with your building number — e.g. 365 Bond St.
               </p>
             )}
             {suggest.hint === "zip_only" && (
-              <p className="mt-2 text-xs font-semibold text-emberDeep">
+              <p className="mt-2 text-sm font-semibold text-emberDeep">
                 A ZIP alone can cover several districts — add your street
                 address.
               </p>
             )}
-            <p className="mt-2 text-xs text-muted">
+            <p className="mt-2 text-sm text-muted">
               Queens? Keep the hyphen: <span className="font-bold">37-17 30th St</span>.
               No need to add city or ZIP.
             </p>
@@ -402,7 +400,7 @@ export default function Onboarding() {
           <div aria-live="polite">
             {cleared && (
               <p className="border-l-4 border-ink bg-ink/5 p-3 text-sm font-semibold">
-                Cleared everything saved on this device.
+                Cleared your saved ballot, quiz answers, priorities, and plan from this browser.
               </p>
             )}
             {choices && (
@@ -420,7 +418,7 @@ export default function Onboarding() {
                         className="block w-full border-2 border-ink px-3 py-3 text-left hover:bg-emberDeep hover:text-paper"
                       >
                         <span className="block text-sm font-semibold">{p.line1}</span>
-                        <span className="block text-xs opacity-75">
+                        <span className="block text-sm opacity-75">
                           {placeSub(p) || p.label}
                         </span>
                       </button>
@@ -447,11 +445,12 @@ export default function Onboarding() {
 
             {lookupErr && (
               <div className="border-l-4 border-ember bg-ember/10 p-3">
-                <p className="stamp text-ember">NO MATCH YET</p>
-                <p className="mt-1 text-sm text-ink/90">{lookupErr}</p>
+                <h2 className="font-semibold">{lookupErr.kind === "connection" ? "Connection problem" : lookupErr.kind === "service" ? "Lookup service unavailable" : lookupErr.kind === "input" ? "Check this address" : "No match yet"}</h2>
+                <p className="mt-1 text-sm text-ink/90">{lookupErr.message}</p>
+                {(lookupErr.kind === "connection" || lookupErr.kind === "service") && <button type="button" disabled={loading || !address.trim()} onClick={() => void run({ address })} className="mt-3 mr-4 border-2 border-ink px-3 py-2 text-sm font-bold">Retry lookup</button>}
                 <button
                   onClick={() => setMode("manual")}
-                  className="mt-2 text-xs font-bold uppercase underline"
+                  className="mt-2 text-sm font-bold uppercase underline"
                   type="button"
                 >
                   Pick manually instead →
@@ -460,7 +459,7 @@ export default function Onboarding() {
             )}
           </div>
 
-          <p className="pt-2 text-xs text-muted">
+          <p className="pt-2 text-sm text-muted">
             Addresses from NYC&apos;s official address directory (NYC Planning
             GeoSearch). Districts from the U.S. Census Bureau. Not sure?{" "}
             <a
@@ -483,7 +482,7 @@ export default function Onboarding() {
         >
           {cleared && (
             <p className="border-l-4 border-ink bg-ink/5 p-3 text-sm font-semibold">
-              Cleared everything saved on this device.
+              Cleared your saved ballot, quiz answers, priorities, and plan from this browser.
             </p>
           )}
           {notice && (
@@ -494,7 +493,7 @@ export default function Onboarding() {
           {FIELDS.map((f) => (
             <label key={f.type} className="block">
               <div className="stamp text-ink">{f.label}</div>
-              <div className="text-xs text-muted">{f.hint}</div>
+              <div className="text-sm text-muted">{f.hint}</div>
               <select
                 required
                 value={selected[f.type as keyof SelectedDistricts] ?? ""}
@@ -522,7 +521,7 @@ export default function Onboarding() {
 
           <label className="block">
             <div className="stamp text-ink">Borough</div>
-            <div className="text-xs text-muted">
+            <div className="text-sm text-muted">
               Optional — adds your State Supreme Court (judge) race
             </div>
             <select
@@ -555,8 +554,9 @@ export default function Onboarding() {
         </form>
       )}
 
-      <p className="mt-6 text-center text-xs text-muted">
-        Saved on this device only. No accounts.{" "}
+      <p className="mt-6 text-center text-sm text-muted">
+        Guide data is saved in this browser. No account. {" "}
+        <Link href="/privacy" className="underline">Privacy and storage</Link>{" · "}
         <Link href="/ballot" className="underline">
           Skip
         </Link>{" "}

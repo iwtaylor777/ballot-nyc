@@ -1,11 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import { Frame } from "@/components/Frame";
 import { Countdown } from "@/components/Countdown";
-import { keyDates, nextElection } from "@/lib/data";
-import { isOnOrBefore } from "@/lib/nyTime";
+import { electionDates, ELECTION, electionState, deadlineStatus } from "@/lib/election";
+import { useElectionNow } from "@/components/ElectionClock";
 import { downloadICS } from "@/lib/ics";
 
 const FORMAT = new Intl.DateTimeFormat("en-US", {
@@ -17,21 +16,9 @@ const FORMAT = new Intl.DateTimeFormat("en-US", {
 });
 
 export default function DatesPage() {
-  const next = nextElection();
-  const isPrimary = next.id === "primary-day";
-  // Keep each deadline listed through the end of its day, Eastern time
-  // (UTC midnight + 29h ≈ midnight ET), so Election Day stays on the list
-  // while polls are still open.
-  // `now` is only known after mount (the page is pre-rendered), so the first
-  // render lists every date and then drops the ones already past in New York.
-  const [now, setNow] = useState<number | null>(null);
-  useEffect(() => {
-    setNow(Date.now());
-    // Re-check on the hour so an open page doesn't show a passed deadline.
-    const id = setInterval(() => setNow(Date.now()), 600_000);
-    return () => clearInterval(id);
-  }, []);
-  const upcoming = keyDates.filter((d) => now == null || isOnOrBefore(d.date, now));
+  const now = useElectionNow();
+  const { archived } = electionState(now);
+  const upcoming = electionDates.filter((d) => deadlineStatus(d, now) !== "passed");
 
   return (
     <Frame back={{ href: "/", label: "HOME" }}>
@@ -42,21 +29,23 @@ export default function DatesPage() {
           <br />
           MISS IT.
         </h1>
-        <div className="mt-6">
+        {!archived && <div className="mt-6">
           <p className="stamp text-muted">
-            UNTIL {isPrimary ? "PRIMARY DAY" : "ELECTION DAY"}
+            UNTIL POLLS CLOSE
           </p>
           <div className="mt-2">
-            <Countdown date={next.date} />
+            <Countdown date={ELECTION.day} />
           </div>
-        </div>
+        </div>}
+        <p className="mt-4 text-sm">Dates are evaluated in America/New_York. Passed deadlines remain below for reference. <a href={ELECTION.source} className="underline">Official registration and address-change rules</a>; <a href={ELECTION.hoursSource} className="underline">voting hours</a>.</p>
       </section>
 
       <hr className="rule-thick my-8" />
 
       <ol className="space-y-0 border-t-[3px] border-ink">
-        {upcoming.map((d) => {
-          const isNextElection = d.id === next.id;
+        {electionDates.map((d) => {
+          const status = deadlineStatus(d, now);
+          const isNextElection = d.id === "election-day" && status !== "passed";
           return (
             <li
               key={d.id}
@@ -69,6 +58,7 @@ export default function DatesPage() {
                 <span className="stamp text-muted">
                   {FORMAT.format(new Date(d.date))}
                 </span>
+                <span className="text-sm font-semibold">{status === "passed" ? "PASSED" : status === "today" ? "TODAY" : "UPCOMING"}</span>
                 {isNextElection && (
                   <span className="stamp bg-ember px-2 py-1 text-paper">
                     THE DAY
@@ -91,9 +81,9 @@ export default function DatesPage() {
                   href={d.actionUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="mt-2 inline-block stamp text-ink underline"
+                  className="mt-2 inline-block text-sm font-semibold text-ink underline"
                 >
-                  GO →
+                  Official details: {d.label} →
                 </a>
               )}
             </li>
@@ -103,12 +93,12 @@ export default function DatesPage() {
 
       <hr className="rule-thin my-8" />
 
-      <button
+      {upcoming.length > 0 && <button
         onClick={() => downloadICS(upcoming)}
         className="w-full bg-ink px-6 py-5 text-paper"
       >
-        <span className="poster text-2xl">ADD ALL TO CALENDAR ↓</span>
-      </button>
+        <span className="poster text-2xl">ADD REMAINING DATES TO CALENDAR ↓</span>
+      </button>}
 
       <Link
         href="/plan"

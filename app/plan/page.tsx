@@ -5,57 +5,13 @@ import { motion } from "framer-motion";
 import { Frame } from "@/components/Frame";
 import { Countdown } from "@/components/Countdown";
 import { ShareLink } from "@/components/ShareLink";
-import { nextElection } from "@/lib/data";
+import { ELECTION, electionState, planSteps } from "@/lib/election";
+import { useElectionNow } from "@/components/ElectionClock";
+import { JsonLd } from "@/components/JsonLd";
+import { abs, faqLd } from "@/lib/seo";
 import { pollSiteUrl } from "@/lib/geo/places";
 import { useHomeAddress, useVotingPlan } from "@/lib/storage";
-import type { VotingPlan } from "@/lib/types";
-import { FAQ } from "@/lib/faq";
-
-const STEPS: Array<{
-  key: keyof VotingPlan;
-  num: string;
-  title: string;
-  body: string;
-  cta: { label: string; href: string };
-  secondary?: { label: string; href: string };
-  note?: { label: string; href: string };
-}> = [
-  {
-    key: "registered",
-    num: "01",
-    title: "Get registered.",
-    body: "Never registered in New York? Register online by Oct 24. Already registered but moved? That's an address change, not a new registration: the state processes changes received at least 15 days before Election Day — Oct 19 for this one — so do it now. Already registered at your current address? Just confirm it.",
-    cta: {
-      label: "Register / update my address →",
-      href: "https://elections.ny.gov/register-vote",
-    },
-    secondary: {
-      label: "Check my registration →",
-      href: "https://voterlookup.elections.ny.gov/",
-    },
-    note: {
-      label: "Official deadlines, including address changes →",
-      href: "https://elections.ny.gov/registration-and-voting-deadlines",
-    },
-  },
-  {
-    key: "knowsRaces",
-    num: "02",
-    title: "Know your races.",
-    body: "Open your personalized ballot. Open the matches quiz. You don't need to memorize anything — just don't show up blank.",
-    cta: { label: "Open my ballot →", href: "/ballot" },
-  },
-  {
-    key: "hasPlan",
-    num: "03",
-    title: "Pick when, where, how.",
-    body: "Early voting (Oct 24 – Nov 1), Election Day (Nov 3, 6 AM – 9 PM), or mail. In NYC you're assigned one early voting site, and it can be different from your Election Day site — look up both. Decide now and put it on your calendar.",
-    cta: {
-      label: "Find my poll sites →",
-      href: "https://findmypollsite.vote.nyc/",
-    },
-  },
-];
+import { getVoterFaq } from "@/lib/faq";
 
 export default function PlanPage() {
   const [plan, setPlan, hydrated] = useVotingPlan();
@@ -64,22 +20,17 @@ export default function PlanPage() {
     home?.houseNumber && home.street
       ? pollSiteUrl({ houseNumber: home.houseNumber, street: home.street, zip: home.zip })
       : null;
-  const next = nextElection();
-  const isPrimary = next.id === "primary-day";
-
-  if (!hydrated) {
-    return (
-      <Frame>
-        <p className="stamp text-muted">LOADING…</p>
-      </Frame>
-    );
-  }
+  const now = useElectionNow();
+  const { archived } = electionState(now);
+  const STEPS = planSteps(now);
+  const FAQ = getVoterFaq(now);
 
   const done = STEPS.filter((s) => plan[s.key]).length;
   const complete = done === STEPS.length;
 
   return (
     <Frame back={{ href: "/ballot", label: "BACK TO BALLOT" }}>
+      <JsonLd data={faqLd(FAQ, abs("/plan"))} />
       <section className="pt-2">
         <p className="stamp text-ember">YOUR PLAN</p>
         <h1 className="poster mt-3 text-6xl">
@@ -87,12 +38,12 @@ export default function PlanPage() {
           <br />
           THAT&apos;S IT.
         </h1>
-        <div className="mt-5 flex items-center gap-3 border-l-4 border-ember pl-4">
-          <Countdown date={next.date} compact />
+        {!archived && <div className="mt-5 flex items-center gap-3 border-l-4 border-ember pl-4">
+          <Countdown date={ELECTION.day} compact />
           <span className="stamp text-muted">
-            UNTIL {isPrimary ? "PRIMARY" : "POLLS CLOSE"}
+            UNTIL POLLS CLOSE
           </span>
-        </div>
+        </div>}
         <div className="mt-5 h-1 w-full bg-ink/15">
           <motion.div
             className="h-1 bg-ember"
@@ -107,7 +58,7 @@ export default function PlanPage() {
 
       <ol className="space-y-5">
         {STEPS.map((s) => {
-          const checked = plan[s.key];
+          const checked = hydrated && plan[s.key];
           return (
             <li
               key={s.key}
@@ -126,6 +77,7 @@ export default function PlanPage() {
                   {s.num}
                 </span>
                 <button
+                  disabled={!hydrated}
                   onClick={() =>
                     setPlan((prev) => ({ ...prev, [s.key]: !prev[s.key] }))
                   }
@@ -153,7 +105,7 @@ export default function PlanPage() {
                 {s.body}
               </p>
               <a
-                href={s.key === "hasPlan" && pollSite ? pollSite : s.cta.href}
+                href={s.key === "hasPlan" && !archived && pollSite ? pollSite : s.cta.href}
                 target={s.cta.href.startsWith("http") ? "_blank" : undefined}
                 rel={s.cta.href.startsWith("http") ? "noreferrer" : undefined}
                 className={[
@@ -169,7 +121,7 @@ export default function PlanPage() {
                   target="_blank"
                   rel="noreferrer"
                   className={[
-                    "mt-3 block text-xs underline",
+                    "mt-3 block text-sm underline",
                     checked ? "text-paper/90" : "text-muted",
                   ].join(" ")}
                 >
@@ -194,7 +146,7 @@ export default function PlanPage() {
         })}
       </ol>
 
-      {complete && (
+      {hydrated && complete && !archived && (
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -202,8 +154,7 @@ export default function PlanPage() {
         >
           <p className="poster text-4xl">PLAN LOCKED.</p>
           <p className="mt-2 text-sm">
-            Bring a friend on {isPrimary ? "June 23" : "Nov 3"}. That&apos;s
-            the whole game.
+            Your checklist is saved on this device. Check official poll-site hours before you go.
           </p>
         </motion.div>
       )}

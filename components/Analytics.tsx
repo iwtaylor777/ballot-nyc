@@ -1,33 +1,53 @@
 "use client";
 
 import Script from "next/script";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import { GA_ID } from "@/lib/analytics";
+import { analyticsPath, GA_ID } from "@/lib/analytics";
 
-/**
- * GA4 page views, with Google's ad features denied. Skipped on /embed (it runs
- * inside newsroom pages) and for visitors who send Global Privacy Control.
- * Client-side navigations are counted by GA4's built-in history tracking.
- */
+declare global {
+  interface Window { dataLayer?: unknown[]; gtag?: (...args: unknown[]) => void; }
+}
+
+/** Manual, sanitized public-page views. Private flows are never measured. */
 export function Analytics() {
   const pathname = usePathname();
-  if (!GA_ID || pathname?.startsWith("/embed")) return null;
-  return (
-    <>
-      <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-        strategy="afterInteractive"
-      />
-      <Script id="ga4-init" strategy="afterInteractive">
-        {`
-if (navigator.globalPrivacyControl) { window['ga-disable-${GA_ID}'] = true; }
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('consent', 'default', { ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', analytics_storage: 'granted' });
-gtag('js', new Date());
-gtag('config', '${GA_ID}', { allow_google_signals: false, allow_ad_personalization_signals: false });
-`}
-      </Script>
-    </>
-  );
+  const [allowed, setAllowed] = useState(false);
+  const [ready, setReady] = useState(false);
+  useEffect(() => {
+    if (!GA_ID) return;
+    const gpc = (navigator as Navigator & { globalPrivacyControl?: boolean }).globalPrivacyControl;
+    const path = analyticsPath(pathname || "/");
+    const enabled = !gpc && !!path;
+    (window as unknown as Record<string, unknown>)[`ga-disable-${GA_ID}`] = !enabled;
+    setAllowed(enabled);
+    if (!enabled) return;
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function () { window.dataLayer!.push(arguments); };
+    const page = { page_location: `https://ballotnyc.org${path}`, page_referrer: "", page_title: "Ballot NYC" };
+    window.gtag("set", page);
+    if (!ready) {
+      window.gtag("consent", "default", { ad_storage: "denied", ad_user_data: "denied", ad_personalization: "denied", analytics_storage: "granted" });
+      window.gtag("js", new Date());
+      window.gtag("config", GA_ID, { ...page, send_page_view: false, allow_google_signals: false, allow_ad_personalization_signals: false });
+      setReady(true);
+    }
+    window.gtag("event", "page_view", page);
+    // Disable collection before an outbound personalized link or private SPA
+    // navigation can be observed by an already-loaded tag.
+    const beforeLink = (event: Event) => {
+      const anchor = event.target instanceof Element ? event.target.closest("a") : null;
+      if (!anchor) return;
+      const url = new URL(anchor.href, location.href);
+      if (url.search || url.hash || (url.origin === location.origin && !analyticsPath(url.pathname))) {
+        (window as unknown as Record<string, unknown>)[`ga-disable-${GA_ID}`] = true;
+      }
+    };
+    document.addEventListener("click", beforeLink, true);
+    return () => document.removeEventListener("click", beforeLink, true);
+    // Initialization is once per document; route changes emit one page_view.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pathname]);
+  if (!GA_ID || !allowed) return null;
+  return <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />;
 }

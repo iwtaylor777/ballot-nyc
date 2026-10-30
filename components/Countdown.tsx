@@ -41,6 +41,8 @@ export function Countdown({
     return () => clearInterval(id);
   }, [date]);
 
+  if (t?.done) return <span className="text-sm font-semibold">In-person voting has ended.</span>;
+
   if (compact) {
     return (
       <span className="poster text-3xl text-ember tabular-nums">

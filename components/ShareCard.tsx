@@ -2,7 +2,8 @@
 
 import { forwardRef } from "react";
 import { ISSUE_LABELS, type IssueTag } from "@/lib/types";
-import { nextElection } from "@/lib/data";
+import { ELECTION, electionState } from "@/lib/election";
+import { useElectionNow } from "./ElectionClock";
 import { daysUntil } from "@/lib/nyTime";
 
 interface Props {
@@ -24,14 +25,14 @@ export const ShareCard = forwardRef<HTMLDivElement, Props>(function ShareCard(
   { topIssues },
   ref,
 ) {
-  const next = nextElection();
-  const isPrimary = next.id === "primary-day";
-  const target = new Date(next.date);
+  const now = useElectionNow();
+  const { archived } = electionState(now);
+  const target = new Date(ELECTION.day);
   // Same New York calendar-day arithmetic the rest of the site uses, so the
   // card can't say 46 days while the page says 47.
-  const days = Math.max(0, daysUntil(next.date));
+  const days = Math.max(0, daysUntil(ELECTION.day, now));
   const dateLabel = CARD_DATE_FORMAT.format(target).toUpperCase();
-  const headerLabel = isPrimary ? "PRIMARY DAY" : "ELECTION DAY";
+  const headerLabel = archived ? "ELECTION HELD" : "ELECTION DAY";
 
   return (
     <div
@@ -84,13 +85,13 @@ export const ShareCard = forwardRef<HTMLDivElement, Props>(function ShareCard(
           </div>
           <div className="text-right">
             <div className="stamp text-[28px] tracking-[0.2em] text-muted">
-              DAYS LEFT
+              {archived ? "YEAR" : "DAYS LEFT"}
             </div>
-            <div className="poster text-[140px] leading-none">{days}</div>
+            <div className="poster text-[140px] leading-none">{archived ? ELECTION.year : days}</div>
           </div>
         </div>
         <div className="mt-[40px] text-[36px] font-bold leading-tight">
-          Are you registered? Pull up your ballot at ballotnyc.org.
+          {archived ? "Explore the archived 2026 guide at ballotnyc.org." : "Explore your ballot guide at ballotnyc.org."}
         </div>
       </div>
     </div>

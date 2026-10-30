@@ -1,5 +1,7 @@
 "use client";
 
+import { useElectionNow } from "@/components/ElectionClock";
+import { electionState } from "@/lib/election";
 import { useState } from "react";
 
 /**
@@ -8,6 +10,7 @@ import { useState } from "react";
  * URL fragment (#a=…), which browsers never send to any server.
  */
 export default function Embed() {
+  const { archived } = electionState(useElectionNow());
   const [address, setAddress] = useState("");
   const [fallback, setFallback] = useState<string | null>(null);
 
@@ -25,11 +28,11 @@ export default function Embed() {
     <main className="border-[3px] border-ink bg-paper p-4 text-ink">
       <div className="flex items-baseline justify-between gap-3">
         <p className="stamp text-ember">BALLOT · NYC</p>
-        <p className="stamp text-muted">NOV 3, 2026</p>
+        <p className="stamp text-muted">{archived ? "2026 ARCHIVE" : "NOV 3, 2026"}</p>
       </div>
       <h1 className="poster mt-2 text-3xl sm:text-4xl">WHAT&apos;S ON YOUR BALLOT?</h1>
       <p className="mt-1 text-sm text-ink/85">
-        The races and proposals on your Nov 3 ballot. Free, nonpartisan.
+        {archived ? "In-person voting has ended. Explore the independent 2026 guide." : "An independent guide to covered Nov 3 races and proposals. Free, nonpartisan."}
       </p>
       <form onSubmit={open} className="mt-3 flex flex-col gap-2 sm:flex-row">
         <label htmlFor="embed-address" className="sr-only">
@@ -39,7 +42,7 @@ export default function Embed() {
           id="embed-address"
           type="text"
           value={address}
-          onChange={(e) => setAddress(e.target.value)}
+          onChange={(e) => { setAddress(e.target.value); setFallback(null); }}
           placeholder="365 Bond St"
           autoComplete="street-address"
           className="min-w-0 flex-1 border-[3px] border-ink bg-paper px-3 py-3 font-display text-xl tracking-tight focus:bg-ember focus:text-paper focus:placeholder-paper/60"
@@ -55,7 +58,7 @@ export default function Embed() {
           </a>
         </p>
       )}
-      <p className="mt-2 text-[11px] text-muted">
+      <p className="mt-2 text-sm text-muted">
         Opens ballotnyc.org in a new tab. Your address isn&apos;t shared with
         the site you&apos;re reading.
       </p>

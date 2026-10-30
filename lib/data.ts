@@ -2,7 +2,7 @@ import districtsRaw from "@/data/districts.json";
 import officesRaw from "@/data/offices.json";
 import candidatesRaw from "@/data/candidates.json";
 import quizRaw from "@/data/quiz.json";
-import keyDatesRaw from "@/data/keyDates.json";
+import { electionDates, deadlineCutoff } from "./election";
 import certifiedRaw from "@/data/certified.json";
 import proposalsRaw from "@/data/proposals.json";
 import type {
@@ -20,7 +20,7 @@ export const districts = districtsRaw as District[];
 export const offices = officesRaw as Office[];
 export const candidates = candidatesRaw as Candidate[];
 export const quiz = quizRaw as QuizQuestion[];
-export const keyDates = keyDatesRaw as KeyDate[];
+export const keyDates = electionDates;
 export const proposals = proposalsRaw as Proposal[];
 
 interface CertifiedRace {
@@ -142,7 +142,7 @@ export function nextElection(now: Date = new Date()): KeyDate {
     (d) => d.id === "primary-day" || d.id === "election-day",
   );
   const upcoming = electionDays
-    .filter((d) => new Date(d.date).getTime() + 86_400_000 > now.getTime())
+    .filter((d) => deadlineCutoff(d) > now.getTime())
     .sort((a, b) => a.date.localeCompare(b.date));
   return upcoming[0] ?? electionDays[electionDays.length - 1];
 }

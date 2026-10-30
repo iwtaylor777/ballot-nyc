@@ -3,9 +3,7 @@ import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
 import { electionEventsLd, SITE_DESCRIPTION } from "@/lib/seo";
 import { Frame } from "@/components/Frame";
-import { Countdown } from "@/components/Countdown";
-import { NextDeadline } from "@/components/NextDeadline";
-import { nextElection } from "@/lib/data";
+import { ElectionSummary } from "@/components/ElectionSummary";
 
 export const metadata: Metadata = {
   title: {
@@ -16,78 +14,29 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  const next = nextElection();
-  const isPrimary = next.id === "primary-day";
 
   return (
     <>
     <JsonLd data={electionEventsLd()} />
     <Frame>
-      <section className="pt-6">
-        <p className="stamp text-ember">YOUR BALLOT · NEW YORK CITY</p>
-        <h1 className="poster mt-3 text-[68px] min-[360px]:text-[88px] sm:text-[112px]">
-          WHAT&apos;S
-          <br />
-          ON YOUR
-          <br />
-          <span className="text-ember">BALLOT.</span>
+      <section className="pt-4">
+        <p className="stamp text-ember">YOUR BALLOT · NEW YORK CITY · 2026</p>
+        <h1 className="poster mt-3 text-[56px] min-[360px]:text-[64px] sm:text-[80px]">
+          WHAT&apos;S ON<br /><span className="text-ember">YOUR BALLOT.</span>
         </h1>
-        <p className="mt-6 text-lg font-medium text-ink/90">
-          Get informed. Quick and easy.
-        </p>
-      </section>
-
-      <hr className="rule-thick my-10" />
-
-      <section>
-        <p className="stamp text-muted">
-          {isPrimary ? "PRIMARY DAY · JUNE 23" : "ELECTION DAY · NOV 3"}
-        </p>
-        <div className="mt-3">
-          <Countdown date={next.date} />
-        </div>
-        <NextDeadline />
-        <p className="mt-4 text-sm">
-          <a
-            href="https://voterlookup.elections.ny.gov/"
-            target="_blank"
-            rel="noreferrer"
-            className="font-semibold text-ink underline underline-offset-4 hover:text-ember"
-          >
-            Registered? Check in 2 minutes →
-          </a>
-        </p>
-      </section>
-
-      <hr className="rule-thin my-10" />
-
-      <section className="space-y-4">
-        <h2 className="poster text-4xl">START HERE.</h2>
-        <p className="text-base text-ink/90">
-          Drop your address. We&apos;ll show you the races and proposals on
-          your ballot — and what each office actually controls in your life.
-        </p>
-        <Link
-          href="/onboarding"
-          className="mt-4 inline-flex w-full items-center justify-center bg-ink px-6 py-5 text-paper no-underline"
-        >
+        <p className="mt-4 text-base text-ink/90">Explore your NYC races and proposals. Understand what each office does before you vote.</p>
+        <Link href="/onboarding" className="mt-5 inline-flex w-full items-center justify-center bg-ink px-5 py-5 text-paper no-underline">
           <span className="poster text-3xl">BUILD MY BALLOT →</span>
         </Link>
-        <p className="text-xs text-muted">
-          Covers the five boroughs: statewide offices, Congress, State Senate,
-          Assembly, your borough&apos;s Supreme Court race, and the five city
-          proposals. We link you to your official sample ballot for anything
-          local we don&apos;t carry.
-        </p>
-        <Link
-          href="/dates"
-          className="block text-center text-sm font-semibold text-ink underline-offset-4 hover:underline"
-        >
-          Just show me the key dates
-        </Link>
+        <p className="mt-3 text-sm text-muted">Independent guide, not your official sample ballot. Covers statewide offices, Congress, State Senate, Assembly, borough Supreme Court races, and city proposals. Verify local contests with the Board of Elections.</p>
       </section>
-
-      <hr className="rule-thin my-10" />
+      <nav aria-label="Explore without an address" className="mt-6 space-y-3 text-base font-semibold">
+        <Link href="/proposals" className="block underline">2026 ballot proposals →</Link>
+        <Link href="/races" className="block underline">Browse races by office or district →</Link>
+      </nav>
+      <hr className="rule-thin my-7" />
+      <ElectionSummary />
+      <hr className="rule-thin my-7" />
 
       <section>
         <p className="stamp text-muted">WHY THIS EXISTS</p>

@@ -10,7 +10,10 @@
     "test:geo": "node scripts/test-geo.mjs",
     "test:quiz": "node scripts/test-quiz.mjs",
     "test:ui": "node scripts/ui-harness.mjs && node scripts/ui-checks.mjs",
-    "check": "npm run typecheck && npm run test:geo && npm run test:quiz"
+    "check": "npm run typecheck && npm run test:geo && npm run test:quiz && npm run test:election && npm run test:lookup",
+    "test:election": "node scripts/test-election.mjs",
+    "test:lookup": "node scripts/test-lookup.mjs",
+    "test:public": "node scripts/check-public-pages.mjs"
   },
   "dependencies": {
     "framer-motion": "^11.11.0",

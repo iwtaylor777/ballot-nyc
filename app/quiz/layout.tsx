@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
-const title = "Match quiz · Ballot NYC";
+const title = "Compare NYC candidates on the issues — 2026 quiz · Ballot NYC";
 const description =
-  "Answer 7 questions and see where NYC candidates' sourced positions line up with yours.";
+  "Compare your views with sourced 2026 NYC candidate positions. Skip uncertain answers, see evidence coverage, and learn how the issue scores work.";
 
 export const metadata: Metadata = {
   title,

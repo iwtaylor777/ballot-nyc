@@ -2,6 +2,7 @@
  * Search and answer-engine metadata: page names, JSON-LD builders, and the
  * site facts they share. Nothing here renders visible UI.
  */
+import { EDITORIAL } from "@/lib/editorial";
 import { CERTIFICATION, keyDates } from "@/lib/data";
 import type { Candidate, District, Office, Proposal } from "@/lib/types";
 
@@ -9,10 +10,10 @@ export const SITE_URL = "https://ballotnyc.org";
 export const SITE_NAME = "Ballot NYC";
 export const CONTACT_EMAIL = "hello@ballotnyc.org";
 /** Bump when page copy or voter guidance changes (feeds sitemap lastModified). */
-export const CONTENT_UPDATED = "2026-10-22";
+export const CONTENT_UPDATED = EDITORIAL.interfaceUpdated;
 
 export const SITE_DESCRIPTION =
-  "Free, nonpartisan guide to the Nov 3, 2026 general election in New York City. Enter an address to see every race on your ballot (Governor, Attorney General, Comptroller, Congress, State Senate, Assembly, State Supreme Court) and the five NYC Charter ballot proposals, plus registration, early voting and mail ballot deadlines.";
+  "Free, nonpartisan guide to the Nov 3, 2026 general election in New York City. Enter an address to explore covered races (Governor, Attorney General, Comptroller, Congress, State Senate, Assembly, State Supreme Court) and the five NYC Charter ballot proposals, plus registration, early voting and mail ballot deadlines.";
 
 const ORG_ID = `${SITE_URL}/#organization`;
 const SITE_ID = `${SITE_URL}/#website`;
@@ -219,7 +220,7 @@ export function raceLd(
     about: raceLongName(office, district),
     isPartOf: { "@id": SITE_ID },
     publisher: { "@id": ORG_ID },
-    dateModified: CERTIFICATION.date,
+    dateModified: EDITORIAL.interfaceUpdated,
     citation: CERTIFICATION.url,
     mainEntity: {
       "@type": "ItemList",

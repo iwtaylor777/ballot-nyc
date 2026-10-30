@@ -93,3 +93,10 @@ export function suggestPriorities(
     .slice(0, 3)
     .map((s) => s.tag);
 }
+
+/** A skip is absence of an answer, never a neutral value or a previous answer. */
+export function withoutQuizAnswers(answers: QuizAnswers, ids: string[]): QuizAnswers {
+  const next = { ...answers };
+  for (const id of ids) delete next[id];
+  return next;
+}

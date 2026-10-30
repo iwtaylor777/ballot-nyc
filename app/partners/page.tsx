@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Frame } from "@/components/Frame";
 import { CopyBlock } from "@/components/CopyBlock";
 
@@ -95,12 +96,13 @@ export default function PartnersPage() {
           <li>Proposals: official abstracts from the 2026 NYC Charter Revision Commission.</li>
           <li>Candidate positions: only where we can link a public source.</li>
         </ul>
+        <p className="mt-4 text-sm"><Link href="/about#sources" className="underline">Voter-facing sources and methodology</Link> · <Link href="/privacy" className="underline">Privacy and analytics</Link></p>
         <p className="mt-4 text-sm">
           Questions, partnership requests, or a mistake to report? Email{" "}
           <a href="mailto:hello@ballotnyc.org" className="font-bold underline">
             hello@ballotnyc.org
           </a>{" "}
-          — we fix errors fast.
+          — include the page and a supporting source if available.
         </p>
       </section>
     </Frame>

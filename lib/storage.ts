@@ -48,11 +48,12 @@ const stringValues = (v: unknown) =>
 const numberValues = (v: unknown) =>
   isObject(v) && Object.values(v).every((x) => typeof x === "number");
 
-/** Wipe everything this site keeps on the device. */
+/** Clear saved guide data. Does not remove analytics cookies or prior reports. */
 export function clearSavedData(): void {
   if (typeof window === "undefined") return;
   try {
     for (const key of Object.values(KEYS)) window.localStorage.removeItem(key);
+    window.dispatchEvent(new Event("ballot-nyc:reset"));
   } catch {
     // Private mode / blocked storage — nothing to clear.
   }
@@ -74,6 +75,11 @@ function usePersistent<T>(key: string, fallback: T, isValid?: (v: unknown) => bo
   useEffect(() => {
     setValue(read<T>(key, fallback, isValid));
     setHydrated(true);
+    const sync = () => setValue(read<T>(key, fallback, isValid));
+    const onStorage = (event: StorageEvent) => { if (event.key === null || event.key === key) sync(); };
+    window.addEventListener("storage", onStorage);
+    window.addEventListener("ballot-nyc:reset", sync);
+    return () => { window.removeEventListener("storage", onStorage); window.removeEventListener("ballot-nyc:reset", sync); };
     // We intentionally don't depend on fallback to avoid resets.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [key]);
