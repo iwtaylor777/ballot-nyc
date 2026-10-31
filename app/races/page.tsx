@@ -16,6 +16,7 @@ export default function RacesPage() {
     <h1 className="poster mt-3 text-5xl">Browse races by office or district.</h1>
     <p className="mt-4 text-base">Explore the races in our independent NYC guide. District numbers for Congress, State Senate, and Assembly are different systems. <Link href="/onboarding" className="underline">Look up your districts by address</Link> if you are unsure.</p>
     <p className="mt-3 text-sm text-muted">This directory is not an official sample ballot and may omit Civil Court or special local contests. <a href="https://findmypollsite.vote.nyc/" className="underline">Verify your complete official ballot.</a></p>
+    <Link href="/judges" className="mt-4 block font-semibold underline">Looking for judges? Start with your borough →</Link>
     <nav aria-label="Jump to an office" className="my-6 flex flex-wrap gap-3 text-sm font-semibold">
       {covered.map((o) => <a key={o.id} href={`#${o.id}`} className="underline">{o.title}</a>)}
     </nav>

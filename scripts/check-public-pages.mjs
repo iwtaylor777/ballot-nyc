@@ -4,7 +4,7 @@ const base = process.env.BASE_URL || 'http://127.0.0.1:3100';
 const plain = (html) => html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/g,'').replace(/<style\b[^>]*>[\s\S]*?<\/style>/g,'');
 let count=0;
 const check=(condition,label)=>{assert.ok(condition,label);count++;};
-const pages = await Promise.all(['/', '/plan','/dates','/races','/proposals','/about','/privacy','/quiz','/ballot','/quiz/results','/sitemap.xml'].map(async p=>{
+const pages = await Promise.all(['/', '/plan','/dates','/races','/judges','/partners','/proposals','/about','/privacy','/quiz','/ballot','/quiz/results','/sitemap.xml'].map(async p=>{
  const r=await fetch(base+p); check(r.status===200,`${p} HTTP 200`); return [p,await r.text()];
 }));
 const html=Object.fromEntries(pages), plan=plain(html['/plan']);
@@ -21,7 +21,11 @@ for (const route of ['/ballot','/quiz/results']) {
  check(/name="robots" content="noindex, follow"/.test(html[route]),`${route} remains noindex`);
  check(!html['/sitemap.xml'].includes(`<loc>https://ballotnyc.org${route}</loc>`), `${route} excluded from sitemap`);
 }
-for(const route of ['/races','/about','/privacy']) check(html['/sitemap.xml'].includes(`<loc>https://ballotnyc.org${route}</loc>`),`${route} in sitemap`);
+for(const route of ['/races','/judges','/about','/privacy']) check(html['/sitemap.xml'].includes(`<loc>https://ballotnyc.org${route}</loc>`),`${route} in sitemap`);
+for(const id of ['jd-1','jd-2','jd-11','jd-12','jd-13']) check(plain(html['/judges']).includes(`href="/race/supreme_court_justice/${id}"`),`judge guide links to ${id}`);
+check(plain(html['/judges']).includes('may omit Civil Court') && plain(html['/judges']).includes('findmypollsite.vote.nyc'), 'judge coverage limits and official verification visible in initial HTML');
+check(plain(html['/']).includes('href="/judges"') && plain(html['/races']).includes('href="/judges"'), 'judge guide discoverable from public entry points');
+check(plain(html['/partners']).includes('id="share"') && plain(html['/partners']).includes('COPY GROUP CHAT TEXT'), 'public sharing kit available without JavaScript');
 for(const [p,body] of pages.filter(([p])=>p!='/sitemap.xml')) check(plain(body).includes('Sources and methodology') && plain(body).includes('Main navigation'),`${p} has consistent navigation and trust links`);
 check((await fetch(base+'/race/governor/ush-12')).status===404,'invalid office/district still returns 404');
 console.log(`${count} production HTML/link checks passed`);

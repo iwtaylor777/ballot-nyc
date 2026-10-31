@@ -84,10 +84,11 @@ Coverage: the five boroughs of New York City (Manhattan, Brooklyn, Queens, the B
 
 - [Look up your ballot by address](${SITE_URL}/onboarding): covered races and proposals; not proof of registration, eligibility, or a complete official sample ballot.
 - [NYC ballot proposals 1–5](${SITE_URL}/proposals): what each City Charter proposal changes and what Yes/No means.
+- [NYC State Supreme Court candidates by borough](${SITE_URL}/judges): all five judicial race guides, court explainer, coverage limits, and official verification.
 - [Key dates and deadlines](${SITE_URL}/dates): registration, early voting, mail ballots, Election Day.
 - [Voting plan and FAQs](${SITE_URL}/plan): how to vote in NYC, voter ID, moving, poll hours.
 - [Issue match quiz](${SITE_URL}/quiz): compares a voter's answers with candidates' sourced positions.
-- [For newsrooms](${SITE_URL}/partners): free embeddable ballot lookup.
+- [Share the guide](${SITE_URL}/partners#share): ready-to-copy community and newsletter text, public links, and a free embeddable ballot lookup.
 
 - [Browse races by office and district](${SITE_URL}/races): existing public race pages; no address needed.
 - [About, sources, methodology and corrections](${SITE_URL}/about).

@@ -18,6 +18,7 @@ import {
 import { ISSUE_LABELS, type Candidate } from "@/lib/types";
 import { ballotpediaUrl } from "@/lib/ballotpedia";
 import { JsonLd } from "@/components/JsonLd";
+import { CopyGuideLink } from "@/components/CopyGuideLink";
 import {
   breadcrumbLd,
   candidateLabel,
@@ -126,6 +127,8 @@ export default async function RacePage({ params }: Props) {
       </section>
 
       <p className="mt-4 text-sm text-muted">Independent 2026 race guide. <Link href="/races" className="underline">Browse other offices and districts</Link> · <Link href="/about#reviews" className="underline">Sources and editorial review dates</Link>.</p>
+      {district.type === "judicial" && <Link href="/judges" className="mt-3 block text-sm font-semibold underline">State Supreme Court candidates in all five boroughs →</Link>}
+      <p className="mt-3 text-sm"><Link href="/onboarding" className="font-semibold underline">Find the races for my address →</Link></p>
       <hr className="rule-thick my-8" />
 
       <section>
@@ -240,9 +243,10 @@ export default async function RacePage({ params }: Props) {
           href="/ballot"
           className="inline-flex w-full items-center justify-center bg-ink px-6 py-5 text-paper no-underline"
         >
-          <span className="poster text-2xl">BACK TO MY BALLOT →</span>
+          <span className="poster text-2xl">SEE THE REST OF MY BALLOT →</span>
         </Link>
       )}
+      <div className="mt-6"><CopyGuideLink path={path} label="COPY LINK TO THIS RACE" /></div>
     </Frame>
     </>
   );

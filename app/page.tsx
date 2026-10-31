@@ -31,6 +31,7 @@ export default function Home() {
         <p className="mt-3 text-sm text-muted">Independent guide, not your official sample ballot. Covers statewide offices, Congress, State Senate, Assembly, borough Supreme Court races, and city proposals. Verify local contests with the Board of Elections.</p>
       </section>
       <nav aria-label="Explore without an address" className="mt-6 space-y-3 text-base font-semibold">
+        <Link href="/judges" className="block underline">Who are the judges on my ballot? →</Link>
         <Link href="/proposals" className="block underline">2026 ballot proposals →</Link>
         <Link href="/races" className="block underline">Browse races by office or district →</Link>
       </nav>
@@ -51,6 +52,7 @@ export default function Home() {
         <p className="mt-3 text-base font-semibold text-ink">
           Nonpartisan, no signup, no ads, no judgment.
         </p>
+        <Link href="/partners#share" className="mt-4 inline-block underline">Share the guide with your neighbors →</Link>
       </section>
     </Frame>
     </>

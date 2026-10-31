@@ -220,7 +220,7 @@ export function raceLd(
     about: raceLongName(office, district),
     isPartOf: { "@id": SITE_ID },
     publisher: { "@id": ORG_ID },
-    dateModified: EDITORIAL.interfaceUpdated,
+    dateModified: EDITORIAL.discoveryUpdated,
     citation: CERTIFICATION.url,
     mainEntity: {
       "@type": "ItemList",

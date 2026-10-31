@@ -75,8 +75,8 @@ export function Frame({
         </nav>
         <p className="flex justify-between gap-3 stamp text-[10px] text-muted">
           <span>AN IAN TAYLOR JOINT</span>
-          <Link href="/partners" className="text-muted underline">
-            FOR NEWSROOMS
+          <Link href="/partners#share" className="text-muted underline">
+            SHARE THE GUIDE
           </Link>
         </p>
       </footer>
